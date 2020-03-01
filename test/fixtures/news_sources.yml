@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  region: one
+  twitter: MyString
+  facebook: MyString
+  website: MyString
+  last_indexed_at: 2020-02-28 17:02:23
+
+two:
+  name: MyString
+  region: two
+  twitter: MyString
+  facebook: MyString
+  website: MyString
+  last_indexed_at: 2020-02-28 17:02:23
