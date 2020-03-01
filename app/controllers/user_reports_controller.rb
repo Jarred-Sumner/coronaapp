@@ -1,14 +1,53 @@
 class UserReportsController < ApplicationController
 
+  def user_report_json(report)
+    {
+      id: "user_reports/#{report.id}",
+      "country_code":  report.country_code,
+      "country": nil,
+      "last_updated": report.created_at,
+      "province":  nil,
+      label: nil,
+      "latitude": report.location.x,
+      "longitude": report.location.y,
+      "infections": {
+        'self_report': 1,
+        'confirm': 0,
+        'dead': 0,
+        'recover': 0,
+      }
+    }
+  end
+
   def index
+    json = []
+    UserReport.select([:id, :country_code, :created_at, :location]).find_each { |report| json << user_report_json(report) }
     render json: {
-      locations: UserReport.pluck(:location).map { |location| [location.x, location.y] }
+      pins: json,
+      object: 'pin',
+      source: 'corona'
     }
   end
 
   def stats
+    last_report_date = UserReport.where("country_code IS NOT null")&.last&.created_at
+    countries = UserReport.group(:country_code).where("country_code IS NOT null").count
+    countries[:World] = UserReport.where("country_code IS NOT null").count
     render json: {
-      sick_count: UserReport.count
+      last_updated: last_report_date,
+      interval: {
+        week: countries,
+        month: countries,
+        year: countries,
+        day: countries,
+      },
+      object: "user_report_stats",
+      delta: {
+        week: countries,
+        month: countries,
+        year: countries,
+        day: countries,
+      }
     }
   end
 

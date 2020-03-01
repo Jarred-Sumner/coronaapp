@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/api/user_reports', to: 'user_reports#index'
   get '/api/stats/user_reports', to: 'user_reports#stats'
   get '/api/tweets', to: 'tweets#index'
+  get '/api/reports', to: 'pins#confirmed_pins'
   get '/api/stats/totals', to: 'stats#totals'
   get '/api/stats/country', to: 'stats#country'
 end

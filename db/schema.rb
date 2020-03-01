@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_003214) do
+ActiveRecord::Schema.define(version: 2020_03_01_034321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 2020_03_01_003214) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "geocode_results", force: :cascade do |t|
+    t.jsonb "result", null: false
+    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
+    t.string "country_code"
+    t.string "country"
+    t.string "city"
+    t.string "state"
+    t.string "state_code"
+    t.string "postal_code"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "news_sources", force: :cascade do |t|
@@ -59,7 +73,11 @@ ActiveRecord::Schema.define(version: 2020_03_01_003214) do
     t.string "symptoms", default: [], null: false, array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "geocode_result_id"
+    t.string "country_code"
+    t.index ["geocode_result_id"], name: "index_user_reports_on_geocode_result_id"
   end
 
   add_foreign_key "news_sources", "regions"
+  add_foreign_key "user_reports", "geocode_results"
 end

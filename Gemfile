@@ -16,6 +16,8 @@ gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'sidekiq'
+gem 'addressable'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -44,3 +46,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "faraday", "~> 1.0"
+
+gem "geocoder", "~> 1.6"
