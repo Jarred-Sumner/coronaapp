@@ -44,8 +44,9 @@ class Stats
         id: props["OBJECTID"],
         "country":  props["Country_Region"],
         "last_updated": Time.at(props["Last_Update"] / 1000),
+        "object": "infection",
         "province":  props["Province_State"],
-        label: "#{props["Province_State"]}, #{props["Country_Region"]}",
+        label: [props["Province_State"], props["Country_Region"]].compact.uniq.join(" , "),
         "latitude": props["Lat"],
         "longitude": props["Long_"],
         "infections": {

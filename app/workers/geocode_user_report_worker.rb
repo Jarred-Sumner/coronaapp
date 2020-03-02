@@ -1,4 +1,5 @@
 class GeocodeUserReportWorker
+  include Sidekiq::Worker
 
   def perform(user_report_id)
     user_report = UserReport.find(user_report_id)

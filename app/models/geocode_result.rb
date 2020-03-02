@@ -21,4 +21,13 @@ class GeocodeResult < ApplicationRecord
 
     result
   end
+
+  def as_json
+    {
+      country: country,
+      city: city,
+      state: state,
+      country_code: country_code,
+    }
+  end
 end

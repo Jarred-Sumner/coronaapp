@@ -48,3 +48,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "faraday", "~> 1.0"
 
 gem "geocoder", "~> 1.6"
+
+gem "hashid-rails", "~> 1.4"

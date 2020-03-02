@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_034321) do
+ActiveRecord::Schema.define(version: 2020_03_02_035428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_034321) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "geocode_result_id"
     t.string "country_code"
+    t.boolean "traveled_recently", default: false, null: false
     t.index ["geocode_result_id"], name: "index_user_reports_on_geocode_result_id"
   end
 

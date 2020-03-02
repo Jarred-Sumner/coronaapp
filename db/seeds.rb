@@ -37,7 +37,7 @@ news = JSON.parse(File.read("#{Rails.root}/db/seed/all.json")).with_indifferent_
 all_regions = Region.all_names
 news.each do |region_name, sources|
   region = all_regions[region_name]
-  raise "#{region_name} broken" if region.blank? && sources.count > 0
+  raise "#{region_name} broken  " if region.blank? && sources.count > 0
 
   sources.each do |source|
     site = source["website"]

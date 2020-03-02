@@ -2,20 +2,58 @@ class UserReportsController < ApplicationController
 
   def user_report_json(report)
     {
-      id: "user_reports/#{report.id}",
+      id: report.hashid,
       "country_code":  report.country_code,
       "country": nil,
       "last_updated": report.created_at,
       "province":  nil,
       label: nil,
-      "latitude": report.location.x,
-      "longitude": report.location.y,
+      "latitude": report.location.y,
+      "longitude": report.location.x,
       "infections": {
         'self_report': 1,
         'confirm': 0,
         'dead': 0,
         'recover': 0,
       }
+    }
+  end
+
+
+  def report_item_json(report)
+    {
+      id: report.hashid,
+      created_at: report.created_at,
+      symptoms: report.symptoms,
+      latitude: report.location.y,
+      traveled_recently: report.traveled_recently?,
+      longitude: report.location.x,
+      object: "user_report",
+      location: report.geocode_result&.as_json
+    }.with_indifferent_access
+  end
+
+  def list
+    offset = Integer(params[:offset] || 0)
+    reports = []
+    count = UserReport.order("created_at DESC").count
+
+    UserReport.includes(:geocode_result).order("created_at DESC").find_each do |report|
+      reports.push(report_item_json(report))
+    end
+
+    confirmed_pins = Stats.confirmed_pins(min_lat: params[:min_lat], min_long: params[:min_long], max_lat: params[:max_lat], max_long: params[:max_long])
+    confirmed_pins.each do |pin|
+      reports.push(pin.with_indifferent_access)
+    end
+
+    reports = reports.sort_by { |report| report["last_updated"] || report["created_at"] }.reverse!
+
+
+    render json: {
+      data: reports,
+      count: count,
+      offset: offset,
     }
   end
 
@@ -26,6 +64,14 @@ class UserReportsController < ApplicationController
       pins: json,
       object: 'pin',
       source: 'corona'
+    }
+  end
+
+  def show
+    report = UserReport.includes(:geocode_result).find(params[:id])
+    render json: {
+      data: report_item_json(report),
+      object: "user_report"
     }
   end
 
@@ -55,7 +101,15 @@ class UserReportsController < ApplicationController
     report = UserReport.where(device_uid: create_params[:device_uid]).first_or_initialize
     report.location = "POINT(#{create_params[:latitude]} #{create_params[:longitude]})"
     report.symptoms = String(create_params[:symptoms]).split(",")
-    report.save
+    report.traveled_recently = String(create_params[:traveled_recently]) == "true"
+
+    manually_update = report.persisted?
+
+    report.save!
+
+    if manually_update
+      GeocodeUserReportWorker.perform_async(report.id)
+    end
 
     render json: {success: true}
   end
