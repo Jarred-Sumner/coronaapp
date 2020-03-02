@@ -9,3 +9,4 @@ class GeocodeUserReportWorker
     end
   end
 end
+
