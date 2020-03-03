@@ -38,16 +38,39 @@ class UserReportsController < ApplicationController
     reports = []
     count = UserReport.order("created_at DESC").count
 
-    UserReport.includes(:geocode_result).order("created_at DESC").find_each do |report|
+    UserReport.includes(:geocode_result).where("location IS NOT NULL").order("created_at DESC").find_each do |report|
       reports.push(report_item_json(report))
     end
 
-    confirmed_pins = Stats.confirmed_pins(min_lat: params[:min_lat], min_long: params[:min_long], max_lat: params[:max_lat], max_long: params[:max_long])
+
+    min_lat = params[:min_lat]
+    min_long = params[:min_long]
+    max_lat = params[:max_lat]
+    max_long = params[:max_long]
+    has_coords = min_lat && min_long && max_lat && max_long
+
+    confirmed_pins = Stats.confirmed_pins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
     confirmed_pins.each do |pin|
       reports.push(pin.with_indifferent_access)
     end
 
-    reports = reports.sort_by { |report| report["last_updated"] || report["created_at"] }.reverse!
+    sorted = false
+
+    if has_coords
+      zoomed_in = Geocoder::Calculations.distance_between([min_lat,  min_long], [max_lat, max_long]).abs < 200
+      lat = params[:lat]
+      lng = params[:long]
+      if zoomed_in
+        reports = reports.sort_by { |report| Geocoder::Calculations.distance_between([lat,  lng], [report["latitude"], report["longitude"]]).abs }
+        sorted = true
+      end
+    end
+
+    if !sorted
+      reports = reports.sort_by { |report| report["last_updated"] || report["created_at"] }.reverse!
+    end
+
+
 
 
     render json: {
