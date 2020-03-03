@@ -60,10 +60,21 @@ class UserReportsController < ApplicationController
       # zoomed_in = Geocoder::Calculations.distance_between([min_lat,  min_long], [max_lat, max_long]).abs < 200
       lat = params[:lat]
       lng = params[:long]
+      radius = Geocoder::Calculations.distance_between([lat,  lng], [min_lat, min_long]).abs
+      distances = reports.map do |report|
+        [
+          String(report['id']),
+          Geocoder::Calculations.distance_between([lat,  lng], [report["latitude"], report["longitude"]]).abs
+        ]
+      end.to_h
+
       # if zoomed_in
-      reports = reports.sort_by { |report| Geocoder::Calculations.distance_between([lat,  lng], [report["latitude"], report["longitude"]]).abs }
+      inside, outside = reports.partition { |report| distances[String(report['id'])] < radius }
+      inside = inside.sort_by { |report| report["last_updated"] || report["created_at"] }.reverse!
+      outside = outside.sort_by { |report| distances[String(report['id'])]  }
       sorted = true
-      # end
+
+      reports = inside.concat(outside)
     end
 
     if !sorted
