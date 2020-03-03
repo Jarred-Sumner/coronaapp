@@ -11,7 +11,7 @@ class Tweets
   end
 
   def self.tweets(offset: 0, limit: 100)
-    client.user_timeline("AppCorona", {tweet_mode: "extended"})
+    client.user_timeline("covy_app", {tweet_mode: "extended"})
   end
 
 end
