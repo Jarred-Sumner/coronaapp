@@ -24,6 +24,7 @@ class TweetsController < ApplicationController
       "photo_url": tweet&.retweeted_status&.user&.profile_image_url&.to_s || tweet&.user&.profile_image_url&.to_s,
       "username": username,
       "tweet_url": tweet_url,
+      "object": "tweet",
       "text": normalized_tweet_text(tweet.full_text),
       "media": tweet.attrs.dig(:entities, :media) || tweet.attrs.dig(:retweeted_status, :entities, :media),
       "url": url,
@@ -41,7 +42,10 @@ class TweetsController < ApplicationController
       data: tweets,
       count: tweets.length,
       offset: offset,
-      limit: limit
+      limit: limit,
+      social_profiles: {
+        twitter: "@jarredsumner"
+      }
     }
   end
 
