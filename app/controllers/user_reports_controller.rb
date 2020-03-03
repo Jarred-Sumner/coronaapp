@@ -57,13 +57,13 @@ class UserReportsController < ApplicationController
     sorted = false
 
     if has_coords
-      zoomed_in = Geocoder::Calculations.distance_between([min_lat,  min_long], [max_lat, max_long]).abs < 200
+      # zoomed_in = Geocoder::Calculations.distance_between([min_lat,  min_long], [max_lat, max_long]).abs < 200
       lat = params[:lat]
       lng = params[:long]
-      if zoomed_in
-        reports = reports.sort_by { |report| Geocoder::Calculations.distance_between([lat,  lng], [report["latitude"], report["longitude"]]).abs }
-        sorted = true
-      end
+      # if zoomed_in
+      reports = reports.sort_by { |report| Geocoder::Calculations.distance_between([lat,  lng], [report["latitude"], report["longitude"]]).abs }
+      sorted = true
+      # end
     end
 
     if !sorted
