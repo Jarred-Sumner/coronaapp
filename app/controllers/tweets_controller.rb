@@ -13,6 +13,18 @@ class TweetsController < ApplicationController
     text.gsub(/#{URI::regexp}/, '')
   end
 
+  def clean_media(medias)
+    medias&.map do |media|
+      https = media['media_url_https']
+
+      if https&.include?(".jpg")
+        media['media_url_https'] = https[0..(https.index(".jpg") + ".jpg".length)]
+      end
+
+      media
+    end
+  end
+
   def render_tweet(tweet)
     username = tweet.attrs.dig(:retweeted_status, :user, :screen_name) || tweet.user.screen_name
     tweet_url = tweet.url.to_s
@@ -26,7 +38,7 @@ class TweetsController < ApplicationController
       "tweet_url": tweet_url,
       "object": "tweet",
       "text": normalized_tweet_text(tweet.full_text),
-      "media": tweet.attrs.dig(:entities, :media) || tweet.attrs.dig(:retweeted_status, :entities, :media),
+      "media": clean_media(tweet.attrs.dig(:entities, :media) || tweet.attrs.dig(:retweeted_status, :entities, :media)),
       "url": url,
       "url_preview": url_preview
     }

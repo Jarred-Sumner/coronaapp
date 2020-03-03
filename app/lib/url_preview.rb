@@ -12,7 +12,12 @@ class UrlPreview
     resp = JSON.parse(faraday.get("?url=#{CGI.escape(url)}").body).with_indifferent_access
 
     if resp[:data].present?
-      resp[:data]
+      data = resp[:data]
+      if data[:image].include?(".jpg")
+        data[:image] = data[:image][0..data[:image].index(".jpg") + ".jpg".length - 1]
+      end
+
+      data
     else
       nil
     end
