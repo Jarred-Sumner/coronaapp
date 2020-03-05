@@ -68,7 +68,9 @@ class UserReportsController < ApplicationController
         ]
       end.to_h
 
-      # if zoomed_in
+      # For the locations within the bounding box, sort by most recently updated
+      # Use case: you want to know how many cases of COVID19 are in your area.
+      # For the locations outside the bounding box, sort by distance
       inside, outside = reports.partition { |report| distances[String(report['id'])] < radius }
       inside = inside.sort_by { |report| report["last_updated"] || report["created_at"] }.reverse!
       outside = outside.sort_by { |report| distances[String(report['id'])]  }

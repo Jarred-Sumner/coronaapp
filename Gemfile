@@ -50,3 +50,5 @@ gem "faraday", "~> 1.0"
 gem "geocoder", "~> 1.6"
 
 gem "hashid-rails", "~> 1.4"
+
+gem "rack-cors", "~> 1.1"

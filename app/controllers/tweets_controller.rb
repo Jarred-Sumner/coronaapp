@@ -48,9 +48,11 @@ class TweetsController < ApplicationController
     offset = Integer(params[:offset] || 0)
     limit = Integer(params[:limit] || 100)
 
-    tweets = Tweets.tweets(offset: offset, limit: limit).map { |tweet| render_tweet(tweet) }
+    _tweets = Tweets.tweets(offset: offset, limit: limit)
+    tweets = _tweets.map { |tweet| render_tweet(tweet) }
 
-    render json: {
+
+    json = {
       data: tweets,
       count: tweets.length,
       offset: offset,
@@ -59,6 +61,10 @@ class TweetsController < ApplicationController
         twitter: "@jarredsumner"
       }
     }
+
+    if stale?(etag: json.to_json, last_modified: _tweets.first.created_at, public: true)
+      render json: json
+    end
   end
 
 end

@@ -25,6 +25,14 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', headers: :any, methods: [:get, :post, :options]
+    end
+  end
+
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 

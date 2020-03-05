@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-
+  root to: 'root#index'
+  get '/report_sick', to: 'root#report_sick'
+  get '/stats', to: 'root#stats'
+  get '/country', to: 'root#country'
   post '/api/user_reports', to: 'user_reports#create'
 
   get '/api/user_reports', to: 'user_reports#index'
