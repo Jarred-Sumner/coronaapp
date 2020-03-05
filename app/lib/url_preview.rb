@@ -13,7 +13,7 @@ class UrlPreview
 
     if resp[:data].present?
       data = resp[:data]
-      if data[:image].include?(".jpg")
+      if data[:image]&.include?(".jpg")
         data[:image] = data[:image][0..data[:image].index(".jpg") + ".jpg".length - 1]
       end
 
