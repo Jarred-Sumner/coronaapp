@@ -30,10 +30,11 @@ class TweetsController < ApplicationController
     tweet_url = tweet.url.to_s
     url = tweet.attrs.dig(:entities, :expanded_url) || tweet.attrs.dig(:retweeted_status, :entities, :expanded_url) || tweet.attrs.dig(:retweeted_status, :entities, :urls)&.first&.dig(:expanded_url) || tweet_url
     url_preview = url != tweet_url && url.present? ? UrlPreview.preview(url) : nil
+    photo_url = tweet&.retweeted_status&.user&.profile_image_url&.to_s || tweet&.user&.profile_image_url&.to_s
     {
       "id": tweet.id,
       "timestamp": tweet.created_at,
-      "photo_url": tweet&.retweeted_status&.user&.profile_image_url&.to_s || tweet&.user&.profile_image_url&.to_s,
+      "photo_url": photo_url&.gsub("http://", "https://"),
       "username": username,
       "tweet_url": tweet_url,
       "object": "tweet",
