@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-K0GJNSV1P5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      if (location.hostname.indexOf("localhost") === -1) {
+        gtag("config", "G-K0GJNSV1P5");
+      }
+    </script>
+
     <style>
       /**
        * Building on the RNWeb reset:
@@ -79,5 +95,13 @@
   </head>
   <body>
     <div id="react-root"></div>
-  <script type="text/javascript" src="/vendors~app-8700c9f15a73cc655635.bundle.js"></script><script type="text/javascript" src="/app-8700c9f15a73cc655635.bundle.js"></script></body>
+    <script
+      type="text/javascript"
+      src="/vendors~app-8700c9f15a73cc655635.bundle.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/app-8700c9f15a73cc655635.bundle.js"
+    ></script>
+  </body>
 </html>
