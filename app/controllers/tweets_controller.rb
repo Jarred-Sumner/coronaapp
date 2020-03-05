@@ -49,7 +49,7 @@ class TweetsController < ApplicationController
     offset = Integer(params[:offset] || 0)
     limit = Integer(params[:limit] || 100)
 
-    tweets = Rails.cache.fetch("tweets/#{offset}-#{limit}") do
+    tweets = Rails.cache.fetch("tweets/#{offset}-#{limit}", expires_in: 2.minute) do
       Tweets.tweets(offset: offset, limit: limit).map { |tweet| render_tweet(tweet) }
     end
 
