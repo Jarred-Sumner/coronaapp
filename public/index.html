@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-K0GJNSV1P5"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      if (location.hostname.indexOf("localhost") === -1) {
-        gtag("config", "G-K0GJNSV1P5");
-      }
-    </script>
+    <link rel="preconnect" href="https://maps.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
     <style>
       /**
@@ -103,5 +90,20 @@
       type="text/javascript"
       src="/app-8700c9f15a73cc655635.bundle.js"
     ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-K0GJNSV1P5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      if (location.hostname.indexOf("localhost") === -1) {
+        gtag("config", "G-K0GJNSV1P5");
+      }
+    </script>
   </body>
 </html>
