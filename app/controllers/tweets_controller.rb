@@ -49,8 +49,12 @@ class TweetsController < ApplicationController
     offset = Integer(params[:offset] || 0)
     limit = Integer(params[:limit] || 100)
 
-    _tweets = Tweets.tweets(offset: offset, limit: limit)
-    tweets = _tweets.map { |tweet| render_tweet(tweet) }
+    tweets, last_modified = Rails.cache.fetch("tweets/#{offset}-#{limit}", expires_in: 2.minutes) do
+      _tweets = Tweets.tweets(offset: offset, limit: limit)
+      tweets = _tweets.map { |tweet| render_tweet(tweet) }
+
+      [tweets, _tweets.first.created_at]
+    end
 
 
     json = {
@@ -64,7 +68,7 @@ class TweetsController < ApplicationController
     }
 
     expires_in 1.minute, public: true, stale_while_revalidate: 15.minutes, stale_if_error: 3.hours
-    if stale?(strong_etag: json.to_json, last_modified: _tweets.first.created_at, public: true)
+    if stale?(strong_etag: json.to_json, last_modified: last_modified, public: true)
       render json: json
     end
   end
