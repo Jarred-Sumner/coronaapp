@@ -25,7 +25,7 @@ module Coronaapp
     config.load_defaults 6.0
 
 
-
+    config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
 
 
     # Settings in config/environments/* take precedence over those specified here.

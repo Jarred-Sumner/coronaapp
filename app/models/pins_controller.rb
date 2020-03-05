@@ -6,6 +6,8 @@ class PinsController < ApplicationController
 
     json = {pins: pins, object: "pin", source: 'hopkins'}
 
+    expires_in 1.minute, public: true, stale_while_revalidate: 15.minutes, stale_if_error: 3.hours
+
     if stale?(etag: json.to_s, last_modified: last_updated, public: true)
       render json: json
     end

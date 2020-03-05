@@ -63,7 +63,8 @@ class TweetsController < ApplicationController
       }
     }
 
-    if stale?(etag: json.to_json, last_modified: _tweets.first.created_at, public: true)
+    expires_in 1.minute, public: true, stale_while_revalidate: 15.minutes, stale_if_error: 3.hours
+    if stale?(strong_etag: json.to_json, last_modified: _tweets.first.created_at, public: true)
       render json: json
     end
   end

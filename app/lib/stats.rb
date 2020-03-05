@@ -72,7 +72,9 @@ class Stats
       uri.query_values = confirmed_pins_query(min_lat, min_long, max_lat, max_long)
       confirmed_pins_url = uri.to_s
 
-      resp = JSON.parse(faraday(confirmed_pins_url).get.body).with_indifferent_access
+      resp = Rails.cache.fetch(confirmed_pins_url, expires_in: 1.minute) do
+        JSON.parse(faraday(confirmed_pins_url).get.body).with_indifferent_access
+      end
 
       resp["features"].map do |a|
         props = a["attributes"]
@@ -100,6 +102,7 @@ class Stats
     uri = Addressable::URI.parse(CONFIRMED_FALLBACK_URL)
     uri.query_values = confirmed_pins_fallback_query(min_lat, min_long, max_lat, max_long)
     confirmed_pins_url = uri.to_s
+
 
     resp = JSON.parse(faraday(confirmed_pins_url).get.body).with_indifferent_access
 
@@ -154,7 +157,9 @@ class Stats
   end
 
   def self.death_count
-    resp = JSON.parse(faraday(DEATHS_URL).get.body).with_indifferent_access
+    resp = Rails.cache.fetch("Stats/#{DEATHS_URL}", expires_in: 2.minutes) do
+      JSON.parse(faraday(DEATHS_URL).get.body).with_indifferent_access
+    end
 
     resp["features"]&.map do |a|
       props = a["attributes"]
@@ -164,7 +169,9 @@ class Stats
   end
 
   def self.total_data
-    resp = JSON.parse(faraday(TOTALS_URL).get.body).with_indifferent_access
+    resp = Rails.cache.fetch("Stats/#{TOTALS_URL}", expires_in: 2.minutes) do
+      JSON.parse(faraday(TOTALS_URL).get.body).with_indifferent_access
+    end
 
     deaths = self.death_count
 
@@ -202,7 +209,9 @@ class Stats
   end
 
   def self.country_data
-    resp = JSON.parse(faraday(COUNTRY_URL).get.body).with_indifferent_access
+    resp = Rails.cache.fetch("Stats/#{COUNTRY_URL}", expires_in: 2.minutes) do
+       JSON.parse(faraday(COUNTRY_URL).get.body).with_indifferent_access
+    end
 
     resp["features"].map do |a|
       props = a["attributes"]
