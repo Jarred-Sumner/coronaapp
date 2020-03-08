@@ -7,6 +7,8 @@ module.exports = [
   'react-native-console-time-polyfill',
   'react-native-device-info',
   'react-native-redash',
+  'react-native-code-push',
+  '@sentry/react-native',
   'react-native-gesture-handler',
   'react-native-web',
   'react-native-haptic-feedback',
