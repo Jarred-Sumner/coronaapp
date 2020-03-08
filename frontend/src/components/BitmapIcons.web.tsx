@@ -20,7 +20,7 @@ export const SICK_BUTTON_SOURCE = [
   },
 ];
 
-export const SHARE_BUTTON_SOURCE = [
+export const SHARE = [
   {
     uri: require('assets/Share.png').default,
     width: 71,

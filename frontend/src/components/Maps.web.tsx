@@ -7,7 +7,7 @@ import {
 } from '@react-google-maps/api';
 import {isDesktop} from './ScreenSize';
 import {unstable_batchedUpdates} from 'react-dom';
-import {MAPS_STYLE} from './MAPS_STYLE';
+import MAPS_STYLE from './MAPS_STYLE';
 
 export const Marker = ({
   image: {uri, width, height},

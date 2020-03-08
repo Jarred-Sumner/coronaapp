@@ -14,7 +14,7 @@ import {
   StatusBar,
 } from 'react-native';
 import {Region} from 'react-native-maps';
-import Share from 'react-native-share';
+import Share from '../lib/Share';
 import {usePaginatedQuery} from 'react-query';
 import useSWR from 'swr';
 import {
