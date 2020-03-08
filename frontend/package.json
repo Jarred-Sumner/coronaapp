@@ -72,9 +72,7 @@
     "swr": "^0.1.18",
     "trim-right": "^1.0.1",
     "url-parse": "^1.4.7",
-    "url-to-deep-link": "^1.0.6"
-  },
-  "devDependencies": {
+    "url-to-deep-link": "^1.0.6",
     "@babel/core": "^7.8.6",
     "@babel/preset-flow": "^7.8.3",
     "@babel/runtime": "^7.8.4",
