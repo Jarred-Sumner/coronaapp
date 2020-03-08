@@ -6,13 +6,31 @@ import * as React from 'react';
 import {AppRegistry, Platform} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import 'react-native-console-time-polyfill';
 
-import * as Sentry from '@sentry/react-native';
+if (process.env.NODE_ENV !== 'production') {
+  require('react-native-console-time-polyfill');
+}
 
-Sentry.init({ 
-  dsn: 'https://8282f3cfc20b408a946fe624b7175ef3@sentry.io/3497574', 
-});
+let RootApp = App;
+if (process.env.NODE_ENV === 'production') {
+  const Sentry = require('@sentry/react-native');
 
+  Sentry.init({
+    dsn: 'https://8282f3cfc20b408a946fe624b7175ef3@sentry.io/3497574',
+  });
 
-AppRegistry.registerComponent(appName, () => App);
+  const codePush = require('react-native-code-push');
+
+  RootApp = codePush({
+    deploymentKey: '7n3uvfwqqM6p8_1gadavnz-2dBkwtnqGWl5wg',
+  })(App);
+
+  codePush.getUpdateMetadata().then(update => {
+    if (update) {
+      const Sentry = require('@sentry/react-native');
+      Sentry.setRelease(update.appVersion + '-codepush:' + update.label);
+    }
+  });
+}
+
+AppRegistry.registerComponent(appName, () => RootApp);
