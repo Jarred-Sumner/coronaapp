@@ -8678,9 +8678,9 @@ react-native-public-ip@^1.0.2:
   resolved "https://registry.yarnpkg.com/react-native-public-ip/-/react-native-public-ip-1.0.2.tgz#3ce67cbfafdd5b8799e5b669e92351db0cc06102"
   integrity sha512-GElvYvHLo/BCRFlXARBTq9Dwx526d1zxnyqlSfp1RQwA1yAucFbabfm6nAA3c2Nnq2OdfL4dbFGSeArM2Hdr2g==
 
-"react-native-reanimated@ssh://git@github.com:Jarred-Sumner/react-native-reanimated.git#ef88d65":
+"react-native-reanimated@https://github.com/Jarred-Sumner/react-native-reanimated.git#ef88d65":
   version "1.4.0"
-  resolved "ssh://git@github.com:Jarred-Sumner/react-native-reanimated.git#ef88d6595b666b07959eddc44d1b684665094f9f"
+  resolved "https://github.com/Jarred-Sumner/react-native-reanimated.git#ef88d6595b666b07959eddc44d1b684665094f9f"
 
 react-native-redash@8.0.0:
   version "8.0.0"
@@ -8721,9 +8721,9 @@ react-native-tab-view@^2.13.0:
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.13.0.tgz#23037aa43b0f8f682ddc20415a4baaaf6f82ae8f"
   integrity sha512-AeYbp/u91+D/C9+PmVEPBmFb3ixv8IkLMC3Sc5MajJ/fg0Zl3Of+BcEknBvTnKoe7Fj2y8+Qf9zorBbh5xzh4A==
 
-"react-native-text-size@ssh://git@github.com:Jarred-Sumner/react-native-text-size.git#master":
+"react-native-text-size@https://github.com/Jarred-Sumner/react-native-text-size.git#master":
   version "4.0.0-rc.1"
-  resolved "ssh://git@github.com:Jarred-Sumner/react-native-text-size.git#94acb547a87601bd4c17f6be09e75865a869ede8"
+  resolved "https://github.com/Jarred-Sumner/react-native-text-size.git#cfacde49cbcc2232a3dc9cf74245b1d889ccb659"
 
 react-native-typescript-transformer@^1.2.13:
   version "1.2.13"
