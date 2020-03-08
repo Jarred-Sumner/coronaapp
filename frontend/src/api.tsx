@@ -81,10 +81,10 @@ export const fetchPins = (
 
 export const buildShareURL = (region: Region) => {
   const params = {
-    // minLat: region.minLatitude,
-    // minLon: region.minLongitude,
-    // maxLat: region.maxLatitude,
-    // maxLon: region.maxLongitude,
+    minLat: region.minLatitude,
+    minLon: region.minLongitude,
+    maxLat: region.maxLatitude,
+    maxLon: region.maxLongitude,
     lat: region.latitude,
     lon: region.longitude,
   };

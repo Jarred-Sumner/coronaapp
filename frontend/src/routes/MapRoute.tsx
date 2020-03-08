@@ -147,6 +147,7 @@ enum MapSelectionType {
 export const MapRoute = ({}) => {
   const {setRegion, region} = React.useContext(RegionContext);
   const initialRegion = React.useRef(region);
+  const {setParams} = useNavigation();
   // const [region, setRegion] = React.useState(INITIAL_REGION);
   const [selectionType, setSelectionType] = React.useState<MapSelectionType>(
     MapSelectionType.sheet,
@@ -216,8 +217,16 @@ export const MapRoute = ({}) => {
       console.log('SET REGION', region);
 
       setRegion(region);
+      // setParams({
+      //   minLat: region.minLatitude,
+      //   minLon: region.minLongitude,
+      //   maxLat: region.maxLatitude,
+      //   maxLon: region.maxLongitude,
+      //   lat: region.latitude,
+      //   lon: region.longitude,
+      // });
     },
-    [setRegion, mapRef],
+    [setRegion, mapRef, setParams],
   );
 
   const [stats, setStats] = React.useState(
