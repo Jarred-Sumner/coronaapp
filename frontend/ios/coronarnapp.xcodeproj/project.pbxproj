@@ -1,0 +1,746 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+/* Begin PBXBuildFile section */
+		039EE25AEC414CA99C05E26E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B49992C0B32473C9AF4B6A9 /* libz.tbd */; };
+		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		6D90B18B4936814F8D1E25EF /* libPods-coronarnapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 579DD33AD6A6B2E21DF3325F /* libPods-coronarnapp.a */; };
+		83077021240A5305005EF45F /* YeetJSIModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83077020240A5305005EF45F /* YeetJSIModule.mm */; };
+		83077027240B29BF005EF45F /* YeetTextSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 83077026240B29BF005EF45F /* YeetTextSize.m */; };
+		83B65A79240A02BD001DF258 /* CountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A78240A02BD001DF258 /* CountLabel.swift */; };
+		83B65A9A240A3B35001DF258 /* TrackableImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A7C240A3B34001DF258 /* TrackableImageSource.swift */; };
+		83B65A9B240A3B35001DF258 /* MediaPlayerJSIModuleInstaller.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A7E240A3B34001DF258 /* MediaPlayerJSIModuleInstaller.mm */; };
+		83B65A9C240A3B35001DF258 /* MediaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A7F240A3B34001DF258 /* MediaSource.swift */; };
+		83B65A9E240A3B35001DF258 /* YeetImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A81240A3B34001DF258 /* YeetImageView.swift */; };
+		83B65A9F240A3B35001DF258 /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A82240A3B34001DF258 /* MediaPlayer.swift */; };
+		83B65AA0240A3B35001DF258 /* CameraRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A84240A3B34001DF258 /* CameraRoll.swift */; };
+		83B65AA1240A3B35001DF258 /* YeetVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A85240A3B34001DF258 /* YeetVideoView.swift */; };
+		83B65AA2240A3B35001DF258 /* MediaPlayerJSIModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A86240A3B34001DF258 /* MediaPlayerJSIModule.mm */; };
+		83B65AA4240A3B35001DF258 /* YeetSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A8D240A3B34001DF258 /* YeetSplashScreen.m */; };
+		83B65AA5240A3B35001DF258 /* RCTConvert+PHotost.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A8E240A3B34001DF258 /* RCTConvert+PHotost.m */; };
+		83B65AA6240A3B35001DF258 /* MediaPlayerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A8F240A3B34001DF258 /* MediaPlayerViewManager.swift */; };
+		83B65AA7240A3B35001DF258 /* MediaQueuePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A90240A3B34001DF258 /* MediaQueuePlayer.swift */; };
+		83B65AA9240A3B35001DF258 /* MediaFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A93240A3B34001DF258 /* MediaFrameView.swift */; };
+		83B65AAA240A3B35001DF258 /* TrackableMediaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A94240A3B34001DF258 /* TrackableMediaSource.swift */; };
+		83B65AAB240A3B35001DF258 /* VideoPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A95240A3B35001DF258 /* VideoPool.swift */; };
+		83B65AAC240A3B35001DF258 /* AVCachableAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A96240A3B35001DF258 /* AVCachableAsset.swift */; };
+		83B65AAD240A3B35001DF258 /* YeetJSIUTils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A97240A3B35001DF258 /* YeetJSIUTils.mm */; };
+		83B65AAE240A3B35001DF258 /* TrackableVideoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65A98240A3B35001DF258 /* TrackableVideoSource.swift */; };
+		83B65AB1240A3BF9001DF258 /* YeetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65AB0240A3BF9001DF258 /* YeetError.swift */; };
+		83B65AB3240A3C48001DF258 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65AB2240A3C48001DF258 /* MimeType.swift */; };
+		83B65AB6240A3D67001DF258 /* NSData+ContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B65AB5240A3D67001DF258 /* NSData+ContentType.m */; };
+		83B65AB8240A3E4D001DF258 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65AB7240A3E4D001DF258 /* VideoPlayerView.swift */; };
+		83B65ABA240A3E65001DF258 /* MediaSourceVideoCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65AB9240A3E65001DF258 /* MediaSourceVideoCover.swift */; };
+		83B65ABC240A3E87001DF258 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65ABB240A3E87001DF258 /* Log.swift */; };
+		83B65ABE240A3EED001DF258 /* AVURLAssetExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65ABD240A3EED001DF258 /* AVURLAssetExt.swift */; };
+		83B65AC0240A4004001DF258 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65ABF240A4004001DF258 /* CGRectExtensions.swift */; };
+		83B65AC3240A402B001DF258 /* NSNumber+CGFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B65AC2240A402B001DF258 /* NSNumber+CGFloat.m */; };
+		83B65AC5240A40E7001DF258 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B65AC4240A40E7001DF258 /* CGSizeExtensions.swift */; };
+		83B65AC8240A42D8001DF258 /* YeetJSIExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B65AC7240A42D8001DF258 /* YeetJSIExtensions.m */; };
+		83E13430240D15030093DE58 /* CustomBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E1342F240D15030093DE58 /* CustomBottomSheetViewController.swift */; };
+		83F3E383240C562000A29F95 /* PullyViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F3E382240C562000A29F95 /* PullyViewContainer.swift */; };
+		83F3E385240C56F500A29F95 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F3E384240C56F500A29F95 /* DrawerViewController.swift */; };
+		83F3E389240C592300A29F95 /* PullyViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F3E388240C592300A29F95 /* PullyViewManager.swift */; };
+		83F3E38B240C596C00A29F95 /* PullyEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F3E38A240C596C00A29F95 /* PullyEventListener.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* coronarnappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = coronarnappTests.m; sourceTree = "<group>"; };
+		077CE337AF4F1F0629A658F7 /* Pods-coronarnapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coronarnapp.release.xcconfig"; path = "Target Support Files/Pods-coronarnapp/Pods-coronarnapp.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Covy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = coronarnapp/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = coronarnapp/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = coronarnapp/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = coronarnapp/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = coronarnapp/main.m; sourceTree = "<group>"; };
+		2D5BAFD5C5ECC940F1B249C1 /* Pods-coronarnapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coronarnapp.debug.xcconfig"; path = "Target Support Files/Pods-coronarnapp/Pods-coronarnapp.debug.xcconfig"; sourceTree = "<group>"; };
+		39AFA6C0385DD58C226F2A0F /* libPods-coronarnapp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-coronarnapp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CEB25BB479B279693322CD9 /* Pods-coronarnapp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coronarnapp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-coronarnapp-tvOS/Pods-coronarnapp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4FB4732D8919FB0639E71CFF /* Pods-coronarnappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coronarnappTests.release.xcconfig"; path = "Target Support Files/Pods-coronarnappTests/Pods-coronarnappTests.release.xcconfig"; sourceTree = "<group>"; };
+		579DD33AD6A6B2E21DF3325F /* libPods-coronarnapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-coronarnapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F5005E1BDCE925205617875 /* Pods-coronarnappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coronarnappTests.debug.xcconfig"; path = "Target Support Files/Pods-coronarnappTests/Pods-coronarnappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		63DF3D6D5EDC795731E9105E /* Pods-coronarnapp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coronarnapp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-coronarnapp-tvOS/Pods-coronarnapp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		65C2F0F65279926293CBD69C /* Pods-coronarnapp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coronarnapp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-coronarnapp-tvOSTests/Pods-coronarnapp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		70FAC3A3C7B46EFF3C97E390 /* libPods-coronarnapp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-coronarnapp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		803A62CD12272A694680B9A2 /* Pods-coronarnapp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coronarnapp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-coronarnapp-tvOSTests/Pods-coronarnapp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		8307701F240A5305005EF45F /* YeetJSIModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YeetJSIModule.h; sourceTree = "<group>"; };
+		83077020240A5305005EF45F /* YeetJSIModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = YeetJSIModule.mm; sourceTree = "<group>"; };
+		83077025240B29BF005EF45F /* YeetTextSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YeetTextSize.h; sourceTree = "<group>"; };
+		83077026240B29BF005EF45F /* YeetTextSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YeetTextSize.m; sourceTree = "<group>"; };
+		83B65A77240A02BC001DF258 /* coronarnapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "coronarnapp-Bridging-Header.h"; sourceTree = "<group>"; };
+		83B65A78240A02BD001DF258 /* CountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountLabel.swift; sourceTree = "<group>"; };
+		83B65A7C240A3B34001DF258 /* TrackableImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableImageSource.swift; sourceTree = "<group>"; };
+		83B65A7D240A3B34001DF258 /* MediaPlayerViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPlayerViewManager.h; sourceTree = "<group>"; };
+		83B65A7E240A3B34001DF258 /* MediaPlayerJSIModuleInstaller.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MediaPlayerJSIModuleInstaller.mm; sourceTree = "<group>"; };
+		83B65A7F240A3B34001DF258 /* MediaSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaSource.swift; sourceTree = "<group>"; };
+		83B65A81240A3B34001DF258 /* YeetImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YeetImageView.swift; sourceTree = "<group>"; };
+		83B65A82240A3B34001DF258 /* MediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
+		83B65A83240A3B34001DF258 /* YeetJSIUTils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeetJSIUTils.h; sourceTree = "<group>"; };
+		83B65A84240A3B34001DF258 /* CameraRoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraRoll.swift; sourceTree = "<group>"; };
+		83B65A85240A3B34001DF258 /* YeetVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YeetVideoView.swift; sourceTree = "<group>"; };
+		83B65A86240A3B34001DF258 /* MediaPlayerJSIModule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MediaPlayerJSIModule.mm; sourceTree = "<group>"; };
+		83B65A87240A3B34001DF258 /* MediaPlayerJSIModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPlayerJSIModule.h; sourceTree = "<group>"; };
+		83B65A88240A3B34001DF258 /* MediaSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaSource.h; sourceTree = "<group>"; };
+		83B65A89240A3B34001DF258 /* RCTConvert+PHotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+PHotos.h"; sourceTree = "<group>"; };
+		83B65A8C240A3B34001DF258 /* MediaPlayerJSIModuleInstaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPlayerJSIModuleInstaller.h; sourceTree = "<group>"; };
+		83B65A8D240A3B34001DF258 /* YeetSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YeetSplashScreen.m; sourceTree = "<group>"; };
+		83B65A8E240A3B34001DF258 /* RCTConvert+PHotost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+PHotost.m"; sourceTree = "<group>"; };
+		83B65A8F240A3B34001DF258 /* MediaPlayerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewManager.swift; sourceTree = "<group>"; };
+		83B65A90240A3B34001DF258 /* MediaQueuePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaQueuePlayer.swift; sourceTree = "<group>"; };
+		83B65A92240A3B34001DF258 /* CameraRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraRoll.h; sourceTree = "<group>"; };
+		83B65A93240A3B34001DF258 /* MediaFrameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaFrameView.swift; sourceTree = "<group>"; };
+		83B65A94240A3B34001DF258 /* TrackableMediaSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableMediaSource.swift; sourceTree = "<group>"; };
+		83B65A95240A3B35001DF258 /* VideoPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPool.swift; sourceTree = "<group>"; };
+		83B65A96240A3B35001DF258 /* AVCachableAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCachableAsset.swift; sourceTree = "<group>"; };
+		83B65A97240A3B35001DF258 /* YeetJSIUTils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YeetJSIUTils.mm; sourceTree = "<group>"; };
+		83B65A98240A3B35001DF258 /* TrackableVideoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableVideoSource.swift; sourceTree = "<group>"; };
+		83B65A99240A3B35001DF258 /* YeetSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeetSplashScreen.h; sourceTree = "<group>"; };
+		83B65AAF240A3BDC001DF258 /* KVCacheComplete-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KVCacheComplete-Swift.h"; sourceTree = "<group>"; };
+		83B65AB0240A3BF9001DF258 /* YeetError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeetError.swift; sourceTree = "<group>"; };
+		83B65AB2240A3C48001DF258 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
+		83B65AB4240A3D67001DF258 /* NSData+ContentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+ContentType.h"; sourceTree = "<group>"; };
+		83B65AB5240A3D67001DF258 /* NSData+ContentType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+ContentType.m"; sourceTree = "<group>"; };
+		83B65AB7240A3E4D001DF258 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		83B65AB9240A3E65001DF258 /* MediaSourceVideoCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSourceVideoCover.swift; sourceTree = "<group>"; };
+		83B65ABB240A3E87001DF258 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		83B65ABD240A3EED001DF258 /* AVURLAssetExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVURLAssetExt.swift; sourceTree = "<group>"; };
+		83B65ABF240A4004001DF258 /* CGRectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtensions.swift; sourceTree = "<group>"; };
+		83B65AC1240A402B001DF258 /* NSNumber+CGFloat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumber+CGFloat.h"; sourceTree = "<group>"; };
+		83B65AC2240A402B001DF258 /* NSNumber+CGFloat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+CGFloat.m"; sourceTree = "<group>"; };
+		83B65AC4240A40E7001DF258 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
+		83B65AC6240A42D8001DF258 /* YeetJSIExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YeetJSIExtensions.h; path = Pods/YeetJSIExtensions.h; sourceTree = "<group>"; };
+		83B65AC7240A42D8001DF258 /* YeetJSIExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YeetJSIExtensions.m; path = Pods/YeetJSIExtensions.m; sourceTree = "<group>"; };
+		83E1342F240D15030093DE58 /* CustomBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomSheetViewController.swift; sourceTree = "<group>"; };
+		83F3E382240C562000A29F95 /* PullyViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullyViewContainer.swift; sourceTree = "<group>"; };
+		83F3E384240C56F500A29F95 /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
+		83F3E388240C592300A29F95 /* PullyViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullyViewManager.swift; sourceTree = "<group>"; };
+		83F3E38A240C596C00A29F95 /* PullyEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullyEventListener.swift; sourceTree = "<group>"; };
+		8B49992C0B32473C9AF4B6A9 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		FE96D1825903BED702CEB90F /* libPods-coronarnappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-coronarnappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D90B18B4936814F8D1E25EF /* libPods-coronarnapp.a in Frameworks */,
+				039EE25AEC414CA99C05E26E /* libz.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00E356EF1AD99517003FC87E /* coronarnappTests */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F21AD99517003FC87E /* coronarnappTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
+			);
+			path = coronarnappTests;
+			sourceTree = "<group>";
+		};
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F11AD99517003FC87E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* coronarnapp */ = {
+			isa = PBXGroup;
+			children = (
+				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				13B07FB71A68108700A75B9A /* main.m */,
+			);
+			name = coronarnapp;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
+				39AFA6C0385DD58C226F2A0F /* libPods-coronarnapp-tvOS.a */,
+				70FAC3A3C7B46EFF3C97E390 /* libPods-coronarnapp-tvOSTests.a */,
+				FE96D1825903BED702CEB90F /* libPods-coronarnappTests.a */,
+				579DD33AD6A6B2E21DF3325F /* libPods-coronarnapp.a */,
+				8B49992C0B32473C9AF4B6A9 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83B65A7B240A3B26001DF258 /* MediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				83B65A96240A3B35001DF258 /* AVCachableAsset.swift */,
+				83B65A92240A3B34001DF258 /* CameraRoll.h */,
+				83B65A84240A3B34001DF258 /* CameraRoll.swift */,
+				83B65A93240A3B34001DF258 /* MediaFrameView.swift */,
+				83B65A82240A3B34001DF258 /* MediaPlayer.swift */,
+				83B65A87240A3B34001DF258 /* MediaPlayerJSIModule.h */,
+				83B65A86240A3B34001DF258 /* MediaPlayerJSIModule.mm */,
+				83B65A8C240A3B34001DF258 /* MediaPlayerJSIModuleInstaller.h */,
+				83B65A7E240A3B34001DF258 /* MediaPlayerJSIModuleInstaller.mm */,
+				83B65A7D240A3B34001DF258 /* MediaPlayerViewManager.h */,
+				83B65A8F240A3B34001DF258 /* MediaPlayerViewManager.swift */,
+				83B65A90240A3B34001DF258 /* MediaQueuePlayer.swift */,
+				83B65A88240A3B34001DF258 /* MediaSource.h */,
+				83B65A7F240A3B34001DF258 /* MediaSource.swift */,
+				83B65A89240A3B34001DF258 /* RCTConvert+PHotos.h */,
+				83B65A8E240A3B34001DF258 /* RCTConvert+PHotost.m */,
+				83B65A7C240A3B34001DF258 /* TrackableImageSource.swift */,
+				83B65A94240A3B34001DF258 /* TrackableMediaSource.swift */,
+				83B65A98240A3B35001DF258 /* TrackableVideoSource.swift */,
+				83B65A95240A3B35001DF258 /* VideoPool.swift */,
+				83B65A81240A3B34001DF258 /* YeetImageView.swift */,
+				83B65A83240A3B34001DF258 /* YeetJSIUTils.h */,
+				83B65A97240A3B35001DF258 /* YeetJSIUTils.mm */,
+				83B65A99240A3B35001DF258 /* YeetSplashScreen.h */,
+				83B65A8D240A3B34001DF258 /* YeetSplashScreen.m */,
+				83B65A85240A3B34001DF258 /* YeetVideoView.swift */,
+			);
+			path = MediaPlayer;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				83E1342F240D15030093DE58 /* CustomBottomSheetViewController.swift */,
+				83077025240B29BF005EF45F /* YeetTextSize.h */,
+				83F3E382240C562000A29F95 /* PullyViewContainer.swift */,
+				83F3E388240C592300A29F95 /* PullyViewManager.swift */,
+				83F3E38A240C596C00A29F95 /* PullyEventListener.swift */,
+				83F3E384240C56F500A29F95 /* DrawerViewController.swift */,
+				83077026240B29BF005EF45F /* YeetTextSize.m */,
+				8307701F240A5305005EF45F /* YeetJSIModule.h */,
+				83077020240A5305005EF45F /* YeetJSIModule.mm */,
+				83B65AC6240A42D8001DF258 /* YeetJSIExtensions.h */,
+				83B65AC7240A42D8001DF258 /* YeetJSIExtensions.m */,
+				83B65AC4240A40E7001DF258 /* CGSizeExtensions.swift */,
+				83B65AC1240A402B001DF258 /* NSNumber+CGFloat.h */,
+				83B65AC2240A402B001DF258 /* NSNumber+CGFloat.m */,
+				83B65ABF240A4004001DF258 /* CGRectExtensions.swift */,
+				83B65ABD240A3EED001DF258 /* AVURLAssetExt.swift */,
+				83B65ABB240A3E87001DF258 /* Log.swift */,
+				83B65AB9240A3E65001DF258 /* MediaSourceVideoCover.swift */,
+				83B65AB7240A3E4D001DF258 /* VideoPlayerView.swift */,
+				83B65AB4240A3D67001DF258 /* NSData+ContentType.h */,
+				83B65AB5240A3D67001DF258 /* NSData+ContentType.m */,
+				83B65AB2240A3C48001DF258 /* MimeType.swift */,
+				83B65AB0240A3BF9001DF258 /* YeetError.swift */,
+				83B65AAF240A3BDC001DF258 /* KVCacheComplete-Swift.h */,
+				83B65A7B240A3B26001DF258 /* MediaPlayer */,
+				83B65A78240A02BD001DF258 /* CountLabel.swift */,
+				13B07FAE1A68108700A75B9A /* coronarnapp */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* coronarnappTests */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				EFFEB0AA24DB6A290CE036B9 /* Pods */,
+				83B65A77240A02BC001DF258 /* coronarnapp-Bridging-Header.h */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* Covy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFFEB0AA24DB6A290CE036B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D5BAFD5C5ECC940F1B249C1 /* Pods-coronarnapp.debug.xcconfig */,
+				077CE337AF4F1F0629A658F7 /* Pods-coronarnapp.release.xcconfig */,
+				4CEB25BB479B279693322CD9 /* Pods-coronarnapp-tvOS.debug.xcconfig */,
+				63DF3D6D5EDC795731E9105E /* Pods-coronarnapp-tvOS.release.xcconfig */,
+				65C2F0F65279926293CBD69C /* Pods-coronarnapp-tvOSTests.debug.xcconfig */,
+				803A62CD12272A694680B9A2 /* Pods-coronarnapp-tvOSTests.release.xcconfig */,
+				5F5005E1BDCE925205617875 /* Pods-coronarnappTests.debug.xcconfig */,
+				4FB4732D8919FB0639E71CFF /* Pods-coronarnappTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D67FBD6CA98B4D9C83359A4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			path = Application;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13B07F861A680F5B00A75B9A /* coronarnapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "coronarnapp" */;
+			buildPhases = (
+				1F0BF6F03C751F0231B19FCB /* [CP] Check Pods Manifest.lock */,
+				FD10A7F022414F080027D42C /* Start Packager */,
+				13B07F871A680F5B00A75B9A /* Sources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				45162A8D7DB54DD0AFD8873F /* Upload Debug Symbols to Sentry */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = coronarnapp;
+			productName = coronarnapp;
+			productReference = 13B07F961A680F5B00A75B9A /* Covy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = L77MPWK2AS;
+						LastSwiftMigration = 1130;
+					};
+				};
+			};
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "coronarnapp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 83CBB9F61A601CBA00E9B192;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13B07F861A680F5B00A75B9A /* coronarnapp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport NODE_BINARY=node\n../node_modules/@sentry/cli/bin/sentry-cli react-native xcode ../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		1F0BF6F03C751F0231B19FCB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-coronarnapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45162A8D7DB54DD0AFD8873F /* Upload Debug Symbols to Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Upload Debug Symbols to Sentry";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\n../node_modules/@sentry/cli/bin/sentry-cli upload-dsym";
+		};
+		FD10A7F022414F080027D42C /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13B07F871A680F5B00A75B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B65AA7240A3B35001DF258 /* MediaQueuePlayer.swift in Sources */,
+				83B65ABA240A3E65001DF258 /* MediaSourceVideoCover.swift in Sources */,
+				83B65ABC240A3E87001DF258 /* Log.swift in Sources */,
+				83B65AC5240A40E7001DF258 /* CGSizeExtensions.swift in Sources */,
+				83B65AA2240A3B35001DF258 /* MediaPlayerJSIModule.mm in Sources */,
+				83B65A79240A02BD001DF258 /* CountLabel.swift in Sources */,
+				83B65ABE240A3EED001DF258 /* AVURLAssetExt.swift in Sources */,
+				83B65AAA240A3B35001DF258 /* TrackableMediaSource.swift in Sources */,
+				83077027240B29BF005EF45F /* YeetTextSize.m in Sources */,
+				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				83B65AC0240A4004001DF258 /* CGRectExtensions.swift in Sources */,
+				83F3E38B240C596C00A29F95 /* PullyEventListener.swift in Sources */,
+				83B65A9A240A3B35001DF258 /* TrackableImageSource.swift in Sources */,
+				83B65AC3240A402B001DF258 /* NSNumber+CGFloat.m in Sources */,
+				83B65AAE240A3B35001DF258 /* TrackableVideoSource.swift in Sources */,
+				83B65AB3240A3C48001DF258 /* MimeType.swift in Sources */,
+				83B65AA9240A3B35001DF258 /* MediaFrameView.swift in Sources */,
+				83B65A9E240A3B35001DF258 /* YeetImageView.swift in Sources */,
+				83F3E385240C56F500A29F95 /* DrawerViewController.swift in Sources */,
+				83B65AB6240A3D67001DF258 /* NSData+ContentType.m in Sources */,
+				83B65AB1240A3BF9001DF258 /* YeetError.swift in Sources */,
+				83B65AAC240A3B35001DF258 /* AVCachableAsset.swift in Sources */,
+				83B65AAB240A3B35001DF258 /* VideoPool.swift in Sources */,
+				83B65AA4240A3B35001DF258 /* YeetSplashScreen.m in Sources */,
+				83B65AA0240A3B35001DF258 /* CameraRoll.swift in Sources */,
+				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				83F3E383240C562000A29F95 /* PullyViewContainer.swift in Sources */,
+				83077021240A5305005EF45F /* YeetJSIModule.mm in Sources */,
+				83B65AA6240A3B35001DF258 /* MediaPlayerViewManager.swift in Sources */,
+				83B65A9B240A3B35001DF258 /* MediaPlayerJSIModuleInstaller.mm in Sources */,
+				83B65AB8240A3E4D001DF258 /* VideoPlayerView.swift in Sources */,
+				83B65AA5240A3B35001DF258 /* RCTConvert+PHotost.m in Sources */,
+				83B65AC8240A42D8001DF258 /* YeetJSIExtensions.m in Sources */,
+				83B65AAD240A3B35001DF258 /* YeetJSIUTils.mm in Sources */,
+				83E13430240D15030093DE58 /* CustomBottomSheetViewController.swift in Sources */,
+				83B65AA1240A3B35001DF258 /* YeetVideoView.swift in Sources */,
+				83B65A9C240A3B35001DF258 /* MediaSource.swift in Sources */,
+				83B65A9F240A3B35001DF258 /* MediaPlayer.swift in Sources */,
+				83F3E389240C592300A29F95 /* PullyViewManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13B07FB21A68108700A75B9A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			path = coronarnapp;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D5BAFD5C5ECC940F1B249C1 /* Pods-coronarnapp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = L77MPWK2AS;
+				INFOPLIST_FILE = coronarnapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.renassiance.corona;
+				PRODUCT_NAME = Covy;
+				SWIFT_OBJC_BRIDGING_HEADER = "coronarnapp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		13B07F951A680F5B00A75B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 077CE337AF4F1F0629A658F7 /* Pods-coronarnapp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L77MPWK2AS;
+				INFOPLIST_FILE = coronarnapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.renassiance.corona;
+				PRODUCT_NAME = Covy;
+				SWIFT_OBJC_BRIDGING_HEADER = "coronarnapp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		83CBBA201A601CBA00E9B192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-webp-support",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTBlob\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+					"\"$(PODS_ROOT)/boost-for-react-native\"",
+					"\"$(PODS_ROOT)/Folly\"",
+					"\"$(PODS_ROOT)/DoubleConversion\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83CBBA211A601CBA00E9B192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-text-input-mask/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-webp-support",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTBlob\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+					"\"$(PODS_ROOT)/boost-for-react-native\"",
+					"\"$(PODS_ROOT)/Folly\"",
+					"\"$(PODS_ROOT)/DoubleConversion\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "coronarnapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B07F941A680F5B00A75B9A /* Debug */,
+				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "coronarnapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83CBBA201A601CBA00E9B192 /* Debug */,
+				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+}

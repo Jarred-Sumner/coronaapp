@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "424341091346",
+    "firebase_url": "https://covy-4df11.firebaseio.com",
+    "project_id": "covy-4df11",
+    "storage_bucket": "covy-4df11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424341091346:android:2138b6c8d05dadbf7994cb",
+        "android_client_info": {
+          "package_name": "com.codeblogcorp.covy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424341091346-66jlrjmnt52175qod736a06o4eh2knu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6y93_KS_8jwQ97z8HbWaY7-Waj90pA2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424341091346-66jlrjmnt52175qod736a06o4eh2knu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
