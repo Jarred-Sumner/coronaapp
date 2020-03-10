@@ -48,14 +48,14 @@ module.exports = withImages({
     return {
       '/': {
         page: '/',
-        query: {
-          lat: null,
-          lng: null,
-          min_lat: null,
-          min_lng: null,
-          max_lng: null,
-          max_lat: null,
-        },
+        // query: {
+        //   lat: null,
+        //   lng: null,
+        //   min_lat: null,
+        //   min_lng: null,
+        //   max_lng: null,
+        //   max_lat: null,
+        // },
       },
       '/report_sick': {page: '/report_sick'},
       '/stats': {page: '/stats'},
