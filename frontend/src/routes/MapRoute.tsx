@@ -424,6 +424,10 @@ export const MapRoute = ({}) => {
 
     RNLocation.getLatestLocation().then(
       location => {
+        if (!location) {
+          return;
+        }
+
         setLocation.current(location);
         const {latitude, longitude} = location;
         moveMap({latitude, longitude, altitude: 10000});
