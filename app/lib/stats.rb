@@ -86,7 +86,7 @@ class Stats
       confirmed_pins_url = uri.to_s
 
       resp = Rails.cache.fetch(CONFIRMED_URL_KEY) do
-        resp = JSON.parse(faraday(confirmed_pins_url).get.body).with_indifferent_access
+        resp = faraday(confirmed_pins_url).get.body
         if resp.present?
           Rails.cache.write(Stats::CONFIRMED_URL_UPDATED_AT_KEY, DateTime.now.iso8601)
         end
@@ -96,6 +96,10 @@ class Stats
 
       if resp.blank?
         return []
+      end
+
+      if resp.is_a? String
+        resp = JSON.parse(resp).with_indifferent_access
       end
 
       resp["features"].map do |a|
@@ -192,7 +196,11 @@ class Stats
 
   def self.total_data
     resp = Rails.cache.fetch("Stats/#{TOTALS_URL}", expires_in: 2.minutes) do
-      JSON.parse(faraday(TOTALS_URL).get.body).with_indifferent_access
+      faraday(TOTALS_URL).get.body
+    end
+
+    if resp.is_a? String
+      resp = JSON.parse(resp).with_indifferent_access
     end
 
     deaths = self.death_count
