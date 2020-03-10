@@ -1,8 +1,5 @@
-import {useNavigation} from '../components/useNavigation';
 import * as React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
-import Alert from '../lib/Alert';
-import {getUniqueId} from 'react-native-device-info';
+import {StyleSheet, Text, View} from 'react-native';
 import {
   BorderlessButton,
   RectButton,
@@ -12,17 +9,20 @@ import publicIP from 'react-native-public-ip';
 import Animated from 'react-native-reanimated';
 import {useSafeArea} from 'react-native-safe-area-context';
 import {createUserReport} from '../api';
-import {
-  BitmapIcon,
-  CHECK,
-  CLOSE_BUTTON_SOURCE,
-} from '../components/BitmapIcons';
+import {BitmapIcon, CHECK} from '../components/BitmapIcons';
+import {CloseButtonImage} from '../components/CloseButtonImage';
 import {ScrollView} from '../components/ScrollView';
+import {useNavigation} from '../components/useNavigation';
+import {UserLocationContext} from '../components/UserLocationContext';
+import Alert from '../lib/Alert';
 import Location from '../lib/Location';
 import {openLink} from '../lib/openLink';
 import {sendLightFeedback} from '../lib/Vibration';
-import {CloseButtonImage} from '../components/CloseButtonImage';
-import {UserLocationContext} from '../components/UserLocationContext';
+
+let getUniqueId = (): string => '';
+if (typeof window !== 'undefined') {
+  getUniqueId = require('react-native-device-info').getUniqueId;
+}
 
 const SELECTED_COLOR = '#0091FF';
 
