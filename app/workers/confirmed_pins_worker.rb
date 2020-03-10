@@ -2,7 +2,7 @@ class ConfirmedPinsWorker
   include Sidekiq::Worker
 
   def perform
-    data = Stats.confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0)
+    data = Stats.fetch_confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0)
 
     return if data.blank?
 

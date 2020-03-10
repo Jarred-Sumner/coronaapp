@@ -80,18 +80,25 @@ class Stats
       end
     end
 
-    def self.confirmed_pins_hopkins(min_lat:, min_long:, max_lat:, max_long:)
+    def self.fetch_confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0)
       uri = Addressable::URI.parse(CONFIRMED_URL)
       uri.query_values = confirmed_pins_query(min_lat, min_long, max_lat, max_long)
       confirmed_pins_url = uri.to_s
 
+      faraday(confirmed_pins_url).get.body
+    end
+
+    def self.confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0)
+
+
       resp = Rails.cache.fetch(CONFIRMED_URL_KEY) do
-        resp = faraday(confirmed_pins_url).get.body
-        if resp.present?
+        body = fetch_confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
+
+        if body.present?
           Rails.cache.write(Stats::CONFIRMED_URL_UPDATED_AT_KEY, DateTime.now.iso8601)
         end
 
-        resp
+        body
       end
 
       if resp.blank?
