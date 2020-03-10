@@ -185,6 +185,7 @@ class MapView extends Component {
         latitude: center.lat(),
         longitude: center.lng(),
         altitude: zoomToAltitude(zoom),
+        zoom,
       };
 
       unstable_batchedUpdates(() => {

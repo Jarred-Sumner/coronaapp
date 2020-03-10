@@ -1,4 +1,5 @@
 Geocoder.configure(
+  cache: Redis.new,
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
   # lookup: :nominatim,         # name of geocoding service (symbol)
@@ -9,7 +10,7 @@ Geocoder.configure(
   # https_proxy: nil,           # HTTPS proxy server (user:pass@host:port)
   # api_key: nil,               # API key for geocoding service
   # cache: nil,                 # cache object (must respond to #[], #[]=, and #del)
-  # cache_prefix: 'geocoder:',  # prefix (string) to use for all cache keys
+  cache_prefix: 'geocoder:',  # prefix (string) to use for all cache keys
 
   # Exceptions that should not be rescued by default
   # (if you want to implement custom error handling);
@@ -20,3 +21,9 @@ Geocoder.configure(
   units: :mi,                 # :km for kilometers or :mi for miles
   distances: :linear          # :spherical or :linear
 )
+
+
+Timezone::Lookup.config(:geonames) do |c|
+  c.username = 'jarred'
+  c.offset_etc_zones = true
+end

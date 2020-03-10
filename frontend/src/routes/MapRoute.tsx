@@ -9,10 +9,10 @@ import {
   Platform,
   StyleSheet,
   Text,
-  unstable_batchedUpdates,
   View,
   StatusBar,
 } from 'react-native';
+
 import {Region} from 'react-native-maps';
 import Share from '../lib/Share';
 import {usePaginatedQuery} from 'react-query';
@@ -64,6 +64,7 @@ import {sendSelectionFeedback} from '../lib/Vibration';
 import {getMapBounds, geocode} from '../lib/Yeet';
 import {RegionContext} from './RegionContext';
 import {isPointInPolygon, getDistance, isPointWithinRadius} from 'geolib';
+import unstable_batchedUpdates from '../lib/batchUpdates';
 
 const styles = StyleSheet.create({
   container: {
@@ -437,11 +438,13 @@ export const MapRoute = ({}) => {
     );
   }, [location, moveMap, hasNavigatedToUserLocation, RNLocation]);
 
-  const confirmedCasesInRegion = React.useMemo(() => {
+  const [confirmedCasesInRegion, visiblePins] = React.useMemo(() => {
     let count = 0;
     if (!region) {
-      return 0;
+      return [0, []];
     }
+
+    const _pins = [];
 
     if (confirmedPins?.pins?.length) {
       const {minLatitude, minLongitude, maxLongitude, maxLatitude} = region;
@@ -478,11 +481,12 @@ export const MapRoute = ({}) => {
         ) {
           count = count + pin.infections.confirm;
           count -= pin.infections.recover;
+          _pins.push(pin);
         }
       }
     }
 
-    return count;
+    return [count, _pins];
   }, [userPins, confirmedPins, region]);
 
   const onPressShare = React.useCallback(async () => {
@@ -508,9 +512,9 @@ export const MapRoute = ({}) => {
         '0,0',
       )}+ cases of Corona virus${
         cityName ? ' near ' + cityName : ''
-      }.\n\n${buildShareURL(region)}`,
+      }.\n\n${buildShareURL(region, visiblePins, confirmedCasesInRegion)}`,
     });
-  }, [region, buildShareURL, confirmedCasesInRegion]);
+  }, [region, buildShareURL, confirmedCasesInRegion, visiblePins]);
 
   return (
     <MapContext.Provider value={mapContextValue}>

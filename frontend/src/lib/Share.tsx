@@ -1,5 +1,7 @@
 export const Share = {
-  open: () => {},
+  open: ({message}) => {
+    console.log(message);
+  },
 };
 
 export default Share;

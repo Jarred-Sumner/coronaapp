@@ -79,14 +79,18 @@ export const fetchPins = (
   return apiFetcher(url);
 };
 
-export const buildShareURL = (region: Region) => {
+export const buildShareURL = (region: Region, pins, count) => {
   const params = {
     minLat: region.minLatitude,
     minLon: region.minLongitude,
     maxLat: region.maxLatitude,
     maxLon: region.maxLongitude,
+    altitude: region.altitude,
+    zoom: region.zoom,
     lat: region.latitude,
     lon: region.longitude,
+    pins: pins.map(pin => [pin.latitude, pin.longitude]),
+    count,
   };
 
   return `${hostname}?${qs.stringify(params)}`;

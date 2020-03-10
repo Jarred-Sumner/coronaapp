@@ -3,7 +3,7 @@ class GeocodeResult < ApplicationRecord
     result = GeocodeResult.where(location: "POINT(#{latitude} #{longitude})").first_or_initialize
 
     if !result.persisted?
-      if geocoder = Geocoder.search("#{longitude},#{latitude}")&.first
+      if geocoder = Geocoder.search("#{latitude},#{longitude}")&.first
         result.result = geocoder.data
         result.country_code = geocoder.country_code
         result.country = geocoder.country
@@ -12,6 +12,7 @@ class GeocodeResult < ApplicationRecord
         result.state_code = geocoder.state_code
         result.postal_code = geocoder.postal_code
         result.address = geocoder.address
+        result.timezone = Timezone.lookup(latitude, longitude)&.name
         if result.save
         else
           return nil
@@ -22,12 +23,14 @@ class GeocodeResult < ApplicationRecord
     result
   end
 
-  def as_json
+  def as_json(opts = nil)
     {
       country: country,
       city: city,
       state: state,
+      state_code: state_code,
       country_code: country_code,
+      timezone: timezone,
     }
   end
 end

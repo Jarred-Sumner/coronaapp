@@ -20,6 +20,7 @@ gem 'sidekiq'
 gem 'addressable'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'timezone'
 
 gem 'friendly_id', '~> 5.2.4' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 
