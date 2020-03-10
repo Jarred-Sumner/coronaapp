@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/core';
+import {useNavigation} from '../components/useNavigation';
 import haversineDistance from 'haversine-distance';
 import Numeral from 'numeral';
 import * as React from 'react';
@@ -65,6 +65,7 @@ import {getMapBounds, geocode} from '../lib/Yeet';
 import {RegionContext} from './RegionContext';
 import {isPointInPolygon, getDistance, isPointWithinRadius} from 'geolib';
 import unstable_batchedUpdates from '../lib/batchUpdates';
+import {MapHeadTags} from '../components/MapHeadTags';
 
 const styles = StyleSheet.create({
   container: {
@@ -293,15 +294,11 @@ export const MapRoute = ({}) => {
   }, [countryCode, country, countriesData, mapRef]);
 
   React.useEffect(() => {
-    if (
-      location &&
-      location.latitude &&
-      location.longitude &&
-      !hasNavigatedToUserLocation.current &&
-      moveMap
-    ) {
+    const hasLocation = location && location.latitude && location.longitude;
+    if (hasLocation && !hasNavigatedToUserLocation.current && moveMap) {
       const {latitude, longitude} = location;
       moveMap({latitude, longitude, altitude: 500000});
+    } else if (!hasLocation) {
       hasNavigatedToUserLocation.current = true;
     }
   }, [location, hasNavigatedToUserLocation, moveMap]);
@@ -561,6 +558,12 @@ export const MapRoute = ({}) => {
               infected={confirmedCasesInRegion}
             />
           </View>
+
+          <MapHeadTags
+            region={region}
+            sickCount={userPins?.count}
+            confirmedCaseCount={confirmedCasesInRegion}
+          />
         </MapView>
 
         <MapOverlay

@@ -1,1 +1,4 @@
-export {useNavigation} from '@react-navigation/core';
+import {useNavigation, useRoute} from '@react-navigation/core';
+
+export {useNavigation, useRoute};
+export default useNavigation;

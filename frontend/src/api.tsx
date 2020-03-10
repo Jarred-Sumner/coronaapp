@@ -1,13 +1,6 @@
 import {merge} from 'lodash';
 import {Platform} from 'react-native';
 import qs from 'qs';
-import {
-  getBuildNumber,
-  getDeviceId,
-  getSystemVersion,
-  getUniqueId,
-  getVersion,
-} from 'react-native-device-info';
 import {Region} from 'react-native-maps';
 
 export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
@@ -15,7 +8,7 @@ export const IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
 const hostname = Platform.select({
   ios: IS_PRODUCTION ? 'https://covy.app' : 'http://localhost:3000',
   android: IS_PRODUCTION ? 'https://covy.app' : 'http://localhost:3000',
-  web: '',
+  web: IS_PRODUCTION ? '' : 'http://localhost:3000',
 });
 
 export const TOTALS_URL = `${hostname}/api/stats/totals`;
@@ -27,15 +20,28 @@ export const REPORTS_LIST_URL = `${hostname}/api/user_reports/list`;
 export const GET_PINS_URL = `${hostname}/api/reports`;
 export const TWEETS_URL = `${hostname}/api/tweets`;
 
-const HEADERS = {
-  'Content-Type': 'application/json',
-  'X-Fingerprint': getUniqueId(),
-  'X-Device': getDeviceId(),
-  'X-Platform': Platform.OS,
-  'X-OS-Version': getSystemVersion(),
-  'X-App-Version': getVersion(),
-  'X-App-Build': getBuildNumber(),
-};
+let HEADERS = {'Content-Type': 'application/json'};
+
+if (typeof window !== 'undefined') {
+  const {
+    getBuildNumber,
+    getDeviceId,
+    getSystemVersion,
+    getUniqueId,
+    getVersion,
+  } = require('react-native-device-info');
+
+  HEADERS = {
+    'Content-Type': 'application/json',
+    'X-Fingerprint': getUniqueId(),
+    'X-Device': getDeviceId(),
+    'X-Platform': Platform.OS,
+    'X-OS-Version': getSystemVersion(),
+    'X-App-Version': getVersion(),
+    'X-App-Build': getBuildNumber(),
+  };
+}
+
 export const userReportByIdURL = (id: string) =>
   `${hostname}/api/user_reports/${id}`;
 
@@ -137,6 +143,19 @@ export const fetchUserPins = (
 
   return apiFetcher(url);
 };
+
+export const buildMapImageURL = ({region, width, locale, height}) =>
+  `https://i.covy.app/?${qs.stringify({
+    lat: region.latitude,
+    lon: region.longitude,
+    minLat: region.minLatitude,
+    minLon: region.minLongitude,
+    maxLat: region.maxLatitude,
+    maxLon: region.maxLongitude,
+    width,
+    height,
+    locale,
+  })}`;
 
 export const createUserReport = ({
   ipAddress,

@@ -62,6 +62,22 @@ export class Document extends NextDocument {
     return (
       <html>
         <Head>
+          <link rel="preconnect" href="https://maps.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-K0GJNSV1P5"></script>
+          <script>{`  window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      if (location.hostname.indexOf("localhost") === -1) {
+        gtag("config", "G-K0GJNSV1P5");
+      }`}</script>
+
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         </Head>
         <body>

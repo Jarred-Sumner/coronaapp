@@ -34,7 +34,12 @@ type UserLocation = LocationWithStatus & {
   setCanRequestLocationAccess: (enabled: boolean) => void;
 };
 
-export const UserLocationContext = React.createContext<UserLocation>(null);
+export const UserLocationContext = React.createContext<UserLocation>({
+  latitude: null,
+  longitude: null,
+  locationStatus: getLocationStatus(),
+});
+
 export const hasLocation = (location: UserLocation) =>
   !!(location && location.latitude && location.longitude);
 
@@ -52,23 +57,23 @@ export const UserLocationProvider = ({children}) => {
 
   const [location, setLocation] = useMMKV(
     'USER_CURRENT_LOCATION',
-    () => {
-      return {
-        latitude: null,
-        longitude: null,
-        locationStatus: getLocationStatus(),
-      };
+    {
+      latitude: null,
+      longitude: null,
+      locationStatus: getLocationStatus(),
     },
     'object',
+    false,
   );
 
   const locationUnsubscriber = React.useRef(null);
 
   React.useEffect(() => {
-    console.log('Requesting...', canRequestLocationAccess);
     if (!canRequestLocationAccess) {
       return;
     }
+
+    console.log('Requesting...', canRequestLocationAccess);
 
     if (
       Platform.OS === 'android' &&

@@ -2,7 +2,7 @@ export const RNLocation = {
   requestPermission: () => Promise.resolve(true),
   getLatestLocation: () =>
     new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
+      globalThis.navigator?.geolocation?.getCurrentPosition(
         position => {
           resolve(position.coords);
         },
@@ -13,7 +13,7 @@ export const RNLocation = {
       );
     }),
   subscribeToLocationUpdates: (cb, err = err => console.error(err)) => {
-    const watcher = navigator.geolocation.watchPosition(
+    const watcher = globalThis.navigator?.geolocation?.watchPosition(
       ({coords, timestamp}) => {
         return [coords];
       },
@@ -25,7 +25,7 @@ export const RNLocation = {
       },
     );
     return function() {
-      navigator.geolocation.clearWatch(watcher);
+      globalThis.navigator?.geolocation.clearWatch(watcher);
     };
   },
   configure: () => {},

@@ -229,7 +229,7 @@ export const setItem = (key: string, value: any, type: string): any => {
 };
 
 export const getLocationStatus = (): LocationPermissionStatus => {
-  return YeetBinding.checkLocationPermission();
+  return null;
 };
 
 export const getLastLocation = (): Location | null => {

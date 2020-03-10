@@ -3,13 +3,20 @@ import {setItem, getItem} from '../lib/Yeet';
 
 export function useMMKV(
   key: string,
-  initialValue: number | string | Object,
+  _initialValue: number | string | Object,
   type: any,
+  forceInitialValue = false,
 ) {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
+    const initialValue =
+      typeof _initialValue === 'function' ? _initialValue() : _initialValue;
     try {
+      console.log({forceInitialValue, initialValue});
+      if (forceInitialValue) {
+        return initialValue;
+      }
       // Get from local storage by key
       const item = getItem(key, type);
       // Parse stored json or if none return initialValue

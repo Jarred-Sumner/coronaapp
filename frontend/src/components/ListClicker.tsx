@@ -12,12 +12,14 @@ const ignoreClicks = {
   current: false,
 };
 
-window.addEventListener(InteractionManager.Events.interactionStart, () => {
-  ignoreClicks.current = true;
-});
-window.addEventListener(InteractionManager.Events.interactionComplete, () => {
-  ignoreClicks.current = false;
-});
+if (typeof window !== 'undefined') {
+  window.addEventListener(InteractionManager.Events.interactionStart, () => {
+    ignoreClicks.current = true;
+  });
+  window.addEventListener(InteractionManager.Events.interactionComplete, () => {
+    ignoreClicks.current = false;
+  });
+}
 
 export const ListClicker = ({children, onPress, style}) => {
   const ref = React.createRef();

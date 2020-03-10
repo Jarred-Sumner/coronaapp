@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/core';
+import {useNavigation} from '../components/useNavigation';
 import Numeral from 'numeral';
 import * as React from 'react';
 import {StyleSheet, Text, View, Platform} from 'react-native';

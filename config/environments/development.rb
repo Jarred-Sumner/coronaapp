@@ -12,6 +12,13 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins "localhost:9000", "http://localhost:9000"
+      resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options], credentials: true
+    end
+  end
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
@@ -23,13 +30,6 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
 
     config.cache_store = :redis_cache_store, {host: 'localhost', port: 6379}
-  end
-
-  config.middleware.insert_before 0, Rack::Cors do
-    allow do
-      origins '*'
-      resource '*', headers: :any, methods: [:get, :post, :options]
-    end
   end
 
 

@@ -11,7 +11,7 @@ import {useSafeArea} from '../lib/SafeArea';
 import {useActionSheet} from '@expo/react-native-action-sheet';
 import {CountryEndpoint} from '../API_TYPES';
 import countryFlagEmoji from 'country-flag-emoji';
-import {useNavigation} from '@react-navigation/core';
+import {useNavigation} from '../components/useNavigation';
 import {CountryContext} from './CountryContext';
 import {CHEVRON_DOWN, BitmapIcon} from './BitmapIcons';
 

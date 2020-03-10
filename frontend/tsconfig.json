@@ -3,7 +3,10 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
+    "lib": [
+      "dom",
+      "es2017"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -16,9 +19,24 @@
     "sourceMap": false,
     "experimentalDecorators": true,
     "strict": false,
-    "typeRoots": ["./node_modules/@types", "./typings"],
-    "target": "esnext"
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ],
+    "target": "esnext",
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "exclude": ["node_modules", ".next", "static"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules",
+    ".next",
+    "static"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

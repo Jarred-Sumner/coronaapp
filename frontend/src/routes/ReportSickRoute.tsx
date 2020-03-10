@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/core';
+import {useNavigation} from '../components/useNavigation';
 import * as React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import Alert from '../lib/Alert';
