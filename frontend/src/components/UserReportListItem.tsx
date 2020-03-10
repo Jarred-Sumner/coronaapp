@@ -111,6 +111,8 @@ export const UserReportListItem = React.memo(
   ({
     report,
     distance = 0,
+    relativeLongitude,
+    relativeLatitude,
     wrap = true,
     onPress,
   }: {
@@ -130,8 +132,9 @@ export const UserReportListItem = React.memo(
             adjustsFontSizeToFit
             numberOfLines={1}
             style={styles.titleLabel}>
-            Someone is feeling sick in {report.location?.city},{' '}
-            {report.location?.state}
+            {report.location
+              ? `Someone is feeling sick in ${report.location?.city}, ${report.location?.state}`
+              : `Someone reported feeling sick`}
           </Text>
         </View>
 
@@ -157,7 +160,12 @@ export const UserReportListItem = React.memo(
           <Text numberOfLines={3} style={styles.bodyText}>
             Symptoms include: {formatSymptoms(report.symptoms)}
             {'\n'}
-            Recently traveled: {report.traveled_recently ? 'Yes' : 'No'}
+            Recently traveled:{' '}
+            {report.traveled_recently === null
+              ? 'Unknown'
+              : report.traveled_recently
+              ? 'Yes'
+              : 'No'}
           </Text>
         </View>
       </View>

@@ -10,5 +10,7 @@
     "deploy": "cp -a frontend/web-dist/. public/",
     "heroku-postbuild": "yarn build && yarn deploy"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-helmet": "^5.2.1"
+  }
 }

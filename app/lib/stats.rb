@@ -3,6 +3,8 @@ class Stats
   TOTALS_URL = "https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/cases_time_v3/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=Report_Date_String%20desc&outSR=102100&resultOffset=0&resultRecordCount=2000&cacheHint=true"
   DEATHS_URL = "https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/ncov_cases/FeatureServer/1/query?f=json&where=Confirmed%20%3E%200&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outStatistics=%5B%7B%22statisticType%22%3A%22sum%22%2C%22onStatisticField%22%3A%22Deaths%22%2C%22outStatisticFieldName%22%3A%22value%22%7D%5D&outSR=102100&cacheHint=true"
   CONFIRMED_URL = "https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/ncov_cases/FeatureServer/1/query"
+  CONFIRMED_URL_KEY = "HOPINKS/https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/ncov_cases/FeatureServer/1/query"
+  CONFIRMED_URL_UPDATED_AT_KEY = "Stats/hopkins/CONFIRMED_URL_UPDATED_AT_KEY"
   CONFIRMED_FALLBACK_URL = "https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/COVID_19_CasesByCountry(pt)_VIEW/FeatureServer/0/query"
 
   ENABLE_FALLBACK = false
@@ -59,11 +61,22 @@ class Stats
       }
     end
 
+    def self.confirmed_pins_needs_update?
+      updated_at = Rails.cache.fetch(CONFIRMED_URL_UPDATED_AT_KEY)
+      return true if updated_at == nil
+
+      updated_at < 15.minutes.ago
+    end
+
     def self.confirmed_pins(min_lat:, min_long:, max_lat:, max_long:)
       if ENABLE_FALLBACK
         confirmed_pins_fallback(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
       else
-        confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
+        pins = confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
+        if confirmed_pins_needs_update?
+          ConfirmedPinsWorker.perform_async
+        end
+        pins
       end
     end
 
@@ -72,8 +85,17 @@ class Stats
       uri.query_values = confirmed_pins_query(min_lat, min_long, max_lat, max_long)
       confirmed_pins_url = uri.to_s
 
-      resp = Rails.cache.fetch(confirmed_pins_url, expires_in: 1.minute) do
-        JSON.parse(faraday(confirmed_pins_url).get.body).with_indifferent_access
+      resp = Rails.cache.fetch(CONFIRMED_URL_KEY) do
+        resp = JSON.parse(faraday(confirmed_pins_url).get.body).with_indifferent_access
+        if resp.present?
+          Rails.cache.write(Stats::CONFIRMED_URL_UPDATED_AT_KEY, DateTime.now.iso8601)
+        end
+
+        resp
+      end
+
+      if resp.blank?
+        return []
       end
 
       resp["features"].map do |a|

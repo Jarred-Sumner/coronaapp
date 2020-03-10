@@ -82,7 +82,7 @@ class UserReportsController < ApplicationController
     SneezemapReport.fetch_data
       .filter { |report| bounds.contains?(Geokit::LatLng.new(report['lat'], report['long'])) }
       .each do |report|
-        reports.push(sneezemap_report_json(report))
+        reports.push(sneezemap_report_item_json(report))
       end
 
     # GeocodeResult.where(location: sneeze_locations)
