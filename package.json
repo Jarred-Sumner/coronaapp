@@ -9,5 +9,6 @@
     "build": "yarn --cwd frontend install && yarn --cwd frontend build-web",
     "deploy": "cp -a frontend/web-dist/. public/",
     "heroku-postbuild": "yarn build && yarn deploy"
-  }
+  },
+  "dependencies": {}
 }

@@ -19,6 +19,25 @@ class UserReportsController < ApplicationController
     }
   end
 
+  def sneezemap_report_json(report, location = nil)
+    {
+      "id": report["id"],
+      "country_code":  location&.country_code,
+      "country": location&.country,
+      "last_updated": Time.at(report["createdAt"] / 1000.0),
+      "province":  location&.state,
+      "label": location&.state,
+      "latitude": report["lat"],
+      "longitude": report["long"],
+      "infections": {
+        'self_report': 1,
+        'confirm': 0,
+        'dead': 0,
+        'recover': 0,
+      }
+    }.with_indifferent_access
+  end
+
 
   def report_item_json(report)
     {
@@ -33,20 +52,45 @@ class UserReportsController < ApplicationController
     }.with_indifferent_access
   end
 
+  def sneezemap_report_item_json(report, location = nil)
+    {
+      id: report["id"],
+      created_at: Time.at(report["createdAt"] / 1000.0),
+      symptoms: [],
+      latitude: report["lat"],
+      traveled_recently: nil,
+      longitude: report["long"],
+      object: "user_report",
+      location: location&.as_json
+    }.with_indifferent_access
+  end
+
   def list
+    min_lat = params[:min_lat]
+    min_long = params[:min_long]
+    max_lat = params[:max_lat]
+    max_long = params[:max_long]
+    bounds = Geokit::Bounds.new(
+      Geokit::LatLng.new(max_lat,max_long),
+      Geokit::LatLng.new(min_lat,min_long),
+    )
+
     offset = Integer(params[:offset] || 0)
     reports = []
     count = UserReport.order("created_at DESC").count
+
+    SneezemapReport.fetch_data
+      .filter { |report| bounds.contains?(Geokit::LatLng.new(report['lat'], report['long'])) }
+      .each do |report|
+        reports.push(sneezemap_report_json(report))
+      end
+
+    # GeocodeResult.where(location: sneeze_locations)
 
     UserReport.includes(:geocode_result).where("location IS NOT NULL").order("created_at DESC").find_each do |report|
       reports.push(report_item_json(report))
     end
 
-
-    min_lat = params[:min_lat]
-    min_long = params[:min_long]
-    max_lat = params[:max_lat]
-    max_long = params[:max_long]
     has_coords = min_lat && min_long && max_lat && max_long
 
     confirmed_pins = Stats.confirmed_pins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
@@ -84,31 +128,62 @@ class UserReportsController < ApplicationController
     end
 
 
-
-
     render json: {
       data: reports,
-      count: count,
+      count: reports.length,
       offset: offset,
     }
   end
 
   def index
+    min_lat = Float(params[:min_lat])
+    min_long = Float(params[:min_long])
+    max_lat = Float(params[:max_lat])
+    max_long = Float(params[:max_long])
+    bounds = Geokit::Bounds.new(
+      Geokit::LatLng.new(max_lat,max_long),
+      Geokit::LatLng.new(min_lat,min_long),
+    )
+
     json = []
+
+    SneezemapReport.fetch_data
+      .filter { |report| bounds.contains?([report["lat"],report["long"]])  }
+      .each { |report| json << sneezemap_report_item_json(report) }
+
+    # byebug
     UserReport.select([:id, :country_code, :created_at, :location]).find_each { |report| json << user_report_json(report) }
     render json: {
       pins: json,
       object: 'pin',
-      source: 'corona'
+      source: 'corona',
+      count: json.length
     }
   end
 
   def show
-    report = UserReport.includes(:geocode_result).find(params[:id])
-    render json: {
-      data: report_item_json(report),
-      object: "user_report"
-    }
+    if params[:id].starts_with?("_s_")
+      report = SneezemapReport.find(params[:id])
+      if report.nil?
+        render json: {
+          data: nil,
+        }, status: 404
+
+        return
+      end
+
+      location = GeocodeResult.search(latitude: report['lat'], longitude: report['long'])
+      render json: {
+        data: sneezemap_report_item_json(report, location),
+        object: "user_report"
+      }
+    else
+      report = UserReport.includes(:geocode_result).find(params[:id])
+      render json: {
+        data: report_item_json(report),
+        object: "user_report"
+      }
+    end
   end
 
   def stats

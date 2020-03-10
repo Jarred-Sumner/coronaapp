@@ -18,6 +18,7 @@ gem 'puma', '~> 4.1'
 
 gem 'sidekiq'
 gem 'addressable'
+gem 'geokit'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'timezone'

@@ -162,10 +162,7 @@ export const MapRoute = ({}) => {
   const {data: countriesData = [], error: countriesEror} = useSWR<
     Array<CountryEndpoint.CountryInfection>
   >(COUNTRIES_URL, apiFetcher);
-  const {data: sickCounts, error: sickError} = useSWR<SelfReportedResponse>(
-    USER_REPORT_STATS,
-    apiFetcher,
-  );
+
   const location = React.useContext(UserLocationContext);
   const hasNavigatedToUserLocation = React.useRef(false);
 
@@ -560,7 +557,7 @@ export const MapRoute = ({}) => {
               {bottom: 320, paddingBottom: 50, paddingTop: 0},
             ]}>
             <CountBox
-              feelingSick={sickCounts?.interval?.year[countryCode]}
+              feelingSick={userPins?.count}
               infected={confirmedCasesInRegion}
             />
           </View>
