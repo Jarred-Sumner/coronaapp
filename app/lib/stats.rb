@@ -65,7 +65,7 @@ class Stats
       updated_at = Rails.cache.fetch(CONFIRMED_URL_UPDATED_AT_KEY)
       return true if updated_at == nil
 
-      updated_at < 15.minutes.ago
+      15.minutes.ago > DateTime.parse(updated_at)
     end
 
     def self.confirmed_pins(min_lat:, min_long:, max_lat:, max_long:)
@@ -78,6 +78,7 @@ class Stats
         end
         pins
       end
+
     end
 
     def self.fetch_confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0)
@@ -120,14 +121,14 @@ class Stats
           "object": "infection",
           "province":  props["Province_State"],
           label: [props["Province_State"], props["Country_Region"]].compact.uniq.join(" "),
-          "latitude": props["Lat"],
-          "longitude": props["Long_"],
+          "latitude": Float(props["Lat"]),
+          "longitude": Float(props["Long_"]),
           "infections": {
             'confirm': props["Confirmed"],
             'dead': props["Deaths"],
             'recover': props["Recovered"],
           }
-        }
+        }.with_indifferent_access
       end
     end
 

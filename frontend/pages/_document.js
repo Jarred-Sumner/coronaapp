@@ -72,7 +72,9 @@ export class Document extends NextDocument {
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-K0GJNSV1P5"></script>
-          <script>{`  window.dataLayer = window.dataLayer || [];
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
@@ -80,7 +82,9 @@ export class Document extends NextDocument {
 
       if (location.hostname.indexOf("localhost") === -1) {
         gtag("config", "G-K0GJNSV1P5");
-      }`}</script>
+      }`,
+            }}
+          />
 
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         </Head>

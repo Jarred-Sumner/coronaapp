@@ -17,6 +17,8 @@ gem 'puma', '~> 4.1'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'sidekiq'
+gem "browser"
+
 gem 'addressable'
 gem 'geokit'
 # Use Active Storage variant
@@ -56,3 +58,5 @@ gem "geocoder", "~> 1.6"
 gem "hashid-rails", "~> 1.4"
 
 gem "rack-cors", "~> 1.1"
+
+gem "nokogiri", "~> 1.10"

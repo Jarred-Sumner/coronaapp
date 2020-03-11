@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   get '/api/user_reports/:id', to: 'user_reports#show'
 
   get '/api/geocode/*latitude/*longitude', to: 'geocode#show'
+
+  if Rails.env.development?
+    get '/meta_tag', to: 'root#render_meta_tags'
+  end
 end
