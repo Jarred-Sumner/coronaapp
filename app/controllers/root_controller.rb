@@ -93,10 +93,10 @@ class RootController < ActionController::Base
     altitude =  Float(params[:a])
     latitude = Float(params[:lat])
     longitude = Float(params[:lng])
-    max_latitude = dlat - latitude
-    max_longitude = dlng - longitude
-    min_latitude = dlat + latitude
-    min_longitude = dlng + longitude
+    min_latitude = latitude - dlat
+    min_longitude = latitude - dlng
+    max_latitude = latitude + dlat
+    max_longitude = longitude + dlng
 
     @coordinates = {
       lat: latitude,
