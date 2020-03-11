@@ -55,7 +55,7 @@ const RawCircle = React.memo(_RawCircle);
 
 // const ONE_WEEK_AGO = new Date(new Date().getTime() - 604800);
 
-const Marker = ({pin, isSelected, onPress, hasSelection}) => {
+const Marker = ({pin, isSelected, onPress, hasSelection, opacity}) => {
   let image = sources.selected[pin.object];
   const isNotSelected = hasSelection && !isSelected;
   // const lastUpdatedDate = React.useMemo(() => {
@@ -77,6 +77,7 @@ const Marker = ({pin, isSelected, onPress, hasSelection}) => {
     <RawMarker
       coordinate={pin}
       identifier={pin.id}
+      opacity={isSelected ? 1 : opacity}
       onPress={Platform.select({
         ios: stopPropagation,
         android: stopPropagation,
@@ -142,6 +143,7 @@ const MapComponents = React.memo(
             hasSelection={hasSelection}
             onPress={onPressPin}
             pin={pin}
+            opacity={object === 'user_report' ? 0.65 : 1}
           />
         );
       },

@@ -13,6 +13,7 @@ export const Marker = ({
   image: {uri, width, height},
   onPress,
   identifier,
+  opacity,
   coordinate: {latitude, longitude},
   ...rest
 }) => {
@@ -48,6 +49,7 @@ export const Marker = ({
       {...rest}
       icon={markerImage}
       clickable={!!onPress}
+      opacity={opacity}
       onClick={handlePress}
       position={{lat: latitude, lng: longitude}}
     />
