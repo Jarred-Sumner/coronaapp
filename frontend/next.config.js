@@ -61,8 +61,7 @@ module.exports = withOffline({
       },
     ],
   },
-})(
-  withImages({
+  ...withImages({
     exportPathMap: async function(
       defaultPathMap,
       {dev, dir, outDir, distDir, buildId},
@@ -134,4 +133,4 @@ module.exports = withOffline({
       },
     }),
   }),
-);
+});
