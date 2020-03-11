@@ -23,7 +23,7 @@ class RootController < ActionController::Base
   end
 
   def meta_tags
-    doc = Nokogiri(File.read(Rails.root + 'public/_index.html'))
+    doc = File.read(Rails.root + 'public/_index.html')
 
     share_image_url = Addressable::URI.parse("https://i.covy.app/")
     share_image_url.query_values = coordinates.merge({
@@ -75,14 +75,8 @@ class RootController < ActionController::Base
     tags << "<title ssr>#{title_label}</title>"
     tags << "<meta ssr name=\"twitter:title\" content=\"#{title_label}\" />"
 
-    head = doc.at("head")
-    tags
-      .map { |tag| Nokogiri::HTML.fragment(tag) }
-      .each do |tag|
-        head.children.first.add_previous_sibling(tag)
-      end
 
-    doc.inner_html
+    doc.sub("<head>", "<head>#{tags.join("\n")}")
   end
 
   def render_meta_tags
