@@ -2,7 +2,6 @@ class RootController < ActionController::Base
   include ActionView::Helpers::NumberHelper
 
   def index
-    Rails.logger.info "COORDINATES"
     if coordinates.present?
       render_meta_tags
     else
@@ -88,8 +87,8 @@ class RootController < ActionController::Base
     return @coordinates if @coordinates
     return nil if params[:dlat].blank? || params[:lat].blank? || params[:lng].blank? || params[:a].blank? || params[:dlng].blank?
 
-    dlat =  Float(params[:dlat])
-    dlng =  Float(params[:dlng])
+    dlat =  Float(params[:dlat]).abs
+    dlng =  Float(params[:dlng]).abs
     altitude =  Float(params[:a])
     latitude = Float(params[:lat])
     longitude = Float(params[:lng])

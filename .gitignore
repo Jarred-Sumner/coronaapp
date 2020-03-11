@@ -34,3 +34,10 @@ node_modules/
 dist
 web-dist
 out
+public/_next
+public/stats.html
+public/country.html
+public/_index.html
+public/report_sick.html
+public/service-worker.js
+public/404.html
