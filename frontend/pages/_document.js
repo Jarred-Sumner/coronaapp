@@ -10,6 +10,10 @@ export const style = `
  * Building on the RNWeb reset:
  * https://github.com/necolas/react-native-web/blob/master/packages/react-native-web/src/exports/StyleSheet/initialRules.js
  */
+body {
+  background-color: #000;
+}
+
 html, body, #__next {
   width: 100%;
   /* To smooth any scrolling behavior */
