@@ -18,6 +18,7 @@ gem 'puma', '~> 4.1'
 
 gem 'sidekiq'
 gem "browser"
+gem "rgeo-proj4"
 
 gem 'addressable'
 gem 'geokit'
@@ -60,3 +61,5 @@ gem "hashid-rails", "~> 1.4"
 gem "rack-cors", "~> 1.1"
 
 gem "nokogiri", "~> 1.10"
+
+gem "rgeo-geojson", "~> 2.1"

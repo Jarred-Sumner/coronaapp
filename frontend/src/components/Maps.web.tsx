@@ -176,7 +176,7 @@ class MapView extends Component {
     }
   }
 
-  setZoom = zoom => this.map.setZoom(zoom);
+  setZoom = zoom => this.map?.setZoom(zoom);
 
   onDragEnd = () => {
     const {onRegionChangeComplete} = this.props;
