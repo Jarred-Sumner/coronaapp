@@ -2,10 +2,11 @@ class RootController < ActionController::Base
   include ActionView::Helpers::NumberHelper
 
   def index
+    Rails.logger.info "COORDINATES"
     if coordinates.present?
       render_meta_tags
     else
-      render file: 'public/index.html'
+      render file: 'public/_index.html'
     end
   end
 
@@ -22,7 +23,7 @@ class RootController < ActionController::Base
   end
 
   def meta_tags
-    doc = Nokogiri(File.read(Rails.root + 'public/index.html'))
+    doc = Nokogiri(File.read(Rails.root + 'public/_index.html'))
 
     share_image_url = Addressable::URI.parse("https://i.covy.app/")
     share_image_url.query_values = coordinates.merge({
