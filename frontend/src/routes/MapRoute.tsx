@@ -107,11 +107,39 @@ const styles = StyleSheet.create({
   },
   mapFooter: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 320,
+    paddingBottom: 50,
+    paddingHorizontal: 4,
     left: 0,
     right: 0,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
+  },
+  verticalFooterSide: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  footerSide: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+  },
+  desktopFooterSide: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+  },
+  desktopFooter: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    marginVertical: 16,
+    paddingHorizontal: 12,
+    flex: 1,
+    right: 0,
+    flexDirection: 'row',
   },
   header: {
     flexDirection: 'row',
@@ -119,6 +147,16 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
+    marginVertical: 16,
+    justifyContent: 'center',
+    flexShrink: 1,
+    overflow: 'hidden',
+  },
+  headerContent: {
+    borderRadius: 8,
+    flexDirection: 'row',
+    overflow: 'hidden',
+    backgroundColor: 'rgba(0,0,0,.25)',
   },
   headerLeft: {
     flexDirection: 'column',
@@ -476,28 +514,28 @@ export const MapRoute = ({}) => {
 
   const onPressShare = React.useCallback(async () => {
     const {altitude} = region;
-    const results = await geocode(region.latitude, region.longitude);
+    // const results = await geocode(region.latitude, region.longitude);
     let cityName = null;
 
-    const {city, sub_admin_area, feature_name, state, address} =
-      results[0] ?? {};
+    // const {city, sub_admin_area, feature_name, state, address} =
+    //   results[0] ?? {};
 
-    if (altitude < 10000) {
-      cityName = results[0]?.city;
-    }
+    // if (altitude < 10000) {
+    //   cityName = results[0]?.city;
+    // }
 
-    if (altitude < 1000000 && !cityName) {
-      cityName = results[0]?.sub_admin_area ?? results[0]?.feature_name;
-    } else if (!cityName) {
-      cityName = address;
-    }
+    // if (altitude < 1000000 && !cityName) {
+    //   cityName = results[0]?.sub_admin_area ?? results[0]?.feature_name;
+    // } else if (!cityName) {
+    //   cityName = address;
+    // }
 
     return Share.open({
+      url:
+        `https://covy.app` + window.location.pathname + window.location.search,
       message: `There are ${Numeral(confirmedCasesInRegion).format(
         '0,0',
-      )}+ cases of Corona virus${
-        cityName ? ' near ' + cityName : ''
-      }.\n\n${buildShareURL(region, pins, confirmedCasesInRegion)}`,
+      )}+ cases of Corona virus${cityName ? ' near ' + cityName : ''}.`,
     });
   }, [region, buildShareURL, confirmedCasesInRegion, pins]);
 
@@ -529,30 +567,28 @@ export const MapRoute = ({}) => {
           height={SCREEN_DIMENSIONS.height - 348}
           pins={allPins}>
           <View pointerEvents="box-none" style={[styles.header, {top}]}>
-            <StatusBar backgroundColor={COLORS.dark} />
-            <View pointerEvents="box-none" style={styles.headerLeft}>
-              <StatsButton onPress={openStats} />
-              <LocationButton onPress={handlePressLocation} />
-            </View>
-            <View pointerEvents="box-none" style={styles.headerMiddle}>
+            <View style={styles.headerContent}>
+              <StatusBar backgroundColor={COLORS.dark} />
               <CountryPicker />
-            </View>
-            <View pointerEvents="box-none" style={styles.headerRight}>
-              <SickButton onPress={openReportSick} />
-              <ShareButton onPress={onPressShare} />
+              <CountBox
+                feelingSick={userPins?.count}
+                infected={confirmedCasesInRegion}
+              />
             </View>
           </View>
 
           <View
             pointerEvents="box-none"
-            style={[
-              styles.mapFooter,
-              {bottom: 320, paddingBottom: 50, paddingTop: 0},
-            ]}>
-            <CountBox
-              feelingSick={userPins?.count}
-              infected={confirmedCasesInRegion}
-            />
+            style={isDesktop ? styles.desktopFooter : styles.mapFooter}>
+            <View pointerEvents="box-none" style={styles.verticalFooterSide}>
+              <ShareButton onPress={onPressShare} />
+              <LocationButton onPress={handlePressLocation} />
+            </View>
+            <View
+              pointerEvents="box-none"
+              style={isDesktop ? styles.desktopFooterSide : styles.footerSide}>
+              <SickButton onPress={openReportSick} />
+            </View>
           </View>
 
           <MapHeadTags

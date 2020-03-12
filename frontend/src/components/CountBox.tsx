@@ -10,19 +10,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     color: 'white',
-    marginRight: 6,
+    overflow: 'visible',
+    marginRight: 4,
   },
   label: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'normal',
     color: 'white',
     textAlign: 'center',
   },
   item: {
     paddingHorizontal: 12,
-    marginHorizontal: 12,
     backgroundColor: 'black',
-    borderRadius: 16,
     paddingVertical: 8,
 
     // backgroundColor: 'rgba(25,25,25,0.75)',
@@ -72,11 +71,11 @@ const CountItem = React.memo(
             styles.item,
             {
               backgroundColor: chroma(color)
-                .alpha(0.25)
+                .alpha(0.55)
                 .css(),
             },
           ]}>
-          <Text adjustsFontSizeToFit numberOfLines={1} style={styles.value}>
+          <Text numberOfLines={1} style={styles.value}>
             {_value}
           </Text>
           <Text adjustsFontSizeToFit numberOfLines={1} style={styles.label}>
@@ -98,14 +97,14 @@ export const CountBox = ({
     <>
       <CountItem
         value={infected}
-        label="Cases"
+        label="cases"
         color={COLORS.confirmed}
         emptyLabel="0  confirmed here."
         showPlus
       />
       <CountItem
         value={feelingSick}
-        label="Self-reported"
+        label="self-reported"
         emptyLabel="–  Self-reported"
         color={COLORS.selfReported}
       />

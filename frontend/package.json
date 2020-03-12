@@ -46,6 +46,7 @@
     "babel-plugin-react-native-web": "^0.12.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "chroma-js": "^2.1.0",
+    "copy-to-clipboard": "^3.3.1",
     "country-flag-emoji": "^1.0.3",
     "css-loader": "^3.4.2",
     "date-fns": "^2.10.0",

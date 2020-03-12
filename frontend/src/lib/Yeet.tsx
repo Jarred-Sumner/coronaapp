@@ -1,6 +1,7 @@
 import memoizee from 'memoizee';
 import {PixelRatio} from 'react-native';
 import {GeocodeLocation} from './GeocodeLocation';
+import {apiFetcher} from '../api';
 
 const getCanvas = (width: number): CanvasRenderingContext2D => {
   const canvasEl = document.createElement('canvas');
@@ -213,7 +214,9 @@ export const geocode = (
   latitude: number,
   longitude: number,
 ): Promise<Array<GeocodeLocation>> => {
-  return Promise.resolve<Array<GeocodeLocation>>([]);
+  return apiFetcher(`/geocode/${latitude}/${longitude}`).then(resp =>
+    resp.json(),
+  );
 };
 
 export const setItem = (key: string, value: any, type: string): any => {
