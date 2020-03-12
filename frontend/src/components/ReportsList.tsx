@@ -17,13 +17,13 @@ import {MapContext} from './MapContext';
 import {PullyScrollViewContext} from './PullyView';
 import {UserLocationContext} from './UserLocationContext';
 import {UserReportListItem, USER_REPORT_HEIGHT} from './UserReportListItem';
+import {COLORS} from '../lib/theme';
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-
+    backgroundColor: COLORS.dark,
     flex: 0,
-    position: 'relative',
   },
   list: Platform.select({
     ios: {

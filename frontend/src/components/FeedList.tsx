@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     width: '100%',
 
     flex: 0,
-    position: 'relative',
+
+    backgroundColor: COLORS.dark,
   },
   list: Platform.select({
     ios: {
