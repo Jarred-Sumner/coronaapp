@@ -193,7 +193,7 @@ const MapComponents = React.memo(
       <>
         {dots}
 
-        {kml.map(renderKML)}
+        {kml?.map(renderKML)}
       </>
     );
   },
@@ -323,7 +323,6 @@ export const MapView = React.forwardRef(
           onRegionChangeComplete={onRegionChange}>
           <MapComponents
             selectedId={selectedId}
-            kml={kml}
             circles={circles}
             displayCircles={displayCircles}
             onPressPin={Platform.select({

@@ -101,7 +101,11 @@ module PointThreeAcres
       "id": id,
       "country":  "us",
       "last_updated": last_updated,
+      "started_at": arrival_date,
+      "confirmed_at": confirmed_date,
+      "recovered_at": cured_date,
       "object": "infection",
+      "sources": props["links"]&.map(&:strip),
       "province": state_name,
       "state": state_name,
       "county": county,
@@ -149,6 +153,35 @@ module PointThreeAcres
     end
   end
 
+  def self.merge_case(_previous_case, _row)
+    row = _row.with_indifferent_access
+    previous_case = _previous_case.with_indifferent_access
+
+    county = _row["county"]
+
+    {
+      "id": _row["id"],
+      "country":  "us",
+      "last_updated": [previous_case["last_updated"], row["last_updated"]].compact.max,
+      "started_at": [previous_case["started_at"], row["started_at"]].compact.min,
+      "confirmed_at": [previous_case["confirmed_at"], row["confirmed_at"]].compact.min,
+      "recovered_at": [previous_case["recovered_at"], row["recovered_at"]].compact.min,
+      "object": "infection",
+      "sources": ((previous_case["sources"] || []) + (row["sources"] || [])).compact.uniq.map(&:strip).reject { |a| a.include?("localhost") },
+      "province": _row["province"],
+      "state": _row["state"],
+      "county": county,
+      "label": _row["label"],
+      "latitude": county.point.y,
+      "longitude": county.point.x,
+      "infections": {
+        "confirm": previous_case["infections"]["confirm"] + row["infections"]["confirm"],
+        "recover": previous_case["infections"]["recover"] + row["infections"]["recover"],
+        "dead": previous_case["infections"]["dead"] + row["infections"]["dead"]
+      }
+    }
+  end
+
   def self.fetch_cases(min_lat: nil, min_long: nil, max_lat: nil, max_long: nil)
     box = nil
 
@@ -161,7 +194,8 @@ module PointThreeAcres
 
     data = get_data
 
-    return data["case"].map do |props|
+
+    results = data["case"].map do |props|
       row = format_case(props)&.with_indifferent_access
       next if row.nil?
       county = row['county']
@@ -176,32 +210,26 @@ module PointThreeAcres
       row
     end.compact
 
-    # results.reduce do |result, row|
-    #   cases, counties = result
+    cases = []
+    counties = {}
 
-    #   if cases.nil?
-    #     cases = []
-    #   end
+    results.each do |row|
+      county = row['county']
+      if county
+        if previous_case = counties[county.id]
+          new_case = merge_case(previous_case, row)
 
-    #   if counties.nil?
-    #     counties = {}
-    #   end
+          cases[cases.index(previous_case)] = new_case
+          counties[county.id] = new_case
+        else
+          counties[county.id] = row
+          cases << row
+        end
+      else
+        cases << row
+      end
+    end
 
-    #   county = row['county']
-    #   if county
-    #     if previous_case = counties[county.id]
-    #      infections = previous_case.dig("infections")
-    #      infections
-
-    #     else
-    #       counties[county.id] = row
-    #       cases << row
-    #     end
-    #   else
-    #     cases << row
-    #   end
-
-    #   [cases, counties]
-    # end.first
+    cases
   end
 end

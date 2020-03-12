@@ -1,4 +1,4 @@
-import {capitalize} from 'lodash';
+import {capitalize, isArray, uniq} from 'lodash';
 import Numeral from 'numeral';
 import {formatDistance} from '../lib/formatDistance';
 import * as React from 'react';
@@ -10,6 +10,7 @@ import {COLORS} from '../lib/theme';
 import {CONTENT_WIDTH} from './CONTENT_WIDTH';
 import {Timestamp} from './Timestamp';
 import {ListClicker} from './ListClicker';
+import URL from 'url-parse';
 
 export const CONFIRMED_REPORT_HEIGHT = 164;
 export const UNWRAPPED_USER_REPORT_HEIGHT = CONFIRMED_REPORT_HEIGHT - 16;
@@ -21,6 +22,11 @@ const styles = StyleSheet.create({
     height: UNWRAPPED_USER_REPORT_HEIGHT,
 
     borderRadius: 4,
+  },
+  awayLabel: {
+    flexShrink: 0,
+    fontSize: 16,
+    color: 'rgb(98,98,98)',
   },
   wrapper: {
     height: CONFIRMED_REPORT_HEIGHT,
@@ -112,8 +118,22 @@ const ConfirmedReportComponent = React.memo(
     label,
     infections: {confirm, recover, dead},
     distance = 0,
+    sources,
     last_updated,
   }) => {
+    const _sources = React.useMemo(() => {
+      if (!isArray(sources)) {
+        return 'John Hopkins CSSE';
+      }
+
+      return uniq(
+        sources.map(link => {
+          return new URL(link).hostname.replace('www.', '');
+        }),
+      )
+        .slice(0, 3)
+        .join(', ');
+    }, [sources]);
     return (
       <View style={styles.container}>
         <View style={styles.headerRow}>
@@ -132,7 +152,7 @@ const ConfirmedReportComponent = React.memo(
               <Text
                 numberOfLines={1}
                 adjustsFontSizeToFit
-                style={styles.distanceLabel}>
+                style={styles.awayLabel}>
                 {formatDistance(distance, 'mi')}
               </Text>
               <View style={styles.circleSpacer} />
@@ -145,7 +165,7 @@ const ConfirmedReportComponent = React.memo(
             numberOfLines={1}
             adjustsFontSizeToFit
             style={styles.distanceLabel}>
-            via John Hopkins CSSE
+            via {_sources}
           </Text>
         </View>
 
@@ -186,6 +206,7 @@ export const ConfirmedReportListItem = ({
           <ConfirmedReportComponent
             label={report.label}
             infections={report.infections}
+            sources={report.sources}
             last_updated={report.last_updated}
             distance={distance}
             width={width}
@@ -199,6 +220,7 @@ export const ConfirmedReportListItem = ({
         label={report.label}
         infections={report.infections}
         last_updated={report.last_updated}
+        sources={report.sources}
         distance={distance}
         width={width}
       />
