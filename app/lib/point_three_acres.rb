@@ -161,7 +161,7 @@ module PointThreeAcres
 
     data = get_data
 
-    results = data["case"].map do |props|
+    return data["case"].map do |props|
       row = format_case(props)&.with_indifferent_access
       next if row.nil?
       county = row['county']
