@@ -93,7 +93,7 @@ class UserReportsController < ApplicationController
 
     has_coords = min_lat && min_long && max_lat && max_long
 
-    confirmed_pins = Stats.confirmed_pins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
+    confirmed_pins = Stats.confirmed_pins(min_lat: nil, min_long: nil, max_lat: nil, max_long: nil)
     confirmed_pins.each do |pin|
       reports.push(pin.with_indifferent_access)
     end
