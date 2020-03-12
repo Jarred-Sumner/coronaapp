@@ -172,6 +172,7 @@ module PointThreeAcres
         next if !county.contains?(box)
       end
 
+
       row
     end.compact
 
