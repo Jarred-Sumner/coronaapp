@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
+import {throttle, debounce} from 'lodash';
 import {View, StyleSheet, Platform} from 'react-native';
 import memoizee from 'memoizee';
 
 import {
   GoogleMap,
   useLoadScript,
-  Marker as MapsMarker,
+  Marker as _MapsMarker,
   KmlLayer,
 } from '@react-google-maps/api';
 import {isDesktop} from './ScreenSize';
 import {unstable_batchedUpdates} from 'react-dom';
 import MAPS_STYLE from './MAPS_STYLE';
+
+const MapsMarker = React.memo(_MapsMarker);
 
 export const KmlMarker = ({url, opacity}) => {
   return <KmlLayer url={url} options={{preserveViewport: true}} />;
@@ -54,15 +57,19 @@ export const Marker = ({
   );
 
   const markerImage = getMarkerImage(uri, width, height);
+  const position = React.useMemo(() => ({lat: latitude, lng: longitude}), [
+    latitude,
+    longitude,
+  ]);
 
   return (
     <MapsMarker
       {...rest}
       icon={markerImage}
       clickable={!!onPress}
-      opacity={opacity}
+      // opacity={opacity}
       onClick={handlePress}
-      position={{lat: latitude, lng: longitude}}
+      position={position}
     />
   );
 };
@@ -207,6 +214,8 @@ class MapView extends Component {
     }
   };
 
+  // _onDragEnd = debounce(this.onDragEnd, 16);
+
   onClick = (event: google.maps.MouseEvent) => {
     let mapEvent = {
       nativeEvent: {
@@ -242,7 +251,7 @@ class MapView extends Component {
           containerElement={<div style={{height: '100%'}} />}
           mapElement={<div style={{height: '100%'}} />}
           loadingElement={<div style={{height: '100%'}} />}
-          onDragStart={onRegionChange}
+          // onDragStart={onRegionChange}
           center={this.defaultCenter}
           onIdle={this.onDragEnd}
           zoom={this.defaultZoom}
