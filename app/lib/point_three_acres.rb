@@ -68,7 +68,13 @@ module PointThreeAcres
     if Rails.env.development? && !force
       File.read("#{Rails.root}/db/3point1.json")
     else
-      Faraday.new(url: SCRAPE_URL).get.body
+      resp = Faraday.new(url: SCRAPE_URL).get
+      if resp.success?
+        resp.body
+      else
+        Rails.logger.error "[PointThreeAcres] Failed to fetch.\n#{resp.body}"
+        nil
+      end
     end
   end
 
