@@ -179,8 +179,6 @@ GEM
       rgeo (>= 1.0.0)
     rgeo-kml (0.0.1)
       rgeo (>= 0.3.13)
-    rgeo-proj4 (2.0.0)
-      rgeo (~> 2.0)
     ruby_dep (1.5.0)
     sidekiq (6.0.5)
       connection_pool (>= 2.2.2)
@@ -244,7 +242,6 @@ DEPENDENCIES
   redis
   rgeo-geojson (~> 2.1)
   rgeo-kml (~> 0.0.1)
-  rgeo-proj4
   sidekiq
   timezone
   twitter
