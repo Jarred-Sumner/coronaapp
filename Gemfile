@@ -18,7 +18,7 @@ gem 'puma', '~> 4.1'
 
 gem 'sidekiq'
 gem "browser"
-# gem "rgeo-proj4"
+gem "rgeo-proj4"
 gem 'oj'
 gem 'addressable'
 gem 'geokit'
