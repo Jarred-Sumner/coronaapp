@@ -161,7 +161,7 @@ module PointThreeAcres
 
     data = get_data
 
-    data["case"].map do |props|
+    results = data["case"].map do |props|
       row = format_case(props)&.with_indifferent_access
       next if row.nil?
       county = row['county']
@@ -174,5 +174,33 @@ module PointThreeAcres
 
       row
     end.compact
+
+    # results.reduce do |result, row|
+    #   cases, counties = result
+
+    #   if cases.nil?
+    #     cases = []
+    #   end
+
+    #   if counties.nil?
+    #     counties = {}
+    #   end
+
+    #   county = row['county']
+    #   if county
+    #     if previous_case = counties[county.id]
+    #      infections = previous_case.dig("infections")
+    #      infections
+
+    #     else
+    #       counties[county.id] = row
+    #       cases << row
+    #     end
+    #   else
+    #     cases << row
+    #   end
+
+    #   [cases, counties]
+    # end.first
   end
 end
