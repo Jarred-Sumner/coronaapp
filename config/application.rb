@@ -39,5 +39,3 @@ module Coronaapp
     config.api_only = true
   end
 end
-
-Oj.optimize_rails()
