@@ -67,10 +67,24 @@ export const MapHeadTags = React.memo(
         {title}
         {description}
         {imageTag}
-        <meta property="og:site_name" content="Covy" key="site_name" />
+        <meta
+          key="og:site_name"
+          property="og:site_name"
+          content="Covy"
+          key="site_name"
+        />
         <meta property="og:url" content={asPath} key={`url/${asPath}`} />
-        <meta name="twitter:site" content="@covy_app" />
-        <meta name="twitter:creator" content="@covy_app" />
+        <meta key="twitter:site" name="twitter:site" content="@covy_app" />
+        <meta
+          key="twitter:creator"
+          name="twitter:creator"
+          content="@covy_app"
+        />
+        <meta
+          name="viewport"
+          key="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
       </Head>
     );
   },

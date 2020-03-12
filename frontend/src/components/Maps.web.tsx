@@ -1,17 +1,15 @@
-import React, {Component} from 'react';
-import {throttle, debounce} from 'lodash';
-import {View, StyleSheet, Platform} from 'react-native';
-import memoizee from 'memoizee';
-
 import {
   GoogleMap,
-  useLoadScript,
-  Marker as _MapsMarker,
   KmlLayer,
+  Marker as _MapsMarker,
+  useLoadScript,
 } from '@react-google-maps/api';
-import {isDesktop} from './ScreenSize';
+import memoizee from 'memoizee';
+import React, {Component} from 'react';
 import {unstable_batchedUpdates} from 'react-dom';
+import {StyleSheet, View} from 'react-native';
 import MAPS_STYLE from './MAPS_STYLE';
+import {isDesktop} from './ScreenSize';
 
 const MapsMarker = React.memo(_MapsMarker);
 
@@ -248,9 +246,15 @@ class MapView extends Component {
       <View style={style}>
         <GoogleMapsContainer
           onLoad={this.handleMapMounted}
-          containerElement={<div style={{height: '100%'}} />}
-          mapElement={<div style={{height: '100%'}} />}
-          loadingElement={<div style={{height: '100%'}} />}
+          containerElement={
+            <div style={{height: '100%', backgroundColor: 'black'}} />
+          }
+          mapElement={
+            <div style={{height: '100%', backgroundColor: 'black'}} />
+          }
+          loadingElement={
+            <div style={{height: '100%', backgroundColor: 'black'}} />
+          }
           // onDragStart={onRegionChange}
           center={this.defaultCenter}
           onIdle={this.onDragEnd}
