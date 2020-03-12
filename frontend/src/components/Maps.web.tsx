@@ -11,7 +11,6 @@ import {unstable_batchedUpdates} from 'react-dom';
 import MAPS_STYLE from './MAPS_STYLE';
 
 export const KmlMarker = ({url, opacity}) => {
-  console.log({url});
   return <KmlLayer url={url} options={{preserveViewport: true}} />;
 };
 
