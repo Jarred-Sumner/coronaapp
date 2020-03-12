@@ -128,6 +128,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
+    oj (3.10.5)
     pg (1.2.2)
     public_suffix (4.0.3)
     puma (4.3.3)
@@ -176,6 +177,8 @@ GEM
       rgeo (>= 1.0.0)
     rgeo-geojson (2.1.1)
       rgeo (>= 1.0.0)
+    rgeo-kml (0.0.1)
+      rgeo (>= 0.3.13)
     rgeo-proj4 (2.0.0)
       rgeo (~> 2.0)
     ruby_dep (1.5.0)
@@ -233,12 +236,14 @@ DEPENDENCIES
   hiredis
   listen (>= 3.0.5, < 3.2)
   nokogiri (~> 1.10)
+  oj
   pg
   puma (~> 4.1)
   rack-cors (~> 1.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   redis
   rgeo-geojson (~> 2.1)
+  rgeo-kml (~> 0.0.1)
   rgeo-proj4
   sidekiq
   timezone

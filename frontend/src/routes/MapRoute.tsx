@@ -21,6 +21,7 @@ import {
   apiFetcher,
   buildShareURL,
   COUNTRIES_URL,
+  hostname,
   fetchPins,
   fetchUserPins,
   TOTALS_URL,
@@ -168,11 +169,11 @@ export const MapRoute = ({}) => {
   const hasNavigatedToUserLocation = React.useRef(false);
 
   const {resolvedData: confirmedPins} = usePaginatedQuery(
-    ['get_pins', region],
+    ['getpins', region],
     fetchPins,
   );
   const {resolvedData: userPins} = usePaginatedQuery(
-    ['get_user_pins', region],
+    ['get_userpins', region],
     fetchUserPins,
   );
 
@@ -436,55 +437,27 @@ export const MapRoute = ({}) => {
     );
   }, [location, moveMap, hasNavigatedToUserLocation, RNLocation]);
 
-  const [confirmedCasesInRegion, visiblePins] = React.useMemo(() => {
+  const [confirmedCasesInRegion, kml] = React.useMemo(() => {
     let count = 0;
     if (!region) {
       return [0, []];
     }
 
-    const _pins = [];
+    const _kml = new Set();
 
     if (confirmedPins?.pins?.length) {
-      const {minLatitude, minLongitude, maxLongitude, maxLatitude} = region;
-
-      const polygon = [
-        {
-          latitude: minLatitude,
-          longitude: minLongitude,
-        },
-        {
-          latitude: minLatitude,
-          longitude: maxLongitude,
-        },
-        {
-          latitude: maxLatitude,
-          longitude: maxLongitude,
-        },
-        {
-          latitude: maxLatitude,
-          longitude: minLongitude,
-        },
-      ];
-
-      // const radius = getDistance(polygon[0], center) * 1.75;
-
       for (const pin of confirmedPins.pins) {
-        if (
-          isPointInPolygon(pin, polygon)
-          // isPointWithinRadius(
-          //   {latitude: pin.latitude, longitude: pin.longitude},
-          //   center,
-          //   radius,
-          // )
-        ) {
-          count = count + pin.infections.confirm;
-          count -= pin.infections.recover;
-          _pins.push(pin);
+        const _count =
+          pin.infections.confirm - pin.infections.recover - pin.infections.dead;
+
+        if (_count > 0 && pin.kml) {
+          _kml.add(hostname + pin.kml);
         }
+        count = count + _count;
       }
     }
 
-    return [count, _pins];
+    return [count, [..._kml]];
   }, [userPins, confirmedPins, region]);
 
   const onPressShare = React.useCallback(async () => {
@@ -510,9 +483,9 @@ export const MapRoute = ({}) => {
         '0,0',
       )}+ cases of Corona virus${
         cityName ? ' near ' + cityName : ''
-      }.\n\n${buildShareURL(region, visiblePins, confirmedCasesInRegion)}`,
+      }.\n\n${buildShareURL(region, pins, confirmedCasesInRegion)}`,
     });
-  }, [region, buildShareURL, confirmedCasesInRegion, visiblePins]);
+  }, [region, buildShareURL, confirmedCasesInRegion, pins]);
 
   return (
     <MapContext.Provider value={mapContextValue}>
@@ -531,6 +504,7 @@ export const MapRoute = ({}) => {
           onRegionChange={handleRegionChange}
           onPressPin={handlePressPin}
           selectedId={selectedId}
+          kml={kml}
           onPressMap={handlePressMap}
           userLocation={location}
           ref={mapRef}

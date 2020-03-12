@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <LookAt>
+      <longitude>-102</longitude>
+      <latitude>38.5</latitude>
+      <range>7000000</range>
+      <tilt>10</tilt>
+      <heading>0</heading>
+    </LookAt>
+    <name>cb_2018_us_county_500k</name>
+    <visibility>1</visibility>
+    <Style id="KMLStyler">
+      <LabelStyle>
+        <scale>1.0</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>C0871919</color>
+        <width>2</width>
+        <gx:labelVisibility>0</gx:labelVisibility>
+      </LineStyle>
+      <PolyStyle>
+        <color>F0871919</color>
+      </PolyStyle>
+    </Style>
+    <Schema name="cb_2018_us_county_500k" id="kml_schema_ft_cb_2018_us_county_500k">
+      <SimpleField type="xsd:string" name="STATEFP">
+        <displayName>STATEFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYFP">
+        <displayName>COUNTYFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYNS">
+        <displayName>COUNTYNS</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="AFFGEOID">
+        <displayName>AFFGEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="GEOID">
+        <displayName>GEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="NAME">
+        <displayName>NAME</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="LSAD">
+        <displayName>LSAD</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="ALAND">
+        <displayName>ALAND</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="AWATER">
+        <displayName>AWATER</displayName>
+      </SimpleField>
+    </Schema>
+    <Folder id="kml_ft_cb_2016_us_zcta510_500k">
+      <name>cb_2016_us_zcta510_500k</name>
+    </Folder>
+    <Placemark id="cb_2018_us_county_500k.kml">
+      <name>&lt;at&gt;&lt;openparen&gt;Howard&lt;closeparen&gt;</name>
+      <visibility>1</visibility>
+      <styleUrl>#KMLStyler</styleUrl>
+      <ExtendedData>
+        <SchemaData schemaUrl="#kml_schema_ft_cb_2018_us_county_500k">
+          <SimpleData name="STATEFP">48</SimpleData>
+          <SimpleData name="COUNTYFP">227</SimpleData>
+          <SimpleData name="COUNTYNS">01383899</SimpleData>
+          <SimpleData name="AFFGEOID">0500000US48227</SimpleData>
+          <SimpleData name="GEOID">48227</SimpleData>
+          <SimpleData name="NAME">Howard</SimpleData>
+          <SimpleData name="LSAD">06</SimpleData>
+          <SimpleData name="ALAND">2333039137</SimpleData>
+          <SimpleData name="AWATER">8841783</SimpleData>
+        </SchemaData>
+      </ExtendedData>
+      <Polygon>
+        <extrude>0</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>clampToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-101.693448,32.196112,0.0 -101.695011,32.087532,0.0 -101.560618,32.087136,0.0 -101.542703,32.087097,0.0 -101.541742,32.08715,0.0 -101.271795,32.087197,0.0 -101.271174,32.087147,0.0 -101.264216,32.087136,0.0 -101.183997,32.087208,0.0 -101.181821,32.18688,0.0 -101.181652,32.195313,0.0 -101.181381,32.212522,0.0 -101.17509,32.480466,0.0 -101.174697,32.493291,0.0 -101.174607,32.495252,0.0 -101.174571,32.524112,0.0 -101.248843,32.52398,0.0 -101.250402,32.524098,0.0 -101.328387,32.52432,0.0 -101.374973,32.524436,0.0 -101.517447,32.52491,0.0 -101.607375,32.524982,0.0 -101.611899,32.524986,0.0 -101.68874,32.525222,0.0 -101.691853,32.300048,0.0 -101.691866,32.299196,0.0 -101.692269,32.271062,0.0 -101.692342,32.265213,0.0 -101.692441,32.250119,0.0 -101.692545,32.249274,0.0 -101.693448,32.196112,0.0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>

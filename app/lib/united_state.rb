@@ -1,27 +1,34 @@
 class UnitedState
-  attr_accessor :name, :id, :polygons
-  def initialize(entry, name, id)
+  attr_accessor :name, :id, :polygons, :geojson
+
+  def counties
+    Map.counties_in_state(id)
+  end
+
+  def factory
+    Map.geo_factory
+  end
+
+  def initialize(geojson, name, id)
     @name = name
     @id = id
+    @geojson = geojson
 
-    if entry["geometry"]["type"] == "MultiPolygon"
-      @polygons = entry["geometry"]["coordinates"].flat_map do |coords|
-        points = coords.flatten.in_groups_of(2).map do |coord|
-          Geokit::LatLng.new(coord[0], coord[1])
-        end
-
-        Geokit::Polygon.new(points)
+    if geojson.geometry.geometry_type == RGeo::Feature::MultiPolygon
+      @polygons = []
+      geojson.geometry.each do |geometry|
+        @polygons << geometry
       end
     else
-      points = entry["geometry"]["coordinates"].flatten.in_groups_of(2).map do |coord|
-        Geokit::LatLng.new(coord[0], coord[1])
-      end
-
-      @polygons = [Geokit::Polygon.new(points)]
+      @polygons = [geojson.geometry]
     end
   end
 
   def contains?(box)
+    polygons.any? { |state| box.overlaps?(state) }
+  end
+
+  def geokit_contains?(box)
     polygons.any? { |state| box.contains?(state.centroid) }
   end
 

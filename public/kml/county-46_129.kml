@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <LookAt>
+      <longitude>-102</longitude>
+      <latitude>38.5</latitude>
+      <range>7000000</range>
+      <tilt>10</tilt>
+      <heading>0</heading>
+    </LookAt>
+    <name>cb_2018_us_county_500k</name>
+    <visibility>1</visibility>
+    <Style id="KMLStyler">
+      <LabelStyle>
+        <scale>1.0</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>C0871919</color>
+        <width>2</width>
+        <gx:labelVisibility>0</gx:labelVisibility>
+      </LineStyle>
+      <PolyStyle>
+        <color>F0871919</color>
+      </PolyStyle>
+    </Style>
+    <Schema name="cb_2018_us_county_500k" id="kml_schema_ft_cb_2018_us_county_500k">
+      <SimpleField type="xsd:string" name="STATEFP">
+        <displayName>STATEFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYFP">
+        <displayName>COUNTYFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYNS">
+        <displayName>COUNTYNS</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="AFFGEOID">
+        <displayName>AFFGEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="GEOID">
+        <displayName>GEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="NAME">
+        <displayName>NAME</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="LSAD">
+        <displayName>LSAD</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="ALAND">
+        <displayName>ALAND</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="AWATER">
+        <displayName>AWATER</displayName>
+      </SimpleField>
+    </Schema>
+    <Folder id="kml_ft_cb_2016_us_zcta510_500k">
+      <name>cb_2016_us_zcta510_500k</name>
+    </Folder>
+    <Placemark id="cb_2018_us_county_500k.kml">
+      <visibility>1</visibility>
+      <styleUrl>#KMLStyler</styleUrl>
+      <ExtendedData>
+        <SchemaData schemaUrl="#kml_schema_ft_cb_2018_us_county_500k">
+          <SimpleData name="STATEFP">46</SimpleData>
+          <SimpleData name="COUNTYFP">129</SimpleData>
+          <SimpleData name="COUNTYNS">01266973</SimpleData>
+          <SimpleData name="AFFGEOID">0500000US46129</SimpleData>
+          <SimpleData name="GEOID">46129</SimpleData>
+          <SimpleData name="NAME">Walworth</SimpleData>
+          <SimpleData name="LSAD">06</SimpleData>
+          <SimpleData name="ALAND">1835374266</SimpleData>
+          <SimpleData name="AWATER">93215243</SimpleData>
+        </SchemaData>
+      </ExtendedData>
+      <Polygon>
+        <extrude>0</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>clampToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-100.486579,45.541215,0.0 -100.48658,45.537705,0.0 -100.486561,45.536521,0.0 -100.484486,45.532651,0.0 -100.479153,45.525103,0.0 -100.474831,45.521514,0.0 -100.472068,45.519874,0.0 -100.460094,45.514167,0.0 -100.453889,45.512006,0.0 -100.447168,45.510392,0.0 -100.443961,45.509858,0.0 -100.440307,45.509678,0.0 -100.436126,45.509844,0.0 -100.427973,45.50967,0.0 -100.420764,45.509675,0.0 -100.414989,45.509382,0.0 -100.409579,45.508846,0.0 -100.400929,45.509721,0.0 -100.391682,45.511972,0.0 -100.386741,45.511909,0.0 -100.382131,45.510645,0.0 -100.376582,45.507626,0.0 -100.370822,45.503924,0.0 -100.365258,45.500109,0.0 -100.347551,45.481309,0.0 -100.342257,45.473892,0.0 -100.341924,45.472904,0.0 -100.341275,45.471896,0.0 -100.335999,45.455879,0.0 -100.331472,45.444409,0.0 -100.33032,45.44221,0.0 -100.32708,45.438722,0.0 -100.320949,45.433114,0.0 -100.313907,45.428657,0.0 -100.307538,45.423748,0.0 -100.304421,45.420808,0.0 -100.296899,45.412651,0.0 -100.292346,45.40606,0.0 -100.290548,45.401621,0.0 -100.287271,45.396537,0.0 -100.279453,45.388775,0.0 -100.274176,45.381845,0.0 -100.273964,45.375345,0.0 -100.278195,45.368254,0.0 -100.279363,45.364581,0.0 -100.280356,45.358726,0.0 -100.282324,45.355322,0.0 -100.308234,45.332076,0.0 -100.312865,45.326671,0.0 -100.315538,45.322035,0.0 -100.316576,45.319225,0.0 -100.315926,45.315493,0.0 -100.313709,45.310381,0.0 -100.307384,45.291909,0.0 -100.302693,45.287146,0.0 -100.294572,45.281183,0.0 -100.289675,45.27691,0.0 -100.284208,45.272515,0.0 -100.273405,45.265602,0.0 -100.270643,45.263581,0.0 -100.268054,45.26111,0.0 -100.26305,45.253411,0.0 -100.261702,45.251031,0.0 -100.260223,45.24681,0.0 -100.058384,45.246467,0.0 -99.955623,45.24653,0.0 -99.898771,45.24609,0.0 -99.893943,45.24625,0.0 -99.836723,45.246119,0.0 -99.782453,45.246006,0.0 -99.772307,45.245986,0.0 -99.708987,45.245866,0.0 -99.708373,45.332348,0.0 -99.708449,45.339447,0.0 -99.708393,45.347277,0.0 -99.708235,45.419773,0.0 -99.708145,45.44855,0.0 -99.708013,45.50617,0.0 -99.707935,45.506507,0.0 -99.707936,45.549725,0.0 -99.707705,45.593391,0.0 -99.717466,45.593428,0.0 -99.752916,45.593121,0.0 -99.758754,45.59337,0.0 -99.769225,45.5934,0.0 -99.769694,45.593402,0.0 -99.810449,45.593349,0.0 -99.820801,45.593363,0.0 -99.935766,45.593718,0.0 -100.068906,45.59396,0.0 -100.222772,45.594475,0.0 -100.234293,45.594484,0.0 -100.243513,45.594495,0.0 -100.325161,45.59456,0.0 -100.337903,45.594547,0.0 -100.366535,45.59464,0.0 -100.405233,45.594643,0.0 -100.430079,45.594823,0.0 -100.430751,45.591691,0.0 -100.432051,45.588855,0.0 -100.434152,45.585713,0.0 -100.437039,45.582496,0.0 -100.44082,45.578955,0.0 -100.450689,45.572354,0.0 -100.454533,45.570183,0.0 -100.458267,45.568661,0.0 -100.462113,45.567545,0.0 -100.466681,45.565793,0.0 -100.475414,45.559445,0.0 -100.477542,45.557511,0.0 -100.482619,45.551502,0.0 -100.485243,45.547203,0.0 -100.48597,45.545308,0.0 -100.486579,45.541215,0.0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>

@@ -19,7 +19,7 @@ gem 'puma', '~> 4.1'
 gem 'sidekiq'
 gem "browser"
 gem "rgeo-proj4"
-
+gem 'oj'
 gem 'addressable'
 gem 'geokit'
 # Use Active Storage variant
@@ -63,3 +63,5 @@ gem "rack-cors", "~> 1.1"
 gem "nokogiri", "~> 1.10"
 
 gem "rgeo-geojson", "~> 2.1"
+
+gem "rgeo-kml", "~> 0.0.1"

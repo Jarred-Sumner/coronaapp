@@ -7,7 +7,7 @@ class Stats
   CONFIRMED_URL_UPDATED_AT_KEY = "Stats/hopkins/CONFIRMED_URL_UPDATED_AT_KEY"
   CONFIRMED_FALLBACK_URL = "https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/COVID_19_CasesByCountry(pt)_VIEW/FeatureServer/0/query"
 
-  ENABLE_FALLBACK = false
+  PINS_PROVIDER = :pt
 
   def self.faraday(url)
     Faraday.new(
@@ -69,8 +69,8 @@ class Stats
     end
 
     def self.confirmed_pins(min_lat:, min_long:, max_lat:, max_long:)
-      if ENABLE_FALLBACK
-        confirmed_pins_fallback(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
+      if PINS_PROVIDER == :pt
+        PointThreeAcres.fetch_cases(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
       else
         pins = confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
         if confirmed_pins_needs_update?
@@ -90,8 +90,6 @@ class Stats
     end
 
     def self.confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0)
-
-
       resp = Rails.cache.fetch(CONFIRMED_URL_KEY) do
         body = fetch_confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
 
@@ -119,6 +117,7 @@ class Stats
           "country":  props["Country_Region"],
           "last_updated": Time.at(props["Last_Update"] / 1000),
           "object": "infection",
+          "source": "hopkins",
           "province":  props["Province_State"],
           label: [props["Province_State"], props["Country_Region"]].compact.uniq.join(" "),
           "latitude": Float(props["Lat"]),

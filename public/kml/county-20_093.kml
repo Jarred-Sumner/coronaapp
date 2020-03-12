@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <LookAt>
+      <longitude>-102</longitude>
+      <latitude>38.5</latitude>
+      <range>7000000</range>
+      <tilt>10</tilt>
+      <heading>0</heading>
+    </LookAt>
+    <name>cb_2018_us_county_500k</name>
+    <visibility>1</visibility>
+    <Style id="KMLStyler">
+      <LabelStyle>
+        <scale>1.0</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>C0871919</color>
+        <width>2</width>
+        <gx:labelVisibility>0</gx:labelVisibility>
+      </LineStyle>
+      <PolyStyle>
+        <color>F0871919</color>
+      </PolyStyle>
+    </Style>
+    <Schema name="cb_2018_us_county_500k" id="kml_schema_ft_cb_2018_us_county_500k">
+      <SimpleField type="xsd:string" name="STATEFP">
+        <displayName>STATEFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYFP">
+        <displayName>COUNTYFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYNS">
+        <displayName>COUNTYNS</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="AFFGEOID">
+        <displayName>AFFGEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="GEOID">
+        <displayName>GEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="NAME">
+        <displayName>NAME</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="LSAD">
+        <displayName>LSAD</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="ALAND">
+        <displayName>ALAND</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="AWATER">
+        <displayName>AWATER</displayName>
+      </SimpleField>
+    </Schema>
+    <Folder id="kml_ft_cb_2016_us_zcta510_500k">
+      <name>cb_2016_us_zcta510_500k</name>
+    </Folder>
+    <Placemark id="cb_2018_us_county_500k.kml">
+      <visibility>1</visibility>
+      <styleUrl>#KMLStyler</styleUrl>
+      <ExtendedData>
+        <SchemaData schemaUrl="#kml_schema_ft_cb_2018_us_county_500k">
+          <SimpleData name="STATEFP">20</SimpleData>
+          <SimpleData name="COUNTYFP">093</SimpleData>
+          <SimpleData name="COUNTYNS">00485011</SimpleData>
+          <SimpleData name="AFFGEOID">0500000US20093</SimpleData>
+          <SimpleData name="GEOID">20093</SimpleData>
+          <SimpleData name="NAME">Kearny</SimpleData>
+          <SimpleData name="LSAD">06</SimpleData>
+          <SimpleData name="ALAND">2254696663</SimpleData>
+          <SimpleData name="AWATER">1133601</SimpleData>
+        </SchemaData>
+      </ExtendedData>
+      <Polygon>
+        <extrude>0</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>clampToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-101.54192,37.914575,0.0 -101.542757,37.827594,0.0 -101.526964,37.827626,0.0 -101.527063,37.736314,0.0 -101.526365,37.736296,0.0 -101.198458,37.736252,0.0 -101.09175,37.736476,0.0 -101.089667,37.736337,0.0 -101.089838,37.809048,0.0 -101.089886,37.829115,0.0 -101.103778,37.829035,0.0 -101.102995,37.977444,0.0 -101.102962,38.017627,0.0 -101.102642,38.075833,0.0 -101.10261,38.090424,0.0 -101.102843,38.148402,0.0 -101.103268,38.264557,0.0 -101.125438,38.264509,0.0 -101.212997,38.264284,0.0 -101.322674,38.264022,0.0 -101.346195,38.263795,0.0 -101.347597,38.263768,0.0 -101.529212,38.263249,0.0 -101.530502,38.263321,0.0 -101.542312,38.263207,0.0 -101.542022,38.208588,0.0 -101.541868,38.189714,0.0 -101.541744,38.176369,0.0 -101.541159,38.075038,0.0 -101.541683,37.933714,0.0 -101.541892,37.931651,0.0 -101.541863,37.922247,0.0 -101.54192,37.914575,0.0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>

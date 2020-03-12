@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <LookAt>
+      <longitude>-102</longitude>
+      <latitude>38.5</latitude>
+      <range>7000000</range>
+      <tilt>10</tilt>
+      <heading>0</heading>
+    </LookAt>
+    <name>cb_2018_us_county_500k</name>
+    <visibility>1</visibility>
+    <Style id="KMLStyler">
+      <LabelStyle>
+        <scale>1.0</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>C0871919</color>
+        <width>2</width>
+        <gx:labelVisibility>0</gx:labelVisibility>
+      </LineStyle>
+      <PolyStyle>
+        <color>F0871919</color>
+      </PolyStyle>
+    </Style>
+    <Schema name="cb_2018_us_county_500k" id="kml_schema_ft_cb_2018_us_county_500k">
+      <SimpleField type="xsd:string" name="STATEFP">
+        <displayName>STATEFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYFP">
+        <displayName>COUNTYFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYNS">
+        <displayName>COUNTYNS</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="AFFGEOID">
+        <displayName>AFFGEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="GEOID">
+        <displayName>GEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="NAME">
+        <displayName>NAME</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="LSAD">
+        <displayName>LSAD</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="ALAND">
+        <displayName>ALAND</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="AWATER">
+        <displayName>AWATER</displayName>
+      </SimpleField>
+    </Schema>
+    <Folder id="kml_ft_cb_2016_us_zcta510_500k">
+      <name>cb_2016_us_zcta510_500k</name>
+    </Folder>
+    <Placemark id="cb_2018_us_county_500k.kml">
+      <visibility>1</visibility>
+      <styleUrl>#KMLStyler</styleUrl>
+      <ExtendedData>
+        <SchemaData schemaUrl="#kml_schema_ft_cb_2018_us_county_500k">
+          <SimpleData name="STATEFP">60</SimpleData>
+          <SimpleData name="COUNTYFP">040</SimpleData>
+          <SimpleData name="COUNTYNS">01805244</SimpleData>
+          <SimpleData name="AFFGEOID">0500000US60040</SimpleData>
+          <SimpleData name="GEOID">60040</SimpleData>
+          <SimpleData name="NAME">Swains Island</SimpleData>
+          <SimpleData name="LSAD">00</SimpleData>
+          <SimpleData name="ALAND">2432605</SimpleData>
+          <SimpleData name="AWATER">149170816</SimpleData>
+        </SchemaData>
+      </ExtendedData>
+      <Polygon>
+        <extrude>0</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>clampToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-171.089874,-11.052592,0.0 -171.089823,-11.054115,0.0 -171.088959,-11.0568,0.0 -171.087202,-11.059712,0.0 -171.08484,-11.06203,0.0 -171.082449,-11.063896,0.0 -171.080865,-11.064603,0.0 -171.078762,-11.064574,0.0 -171.076861,-11.063811,0.0 -171.071993,-11.060023,0.0 -171.07061,-11.059316,0.0 -171.067698,-11.057124,0.0 -171.066232,-11.055698,0.0 -171.0658,-11.05386,0.0 -171.066376,-11.051514,0.0 -171.068824,-11.048687,0.0 -171.070174,-11.047919,0.0 -171.071791,-11.047132,0.0 -171.073635,-11.046934,0.0 -171.079568,-11.047782,0.0 -171.08435,-11.04846,0.0 -171.086942,-11.049309,0.0 -171.088152,-11.049902,0.0 -171.089535,-11.051174,0.0 -171.089874,-11.052592,0.0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>

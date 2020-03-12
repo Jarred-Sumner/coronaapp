@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <LookAt>
+      <longitude>-102</longitude>
+      <latitude>38.5</latitude>
+      <range>7000000</range>
+      <tilt>10</tilt>
+      <heading>0</heading>
+    </LookAt>
+    <name>cb_2018_us_county_500k</name>
+    <visibility>1</visibility>
+    <Style id="KMLStyler">
+      <LabelStyle>
+        <scale>1.0</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>C0871919</color>
+        <width>2</width>
+        <gx:labelVisibility>0</gx:labelVisibility>
+      </LineStyle>
+      <PolyStyle>
+        <color>F0871919</color>
+      </PolyStyle>
+    </Style>
+    <Schema name="cb_2018_us_county_500k" id="kml_schema_ft_cb_2018_us_county_500k">
+      <SimpleField type="xsd:string" name="STATEFP">
+        <displayName>STATEFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYFP">
+        <displayName>COUNTYFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYNS">
+        <displayName>COUNTYNS</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="AFFGEOID">
+        <displayName>AFFGEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="GEOID">
+        <displayName>GEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="NAME">
+        <displayName>NAME</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="LSAD">
+        <displayName>LSAD</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="ALAND">
+        <displayName>ALAND</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="AWATER">
+        <displayName>AWATER</displayName>
+      </SimpleField>
+    </Schema>
+    <Folder id="kml_ft_cb_2016_us_zcta510_500k">
+      <name>cb_2016_us_zcta510_500k</name>
+    </Folder>
+    <Placemark id="cb_2018_us_county_500k.kml">
+      <visibility>1</visibility>
+      <styleUrl>#KMLStyler</styleUrl>
+      <ExtendedData>
+        <SchemaData schemaUrl="#kml_schema_ft_cb_2018_us_county_500k">
+          <SimpleData name="STATEFP">05</SimpleData>
+          <SimpleData name="COUNTYFP">101</SimpleData>
+          <SimpleData name="COUNTYNS">00069900</SimpleData>
+          <SimpleData name="AFFGEOID">0500000US05101</SimpleData>
+          <SimpleData name="GEOID">05101</SimpleData>
+          <SimpleData name="NAME">Newton</SimpleData>
+          <SimpleData name="LSAD">06</SimpleData>
+          <SimpleData name="ALAND">2126144031</SimpleData>
+          <SimpleData name="AWATER">5930175</SimpleData>
+        </SchemaData>
+      </ExtendedData>
+      <Polygon>
+        <extrude>0</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>clampToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-93.523639,35.881592,0.0 -93.526087,35.823611,0.0 -93.517092,35.823333,0.0 -93.518306,35.793386,0.0 -93.518247,35.791999,0.0 -93.518811,35.777544,0.0 -93.518708,35.772053,0.0 -93.519204,35.763521,0.0 -93.519575,35.734422,0.0 -93.484491,35.733823,0.0 -93.472596,35.733607,0.0 -93.432451,35.731897,0.0 -93.408222,35.731183,0.0 -93.406868,35.731257,0.0 -93.406349,35.731243,0.0 -93.379345,35.730529,0.0 -93.379071,35.730521,0.0 -93.374056,35.730231,0.0 -93.359195,35.730298,0.0 -93.358121,35.730463,0.0 -93.344231,35.730353,0.0 -93.306185,35.730403,0.0 -93.200036,35.72998,0.0 -93.19451,35.72968,0.0 -93.164452,35.728831,0.0 -93.146451,35.727673,0.0 -93.106572,35.727507,0.0 -93.101404,35.727234,0.0 -93.093781,35.727299,0.0 -93.076045,35.726886,0.0 -93.022953,35.725814,0.0 -93.000173,35.725399,0.0 -92.993353,35.725713,0.0 -92.951315,35.724663,0.0 -92.949757,35.805296,0.0 -92.949621,35.813016,0.0 -92.946594,35.813037,0.0 -92.944893,35.869717,0.0 -92.944915,35.871237,0.0 -92.942202,35.941966,0.0 -92.941749,35.955826,0.0 -92.941143,35.98632,0.0 -92.940932,35.990069,0.0 -92.940926,35.990171,0.0 -92.940578,35.99614,0.0 -92.940187,36.000075,0.0 -92.93851,36.071726,0.0 -92.945543,36.071894,0.0 -92.945064,36.093565,0.0 -92.944759,36.108139,0.0 -92.944666,36.115123,0.0 -92.944659,36.115615,0.0 -92.965307,36.115664,0.0 -92.973444,36.115997,0.0 -92.998073,36.116229,0.0 -93.016242,36.116308,0.0 -93.034274,36.116332,0.0 -93.049421,36.116352,0.0 -93.069826,36.116949,0.0 -93.076984,36.118082,0.0 -93.078877,36.118169,0.0 -93.08562,36.119352,0.0 -93.08666,36.119449,0.0 -93.095727,36.119317,0.0 -93.101155,36.119402,0.0 -93.10473,36.119321,0.0 -93.124834,36.119223,0.0 -93.14032,36.11755,0.0 -93.211857,36.119206,0.0 -93.265157,36.120315,0.0 -93.290271,36.120907,0.0 -93.30082,36.12155,0.0 -93.323628,36.121813,0.0 -93.328313,36.122012,0.0 -93.353778,36.122376,0.0 -93.362493,36.122501,0.0 -93.434672,36.124077,0.0 -93.43916,36.124176,0.0 -93.444504,36.124293,0.0 -93.479528,36.125072,0.0 -93.48022,36.081425,0.0 -93.445619,36.080749,0.0 -93.448183,36.053506,0.0 -93.448752,36.025443,0.0 -93.44894,36.017437,0.0 -93.450715,35.967493,0.0 -93.468003,35.967545,0.0 -93.46839,35.953088,0.0 -93.486138,35.953299,0.0 -93.486281,35.94867,0.0 -93.486432,35.93875,0.0 -93.486864,35.924235,0.0 -93.504925,35.925188,0.0 -93.505204,35.910749,0.0 -93.50507,35.9082,0.0 -93.505493,35.89555,0.0 -93.50601,35.88108,0.0 -93.523639,35.881592,0.0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>

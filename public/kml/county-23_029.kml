@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <LookAt>
+      <longitude>-102</longitude>
+      <latitude>38.5</latitude>
+      <range>7000000</range>
+      <tilt>10</tilt>
+      <heading>0</heading>
+    </LookAt>
+    <name>cb_2018_us_county_500k</name>
+    <visibility>1</visibility>
+    <Style id="KMLStyler">
+      <LabelStyle>
+        <scale>1.0</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>C0871919</color>
+        <width>2</width>
+        <gx:labelVisibility>0</gx:labelVisibility>
+      </LineStyle>
+      <PolyStyle>
+        <color>F0871919</color>
+      </PolyStyle>
+    </Style>
+    <Schema name="cb_2018_us_county_500k" id="kml_schema_ft_cb_2018_us_county_500k">
+      <SimpleField type="xsd:string" name="STATEFP">
+        <displayName>STATEFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYFP">
+        <displayName>COUNTYFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYNS">
+        <displayName>COUNTYNS</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="AFFGEOID">
+        <displayName>AFFGEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="GEOID">
+        <displayName>GEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="NAME">
+        <displayName>NAME</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="LSAD">
+        <displayName>LSAD</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="ALAND">
+        <displayName>ALAND</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="AWATER">
+        <displayName>AWATER</displayName>
+      </SimpleField>
+    </Schema>
+    <Folder id="kml_ft_cb_2016_us_zcta510_500k">
+      <name>cb_2016_us_zcta510_500k</name>
+    </Folder>
+    <Placemark id="cb_2018_us_county_500k.kml">
+      <visibility>1</visibility>
+      <styleUrl>#KMLStyler</styleUrl>
+      <ExtendedData>
+        <SchemaData schemaUrl="#kml_schema_ft_cb_2018_us_county_500k">
+          <SimpleData name="STATEFP">23</SimpleData>
+          <SimpleData name="COUNTYFP">029</SimpleData>
+          <SimpleData name="COUNTYNS">00581300</SimpleData>
+          <SimpleData name="AFFGEOID">0500000US23029</SimpleData>
+          <SimpleData name="GEOID">23029</SimpleData>
+          <SimpleData name="NAME">Washington</SimpleData>
+          <SimpleData name="LSAD">06</SimpleData>
+          <SimpleData name="ALAND">6637392589</SimpleData>
+          <SimpleData name="AWATER">1799936763</SimpleData>
+        </SchemaData>
+      </ExtendedData>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.322595,44.611595,0.0 -67.322513,44.609069,0.0 -67.320606,44.607222,0.0 -67.319156,44.606521,0.0 -67.319277,44.605006,0.0 -67.318245,44.603694,0.0 -67.31563,44.605217,0.0 -67.313789,44.604048,0.0 -67.314722,44.60168,0.0 -67.314153,44.597468,0.0 -67.310709,44.598303,0.0 -67.308027,44.597161,0.0 -67.303039,44.597402,0.0 -67.298827,44.599198,0.0 -67.292338,44.599125,0.0 -67.291433,44.60105,0.0 -67.291113,44.602432,0.0 -67.287814,44.604534,0.0 -67.283299,44.604183,0.0 -67.280207,44.603448,0.0 -67.278314,44.605725,0.0 -67.280216,44.608263,0.0 -67.280454,44.609786,0.0 -67.277126,44.609955,0.0 -67.273798,44.609955,0.0 -67.26548,44.605048,0.0 -67.263629,44.603611,0.0 -67.261668,44.604598,0.0 -67.260985,44.608656,0.0 -67.263816,44.608771,0.0 -67.269045,44.611139,0.0 -67.270946,44.612662,0.0 -67.274749,44.615031,0.0 -67.279027,44.615877,0.0 -67.28188,44.618415,0.0 -67.282117,44.619937,0.0 -67.284256,44.619768,0.0 -67.289723,44.616723,0.0 -67.291149,44.619261,0.0 -67.29519,44.621121,0.0 -67.299706,44.621121,0.0 -67.301401,44.623611,0.0 -67.30597,44.620838,0.0 -67.30642,44.61891,0.0 -67.311107,44.616706,0.0 -67.310639,44.614016,0.0 -67.309688,44.612155,0.0 -67.31254,44.610632,0.0 -67.31563,44.611985,0.0 -67.318245,44.611139,0.0 -67.320219,44.61332,0.0 -67.321744,44.612771,0.0 -67.322595,44.611595,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.331317,44.652748,0.0 -67.334407,44.648521,0.0 -67.330146,44.647671,0.0 -67.327235,44.651274,0.0 -67.328703,44.653255,0.0 -67.331317,44.652748,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.337972,44.679795,0.0 -67.336308,44.677598,0.0 -67.333931,44.677936,0.0 -67.329653,44.68064,0.0 -67.330129,44.683851,0.0 -67.332981,44.682837,0.0 -67.337972,44.679795,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.355798,44.642264,0.0 -67.35556,44.64108,0.0 -67.353897,44.64108,0.0 -67.352233,44.642941,0.0 -67.352233,44.644801,0.0 -67.354372,44.644632,0.0 -67.355798,44.642264,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.359601,44.579659,0.0 -67.357754,44.575633,0.0 -67.355283,44.576178,0.0 -67.353007,44.578315,0.0 -67.3511,44.581551,0.0 -67.350585,44.584158,0.0 -67.352323,44.585205,0.0 -67.35556,44.583722,0.0 -67.359601,44.579659,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.361502,44.648859,0.0 -67.363166,44.647337,0.0 -67.359839,44.645477,0.0 -67.356749,44.64683,0.0 -67.355085,44.649536,0.0 -67.355798,44.652579,0.0 -67.356749,44.653932,0.0 -67.361027,44.652072,0.0 -67.359839,44.650212,0.0 -67.361502,44.648859,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.36792,44.570009,0.0 -67.367199,44.567418,0.0 -67.364282,44.568749,0.0 -67.361424,44.573057,0.0 -67.362453,44.573903,0.0 -67.36792,44.570009,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.369346,44.669147,0.0 -67.366731,44.664413,0.0 -67.360789,44.664921,0.0 -67.357937,44.663568,0.0 -67.356036,44.663568,0.0 -67.355798,44.665766,0.0 -67.352233,44.667456,0.0 -67.350331,44.669316,0.0 -67.351757,44.669992,0.0 -67.35461,44.668978,0.0 -67.360789,44.66864,0.0 -67.364117,44.667625,0.0 -67.366256,44.668978,0.0 -67.369346,44.669147,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.374099,44.593201,0.0 -67.372911,44.592863,0.0 -67.371247,44.594386,0.0 -67.369108,44.597602,0.0 -67.366665,44.599661,0.0 -67.368558,44.601926,0.0 -67.372673,44.598617,0.0 -67.374099,44.593201,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.393114,44.598448,0.0 -67.392876,44.596586,0.0 -67.390262,44.59574,0.0 -67.389311,44.598617,0.0 -67.385746,44.599463,0.0 -67.383607,44.601663,0.0 -67.385556,44.603897,0.0 -67.38836,44.603186,0.0 -67.390737,44.601156,0.0 -67.393114,44.598448,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.396079,44.574496,0.0 -67.395883,44.572452,0.0 -67.392163,44.574411,0.0 -67.394302,44.576443,0.0 -67.396079,44.574496,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.396679,44.588462,0.0 -67.397396,44.584852,0.0 -67.396051,44.583213,0.0 -67.392638,44.584907,0.0 -67.393351,44.589647,0.0 -67.396679,44.588462,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.40765,44.572839,0.0 -67.408044,44.569012,0.0 -67.406186,44.567977,0.0 -67.405473,44.570855,0.0 -67.403809,44.572887,0.0 -67.403555,44.575124,0.0 -67.40765,44.572839,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.429479,44.597432,0.0 -67.4294,44.596505,0.0 -67.427801,44.595258,0.0 -67.426151,44.597432,0.0 -67.426864,44.598786,0.0 -67.429479,44.597432,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.443858,44.555399,0.0 -67.4441,44.554979,0.0 -67.440174,44.554937,0.0 -67.435183,44.555615,0.0 -67.431618,44.557308,0.0 -67.433428,44.558921,0.0 -67.437643,44.557655,0.0 -67.443858,44.555399,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.464856,44.570979,0.0 -67.464541,44.570155,0.0 -67.460562,44.569652,0.0 -67.453722,44.572379,0.0 -67.457682,44.575464,0.0 -67.462237,44.572798,0.0 -67.464856,44.570979,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.474478,44.568335,0.0 -67.474242,44.566648,0.0 -67.47131,44.566453,0.0 -67.469647,44.567977,0.0 -67.471376,44.569095,0.0 -67.474478,44.568335,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.483335,44.560963,0.0 -67.483025,44.560004,0.0 -67.481557,44.560066,0.0 -67.479717,44.562085,0.0 -67.478441,44.565098,0.0 -67.481045,44.565046,0.0 -67.481896,44.563005,0.0 -67.483335,44.560963,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.491275,44.603694,0.0 -67.491513,44.601663,0.0 -67.488661,44.60014,0.0 -67.486522,44.600147,0.0 -67.488186,44.602509,0.0 -67.490325,44.604371,0.0 -67.491275,44.603694,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.507438,44.622813,0.0 -67.508388,44.621121,0.0 -67.503872,44.617061,0.0 -67.500545,44.619937,0.0 -67.497693,44.62146,0.0 -67.498881,44.621967,0.0 -67.504348,44.622813,0.0 -67.507438,44.622813,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.536872,44.532115,0.0 -67.535946,44.529834,0.0 -67.533817,44.529159,0.0 -67.530255,44.530374,0.0 -67.529196,44.531989,0.0 -67.532965,44.532884,0.0 -67.536872,44.532115,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.541611,44.58934,0.0 -67.541611,44.578037,0.0 -67.533279,44.564354,0.0 -67.51841,44.554241,0.0 -67.510527,44.553074,0.0 -67.505917,44.553707,0.0 -67.499969,44.554836,0.0 -67.491751,44.556123,0.0 -67.489136,44.559679,0.0 -67.489988,44.560965,0.0 -67.495554,44.561542,0.0 -67.498644,44.564252,0.0 -67.505299,44.56476,0.0 -67.511478,44.566114,0.0 -67.51433,44.568654,0.0 -67.516804,44.572547,0.0 -67.521461,44.573734,0.0 -67.520035,44.579659,0.0 -67.512429,44.584569,0.0 -67.504823,44.58186,0.0 -67.499969,44.578037,0.0 -67.4908,44.575258,0.0 -67.486282,44.575657,0.0 -67.482124,44.577442,0.0 -67.481529,44.580414,0.0 -67.490342,44.586587,0.0 -67.495554,44.588462,0.0 -67.502684,44.588293,0.0 -67.507913,44.592863,0.0 -67.514244,44.597668,0.0 -67.51841,44.595882,0.0 -67.515994,44.591339,0.0 -67.515994,44.587277,0.0 -67.523125,44.58423,0.0 -67.529542,44.583553,0.0 -67.533345,44.583384,0.0 -67.534368,44.589249,0.0 -67.538635,44.590527,0.0 -67.541611,44.58934,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.563768,44.510547,0.0 -67.563622,44.507248,0.0 -67.554736,44.500715,0.0 -67.545229,44.495629,0.0 -67.547368,44.490543,0.0 -67.545704,44.486304,0.0 -67.543803,44.480538,0.0 -67.54309,44.473755,0.0 -67.539049,44.472059,0.0 -67.53537,44.472355,0.0 -67.531552,44.474105,0.0 -67.529676,44.479804,0.0 -67.526745,44.483638,0.0 -67.514978,44.491263,0.0 -67.511364,44.494613,0.0 -67.510628,44.496414,0.0 -67.512496,44.499955,0.0 -67.516029,44.506653,0.0 -67.523838,44.511564,0.0 -67.529542,44.513089,0.0 -67.530968,44.518512,0.0 -67.534745,44.519619,0.0 -67.539429,44.515385,0.0 -67.546417,44.515631,0.0 -67.552559,44.515663,0.0 -67.560646,44.51379,0.0 -67.563768,44.510547,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.602747,44.444237,0.0 -67.602034,44.442709,0.0 -67.599955,44.441753,0.0 -67.595624,44.444076,0.0 -67.601797,44.444746,0.0 -67.602747,44.444237,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.611939,44.452712,0.0 -67.614217,44.448841,0.0 -67.61176,44.446376,0.0 -67.611599,44.443584,0.0 -67.608689,44.443558,0.0 -67.605599,44.445933,0.0 -67.60639,44.447025,0.0 -67.609383,44.447903,0.0 -67.609165,44.450854,0.0 -67.611939,44.452712,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.621286,44.507835,0.0 -67.620573,44.503766,0.0 -67.617483,44.504445,0.0 -67.615107,44.502241,0.0 -67.610115,44.503088,0.0 -67.607199,44.503576,0.0 -67.604919,44.502056,0.0 -67.605837,44.496985,0.0 -67.603698,44.489695,0.0 -67.605362,44.488508,0.0 -67.612492,44.488,0.0 -67.614692,44.487037,0.0 -67.612254,44.485286,0.0 -67.603162,44.485024,0.0 -67.601605,44.481975,0.0 -67.599182,44.47579,0.0 -67.594546,44.470043,0.0 -67.593715,44.467479,0.0 -67.595286,44.462195,0.0 -67.592755,44.458572,0.0 -67.588346,44.449754,0.0 -67.589199,44.447291,0.0 -67.585764,44.448097,0.0 -67.581378,44.45013,0.0 -67.574206,44.45173,0.0 -67.571774,44.453403,0.0 -67.566606,44.455768,0.0 -67.56971,44.457301,0.0 -67.570423,44.460015,0.0 -67.571136,44.465613,0.0 -67.570423,44.471889,0.0 -67.565194,44.470871,0.0 -67.562651,44.472104,0.0 -67.571374,44.479351,0.0 -67.572324,44.483082,0.0 -67.576536,44.483333,0.0 -67.578742,44.485117,0.0 -67.577078,44.488169,0.0 -67.580168,44.490712,0.0 -67.587613,44.492377,0.0 -67.590627,44.49415,0.0 -67.588249,44.498342,0.0 -67.589259,44.50084,0.0 -67.587229,44.504425,0.0 -67.585353,44.505613,0.0 -67.583257,44.508174,0.0 -67.58706,44.511055,0.0 -67.582113,44.513459,0.0 -67.579692,44.514784,0.0 -67.5764982650251,44.5195021266612,0.0 -67.576365,44.519699,0.0 -67.577315,44.521732,0.0 -67.585872,44.522071,0.0 -67.587738,44.516196,0.0 -67.593953,44.515123,0.0 -67.593953,44.511733,0.0 -67.59942,44.50936,0.0 -67.602747,44.509021,0.0 -67.604886,44.515462,0.0 -67.599182,44.52258,0.0 -67.610591,44.522749,0.0 -67.61541,44.521973,0.0 -67.617959,44.521563,0.0 -67.619761,44.519754,0.0 -67.620334,44.515277,0.0 -67.618434,44.512242,0.0 -67.621286,44.507835,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.622926,44.464459,0.0 -67.62295,44.46239,0.0 -67.618434,44.460185,0.0 -67.61582,44.461373,0.0 -67.616533,44.463408,0.0 -67.620811,44.464426,0.0 -67.622926,44.464459,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.634834,44.490712,0.0 -67.635763,44.487931,0.0 -67.633941,44.48708,0.0 -67.631506,44.48766,0.0 -67.630318,44.490034,0.0 -67.63008,44.492238,0.0 -67.629367,44.496985,0.0 -67.629605,44.498681,0.0 -67.632933,44.499189,0.0 -67.63317,44.497325,0.0 -67.634834,44.490712,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.647669,44.514445,0.0 -67.648857,44.511055,0.0 -67.647669,44.506818,0.0 -67.645054,44.504614,0.0 -67.641727,44.504614,0.0 -67.641014,44.506479,0.0 -67.638162,44.508004,0.0 -67.635547,44.509699,0.0 -67.634121,44.511055,0.0 -67.628179,44.511394,0.0 -67.625564,44.513258,0.0 -67.628179,44.514953,0.0 -67.631982,44.514784,0.0 -67.635547,44.513767,0.0 -67.641014,44.513767,0.0 -67.642677,44.515292,0.0 -67.644817,44.517495,0.0 -67.647669,44.514445,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.66288,44.514614,0.0 -67.663118,44.512581,0.0 -67.660979,44.511564,0.0 -67.658602,44.513089,0.0 -67.659315,44.51597,0.0 -67.66288,44.514614,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.669278,44.524377,0.0 -67.667615,44.521665,0.0 -67.665238,44.521665,0.0 -67.663336,44.527257,0.0 -67.658583,44.530816,0.0 -67.661673,44.532341,0.0 -67.665,44.531493,0.0 -67.666664,44.528952,0.0 -67.669278,44.524377,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.673794,44.490476,0.0 -67.671893,44.487763,0.0 -67.666902,44.489967,0.0 -67.664713,44.492238,0.0 -67.662861,44.494376,0.0 -67.664287,44.495054,0.0 -67.673794,44.490476,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.676676,44.470379,0.0 -67.67522,44.466055,0.0 -67.673794,44.465546,0.0 -67.67302,44.469004,0.0 -67.672131,44.470805,0.0 -67.672645,44.473289,0.0 -67.674607,44.472947,0.0 -67.676676,44.470379,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.676884,44.463002,0.0 -67.67519,44.461665,0.0 -67.669516,44.460627,0.0 -67.668565,44.462663,0.0 -67.669858,44.463525,0.0 -67.67227,44.46331,0.0 -67.676884,44.463002,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.677597,44.482676,0.0 -67.680389,44.480374,0.0 -67.676225,44.475769,0.0 -67.673171,44.475884,0.0 -67.671234,44.478053,0.0 -67.670554,44.481174,0.0 -67.667377,44.481998,0.0 -67.663899,44.484792,0.0 -67.666189,44.485728,0.0 -67.67118,44.483863,0.0 -67.673794,44.481659,0.0 -67.677597,44.482676,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.698751,44.487763,0.0 -67.699939,44.486915,0.0 -67.698578,44.485053,0.0 -67.692654,44.483646,0.0 -67.691858,44.48522,0.0 -67.693046,44.486407,0.0 -67.698751,44.487763,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.708638,44.460733,0.0 -67.706832,44.456895,0.0 -67.70493,44.458082,0.0 -67.704353,44.460599,0.0 -67.708638,44.460733,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.740846,44.470064,0.0 -67.740845,44.466409,0.0 -67.73773,44.463002,0.0 -67.733214,44.465207,0.0 -67.732264,44.467412,0.0 -67.734165,44.469278,0.0 -67.740846,44.470064,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.746745,44.465241,0.0 -67.747464,44.463768,0.0 -67.745098,44.462323,0.0 -67.743197,44.463511,0.0 -67.742959,44.465207,0.0 -67.746745,44.465241,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.759296,44.49835,0.0 -67.759834,44.496241,0.0 -67.75722,44.494884,0.0 -67.755812,44.496084,0.0 -67.751548,44.494849,0.0 -67.752704,44.497258,0.0 -67.752229,44.500818,0.0 -67.753004,44.505087,0.0 -67.755012,44.504808,0.0 -67.756346,44.502841,0.0 -67.755556,44.500309,0.0 -67.756724,44.49775,0.0 -67.759296,44.49835,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.766489,44.530985,0.0 -67.765776,44.52946,0.0 -67.762211,44.529291,0.0 -67.758884,44.531324,0.0 -67.759597,44.533018,0.0 -67.762924,44.532679,0.0 -67.766489,44.530985,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.766014,44.537593,0.0 -67.76744,44.534374,0.0 -67.763875,44.534374,0.0 -67.761261,44.537423,0.0 -67.7634,44.53844,0.0 -67.766014,44.537593,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.792159,44.480811,0.0 -67.795955,44.476177,0.0 -67.791496,44.476675,0.0 -67.789024,44.472355,0.0 -67.784078,44.47284,0.0 -67.782414,44.475045,0.0 -67.7798,44.47708,0.0 -67.792159,44.480811,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.805944,44.517259,0.0 -67.804281,44.51387,0.0 -67.802398,44.512949,0.0 -67.802141,44.516751,0.0 -67.804043,44.519123,0.0 -67.805944,44.517259,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.819492,44.510649,0.0 -67.81664,44.507429,0.0 -67.817353,44.503022,0.0 -67.814501,44.49658,0.0 -67.810698,44.494206,0.0 -67.807608,44.491154,0.0 -67.806182,44.485898,0.0 -67.804043,44.484202,0.0 -67.800215,44.482082,0.0 -67.796675,44.482846,0.0 -67.795962,44.486068,0.0 -67.794298,44.490137,0.0 -67.791208,44.493867,0.0 -67.794197,44.494205,0.0 -67.799652,44.496112,0.0 -67.802631,44.497746,0.0 -67.802299,44.500794,0.0 -67.804722,44.50814,0.0 -67.81046,44.512683,0.0 -67.816165,44.513192,0.0 -67.819492,44.510649,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.82439,44.444955,0.0 -67.825517,44.442932,0.0 -67.823803,44.441244,0.0 -67.821394,44.442303,0.0 -67.821686,44.447101,0.0 -67.82439,44.444955,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.835892,44.536576,0.0 -67.834941,44.531663,0.0 -67.834228,44.524716,0.0 -67.832802,44.519971,0.0 -67.829712,44.516412,0.0 -67.825909,44.517937,0.0 -67.824246,44.517598,0.0 -67.823295,44.519123,0.0 -67.826147,44.522682,0.0 -67.824959,44.526919,0.0 -67.826622,44.533527,0.0 -67.828762,44.536068,0.0 -67.825672,44.540812,0.0 -67.832802,44.539964,0.0 -67.835892,44.536576,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.834941,44.485389,0.0 -67.835892,44.481828,0.0 -67.832089,44.479624,0.0 -67.829329,44.482664,0.0 -67.827335,44.481319,0.0 -67.825196,44.482846,0.0 -67.822582,44.484711,0.0 -67.822582,44.487254,0.0 -67.826147,44.490646,0.0 -67.828049,44.487933,0.0 -67.828286,44.485559,0.0 -67.831614,44.485728,0.0 -67.834941,44.485389,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.839457,44.544369,0.0 -67.838982,44.542336,0.0 -67.83613,44.543353,0.0 -67.831614,44.545047,0.0 -67.825909,44.545047,0.0 -67.825909,44.549451,0.0 -67.830425,44.548265,0.0 -67.834228,44.547926,0.0 -67.83613,44.552161,0.0 -67.838031,44.551314,0.0 -67.837793,44.548434,0.0 -67.837318,44.546063,0.0 -67.839457,44.544369,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.842072,44.462323,0.0 -67.840646,44.457574,0.0 -67.84017,44.45418,0.0 -67.838744,44.451805,0.0 -67.840679,44.447354,0.0 -67.836367,44.450278,0.0 -67.832802,44.452314,0.0 -67.830634,44.456655,0.0 -67.834042,44.460858,0.0 -67.837938,44.46467,0.0 -67.842072,44.462323,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.855619,44.449769,0.0 -67.853956,44.448072,0.0 -67.849202,44.447563,0.0 -67.846112,44.447563,0.0 -67.845161,44.449769,0.0 -67.849915,44.452993,0.0 -67.853956,44.450787,0.0 -67.855619,44.449769,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.874871,44.374556,0.0 -67.875347,44.373537,0.0 -67.867979,44.367591,0.0 -67.865364,44.365891,0.0 -67.863463,44.367761,0.0 -67.867266,44.372348,0.0 -67.871306,44.374896,0.0 -67.874871,44.374556,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-67.875584,44.445697,0.0 -67.87606,44.440437,0.0 -67.869642,44.42652,0.0 -67.869642,44.422785,0.0 -67.868929,44.420409,0.0 -67.865542,44.418097,0.0 -67.863938,44.418711,0.0 -67.866077,44.422955,0.0 -67.863225,44.423464,0.0 -67.860135,44.422785,0.0 -67.859422,44.419051,0.0 -67.855144,44.418711,0.0 -67.853956,44.423125,0.0 -67.850628,44.423973,0.0 -67.853953,44.434137,0.0 -67.857759,44.435006,0.0 -67.858901,44.445162,0.0 -67.863938,44.447903,0.0 -67.863463,44.451296,0.0 -67.862987,44.45452,0.0 -67.866553,44.456895,0.0 -67.869405,44.456725,0.0 -67.872257,44.451636,0.0 -67.875584,44.445697,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+        <Polygon>
+          <extrude>0</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-68.091771,44.940973,0.0 -68.105017,44.939088,0.0 -68.088836,44.872667,0.0 -68.082335,44.849896,0.0 -68.082103,44.849205,0.0 -68.057281,44.761461,0.0 -68.034637,44.674142,0.0 -68.016062,44.676676,0.0 -67.998037,44.608772,0.0 -67.993551,44.592162,0.0 -68.017219,44.589087,0.0 -68.010718,44.568883,0.0 -67.991806,44.504479,0.0 -67.991395,44.50281,0.0 -67.98619,44.500477,0.0 -67.981413,44.499318,0.0 -67.977197,44.497953,0.0 -67.975619,44.492515,0.0 -67.97657,44.491051,0.0 -67.973473,44.489538,0.0 -67.972968,44.488633,0.0 -67.974279,44.484922,0.0 -67.973812,44.483374,0.0 -67.974256,44.479111,0.0 -67.975829,44.476528,0.0 -67.980931,44.47475,0.0 -67.9820138304501,44.4733578354039,0.0 -67.979926,44.47267,0.0 -67.970419,44.470805,0.0 -67.968993,44.467752,0.0 -67.963051,44.460457,0.0 -67.961644,44.456544,0.0 -67.958772,44.454011,0.0 -67.959485,44.451466,0.0 -67.959723,44.447224,0.0 -67.957109,44.440437,0.0 -67.954604,44.428524,0.0 -67.947342,44.415858,0.0 -67.943561,44.412599,0.0 -67.937381,44.409883,0.0 -67.931453,44.411848,0.0 -67.93239,44.417183,0.0 -67.930013,44.41956,0.0 -67.925973,44.420069,0.0 -67.931677,44.423464,0.0 -67.929572,44.426343,0.0 -67.930554,44.428869,0.0 -67.928112,44.435176,0.0 -67.928587,44.440097,0.0 -67.930489,44.442812,0.0 -67.932865,44.443152,0.0 -67.932865,44.447054,0.0 -67.929538,44.44909,0.0 -67.923833,44.448412,0.0 -67.923833,44.454689,0.0 -67.924309,44.463511,0.0 -67.916941,44.461306,0.0 -67.909573,44.452145,0.0 -67.910523,44.445867,0.0 -67.911586,44.441095,0.0 -67.910523,44.438061,0.0 -67.914089,44.432969,0.0 -67.911712,44.429405,0.0 -67.911236,44.422446,0.0 -67.912646,44.420427,0.0 -67.912425,44.417353,0.0 -67.909573,44.415995,0.0 -67.906853,44.407121,0.0 -67.899571,44.394078,0.0 -67.894361,44.403091,0.0 -67.889662,44.408485,0.0 -67.893413,44.412442,0.0 -67.891271,44.417013,0.0 -67.890796,44.420918,0.0 -67.888002,44.423948,0.0 -67.888419,44.433139,0.0 -67.885805,44.439079,0.0 -67.888419,44.442133,0.0 -67.886518,44.444849,0.0 -67.88224,44.452484,0.0 -67.877248,44.454859,0.0 -67.878199,44.457065,0.0 -67.881764,44.458591,0.0 -67.884141,44.46402,0.0 -67.885805,44.466734,0.0 -67.885805,44.471822,0.0 -67.887944,44.476571,0.0 -67.891509,44.48098,0.0 -67.888419,44.483354,0.0 -67.8873072253806,44.4835240655992,0.0 -67.881764,44.484372,0.0 -67.878199,44.480811,0.0 -67.873921,44.470974,0.0 -67.868692,44.465038,0.0 -67.86679,44.466734,0.0 -67.866801,44.471812,0.0 -67.861324,44.473518,0.0 -67.860994,44.477576,0.0 -67.855579,44.478676,0.0 -67.851648,44.484901,0.0 -67.849677,44.495732,0.0 -67.85253,44.497597,0.0 -67.852054,44.50709,0.0 -67.855133,44.509972,0.0 -67.858472,44.519293,0.0 -67.865127,44.523021,0.0 -67.865602,44.526071,0.0 -67.857045,44.52658,0.0 -67.851103,44.528782,0.0 -67.848489,44.533696,0.0 -67.851341,44.535899,0.0 -67.847538,44.539626,0.0 -67.843973,44.540812,0.0 -67.842072,44.54403,0.0 -67.844924,44.551991,0.0 -67.84635,44.554193,0.0 -67.850153,44.554701,0.0 -67.850866,44.55758,0.0 -67.848964,44.559782,0.0 -67.847776,44.563,0.0 -67.844686,44.561814,0.0 -67.839695,44.56283,0.0 -67.832327,44.560459,0.0 -67.829237,44.559105,0.0 -67.829475,44.555887,0.0 -67.828999,44.554532,0.0 -67.824008,44.551991,0.0 -67.820205,44.54962,0.0 -67.822582,44.543522,0.0 -67.818066,44.541489,0.0 -67.813788,44.542506,0.0 -67.8094731741464,44.5425846629525,0.0 -67.804518,44.542675,0.0 -67.804281,44.539117,0.0 -67.804518,44.530646,0.0 -67.802541,44.523934,0.0 -67.79726,44.520685,0.0 -67.793585,44.519123,0.0 -67.787405,44.519293,0.0 -67.782363,44.51497,0.0 -67.776472,44.514209,0.0 -67.775132,44.515934,0.0 -67.777898,44.517937,0.0 -67.7798,44.522682,0.0 -67.780881,44.531151,0.0 -67.780513,44.536915,0.0 -67.775046,44.543183,0.0 -67.774001,44.547438,0.0 -67.768629,44.547418,0.0 -67.762216951235,44.5484207667848,0.0 -67.758884,44.548942,0.0 -67.754843,44.54691,0.0 -67.753854,44.543661,0.0 -67.751753,44.538948,0.0 -67.744385,44.531155,0.0 -67.744623,44.526919,0.0 -67.743672,44.521835,0.0 -67.742009,44.516765,0.0 -67.742143,44.511608,0.0 -67.740076,44.508944,0.0 -67.742789,44.506176,0.0 -67.743353,44.497418,0.0 -67.733986,44.496252,0.0 -67.722876,44.498524,0.0 -67.718671,44.497834,0.0 -67.713077,44.493553,0.0 -67.709209,44.494376,0.0 -67.70493,44.499801,0.0 -67.706095,44.5025,0.0 -67.703489,44.504837,0.0 -67.698038,44.509463,0.0 -67.698275,44.512683,0.0 -67.698275,44.516242,0.0 -67.695186,44.519293,0.0 -67.698988,44.519462,0.0 -67.698513,44.524716,0.0 -67.701986,44.525784,0.0 -67.702649,44.527922,0.0 -67.696354,44.533798,0.0 -67.69067,44.534713,0.0 -67.688055,44.537254,0.0 -67.681876,44.538101,0.0 -67.679767,44.536297,0.0 -67.676884,44.535051,0.0 -67.675002,44.535626,0.0 -67.673081,44.539456,0.0 -67.664287,44.538779,0.0 -67.660678,44.537575,0.0 -67.656444,44.537084,0.0 -67.653123,44.525823,0.0 -67.64553,44.526477,0.0 -67.645767,44.528341,0.0 -67.6433016625074,44.5284505561494,0.0 -67.641964,44.52851,0.0 -67.638875,44.526816,0.0 -67.635072,44.528002,0.0 -67.631269,44.527155,0.0 -67.615582,44.527324,0.0 -67.611541,44.52851,0.0 -67.606312,44.529866,0.0 -67.598707,44.529527,0.0 -67.594428,44.532238,0.0 -67.589913,44.530713,0.0 -67.578266,44.529866,0.0 -67.5728,44.53173,0.0 -67.568159,44.531117,0.0 -67.564718,44.532068,0.0 -67.565057,44.535425,0.0 -67.559965,44.539862,0.0 -67.562829,44.545462,0.0 -67.565485,44.551419,0.0 -67.569836,44.556788,0.0 -67.575056,44.560659,0.0 -67.572087,44.564082,0.0 -67.570185,44.567638,0.0 -67.570621,44.572202,0.0 -67.568932,44.576599,0.0 -67.56617,44.577337,0.0 -67.564481,44.580506,0.0 -67.563055,44.585415,0.0 -67.562342,44.589647,0.0 -67.557944,44.595651,0.0 -67.556162,44.599294,0.0 -67.558597,44.60349,0.0 -67.561391,44.609278,0.0 -67.559014,44.614354,0.0 -67.555702,44.61102,0.0 -67.552834,44.611478,0.0 -67.551884,44.616046,0.0 -67.552392,44.619629,0.0 -67.5497515232603,44.6213335220382,0.0 -67.549032,44.621798,0.0 -67.543368,44.626554,0.0 -67.5416849981054,44.626442263216,0.0 -67.54022,44.626345,0.0 -67.538098,44.623828,0.0 -67.534533,44.622644,0.0 -67.533582,44.618584,0.0 -67.535009,44.614862,0.0 -67.532632,44.614354,0.0 -67.52978,44.6174,0.0 -67.530777,44.621938,0.0 -67.524061,44.626554,0.0 -67.522802,44.63306,0.0 -67.505804,44.636837,0.0 -67.497693,44.632962,0.0 -67.493632,44.628863,0.0 -67.492464,44.624166,0.0 -67.492373,44.61795,0.0 -67.49389,44.615538,0.0 -67.49698,44.614862,0.0 -67.491038,44.607248,0.0 -67.48676,44.609955,0.0 -67.480918,44.611055,0.0 -67.474876,44.607417,0.0 -67.469647,44.608263,0.0 -67.465606,44.60674,0.0 -67.467001,44.603343,0.0 -67.463518,44.599598,0.0 -67.461803,44.597602,0.0 -67.458448,44.596694,0.0 -67.459902,44.600986,0.0 -67.455623,44.601325,0.0 -67.448513,44.600322,0.0 -67.449444,44.603863,0.0 -67.445403,44.605894,0.0 -67.436847,44.604879,0.0 -67.432569,44.606909,0.0 -67.429716,44.613339,0.0 -67.43756,44.619599,0.0 -67.437797,44.626027,0.0 -67.439224,44.626535,0.0 -67.446354,44.627381,0.0 -67.449206,44.63144,0.0 -67.448968,44.635499,0.0 -67.446592,44.63736,0.0 -67.44469,44.638882,0.0 -67.443739,44.642941,0.0 -67.4417362413371,44.6424659417127,0.0 -67.438035,44.641588,0.0 -67.436371,44.63922,0.0 -67.432093,44.63736,0.0 -67.430192,44.639897,0.0 -67.42734,44.64108,0.0 -67.423774,44.638036,0.0 -67.419972,44.632286,0.0 -67.421873,44.629579,0.0 -67.429003,44.629072,0.0 -67.426864,44.625012,0.0 -67.423061,44.621121,0.0 -67.420685,44.618415,0.0 -67.419258,44.614354,0.0 -67.420602,44.607877,0.0 -67.418923,44.60347,0.0 -67.411815,44.596954,0.0 -67.408824,44.594581,0.0 -67.405492,44.594236,0.0 -67.401195,44.598109,0.0 -67.398987,44.602631,0.0 -67.396679,44.60454,0.0 -67.395839,44.612914,0.0 -67.393589,44.614354,0.0 -67.39145,44.61317,0.0 -67.389073,44.614523,0.0 -67.389549,44.623151,0.0 -67.39145,44.625351,0.0 -67.388704,44.626554,0.0 -67.386605,44.626974,0.0 -67.381467,44.626873,0.0 -67.381317,44.622758,0.0 -67.377554,44.619757,0.0 -67.368269,44.624672,0.0 -67.363158,44.631825,0.0 -67.361978,44.640235,0.0 -67.363879,44.644463,0.0 -67.367298,44.652472,0.0 -67.368395,44.655791,0.0 -67.373386,44.65968,0.0 -67.374014,44.662965,0.0 -67.37905,44.665483,0.0 -67.387172,44.665428,0.0 -67.388122,44.667963,0.0 -67.38432,44.67033,0.0 -67.388598,44.670837,0.0 -67.389073,44.672696,0.0 -67.380541,44.673677,0.0 -67.375763,44.67726,0.0 -67.379804,44.678781,0.0 -67.384795,44.678612,0.0 -67.387172,44.676415,0.0 -67.389549,44.676922,0.0 -67.390262,44.680133,0.0 -67.400006,44.679119,0.0 -67.404998,44.681654,0.0 -67.394777,44.686385,0.0 -67.394777,44.690272,0.0 -67.396441,44.693313,0.0 -67.394777,44.695003,0.0 -67.389073,44.695848,0.0 -67.384082,44.693989,0.0 -67.386696,44.691286,0.0 -67.383369,44.68892,0.0 -67.372673,44.691624,0.0 -67.370534,44.689089,0.0 -67.366494,44.686892,0.0 -67.360314,44.68723,0.0 -67.360076,44.689427,0.0 -67.35247,44.690272,0.0 -67.356986,44.692468,0.0 -67.360789,44.691624,0.0 -67.365107,44.693551,0.0 -67.363208,44.695461,0.0 -67.359126,44.699564,0.0 -67.359839,44.701761,0.0 -67.357699,44.703788,0.0 -67.354134,44.703112,0.0 -67.353184,44.70024,0.0 -67.347782,44.69948,0.0 -67.3413,44.699058,0.0 -67.338923,44.700578,0.0 -67.335124,44.699962,0.0 -67.332268,44.700071,0.0 -67.32942,44.702956,0.0 -67.326612779382,44.7034875549555,0.0 -67.319671,44.704802,0.0 -67.308538,44.707454,0.0 -67.299176,44.705705,0.0 -67.2994270246768,44.7045330802898,0.0 -67.300419,44.699902,0.0 -67.300144,44.696752,0.0 -67.307909,44.691295,0.0 -67.308737,44.689258,0.0 -67.306598,44.686892,0.0 -67.306598,44.682499,0.0 -67.304697,44.679288,0.0 -67.308844,44.673876,0.0 -67.309225,44.66678,0.0 -67.306361,44.666104,0.0 -67.306836,44.662892,0.0 -67.308024,44.661371,0.0 -67.310163,44.661878,0.0 -67.314679,44.66323,0.0 -67.320146,44.663568,0.0 -67.318853,44.671751,0.0 -67.322058,44.6739,0.0 -67.322761,44.667794,0.0 -67.327557,44.667026,0.0 -67.326182,44.656715,0.0 -67.322687,44.660026,0.0 -67.318802,44.659745,0.0 -67.315205,44.660369,0.0 -67.309627,44.659316,0.0 -67.298449,44.654377,0.0 -67.30046,44.650164,0.0 -67.298578,44.648297,0.0 -67.295874,44.649299,0.0 -67.292462,44.648455,0.0 -67.294827,44.642771,0.0 -67.294952,44.637022,0.0 -67.291149,44.630763,0.0 -67.286633,44.629918,0.0 -67.287346,44.623997,0.0 -67.281167,44.623151,0.0 -67.275141,44.623433,0.0 -67.274122,44.626345,0.0 -67.268807,44.628565,0.0 -67.268807,44.630594,0.0 -67.265242,44.630763,0.0 -67.257874,44.627042,0.0 -67.251219,44.625689,0.0 -67.246373,44.626384,0.0 -67.24908,44.628395,0.0 -67.254309,44.630594,0.0 -67.254784,44.632624,0.0 -67.259062,44.63533,0.0 -67.261677,44.63922,0.0 -67.266668,44.63922,0.0 -67.26952,44.640066,0.0 -67.270471,44.645815,0.0 -67.267856,44.65055,0.0 -67.270471,44.654946,0.0 -67.272848,44.664075,0.0 -67.264767,44.66678,0.0 -67.25312,44.667456,0.0 -67.246703,44.669147,0.0 -67.240761,44.665766,0.0 -67.244326,44.658835,0.0 -67.246465,44.651395,0.0 -67.24599,44.646323,0.0 -67.243138,44.645646,0.0 -67.245138,44.640935,0.0 -67.242174,44.639916,0.0 -67.23981,44.641757,0.0 -67.237867,44.638436,0.0 -67.234275,44.637201,0.0 -67.213025,44.63922,0.0 -67.189427,44.645533,0.0 -67.191438,44.64775,0.0 -67.192068,44.655515,0.0 -67.186612,44.66265,0.0 -67.181785,44.663699,0.0 -67.169857,44.662105,0.0 -67.154479,44.668114,0.0 -67.155119,44.66944,0.0 -67.148061,44.684114,0.0 -67.139209,44.693849,0.0 -67.128792,44.695421,0.0 -67.123087,44.701597,0.0 -67.118755,44.702215,0.0 -67.119782,44.70497,0.0 -67.1187066261902,44.706389183225,0.0 -67.118118,44.707166,0.0 -67.117643,44.711896,0.0 -67.115028,44.71291,0.0 -67.112176,44.711052,0.0 -67.10939,44.711436,0.0 -67.107756,44.716099,0.0 -67.104352,44.716848,0.0 -67.103187,44.719237,0.0 -67.103823,44.722448,0.0 -67.101565,44.727897,0.0 -67.098323,44.730454,0.0 -67.098629,44.733681,0.0 -67.104078,44.737059,0.0 -67.104095,44.739928,0.0 -67.098931,44.741311,0.0 -67.092542,44.742693,0.0 -67.083477,44.739899,0.0 -67.073439,44.741957,0.0 -67.071215,44.745956,0.0 -67.070345,44.751407,0.0 -67.064378,44.751932,0.0 -67.063308,44.758238,0.0 -67.061075,44.759677,0.0 -67.062026,44.765415,0.0 -67.06464,44.766765,0.0 -67.0684674853521,44.7687274919052,0.0 -67.068919,44.768959,0.0 -67.06464,44.770984,0.0 -67.056559,44.771659,0.0 -67.053945,44.775371,0.0 -67.050617,44.774864,0.0 -67.050617,44.77284,0.0 -67.050617,44.769971,0.0 -67.050142,44.767271,0.0 -67.048953,44.764403,0.0 -67.051093,44.762378,0.0 -67.048003,44.761196,0.0 -67.043962,44.763053,0.0 -67.04335,44.765071,0.0 -67.033504,44.767609,0.0 -67.02615,44.768199,0.0 -67.019719,44.769634,0.0 -67.01995,44.771427,0.0 -67.023759,44.770984,0.0 -67.024472,44.773683,0.0 -67.019481,44.775033,0.0 -67.012116,44.778282,0.0 -67.010286,44.782454,0.0 -67.009499,44.787349,0.0 -67.005458,44.788192,0.0 -67.001967,44.787269,0.0 -66.997549,44.788659,0.0 -66.995154,44.791073,0.0 -66.989286,44.796967,0.0 -66.989351,44.79878,0.0 -66.982167,44.803404,0.0 -66.979708,44.80736,0.0 -66.97626,44.808315,0.0 -66.970026,44.805713,0.0 -66.961068,44.807269,0.0 -66.950569,44.814539,0.0 -66.949895,44.817419,0.0 -66.952112,44.82007,0.0 -66.966468,44.819063,0.0 -66.975009,44.815495,0.0 -66.975035,44.812983,0.0 -66.982403,44.811466,0.0 -66.986318,44.820657,0.0 -66.98882,44.824954,0.0 -66.990009,44.831022,0.0 -66.988583,44.837259,0.0 -66.990722,44.839618,0.0 -66.995695,44.842706,0.0 -66.9961348446572,44.8437408036138,0.0 -66.996523,44.844654,0.0 -66.9959189348694,44.8454215000971,0.0 -66.99296,44.849181,0.0 -66.9866475848458,44.8519620685454,0.0 -66.984067,44.853099,0.0 -66.980033,44.85597,0.0 -66.9801676426332,44.8563295699983,0.0 -66.980977,44.858491,0.0 -66.9819899383582,44.8602859080205,0.0 -66.9827978853593,44.8617175751509,0.0 -66.983354,44.862703,0.0 -66.9847543715774,44.8688334385439,0.0 -66.9859228597445,44.8739487558023,0.0 -66.987394,44.880389,0.0 -66.990351,44.882551,0.0 -66.994762,44.89184,0.0 -66.992148,44.894029,0.0 -66.989235,44.89648,0.0 -66.985901,44.89715,0.0 -66.984067,44.898238,0.0 -66.983558,44.903277,0.0 -66.983116,44.907666,0.0 -66.984466,44.912557,0.0 -66.98787,44.916082,0.0 -66.990937,44.917835,0.0 -67.000467,44.919785,0.0 -67.003794,44.920795,0.0 -67.004745,44.923151,0.0 -67.01449,44.925843,0.0 -67.015975,44.928156,0.0 -67.014015,44.930218,0.0 -67.010925,44.933079,0.0 -67.010449,44.935266,0.0 -67.014252,44.937117,0.0 -67.021582,44.937349,0.0 -67.023284,44.938968,0.0 -67.027325,44.939304,0.0 -67.033474,44.939923,0.0 -67.032554,44.944351,0.0 -67.038299,44.945433,0.0 -67.0385279826039,44.9480713906654,0.0 -67.039446,44.958649,0.0 -67.0409051162211,44.9604269462437,0.0 -67.043725,44.963863,0.0 -67.050617,44.965881,0.0 -67.0539011615375,44.9642211563383,0.0 -67.053945,44.964199,0.0 -67.05751,44.966049,0.0 -67.058936,44.968739,0.0 -67.0580602043431,44.9693587258287,0.0 -67.0568453395219,44.9702183819622,0.0 -67.056559,44.970421,0.0 -67.049684,44.974285,0.0 -67.050617,44.9795,0.0 -67.05461,44.986764,0.0 -67.068274,45.001014,0.0 -67.072753,45.008329,0.0 -67.074914,45.019254,0.0 -67.082074,45.029608,0.0 -67.088056,45.034821,0.0 -67.092211,45.035795,0.0 -67.096965,45.033443,0.0 -67.101718,45.033275,0.0 -67.106234,45.033107,0.0 -67.101718,45.036634,0.0 -67.09744,45.038146,0.0 -67.096014,45.039322,0.0 -67.099749,45.04501,0.0 -67.1024089685519,45.046747824373,0.0 -67.117688,45.05673,0.0 -67.116692,45.058465,0.0 -67.108611,45.059472,0.0 -67.105899,45.065786,0.0 -67.090786,45.068721,0.0 -67.094735,45.075458,0.0 -67.112414,45.112323,0.0 -67.1227728932442,45.1247660867642,0.0 -67.128935,45.132168,0.0 -67.145652,45.146667,0.0 -67.157919,45.161004,0.0 -67.159406,45.162193,0.0 -67.161247,45.162879,0.0 -67.16787,45.164595,0.0 -67.191167,45.165876,0.0 -67.203933,45.171407,0.0 -67.218315,45.166401,0.0 -67.223156,45.1637,0.0 -67.227324,45.163652,0.0 -67.230201,45.165549,0.0 -67.233047,45.168587,0.0 -67.240643,45.171167,0.0 -67.242293,45.17224,0.0 -67.244012,45.178274,0.0 -67.246697,45.180765,0.0 -67.253553,45.18239,0.0 -67.257795,45.185132,0.0 -67.2614376815925,45.1877111391153,0.0 -67.261542,45.187785,0.0 -67.2696469384832,45.1905869590141,0.0 -67.271076,45.191081,0.0 -67.283619,45.192022,0.0 -67.289794,45.188663,0.0 -67.290603,45.187589,0.0 -67.291287,45.18432,0.0 -67.290785,45.181702,0.0 -67.293742,45.177966,0.0 -67.293484,45.176114,0.0 -67.291707,45.174491,0.0 -67.291417,45.17145,0.0 -67.29591,45.1704,0.0 -67.299238,45.168937,0.0 -67.302568,45.161348,0.0 -67.301729,45.157119,0.0 -67.296979,45.155267,0.0 -67.294363,45.153506,0.0 -67.294881,45.149666,0.0 -67.296174,45.147952,0.0 -67.298209,45.146672,0.0 -67.305472,45.144826,0.0 -67.3055807835454,45.1448078832081,0.0 -67.319925,45.142419,0.0 -67.317564,45.138113,0.0 -67.321564,45.131354,0.0 -67.329829,45.131654,0.0 -67.339869,45.125594,0.0 -67.340806,45.125435,0.0 -67.3408534126039,45.125444494426,0.0 -67.345585,45.126392,0.0 -67.348975,45.12948,0.0 -67.354187,45.129775,0.0 -67.357117,45.131782,0.0 -67.356846,45.133223,0.0 -67.371677,45.143038,0.0 -67.380187,45.151791,0.0 -67.383635,45.152259,0.0 -67.390579,45.154114,0.0 -67.3923597409456,45.1548506310588,0.0 -67.404629,45.159926,0.0 -67.40537,45.162852,0.0 -67.40537,45.164864,0.0 -67.404658,45.166944,0.0 -67.4043983841747,45.167033997023,0.0 -67.399128,45.168861,0.0 -67.398265,45.173322,0.0 -67.400338,45.177376,0.0 -67.407139,45.179425,0.0 -67.410258,45.181544,0.0 -67.412742,45.184367,0.0 -67.418159,45.189947,0.0 -67.425619,45.19114,0.0 -67.428889,45.193213,0.0 -67.429083,45.199066,0.0 -67.427848,45.201738,0.0 -67.43141,45.210039,0.0 -67.437177,45.219662,0.0 -67.437101,45.222658,0.0 -67.43998,45.227047,0.0 -67.446942,45.232735,0.0 -67.453473,45.241127,0.0 -67.460236,45.241926,0.0 -67.462081,45.242748,0.0 -67.46357,45.244097,0.0 -67.472954,45.258736,0.0 -67.47156,45.261138,0.0 -67.474804,45.2635,0.0 -67.476424,45.268904,0.0 -67.476588,45.274926,0.0 -67.48234,45.275977,0.0 -67.483985,45.279541,0.0 -67.4870023436665,45.2805232728727,0.0 -67.489333,45.281282,0.0 -67.489464,45.282653,0.0 -67.485856,45.287046,0.0 -67.486524,45.290633,0.0 -67.485683,45.291433,0.0 -67.484258,45.291868,0.0 -67.482315,45.291412,0.0 -67.47969,45.289767,0.0 -67.478153,45.288384,0.0 -67.47601,45.288833,0.0 -67.474128,45.291472,0.0 -67.466479,45.293817,0.0 -67.466091,45.29416,0.0 -67.465833,45.297223,0.0 -67.468674,45.297353,0.0 -67.465548,45.299755,0.0 -67.460554,45.300379,0.0 -67.458293,45.308255,0.0 -67.453336,45.314256,0.0 -67.452267,45.316839,0.0 -67.452268,45.319628,0.0 -67.456384,45.323925,0.0 -67.456676,45.32564,0.0 -67.456288,45.32644,0.0 -67.453469,45.328246,0.0 -67.445421,45.330223,0.0 -67.442138,45.332154,0.0 -67.442029,45.334601,0.0 -67.434996,45.340133,0.0 -67.431484,45.340942,0.0 -67.428872,45.344228,0.0 -67.430489,45.348751,0.0 -67.430956,45.350562,0.0 -67.427815,45.352191,0.0 -67.427797,45.355471,0.0 -67.425792,45.356351,0.0 -67.42596,45.357681,0.0 -67.433536,45.361324,0.0 -67.434281,45.365438,0.0 -67.431232,45.370787,0.0 -67.430097,45.371862,0.0 -67.427243,45.37369,0.0 -67.423773,45.373461,0.0 -67.421501,45.374078,0.0 -67.419007,45.376026,0.0 -67.418747,45.37726,0.0 -67.422507,45.379088,0.0 -67.422798,45.381032,0.0 -67.426178,45.385201,0.0 -67.426958,45.39019,0.0 -67.430001,45.392965,0.0 -67.438163,45.39889,0.0 -67.448106,45.407823,0.0 -67.452938,45.409974,0.0 -67.456128,45.414106,0.0 -67.458495,45.41596,0.0 -67.460502,45.418609,0.0 -67.460293,45.419983,0.0 -67.461303,45.422243,0.0 -67.469149,45.422655,0.0 -67.47256,45.423321,0.0 -67.473366,45.425328,0.0 -67.4772,45.43159,0.0 -67.480332,45.440856,0.0 -67.478179,45.441511,0.0 -67.476509,45.44337,0.0 -67.477965,45.446428,0.0 -67.481213,45.447695,0.0 -67.483756,45.449565,0.0 -67.484328,45.451955,0.0 -67.484851,45.456001,0.0 -67.481929,45.458288,0.0 -67.482353,45.460825,0.0 -67.485981,45.464636,0.0 -67.486907,45.468024,0.0 -67.494351,45.473048,0.0 -67.499767,45.47805,0.0 -67.503157,45.485367,0.0 -67.503771,45.488522,0.0 -67.503088,45.489688,0.0 -67.499445,45.491013,0.0 -67.495085,45.488677,0.0 -67.489636,45.489114,0.0 -67.488661,45.491155,0.0 -67.488001,45.493762,0.0 -67.484679,45.49547,0.0 -67.481318,45.494021,0.0 -67.47946,45.496427,0.0 -67.476855,45.49724,0.0 -67.473244,45.496061,0.0 -67.471269,45.497227,0.0 -67.467635,45.495175,0.0 -67.464401,45.496613,0.0 -67.464048,45.497621,0.0 -67.468185,45.498565,0.0 -67.470732,45.500067,0.0 -67.47091,45.504279,0.0 -67.470416,45.505307,0.0 -67.462882,45.508691,0.0 -67.456182,45.502271,0.0 -67.451567,45.498991,0.0 -67.449381,45.499596,0.0 -67.448883,45.502083,0.0 -67.449968,45.504933,0.0 -67.453197,45.507105,0.0 -67.45354,45.508771,0.0 -67.450802,45.510088,0.0 -67.449161,45.510115,0.0 -67.441593,45.505044,0.0 -67.437097,45.505104,0.0 -67.434554,45.503449,0.0 -67.432566,45.503849,0.0 -67.429681,45.501592,0.0 -67.427713,45.501336,0.0 -67.425674,45.502917,0.0 -67.4250730223992,45.5041718345157,0.0 -67.424242,45.505907,0.0 -67.422649,45.505863,0.0 -67.420966,45.505054,0.0 -67.418628,45.50165,0.0 -67.416462,45.502147,0.0 -67.416416,45.503515,0.0 -67.420543,45.511113,0.0 -67.425818,45.514532,0.0 -67.426578,45.51771,0.0 -67.429135,45.519041,0.0 -67.432207,45.519996,0.0 -67.431893,45.523588,0.0 -67.435044,45.528783,0.0 -67.435275,45.530781,0.0 -67.434559,45.535912,0.0 -67.432236,45.541023,0.0 -67.43067,45.54139,0.0 -67.429057,45.541207,0.0 -67.428338,45.540626,0.0 -67.425399,45.540795,0.0 -67.423692,45.547198,0.0 -67.420976,45.550029,0.0 -67.422679,45.554155,0.0 -67.422142,45.556569,0.0 -67.426603,45.5606,0.0 -67.428362,45.568906,0.0 -67.423646,45.572153,0.0 -67.425452,45.579086,0.0 -67.429716,45.583773,0.0 -67.4475,45.597021,0.0 -67.449674,45.60286,0.0 -67.455406,45.604665,0.0 -67.466081,45.603177,0.0 -67.468484,45.600626,0.0 -67.47242,45.60058,0.0 -67.476704,45.604157,0.0 -67.485265,45.601615,0.0 -67.489793,45.60118,0.0 -67.49389,45.601182,0.0 -67.493506,45.598816,0.0 -67.489018,45.596944,0.0 -67.488452,45.594643,0.0 -67.490923,45.591488,0.0 -67.499444,45.587014,0.0 -67.51858,45.587925,0.0 -67.5189923357528,45.5880987598696,0.0 -67.534465,45.594619,0.0 -67.546014,45.59736,0.0 -67.556345,45.59726,0.0 -67.556931,45.595066,0.0 -67.561359,45.594906,0.0 -67.583341,45.602493,0.0 -67.589773,45.606765,0.0 -67.608505,45.606198,0.0 -67.631762,45.621409,0.0 -67.638891,45.625075,0.0 -67.644206,45.62322,0.0 -67.640238,45.616178,0.0 -67.64581,45.613597,0.0 -67.663148,45.625411,0.0 -67.666456,45.624461,0.0 -67.675417,45.630959,0.0 -67.679542,45.638095,0.0 -67.692623,45.650366,0.0 -67.691155,45.653521,0.0 -67.69797,45.659738,0.0 -67.701386,45.669101,0.0 -67.706092,45.673635,0.0 -67.710464,45.679372,0.0 -67.709466,45.68138,0.0 -67.713036,45.681213,0.0 -67.717837,45.679449,0.0 -67.723951,45.684594,0.0 -67.727648,45.688468,0.0 -67.729908,45.689012,0.0 -67.734605,45.688987,0.0 -67.73372,45.684233,0.0 -67.730845,45.678223,0.0 -67.724333,45.672506,0.0 -67.7236,45.670384,0.0 -67.718056,45.667986,0.0 -67.71799,45.665243,0.0 -67.719651,45.662819,0.0 -67.720401,45.662522,0.0 -67.724325,45.66404,0.0 -67.726325,45.662949,0.0 -67.73035,45.663239,0.0 -67.733889,45.664489,0.0 -67.735662,45.66693,0.0 -67.73873,45.667747,0.0 -67.744381,45.672993,0.0 -67.747382,45.670443,0.0 -67.754245,45.667791,0.0 -67.768648,45.677581,0.0 -67.803313,45.677886,0.0 -67.8054831422691,45.6802407212124,0.0 -67.873581,45.669296,0.0 -67.877787,45.672145,0.0 -67.88478,45.672304,0.0 -67.886499,45.672888,0.0 -67.889326,45.671835,0.0 -67.891119,45.673671,0.0 -67.894154,45.675005,0.0 -67.89637,45.675126,0.0 -67.898094,45.676555,0.0 -67.898421,45.677873,0.0 -67.902264,45.680115,0.0 -67.896955,45.665302,0.0 -67.933541,45.659141,0.0 -68.034881,45.642163,0.0 -68.048012,45.639897,0.0 -68.020354,45.553285,0.0 -67.993241,45.467016,0.0 -67.957928,45.353247,0.0 -67.966881,45.351879,0.0 -67.965717,45.348227,0.0 -67.963468,45.341298,0.0 -67.960645,45.33256,0.0 -67.93976,45.267845,0.0 -67.968434,45.263904,0.0 -67.999456,45.259675,0.0 -68.002581,45.259792,0.0 -68.033638,45.256082,0.0 -68.054985,45.252577,0.0 -68.054953,45.252447,0.0 -68.034326,45.181497,0.0 -68.034161,45.180865,0.0 -67.998356,45.023225,0.0 -67.981851,44.955885,0.0 -68.091771,44.940973,0.0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+  </Document>
+</kml>

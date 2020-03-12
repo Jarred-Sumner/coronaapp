@@ -4,6 +4,7 @@ import MapViewComponent, {
   MapEvent,
   Circle as __RawCircle,
   Marker as _RawMarker,
+  KmlMarker,
 } from './Maps';
 import {COLORS} from '../lib/theme';
 import {isPointInPolygon, getDistance} from 'geolib';
@@ -123,7 +124,7 @@ const Circle = ({pin, isSelected, hasSelection}) => {
 };
 
 const MapComponents = React.memo(
-  ({pins, onPressPin, selectedId, displayCircles, circles}) => {
+  ({pins, onPressPin, selectedId, displayCircles, circles, kml}) => {
     const renderPin = React.useCallback(
       pin => {
         const {size, latitude, longitude, id, object, color} = pin;
@@ -175,11 +176,21 @@ const MapComponents = React.memo(
       [selectedId, onPressPin],
     );
 
-    if (displayCircles) {
-      return circles.map(renderCircle);
-    } else {
-      return pins.map(renderPin);
-    }
+    const renderKML = React.useCallback(
+      kml => <KmlMarker url={kml} key={kml} />,
+      [KmlMarker],
+    );
+
+    const dots = displayCircles
+      ? circles.map(renderCircle)
+      : pins.map(renderPin);
+    return (
+      <>
+        {dots}
+
+        {kml.map(renderKML)}
+      </>
+    );
   },
 );
 
@@ -192,6 +203,7 @@ export const MapView = React.forwardRef(
       onRegionChange,
       children,
       onPressPin,
+      kml,
       height,
       onPressMap,
       selectedId,
@@ -306,6 +318,7 @@ export const MapView = React.forwardRef(
           onRegionChangeComplete={onRegionChange}>
           <MapComponents
             selectedId={selectedId}
+            kml={kml}
             circles={circles}
             displayCircles={displayCircles}
             onPressPin={Platform.select({

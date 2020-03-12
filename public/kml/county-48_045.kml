@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <LookAt>
+      <longitude>-102</longitude>
+      <latitude>38.5</latitude>
+      <range>7000000</range>
+      <tilt>10</tilt>
+      <heading>0</heading>
+    </LookAt>
+    <name>cb_2018_us_county_500k</name>
+    <visibility>1</visibility>
+    <Style id="KMLStyler">
+      <LabelStyle>
+        <scale>1.0</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>C0871919</color>
+        <width>2</width>
+        <gx:labelVisibility>0</gx:labelVisibility>
+      </LineStyle>
+      <PolyStyle>
+        <color>F0871919</color>
+      </PolyStyle>
+    </Style>
+    <Schema name="cb_2018_us_county_500k" id="kml_schema_ft_cb_2018_us_county_500k">
+      <SimpleField type="xsd:string" name="STATEFP">
+        <displayName>STATEFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYFP">
+        <displayName>COUNTYFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYNS">
+        <displayName>COUNTYNS</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="AFFGEOID">
+        <displayName>AFFGEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="GEOID">
+        <displayName>GEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="NAME">
+        <displayName>NAME</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="LSAD">
+        <displayName>LSAD</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="ALAND">
+        <displayName>ALAND</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="AWATER">
+        <displayName>AWATER</displayName>
+      </SimpleField>
+    </Schema>
+    <Folder id="kml_ft_cb_2016_us_zcta510_500k">
+      <name>cb_2016_us_zcta510_500k</name>
+    </Folder>
+    <Placemark id="cb_2018_us_county_500k.kml">
+      <visibility>1</visibility>
+      <styleUrl>#KMLStyler</styleUrl>
+      <ExtendedData>
+        <SchemaData schemaUrl="#kml_schema_ft_cb_2018_us_county_500k">
+          <SimpleData name="STATEFP">48</SimpleData>
+          <SimpleData name="COUNTYFP">045</SimpleData>
+          <SimpleData name="COUNTYNS">01383808</SimpleData>
+          <SimpleData name="AFFGEOID">0500000US48045</SimpleData>
+          <SimpleData name="GEOID">48045</SimpleData>
+          <SimpleData name="NAME">Briscoe</SimpleData>
+          <SimpleData name="LSAD">06</SimpleData>
+          <SimpleData name="ALAND">2330991073</SimpleData>
+          <SimpleData name="AWATER">4068657</SimpleData>
+        </SchemaData>
+      </ExtendedData>
+      <Polygon>
+        <extrude>0</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>clampToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-101.472052,34.434084,0.0 -101.471772,34.372483,0.0 -101.47158,34.31229,0.0 -101.274825,34.31224,0.0 -101.268048,34.312536,0.0 -101.258921,34.312235,0.0 -101.223344,34.312285,0.0 -101.193326,34.312258,0.0 -101.172535,34.312237,0.0 -101.171406,34.312295,0.0 -101.153749,34.312322,0.0 -101.041484,34.312444,0.0 -100.963904,34.312687,0.0 -100.963587,34.312754,0.0 -100.946132,34.312759,0.0 -100.945462,34.484497,0.0 -100.945819,34.487443,0.0 -100.945576,34.491798,0.0 -100.945417,34.493481,0.0 -100.945075,34.622,0.0 -100.945188,34.628533,0.0 -100.945152,34.63614,0.0 -100.945132,34.636271,0.0 -100.944939,34.748281,0.0 -101.090749,34.748246,0.0 -101.199931,34.747704,0.0 -101.279481,34.748267,0.0 -101.385871,34.748377,0.0 -101.434904,34.74742,0.0 -101.471562,34.747462,0.0 -101.471437,34.67519,0.0 -101.471438,34.65265,0.0 -101.471652,34.622107,0.0 -101.471765,34.534666,0.0 -101.471596,34.529939,0.0 -101.472052,34.434084,0.0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/api/user_reports/list', to: 'user_reports#list'
   get '/api/tweets', to: 'tweets#index'
   get '/api/reports', to: 'pins#confirmed_pins'
+  get '/api/kml/:id', to: 'pins#kml'
   get '/api/stats/totals', to: 'stats#totals'
   get '/api/stats/country', to: 'stats#country'
   get '/api/user_reports/:id', to: 'user_reports#show'

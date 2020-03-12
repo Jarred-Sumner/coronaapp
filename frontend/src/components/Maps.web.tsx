@@ -4,10 +4,16 @@ import {
   GoogleMap,
   useLoadScript,
   Marker as MapsMarker,
+  KmlLayer,
 } from '@react-google-maps/api';
 import {isDesktop} from './ScreenSize';
 import {unstable_batchedUpdates} from 'react-dom';
 import MAPS_STYLE from './MAPS_STYLE';
+
+export const KmlMarker = ({url, opacity}) => {
+  console.log({url});
+  return <KmlLayer url={url} options={{preserveViewport: true}} />;
+};
 
 export const Marker = ({
   image: {uri, width, height},

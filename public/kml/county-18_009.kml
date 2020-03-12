@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <LookAt>
+      <longitude>-102</longitude>
+      <latitude>38.5</latitude>
+      <range>7000000</range>
+      <tilt>10</tilt>
+      <heading>0</heading>
+    </LookAt>
+    <name>cb_2018_us_county_500k</name>
+    <visibility>1</visibility>
+    <Style id="KMLStyler">
+      <LabelStyle>
+        <scale>1.0</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>C0871919</color>
+        <width>2</width>
+        <gx:labelVisibility>0</gx:labelVisibility>
+      </LineStyle>
+      <PolyStyle>
+        <color>F0871919</color>
+      </PolyStyle>
+    </Style>
+    <Schema name="cb_2018_us_county_500k" id="kml_schema_ft_cb_2018_us_county_500k">
+      <SimpleField type="xsd:string" name="STATEFP">
+        <displayName>STATEFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYFP">
+        <displayName>COUNTYFP</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="COUNTYNS">
+        <displayName>COUNTYNS</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="AFFGEOID">
+        <displayName>AFFGEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="GEOID">
+        <displayName>GEOID</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="NAME">
+        <displayName>NAME</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:string" name="LSAD">
+        <displayName>LSAD</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="ALAND">
+        <displayName>ALAND</displayName>
+      </SimpleField>
+      <SimpleField type="xsd:double" name="AWATER">
+        <displayName>AWATER</displayName>
+      </SimpleField>
+    </Schema>
+    <Folder id="kml_ft_cb_2016_us_zcta510_500k">
+      <name>cb_2016_us_zcta510_500k</name>
+    </Folder>
+    <Placemark id="cb_2018_us_county_500k.kml">
+      <visibility>1</visibility>
+      <styleUrl>#KMLStyler</styleUrl>
+      <ExtendedData>
+        <SchemaData schemaUrl="#kml_schema_ft_cb_2018_us_county_500k">
+          <SimpleData name="STATEFP">18</SimpleData>
+          <SimpleData name="COUNTYFP">009</SimpleData>
+          <SimpleData name="COUNTYNS">00450404</SimpleData>
+          <SimpleData name="AFFGEOID">0500000US18009</SimpleData>
+          <SimpleData name="GEOID">18009</SimpleData>
+          <SimpleData name="NAME">Blackford</SimpleData>
+          <SimpleData name="LSAD">06</SimpleData>
+          <SimpleData name="ALAND">427559450</SimpleData>
+          <SimpleData name="AWATER">1298757</SimpleData>
+        </SchemaData>
+      </ExtendedData>
+      <Polygon>
+        <extrude>0</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>clampToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-85.447014,40.566929,0.0 -85.445829,40.479302,0.0 -85.445524,40.46564,0.0 -85.445641,40.465098,0.0 -85.444811,40.421895,0.0 -85.44433,40.37914,0.0 -85.444323,40.378746,0.0 -85.35091,40.378424,0.0 -85.331731,40.378811,0.0 -85.331737,40.378222,0.0 -85.220486,40.379212,0.0 -85.219901,40.379034,0.0 -85.218551,40.379218,0.0 -85.218306,40.379224,0.0 -85.216327,40.379181,0.0 -85.2136,40.379191,0.0 -85.211516,40.379188,0.0 -85.206831,40.379182,0.0 -85.206864,40.382817,0.0 -85.206876,40.384716,0.0 -85.206889,40.391427,0.0 -85.206694,40.392605,0.0 -85.206566,40.394681,0.0 -85.206508,40.479373,0.0 -85.200857,40.479495,0.0 -85.200677,40.486778,0.0 -85.200713,40.501624,0.0 -85.201067,40.519919,0.0 -85.201396,40.521325,0.0 -85.201184,40.525023,0.0 -85.201313,40.552128,0.0 -85.201146,40.567242,0.0 -85.220999,40.567251,0.0 -85.333667,40.567327,0.0 -85.390539,40.566898,0.0 -85.447014,40.566929,0.0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>
