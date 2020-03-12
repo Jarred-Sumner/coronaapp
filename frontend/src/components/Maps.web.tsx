@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Platform} from 'react-native';
+import memoizee from 'memoizee';
+
 import {
   GoogleMap,
   useLoadScript,
@@ -13,6 +15,17 @@ import MAPS_STYLE from './MAPS_STYLE';
 export const KmlMarker = ({url, opacity}) => {
   return <KmlLayer url={url} options={{preserveViewport: true}} />;
 };
+
+const _getMarkerImage = (uri, width, height) =>
+  new window.google.maps.MarkerImage(
+    uri,
+    new window.google.maps.Size(width, height),
+    new window.google.maps.Point(0, 0),
+    new window.google.maps.Point(width / 2, height / 2),
+    new window.google.maps.Size(width, height),
+  );
+
+const getMarkerImage = memoizee(_getMarkerImage, {simple: true});
 
 export const Marker = ({
   image: {uri, width, height},
@@ -40,15 +53,8 @@ export const Marker = ({
     [identifier, onPress],
   );
 
-  const markerImage = React.useMemo(() => {
-    return new window.google.maps.MarkerImage(
-      uri,
-      new window.google.maps.Size(width, height),
-      new window.google.maps.Point(0, 0),
-      new window.google.maps.Point(width / 2, height / 2),
-      new window.google.maps.Size(width, height),
-    );
-  }, [uri, width, height]);
+  const markerImage = getMarkerImage(uri, width, height);
+
   return (
     <MapsMarker
       {...rest}

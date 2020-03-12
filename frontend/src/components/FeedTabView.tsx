@@ -330,7 +330,7 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
         onIndexChange={this.onIndexChange}
         initialLayout={this.initialLayout}
         renderTabBar={this.renderTabBar}
-        lazy={false}
+        lazy
         pageMargin={0}
         renderPager={Platform.select({
           ios: undefined,

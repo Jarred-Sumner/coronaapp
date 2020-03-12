@@ -4,8 +4,8 @@ import {BitmapIcon, SHARE} from './BitmapIcons';
 import {ListClicker} from './ListClicker';
 
 export const ShareButton = ({onPress}) => (
-  <ListClicker onPress={onPress}>
-    <Animated.View>
+  <ListClicker style={{height: 52, width: 52, flex: 0}} onPress={onPress}>
+    <Animated.View style={{height: 52, width: 52, flex: 0}}>
       <BitmapIcon source={SHARE} style={{height: 52, width: 52}} />
     </Animated.View>
   </ListClicker>
