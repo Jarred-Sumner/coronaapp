@@ -1,5 +1,6 @@
 module Map
   US_STATES_JSON_PATH = Rails.root.join("db/us-states.json")
+  US_GEOJSON_PATH = Rails.root.join("db/usa.geo.json")
 
   def self.geo_factory
     RGeo::Geos.factory
@@ -21,6 +22,28 @@ module Map
 
   def self.state_counties_mapping
     @state_counties ||= {}
+  end
+
+  def self.us_geojson
+    @us_geojson ||= RGeo::GeoJSON.decode(File.read(US_GEOJSON_PATH), json_parser: :active_support, geo_factory: geo_factory)
+  end
+
+  def self.inside_united_states?(lat, long)
+    is_inside = false
+
+    us_geojson.any? do |feature|
+      break if is_inside
+      geometry = feature.geometry
+      point = Map.geo_factory.point(long, lat)
+      geometry.each do |polygon|
+        if point.within?(polygon)
+          is_inside = true
+          break
+        end
+      end
+    end
+
+    is_inside
   end
 
   def self.normalize_bounds!

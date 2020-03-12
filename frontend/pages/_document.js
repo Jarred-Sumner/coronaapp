@@ -99,6 +99,12 @@ export class Document extends NextDocument {
           <link rel="preconnect" href="https://maps.googleapis.com" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
 
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-K0GJNSV1P5"></script>
@@ -115,12 +121,6 @@ export class Document extends NextDocument {
       }`,
             }}
           />
-
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
         </body>
       </html>
     );

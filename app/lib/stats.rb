@@ -69,15 +69,13 @@ class Stats
     end
 
     def self.confirmed_pins(min_lat:, min_long:, max_lat:, max_long:)
-      if PINS_PROVIDER == :pt
-        PointThreeAcres.fetch_cases(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
-      else
-        pins = confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
-        if confirmed_pins_needs_update?
-          ConfirmedPinsWorker.perform_async
-        end
-        pins
+      pins = confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
+      if confirmed_pins_needs_update?
+        ConfirmedPinsWorker.perform_async
       end
+
+
+      pins + PointThreeAcres.fetch_cases(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
     end
 
     def self.fetch_confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0)
@@ -107,8 +105,17 @@ class Stats
         resp = JSON.parse(resp).with_indifferent_access
       end
 
+      if resp["error"]
+        return []
+      end
+
       resp["features"].map do |a|
         props = a["attributes"]
+
+        latitude = Float(props["Lat"])
+        longitude = Float(props["Long_"])
+
+        next if Map.inside_united_states?(latitude, longitude)
 
         # "OBJECTID"=>121, "Province_State"=>"Jiangxi", "Country_Region"=>"Mainland China", "Last_Update"=>1583025190000, "Lat"=>27.614008270636, "Long_"=>115.722093542185, "Confirmed"=>935, "Deaths"=>1, "Recovered"=>831
         {
@@ -119,15 +126,15 @@ class Stats
           "source": "hopkins",
           "province":  props["Province_State"],
           label: [props["Province_State"], props["Country_Region"]].compact.uniq.join(" "),
-          "latitude": Float(props["Lat"]),
-          "longitude": Float(props["Long_"]),
+          "latitude": latitude,
+          "longitude": longitude,
           "infections": {
             'confirm': props["Confirmed"],
             'dead': props["Deaths"],
             'recover': props["Recovered"],
           }
         }.with_indifferent_access
-      end
+      end.compact
     end
 
   def self.confirmed_pins_fallback(min_lat:, min_long:, max_lat:, max_long:)

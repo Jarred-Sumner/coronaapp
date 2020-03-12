@@ -79,15 +79,15 @@ class UserReportsController < ApplicationController
     reports = []
     count = UserReport.order("created_at DESC").count
 
-    SneezemapReport.fetch_data
-      .filter { |report| bounds.contains?(Geokit::LatLng.new(report['lat'], report['long'])) }
-      .each do |report|
-        reports.push(sneezemap_report_item_json(report))
-      end
+    # SneezemapReport.fetch_data
+    #   .filter { |report| Time.at(report["createdAt"] / 1000.0) > 3.days.ago && bounds.contains?(Geokit::LatLng.new(report['lat'], report['long'])) }
+    #   .each do |report|
+    #     reports.push(sneezemap_report_item_json(report))
+    #   end
 
     # GeocodeResult.where(location: sneeze_locations)
 
-    UserReport.includes(:geocode_result).where("location IS NOT NULL").order("created_at DESC").find_each do |report|
+    UserReport.where("created_at > ?", 4.days.ago).includes(:geocode_result).where("location IS NOT NULL").order("created_at DESC").find_each do |report|
       reports.push(report_item_json(report))
     end
 
