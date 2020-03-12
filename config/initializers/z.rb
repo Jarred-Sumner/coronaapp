@@ -1,1 +1,1 @@
-Map.prefetch!
+Oj.optimize_rails()

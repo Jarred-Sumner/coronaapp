@@ -1,5 +1,7 @@
 module PointThreeAcres
   SCRAPE_URL = "https://cryptic-anchorage-53515.herokuapp.com/scrape"
+  SCRAPE_CACHE_KEY = SCRAPE_URL + "__key"
+  SCRAPED_AT_CACHE_KEY = "PointThreeAcres/SCRAPED_AT"
   STATES_MAPPING = {
     "AL": "Alabama",
     "AK": "Alaska",
@@ -62,8 +64,8 @@ module PointThreeAcres
     "WY": "Wyoming"
 }.with_indifferent_access
 
-  def self.fetch_raw_data
-    if Rails.env.development?
+  def self.fetch_raw_data(force = true)
+    if Rails.env.development? && !force
       File.read("#{Rails.root}/db/3point1.json")
     else
       Faraday.new(url: SCRAPE_URL).get.body
@@ -116,7 +118,9 @@ module PointThreeAcres
   end
 
   def self.get_data
-    ActiveSupport::JSON.decode(fetch_raw_data).with_indifferent_access
+    json = Rails.cache.fetch(SCRAPE_CACHE_KEY)
+    return nil if json.blank?
+    ActiveSupport::JSON.decode(json).with_indifferent_access
   end
 
   def self.fetch_case_by_id(id)
@@ -126,6 +130,22 @@ module PointThreeAcres
       format_case(row).as_json
     else
       nil
+    end
+  end
+
+
+  def self.update_fetched_cases
+    Rails.logger.info "[PointThreeAcres] Beginning to fetch..."
+    data = fetch_raw_data(true)
+    Rails.logger.info "[PointThreeAcres] Fetched."
+
+    if data.present?
+      now = DateTime.now
+      Rails.cache.write(SCRAPE_CACHE_KEY, data)
+      Rails.cache.write(SCRAPED_AT_CACHE_KEY, now.iso8601)
+      Rails.logger.info "[PointThreeAcres] Updated at #{now} (#{data.length} chars)"
+    else
+      Rails.logger.error "[PointThreeAcres] Failed to update at #{now} (#{data.length} chars)"
     end
   end
 

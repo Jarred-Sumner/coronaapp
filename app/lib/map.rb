@@ -6,7 +6,6 @@ module Map
   end
 
   def self.prefetch!
-    Oj.optimize_rails()
     us_states_json
     us_counties_json
     normalize_bounds!
