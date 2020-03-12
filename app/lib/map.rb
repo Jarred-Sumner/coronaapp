@@ -33,7 +33,6 @@ module Map
       mappings[county.state.id] << county.id
     end
 
-
     @state_counties = mappings
     @has_normalized = true
   end
