@@ -3,11 +3,13 @@ import {Platform} from 'react-native';
 import qs from 'qs';
 import {Region} from 'react-native-maps';
 
+export const PRODUCTION_HOSTNAME = 'https://covy.app';
+
 export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 export const IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
 export const hostname = Platform.select({
-  ios: IS_PRODUCTION ? 'https://covy.app' : 'http://localhost:3000',
-  android: IS_PRODUCTION ? 'https://covy.app' : 'http://localhost:3000',
+  ios: IS_PRODUCTION ? PRODUCTION_HOSTNAME : 'http://localhost:3000',
+  android: IS_PRODUCTION ? PRODUCTION_HOSTNAME : 'http://localhost:3000',
   web: IS_PRODUCTION ? '' : 'http://localhost:3000',
 });
 

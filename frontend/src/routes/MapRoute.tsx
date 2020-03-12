@@ -27,6 +27,7 @@ import {
   TOTALS_URL,
   userReportByIdURL,
   USER_REPORT_STATS,
+  PRODUCTION_HOSTNAME,
 } from '../api';
 import {
   ConfirmedPin,
@@ -451,7 +452,7 @@ export const MapRoute = ({}) => {
           pin.infections.confirm - pin.infections.recover - pin.infections.dead;
 
         if (_count > 0 && pin.kml) {
-          _kml.add(hostname + pin.kml);
+          _kml.add(PRODUCTION_HOSTNAME + pin.kml);
         }
         count = count + _count;
       }
