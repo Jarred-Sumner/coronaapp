@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
   map: {
     width: '100%',
     height: '100%',
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    position: 'relative',
   },
   overlay: {
     position: 'absolute',
@@ -292,7 +297,7 @@ export const MapView = React.forwardRef(
     );
 
     return (
-      <>
+      <View style={styles.container}>
         <MapViewComponent
           initialRegion={initialRegion}
           style={[styles.map, {height}]}
@@ -333,7 +338,7 @@ export const MapView = React.forwardRef(
         <View pointerEvents="box-none" style={styles.overlay}>
           {children}
         </View>
-      </>
+      </View>
     );
   },
 );

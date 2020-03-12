@@ -37,6 +37,7 @@ export const SheetHeaderRow = ({
   onPress,
   value,
   size,
+  width,
   Icon,
   light,
   isLast,

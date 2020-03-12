@@ -11,6 +11,7 @@ import {
   Text,
   View,
   StatusBar,
+  useWindowDimensions,
 } from 'react-native';
 
 import {Region} from 'react-native-maps';
@@ -73,6 +74,14 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
+    flex: 1,
+    backgroundColor: 'black',
+  },
+  horizontalContainer: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    flexDirection: 'row',
     backgroundColor: 'black',
   },
   sheet: {
@@ -149,6 +158,10 @@ enum MapSelectionType {
 }
 
 export const MapRoute = ({}) => {
+  const {width, height} = useWindowDimensions();
+
+  const isDesktop = width > 600;
+  console.log({isDesktop});
   const {setRegion, region} = React.useContext(RegionContext);
   const initialRegion = React.useRef(region);
   const {setParams} = useNavigation();
@@ -491,11 +504,15 @@ export const MapRoute = ({}) => {
   return (
     <MapContext.Provider value={mapContextValue}>
       <CoordinatorLayout
-        style={styles.container}
+        style={isDesktop ? styles.horizontalContainer : styles.container}
+        horizontal={isDesktop}
         sheet={
           selectionType === MapSelectionType.sheet && (
-            <PullyView initialStickyPointOffset={350} animateOpen={false}>
-              <FeedSheet />
+            <PullyView
+              horizontal={isDesktop}
+              initialStickyPointOffset={350}
+              animateOpen={false}>
+              <FeedSheet horizontal={isDesktop} />
             </PullyView>
           )
         }>
@@ -548,6 +565,7 @@ export const MapRoute = ({}) => {
         <MapOverlay
           type={selectionType}
           id={selectedId}
+          horizontal={isDesktop}
           object={selectedObject}
           deselect={handlePressMap}
         />

@@ -76,6 +76,7 @@ const ListComponent = ({
   insetHeight,
   simultaneousHandlers,
   listRef,
+  width,
   isModal,
   offset,
   networkStatus,
@@ -108,6 +109,7 @@ const ListComponent = ({
             wrap
             key={item.id}
             distance={distance}
+            width={width - 32}
             report={item}
             onPress={onPress}
           />
@@ -119,12 +121,13 @@ const ListComponent = ({
             key={item.id}
             distance={distance}
             report={item}
+            width={width - 32}
             onPress={onPress}
           />
         );
       }
     },
-    [onPress, data, relativeLatitude, relativeLongitude],
+    [onPress, data, relativeLatitude, relativeLongitude, width],
   );
 
   const contentInset = React.useMemo(
@@ -208,8 +211,10 @@ export const ReportsList = ({
   scrollY,
   simultaneousHandlers,
   waitFor,
+  horizontal,
   listRef,
   insetHeight,
+  width,
   height,
   translateY,
 }) => {
@@ -259,8 +264,9 @@ export const ReportsList = ({
       scrollY={scrollY}
       relativeLatitude={latitude}
       relativeLongitude={longitude}
-      scrollEnabled={position === 'top'}
+      scrollEnabled={horizontal || position === 'top'}
       listKey="REPORTS"
+      horizontal={horizontal}
       simultaneousHandlers={simultaneousHandlers}
       waitFor={waitFor}
       onPress={handlePressReport}
@@ -268,6 +274,7 @@ export const ReportsList = ({
       insetHeight={insetHeight}
       translateY={translateY}
       height={height}
+      width={width}
     />
   );
 };

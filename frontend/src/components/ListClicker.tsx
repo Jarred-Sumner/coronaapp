@@ -48,9 +48,13 @@ export const ListClicker = ({children, onPress, style}) => {
     return () => element.removeEventListener('click', clickHandler);
   }, [ref, clickHandler]);
 
-  return (
-    <View style={[style, {cursor: 'pointer'}]} ref={ref}>
-      {children}
-    </View>
+  return unstable_createElement(
+    'div',
+    {
+      className: 'ListClicker',
+      style: [style, {cursor: 'pointer'}],
+      ref,
+    },
+    children,
   );
 };

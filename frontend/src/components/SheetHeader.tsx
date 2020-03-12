@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12,
 
-    width: SCREEN_DIMENSIONS.width,
     shadowRadius: 1,
     shadowColor: '#000',
     shadowOpacity: 0.25,
@@ -87,8 +86,9 @@ export const SheetHeader = ({
   tabs,
   icons = false,
   inset,
+
   indicatorWidth: _indicatorWidth,
-  containerWidth = SCREEN_DIMENSIONS.width,
+  width: containerWidth,
   tabBarPosition,
 }) => {
   const width = (containerWidth - inset) / tabs.length;
@@ -132,7 +132,10 @@ export const SheetHeader = ({
   return (
     <View
       pointerEvents="box-none"
-      style={[styles.container, {height: HEADER_HEIGHT}]}>
+      style={[
+        styles.container,
+        {height: HEADER_HEIGHT, width: containerWidth},
+      ]}>
       {inset > 0 && <View style={{width: inset, height: 1}} />}
       <Row
         onPress={onChange}

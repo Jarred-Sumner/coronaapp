@@ -17,25 +17,24 @@ export const UNWRAPPED_USER_REPORT_HEIGHT = USER_REPORT_HEIGHT - 16;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#353535',
-    width: CONTENT_WIDTH,
     height: UNWRAPPED_USER_REPORT_HEIGHT,
 
     borderRadius: 4,
   },
   wrapper: {
-    width: CONTENT_WIDTH,
     height: USER_REPORT_HEIGHT,
+    flexGrow: 1,
+
+    paddingHorizontal: 12,
     paddingVertical: 8,
-    alignSelf: 'center',
   },
   headerRow: {
     flexDirection: 'row',
-    width: CONTENT_WIDTH,
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingTop: 12,
     paddingBottom: 8,
-    flex: 1,
+    flexGrow: 1,
   },
   titleLabel: {
     flexGrow: 1,
@@ -114,6 +113,7 @@ export const UserReportListItem = React.memo(
     relativeLongitude,
     relativeLatitude,
     wrap = true,
+    width,
     onPress,
   }: {
     report: UserReportListRequest.UserReport;
@@ -125,7 +125,7 @@ export const UserReportListItem = React.memo(
     }, [onPress, report]);
 
     const content = (
-      <View style={styles.container}>
+      <View style={[styles.container]}>
         <View style={styles.headerRow}>
           <View style={styles.colorDot} />
           <Text
@@ -174,7 +174,7 @@ export const UserReportListItem = React.memo(
     if (wrap) {
       return (
         <ListClicker onPress={handlePressReport}>
-          <Animated.View style={styles.wrapper}>{content}</Animated.View>
+          <Animated.View style={[styles.wrapper]}>{content}</Animated.View>
         </ListClicker>
       );
     } else {

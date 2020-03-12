@@ -9,7 +9,7 @@ import {
 import Animated, {Easing} from 'react-native-reanimated';
 import {clamp, onGestureEvent, timing, withSpring} from 'react-native-redash';
 import {SCREEN_DIMENSIONS} from './ScreenSize';
-import {InteractionManager, Platform} from 'react-native';
+import {InteractionManager, Platform, View, StyleSheet} from 'react-native';
 
 const {
   Clock,
@@ -24,6 +24,10 @@ const {
   diffClamp,
   Extrapolate,
 } = Animated;
+
+const style = StyleSheet.create({
+  container: {},
+});
 
 const {height} = SCREEN_DIMENSIONS;
 const MINIMIZED_PLAYER_HEIGHT = 42;
@@ -196,6 +200,7 @@ export class NativePullyView extends React.Component {
       tabViewRef,
       position,
       onChangePosition,
+      horizontal = false,
     } = this.props;
 
     const {
@@ -210,69 +215,73 @@ export class NativePullyView extends React.Component {
       goDown,
     } = this;
 
-    return (
-      <PanGestureHandler
-        enabled={position === 'bottom'}
-        ref={this.panRef}
-        simultaneousHandlers={this.panHandlers}
-        {...this.gestureEvents}>
-        <Animated.View style={this.rootStyle}>
-          <Animated.Code
-            exec={block([
-              Animated.onChange(
-                this.gestureState,
-                Animated.call(
-                  [this.gestureState],
-                  this.updateInteractionHandle,
+    if (!horizontal) {
+      return (
+        <PanGestureHandler
+          enabled={position === 'bottom'}
+          ref={this.panRef}
+          simultaneousHandlers={this.panHandlers}
+          {...this.gestureEvents}>
+          <Animated.View style={this.rootStyle}>
+            <Animated.Code
+              exec={block([
+                Animated.onChange(
+                  this.gestureState,
+                  Animated.call(
+                    [this.gestureState],
+                    this.updateInteractionHandle,
+                  ),
                 ),
-              ),
-              Animated.onChange(
-                Animated.eq(translateY, 0),
-                Animated.block([
-                  Animated.cond(
-                    Animated.eq(translateY, 0),
-                    Animated.call([], setSnapToTop),
-                  ),
-                ]),
-              ),
-              Animated.onChange(
-                Animated.eq(translateY, SNAP_BOTTOM),
-                Animated.block([
-                  Animated.cond(
-                    Animated.eq(translateY, SNAP_BOTTOM),
-                    Animated.call([], setSnapToBottom),
-                  ),
-                ]),
-              ),
+                Animated.onChange(
+                  Animated.eq(translateY, 0),
+                  Animated.block([
+                    Animated.cond(
+                      Animated.eq(translateY, 0),
+                      Animated.call([], setSnapToTop),
+                    ),
+                  ]),
+                ),
+                Animated.onChange(
+                  Animated.eq(translateY, SNAP_BOTTOM),
+                  Animated.block([
+                    Animated.cond(
+                      Animated.eq(translateY, SNAP_BOTTOM),
+                      Animated.call([], setSnapToBottom),
+                    ),
+                  ]),
+                ),
 
-              cond(goDown, [
-                set(
-                  offset,
-                  timing({
-                    clock,
-                    from: offset,
-                    easing: Easing.elastic(0.5),
-                    to: SNAP_BOTTOM,
-                  }),
-                ),
-                Animated.cond(not(clockRunning(clock)), [
-                  set(goDown, 0),
-                  Animated.call([goDown], this.setSnapToBottom),
+                cond(goDown, [
+                  set(
+                    offset,
+                    timing({
+                      clock,
+                      from: offset,
+                      easing: Easing.elastic(0.5),
+                      to: SNAP_BOTTOM,
+                    }),
+                  ),
+                  Animated.cond(not(clockRunning(clock)), [
+                    set(goDown, 0),
+                    Animated.call([goDown], this.setSnapToBottom),
+                  ]),
                 ]),
-              ]),
-            ])}
-          />
-          <FlingGestureHandler
-            enabled={position === 'top'}
-            ref={this.flingRef}
-            direction={Directions.DOWN}
-            simultaneousHandlers={this.flingHandlers}
-            onHandlerStateChange={this.handleGestureEvent}>
-            <Animated.View>{children}</Animated.View>
-          </FlingGestureHandler>
-        </Animated.View>
-      </PanGestureHandler>
-    );
+              ])}
+            />
+            <FlingGestureHandler
+              enabled={position === 'top'}
+              ref={this.flingRef}
+              direction={Directions.DOWN}
+              simultaneousHandlers={this.flingHandlers}
+              onHandlerStateChange={this.handleGestureEvent}>
+              <Animated.View>{children}</Animated.View>
+            </FlingGestureHandler>
+          </Animated.View>
+        </PanGestureHandler>
+      );
+    } else {
+      return <View style={{flexShrink: 1}}>{children}</View>;
+    }
   }
 }
 

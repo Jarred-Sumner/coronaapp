@@ -17,20 +17,18 @@ export const UNWRAPPED_USER_REPORT_HEIGHT = CONFIRMED_REPORT_HEIGHT - 16;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#353535',
-    width: CONTENT_WIDTH,
+
     height: UNWRAPPED_USER_REPORT_HEIGHT,
 
     borderRadius: 4,
   },
   wrapper: {
-    width: CONTENT_WIDTH,
     height: CONFIRMED_REPORT_HEIGHT,
-    alignSelf: 'center',
+    alignSelf: 'stretch',
     paddingVertical: 8,
   },
   headerRow: {
     flexDirection: 'row',
-    width: CONTENT_WIDTH,
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingTop: 12,

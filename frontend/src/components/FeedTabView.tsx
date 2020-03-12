@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 12,
   },
   container: {
-    width: '100%',
+    flex: 1,
     backgroundColor: 'rgba(25,25, 25, 1)',
 
     overflow: 'visible',
@@ -142,6 +142,7 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
       onPress,
       keyboardVisibleValue,
       selectedIDs,
+      horizontal,
       // isFocused,
       renderHeader,
       headerHeight,
@@ -168,6 +169,8 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
             offset={this.props.offset}
             query={query}
             bottomInset={this.props.bottomInset}
+            width={this.props.width}
+            horizontal={horizontal}
             selectedIDs={selectedIDs}
             isModal={this.props.isModal}
             inset={this.props.inset}
@@ -187,7 +190,9 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
             height={height}
             renderHeader={renderHeader}
             headerHeight={headerHeight}
+            horizontal={horizontal}
             offset={this.props.offset}
+            width={this.props.width}
             query={query}
             bottomInset={this.props.bottomInset}
             selectedIDs={selectedIDs}
@@ -263,6 +268,7 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
       <SheetHeader
         tabs={this.props.routes}
         position={props.position}
+        width={this.props.width}
         inset={0}
         value={props.navigationState.routes[props.navigationState.index].key}
         onChange={props.jumpTo}
@@ -281,8 +287,8 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
         style={[
           styles.sceneContainer,
           {
-            height: this.props.height || SCREEN_DIMENSIONS.width,
-            width: this.props.width || SCREEN_DIMENSIONS.height,
+            height: this.props.height,
+            width: this.props.width,
           },
         ]}>
         {this.renderScene(route)}
@@ -305,6 +311,7 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
     const {
       width,
       height,
+      horizontal,
       tabBarPosition,
       routes,
       position,
@@ -314,7 +321,7 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
     return (
       <TabView
         transitionStyle="scroll"
-        style={styles.container}
+        style={[styles.container, {width, flexBasis: width}]}
         orientation="horizontal"
         onPageSelected={this.onPageSelected}
         ref={this.setViewPagerRef}
@@ -330,10 +337,14 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
         })}
         keyboardDismissMode="none"
         tabBarPosition="top"
-        swipeEnabled={Platform.select({
-          web: pullyPosition === 'top',
-          android: true,
-        })}
+        swipeEnabled={
+          horizontal
+            ? true
+            : Platform.select({
+                web: pullyPosition === 'top',
+                android: true,
+              })
+        }
         gestureHandlerProps={{
           waitFor: this.viewPagerSimultaneousHandlers,
         }}

@@ -71,11 +71,6 @@ const styles = StyleSheet.create({
 });
 
 const SCROLL_INSETS = {top: 0, left: 0, right: 1, bottom: 0};
-const LINK_PREVIEW_SIZE = scaleToWidth(CONTENT_WIDTH, FACEBOOK_PREVIEW_SIZE);
-const TEXT_ONLY_PREVIEW_SIZE = {
-  width: CONTENT_WIDTH,
-  height: 84,
-};
 
 const SOURCE_HEIGHT = 32;
 
@@ -161,13 +156,14 @@ const listItemStyles = StyleSheet.create({
 
 const VERTICAL_SPACER = 8;
 
-const getTweetMediaSource = (item: Tweet) => {
+const getTweetMediaSource = (item: Tweet, _width) => {
   if (!item.media || item.media.length === 0) {
     return null;
   }
 
   const {w: width, h: height} = item.media[0].sizes.medium;
-  const _size = scaleRectToWidth(CONTENT_WIDTH, {width, height});
+  const _size = scaleRectToWidth(_width, {width, height});
+  console.log({_width, _size});
   return {
     uri: item.media[0].media_url_https,
     width: _size.width,
@@ -175,7 +171,17 @@ const getTweetMediaSource = (item: Tweet) => {
   };
 };
 
-export const getHeightForPreview = (preview: URLPreview, type: PreviewType) => {
+export const getHeightForPreview = (
+  preview: URLPreview,
+  type: PreviewType,
+  width,
+) => {
+  const LINK_PREVIEW_SIZE = scaleRectToWidth(width, FACEBOOK_PREVIEW_SIZE);
+  const TEXT_ONLY_PREVIEW_SIZE = {
+    width,
+    height: 84,
+  };
+
   if (type === PreviewType.linkOnly) {
     return TEXT_ONLY_PREVIEW_SIZE.height;
   } else if (type === PreviewType.linkWithImage) {
@@ -189,16 +195,16 @@ export const getHeightForPreview = (preview: URLPreview, type: PreviewType) => {
   }
 };
 
-const measureTweetText = (text: string) =>
+const measureTweetText = (text: string, width) =>
   measureText({
     fontSize: 16,
     fontWeight: 'normal',
-    width: CONTENT_WIDTH - 32,
+    width: width - 32,
     text: text,
   }).height;
 
-export const getTweetHeight = (item: Tweet) => {
-  const mediaSource = getTweetMediaSource(item);
+export const getTweetHeight = (item: Tweet, width) => {
+  const mediaSource = getTweetMediaSource(item, width);
   const urlPreview = item.url_preview;
   const previewType =
     item.url_preview && !mediaSource
@@ -206,27 +212,29 @@ export const getTweetHeight = (item: Tweet) => {
       : null;
   return sum([
     SOURCE_HEIGHT,
-    measureTweetText(item.text),
+    measureTweetText(item.text, width),
     mediaSource?.height || 0,
-    previewType ? getHeightForPreview(urlPreview, previewType) : 0,
+    previewType ? getHeightForPreview(urlPreview, previewType, width) : 0,
     16,
   ]);
 };
 
-const FeedListItem = ({item, onPress}: {item: Tweet}) => {
+const FeedListItem = ({item, onPress, width}: {item: Tweet}) => {
   const media = React.useMemo(() => {
-    return getTweetMediaSource(item);
-  }, [item, item.media, getTweetMediaSource]);
+    return getTweetMediaSource(item, width);
+  }, [item, item.media, getTweetMediaSource, width]);
   const handlePress = React.useCallback(() => onPress && onPress(item), [item]);
 
-  const height = getTweetHeight(item);
+  const LINK_PREVIEW_SIZE = scaleRectToWidth(width, FACEBOOK_PREVIEW_SIZE);
 
+  const height = getTweetHeight(item, width);
+  console.log({width});
   return (
-    <View style={{height: height + VERTICAL_SPACER}}>
+    <View style={{height: height + VERTICAL_SPACER, width}}>
       <ListClicker onPress={handlePress}>
         <Animated.View
           height={height}
-          style={[listItemStyles.wrapper, {height}]}>
+          style={[listItemStyles.wrapper, {height, width}]}>
           <View style={listItemStyles.listItem}>
             <View style={[listItemStyles.source, listItemStyles.contentRow]}>
               <View style={listItemStyles.sourceSideLeft}>
@@ -262,7 +270,7 @@ const FeedListItem = ({item, onPress}: {item: Tweet}) => {
                 style={[
                   listItemStyles.textContent,
                   listItemStyles.contentRow,
-                  {height: measureTweetText(item.text)},
+                  {height: measureTweetText(item.text, width)},
                 ]}>
                 <Text lineBreakMode="tail" style={listItemStyles.text}>
                   {item.text}
@@ -286,7 +294,7 @@ const FeedListItem = ({item, onPress}: {item: Tweet}) => {
               <LinkPreview
                 preview={item.url_preview}
                 showText={item.text.trim().length === 0}
-                width={LINK_PREVIEW_SIZE.width}
+                width={width}
                 height={LINK_PREVIEW_SIZE.height}
               />
             )}
@@ -322,6 +330,7 @@ const ListComponent = ({
   listRef,
   onPressSocial,
   isModal,
+  width,
   offset,
   networkStatus,
   ...otherProps
@@ -335,9 +344,16 @@ const ListComponent = ({
     (section: number, row: number) => {
       const item = data[row];
 
-      return <FeedListItem key={item.id} item={item} onPress={onPress} />;
+      return (
+        <FeedListItem
+          key={item.id}
+          item={item}
+          onPress={onPress}
+          width={width - 32}
+        />
+      );
     },
-    [onPress, data],
+    [onPress, data, width],
   );
 
   const contentInset = React.useMemo(
@@ -361,9 +377,9 @@ const ListComponent = ({
     (section: number, row: number) => {
       const item = data[row];
 
-      return getTweetHeight(item) + VERTICAL_SPACER;
+      return getTweetHeight(item, width) + VERTICAL_SPACER;
     },
-    [data, getTweetHeight],
+    [data, getTweetHeight, width],
   );
 
   const renderHeader = React.useCallback(() => {
@@ -421,8 +437,10 @@ export const FeedList = ({
   scrollEnabled,
   scrollY,
   listRef,
+  horizontal,
   height,
   headerHeight,
+  width,
   insetHeight,
   translateY,
 }) => {
@@ -466,12 +484,13 @@ export const FeedList = ({
       listRef={listRef}
       listKey="FEED"
       insetHeight={insetHeight}
+      width={width}
       onPress={handlePress}
       translateY={translateY}
       headerHeight={
         tweets?.social_profiles?.twitter && showFollowButton ? 52 : 0
       }
-      scrollEnabled={position === 'top'}
+      scrollEnabled={position === 'top' || horizontal}
       height={height}
     />
   );

@@ -6,12 +6,41 @@ import config from '../app.json';
 import {AppRegistry} from 'react-native';
 
 export const style = `
+
+*::-webkit-scrollbar * {
+  background:transparent; // manage scrollbar background color here
+}
+
+*::-webkit-scrollbar {
+  background-color: transparent;
+  width:12px;
+}
+
+/* background of the scrollbar except button or resizer */
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* scrollbar itself */
+*::-webkit-scrollbar-thumb {
+  background-color:#666 !important;
+  border-radius:12px;
+  border:4px solid transparent;
+}
+
+/* set button(top and bottom of the scrollbar) */
+*::-webkit-scrollbar-button {display:none;}
+
 /**
  * Building on the RNWeb reset:
  * https://github.com/necolas/react-native-web/blob/master/packages/react-native-web/src/exports/StyleSheet/initialRules.js
  */
 body {
   background-color: #000;
+}
+
+.ListClicker {
+  cursor: pointer;
 }
 
 html, body, #__next {
