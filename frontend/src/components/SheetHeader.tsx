@@ -4,12 +4,13 @@ import Animated from 'react-native-reanimated';
 import {useSafeArea} from '../lib/SafeArea';
 import {SCREEN_DIMENSIONS} from './ScreenSize';
 import {SheetHeaderRow as Row} from './SheetHeaderRow';
+import {COLORS} from '../lib/theme';
 
 const HEADER_HEIGHT = 48;
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: 'rgb(25,25,25)',
+    backgroundColor: COLORS.dark,
     height: HEADER_HEIGHT,
     zIndex: 9999,
     position: 'relative',
@@ -25,6 +26,8 @@ const styles = StyleSheet.create({
     },
     overflow: 'visible',
     borderRadius: 0,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.11)',
     flexBasis: HEADER_HEIGHT,
     flexDirection: 'row',
     justifyContent: 'center',

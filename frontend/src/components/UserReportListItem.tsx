@@ -16,7 +16,7 @@ export const UNWRAPPED_USER_REPORT_HEIGHT = USER_REPORT_HEIGHT - 16;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#353535',
+    backgroundColor: '#202E44',
     height: UNWRAPPED_USER_REPORT_HEIGHT,
 
     borderRadius: 4,

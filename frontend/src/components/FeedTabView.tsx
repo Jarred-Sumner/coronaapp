@@ -2,6 +2,8 @@ import * as React from 'react';
 import {findNodeHandle, StyleSheet, View, Platform} from 'react-native';
 import Animated from 'react-native-reanimated';
 import {TabView, ScrollPager} from 'react-native-tab-view';
+
+import {COLORS} from '../lib/theme';
 import {setItem} from '../lib/Yeet';
 import {FeedList} from './FeedList';
 import {PullyScrollViewContext} from './PullyView';
@@ -18,13 +20,13 @@ import {SheetHeader} from './SheetHeader';
 const styles = StyleSheet.create({
   sceneContainer: {
     overflow: 'visible',
-    backgroundColor: 'rgba(25,25, 25, 1)',
+    backgroundColor: COLORS.dark,
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12,
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(25,25, 25, 1)',
+    backgroundColor: COLORS.dark,
 
     overflow: 'visible',
   },

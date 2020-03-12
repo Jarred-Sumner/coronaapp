@@ -16,7 +16,7 @@ export const UNWRAPPED_USER_REPORT_HEIGHT = CONFIRMED_REPORT_HEIGHT - 16;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#353535',
+    backgroundColor: '#202E44',
 
     height: UNWRAPPED_USER_REPORT_HEIGHT,
 
@@ -24,8 +24,10 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     height: CONFIRMED_REPORT_HEIGHT,
-    alignSelf: 'stretch',
+    flexGrow: 1,
     paddingVertical: 8,
+    alignSelf: 'center',
+    paddingHorizontal: 12,
   },
   headerRow: {
     flexDirection: 'row',
@@ -165,6 +167,7 @@ export const ConfirmedReportListItem = ({
   report,
   wrap = true,
   distance = 0,
+  width,
   onPress,
 }: {
   report: ConfirmedPin;
@@ -185,6 +188,7 @@ export const ConfirmedReportListItem = ({
             infections={report.infections}
             last_updated={report.last_updated}
             distance={distance}
+            width={width}
           />
         </Animated.View>
       </ListClicker>
@@ -196,6 +200,7 @@ export const ConfirmedReportListItem = ({
         infections={report.infections}
         last_updated={report.last_updated}
         distance={distance}
+        width={width}
       />
     );
   }

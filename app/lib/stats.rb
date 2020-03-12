@@ -78,7 +78,6 @@ class Stats
         end
         pins
       end
-
     end
 
     def self.fetch_confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0)

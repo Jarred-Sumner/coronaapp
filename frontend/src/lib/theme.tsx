@@ -1,6 +1,6 @@
 export const COLORS = {
-  dark: 'rgb(19,19,19)',
-  darkMedium: '#353535',
+  dark: 'rgb(21,31,46)',
+  darkMedium: '#202E44',
   muted: 'rgb(100,100,100)',
 
   confirmed: 'rgba(245, 45, 45, 0.55)',
