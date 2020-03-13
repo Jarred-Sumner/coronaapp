@@ -18,6 +18,7 @@ export const COUNTRIES_URL = `${hostname}/api/stats/country`;
 export const USER_REPORT_STATS = `${hostname}/api/stats/user_reports`;
 export const CREATE_USER_REPORT_URL = `${hostname}/api/user_reports`;
 export const GET_USER_REPORTS_URL = `${hostname}/api/user_reports`;
+export const GET_STATS_URL = `${hostname}/api/stats/graphs`;
 export const REPORTS_LIST_URL = `${hostname}/api/user_reports/list`;
 export const GET_PINS_URL = `${hostname}/api/reports`;
 export const TWEETS_URL = `${hostname}/api/tweets`;
@@ -80,6 +81,25 @@ export const fetchPins = (
     qs.stringify({
       min_lat: minLatitude,
       min_long: minLongitude,
+      max_lat: maxLatitude,
+      max_long: maxLongitude,
+    });
+
+  return apiFetcher(url);
+};
+
+export const fetchGraphStats = (
+  key = 'graph_stats',
+  {minLatitude, minLongitude, maxLatitude, maxLongitude, latitude, longitude},
+) => {
+  const url =
+    GET_STATS_URL +
+    '?' +
+    qs.stringify({
+      min_lat: minLatitude,
+      min_long: minLongitude,
+      latitude,
+      longitude,
       max_lat: maxLatitude,
       max_long: maxLongitude,
     });

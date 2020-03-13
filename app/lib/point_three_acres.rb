@@ -188,7 +188,7 @@ module PointThreeAcres
     }
   end
 
-  def self.fetch_cases(min_lat: nil, min_long: nil, max_lat: nil, max_long: nil)
+  def self.fetch_cases(min_lat: nil, min_long: nil, max_lat: nil, max_long: nil, flatten:true)
     box = nil
 
     if min_lat && max_lat && min_lat && min_long
@@ -199,7 +199,6 @@ module PointThreeAcres
     end
 
     data = get_data
-
 
     results = data["case"].map do |props|
       row = format_case(props)&.with_indifferent_access
@@ -216,26 +215,30 @@ module PointThreeAcres
       row
     end.compact
 
-    cases = []
-    counties = {}
+    if flatten
+      cases = []
+      counties = {}
 
-    results.each do |row|
-      county = row['county']
-      if county
-        if previous_case = counties[county.id]
-          new_case = merge_case(previous_case, row)
+      results.each do |row|
+        county = row['county']
+        if county
+          if previous_case = counties[county.id]
+            new_case = merge_case(previous_case, row)
 
-          cases[cases.index(previous_case)] = new_case
-          counties[county.id] = new_case
+            cases[cases.index(previous_case)] = new_case
+            counties[county.id] = new_case
+          else
+            counties[county.id] = row
+            cases << row
+          end
         else
-          counties[county.id] = row
           cases << row
         end
-      else
-        cases << row
       end
-    end
 
-    cases
+      cases
+    else
+      results
+    end
   end
 end

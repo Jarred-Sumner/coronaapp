@@ -3,6 +3,7 @@ import {findNodeHandle, StyleSheet, View, Platform} from 'react-native';
 import Animated from 'react-native-reanimated';
 import {TabView, ScrollPager} from 'react-native-tab-view';
 
+import {StatsList} from './StatsList';
 import {COLORS} from '../lib/theme';
 import {setItem} from '../lib/Yeet';
 import {FeedList} from './FeedList';
@@ -32,8 +33,8 @@ const styles = StyleSheet.create({
   },
 });
 
-type GallerySectionItem = 'news' | 'reports';
-export const DEFAULT_TABS = ['news', 'reports'];
+type GallerySectionItem = 'news' | 'reports' | 'stats';
+export const DEFAULT_TABS = ['stats', 'reports', 'news'];
 export const ROUTE_LIST = DEFAULT_TABS;
 
 type Props = {
@@ -114,10 +115,13 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
   newsScrollRef = React.createRef();
   reportsRef = React.createRef();
   reportsScrollRef = React.createRef();
+  statsRef = React.createRef();
+  statsScrollRef = React.createRef();
 
   routesToRef = {
     news: this.newsRef,
     reports: this.reportsRef,
+    stats: this.statsRef,
   };
 
   get currentRoute() {
@@ -127,7 +131,7 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
   simultaneousHandlers = this.viewPagerRef;
 
   get viewPagerSimultaneousHandlers() {
-    return [this.newsScrollRef, this.reportsScrollRef];
+    return [this.newsScrollRef, this.reportsScrollRef, this.statsScrollRef];
   }
 
   waitFor = this.props.waitFor;
@@ -204,6 +208,30 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
             keyboardVisibleValue={keyboardVisibleValue}
           />
         );
+      case 'stats':
+        return (
+          <StatsList
+            listRef={this.statsRef}
+            simultaneousHandlers={this.simultaneousHandlers}
+            waitFor={this.waitFor}
+            isFocused={isFocused}
+            onPress={onPress}
+            insetValue={this.props.insetValue}
+            height={height}
+            renderHeader={renderHeader}
+            headerHeight={headerHeight}
+            horizontal={horizontal}
+            offset={this.props.offset}
+            width={this.props.width}
+            query={query}
+            bottomInset={this.props.bottomInset}
+            selectedIDs={selectedIDs}
+            isModal={this.props.isModal}
+            inset={this.props.inset}
+            scrollY={this.props.scrollY}
+            keyboardVisibleValue={keyboardVisibleValue}
+          />
+        );
       default: {
         throw Error(`Invalid route: ${route}`);
         return null;
@@ -253,6 +281,11 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
       this.props.setActiveScrollView(this.activeListRef);
 
       setItem('FEED_SHEET_INITIAL_ROUTE', this.currentRoute, 'string');
+    }
+
+    if (this.props.width !== prevProps.width) {
+      const {width} = this.props;
+      this.tabViewStyle = [styles.container, {width, flexBasis: width}];
     }
   }
 
@@ -308,6 +341,14 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
 
   pagerRef = React.createRef<ScrollPager<any>>();
   renderPager = props => <ScrollPager ref={this.pagerRef} {...props} />;
+  tabViewStyle = [
+    styles.container,
+    {width: this.props.width, flexBasis: this.props.width},
+  ];
+
+  gestureHandlerProps = {
+    waitFor: this.viewPagerSimultaneousHandlers,
+  };
 
   render() {
     const {
@@ -323,7 +364,7 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
     return (
       <TabView
         transitionStyle="scroll"
-        style={[styles.container, {width, flexBasis: width}]}
+        style={this.tabViewStyle}
         orientation="horizontal"
         onPageSelected={this.onPageSelected}
         ref={this.setViewPagerRef}
@@ -347,9 +388,7 @@ class FeedTabViewComponent extends React.Component<Props, {page: number}> {
                 android: true,
               })
         }
-        gestureHandlerProps={{
-          waitFor: this.viewPagerSimultaneousHandlers,
-        }}
+        gestureHandlerProps={this.gestureHandlerProps}
         sceneContainerStyle={styles.sceneContainer}
         initialPage={this.initialPage}
         navigationState={this.state.navigationState}

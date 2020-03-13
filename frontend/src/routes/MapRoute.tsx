@@ -210,9 +210,7 @@ export const MapRoute = ({}) => {
   const [selectedId, setSelectedId] = React.useState(null);
   const {country, setCountry, countryCode} = React.useContext(CountryContext);
   const {navigate} = useNavigation();
-  const {data: totalsData = [], error: totalsError, loadin} = useSWR<
-    Array<TotalEndpoint.TotalInfection>
-  >(TOTALS_URL, apiFetcher);
+
   const {data: countriesData = [], error: countriesEror} = useSWR<
     Array<CountryEndpoint.CountryInfection>
   >(COUNTRIES_URL, apiFetcher);
@@ -274,25 +272,6 @@ export const MapRoute = ({}) => {
     },
     [setRegion, mapRef, setParams],
   );
-
-  const [stats, setStats] = React.useState(
-    totalsData[0]?.infections ?? DEFAULT_INFECTIONS,
-  );
-
-  React.useEffect(() => {
-    if (country === 'World' && totalsData[0]) {
-      setStats(totalsData[0].infections);
-    } else if (countriesData && countriesData.length) {
-      const row = countriesData.find(_row => {
-        return _row.id === country;
-      });
-
-      if (row) {
-        setStats(row.infections);
-      }
-    } else {
-    }
-  }, [country, totalsData, countriesData, setStats]);
 
   const lastCountryCode = React.useRef(countryCode);
 

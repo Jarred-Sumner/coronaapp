@@ -46,6 +46,23 @@ module Map
     is_inside
   end
 
+  def self.bounding_box_inside_united_states?(box)
+    is_inside = false
+
+    us_geojson.any? do |feature|
+      break if is_inside
+      geometry = feature.geometry
+      geometry.each do |polygon|
+        if box.intersects?(polygon)
+          is_inside = true
+          break
+        end
+      end
+    end
+
+    is_inside
+  end
+
   def self.normalize_bounds!
     mappings = {}
     us_states_bounds.each do |id, value|
