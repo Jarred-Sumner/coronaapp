@@ -5,6 +5,7 @@ import {
   isSameMinute,
   isSameMonth,
   differenceInHours,
+  isSameDay,
   differenceInWeeks,
 } from 'date-fns/esm';
 import React from 'react';
@@ -20,7 +21,7 @@ const normalizeTimestamp = (time: TimestampType) => {
   }
 };
 
-export const shortFormat = (time: TimestampType): string => {
+export const shortFormat = (time: TimestampType, dayOnly): string => {
   const date = normalizeTimestamp(time);
   const now = new Date();
 
@@ -28,7 +29,9 @@ export const shortFormat = (time: TimestampType): string => {
   const dayDiff = Math.abs(differenceInDays(date, now));
   const minDiff = Math.abs(differenceInMinutes(date, now));
 
-  if (isSameMinute(date, now)) {
+  if (dayOnly && isSameDay(now, date)) {
+    return 'today';
+  } else if (isSameMinute(date, now)) {
     return 'just now';
   } else if (minDiff < 60) {
     return `${minDiff}m`;
@@ -53,11 +56,12 @@ export const Timestamp = React.memo(
   ({
     TextComponent = Text,
     time,
+    dayOnly,
     formatter = shortFormat,
     style,
     ...otherProps
   }) => {
-    const formattedTime = formatter(time);
+    const formattedTime = formatter(time, dayOnly);
 
     return (
       <TextComponent {...otherProps} style={style}>

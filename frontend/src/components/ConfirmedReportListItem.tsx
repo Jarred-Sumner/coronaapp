@@ -159,7 +159,10 @@ const ConfirmedReportComponent = React.memo(
             </>
           )}
 
-          <Timestamp time={last_updated} style={styles.timestamp}></Timestamp>
+          <Timestamp
+            dayOnly={_sources !== 'John Hopkins CSSE'}
+            time={last_updated}
+            style={styles.timestamp}></Timestamp>
           <View style={styles.circleSpacer} />
           <Text
             numberOfLines={1}

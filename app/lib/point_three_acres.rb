@@ -81,7 +81,7 @@ module PointThreeAcres
   def self.parse_date(string)
     return nil if string.blank? || !string.include?("/")
 
-    Date.parse(string)
+    Date.parse(string) + 1.day
   end
 
   def self.format_id(props)
@@ -111,7 +111,7 @@ module PointThreeAcres
       "confirmed_at": confirmed_date,
       "recovered_at": cured_date,
       "object": "infection",
-      "sources": props["links"]&.map(&:strip),
+      "sources": props["links"]&.compact&.map(&:strip),
       "province": state_name,
       "state": state_name,
       "county": county,
