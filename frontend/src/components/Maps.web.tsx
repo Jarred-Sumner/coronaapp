@@ -62,11 +62,11 @@ export const Marker = ({
 
   return (
     <MapsMarker
-      {...rest}
       icon={markerImage}
       clickable={!!onPress}
       // opacity={opacity}
       onClick={handlePress}
+      draggable={false}
       position={position}
     />
   );
