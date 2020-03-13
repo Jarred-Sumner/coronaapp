@@ -170,6 +170,8 @@ class MapView extends Component {
       window.cancelAnimationFrame(this.animateCameraFrame);
     }
 
+    console.log('ANIMATE CAMERA');
+
     this.animateCameraFrame = window.requestAnimationFrame(() => {
       if (typeof altitude === 'number') {
         const zoom = altitudeToZoom(altitude);

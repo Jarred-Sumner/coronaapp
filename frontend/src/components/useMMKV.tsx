@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import {setItem, getItem} from '../lib/Yeet';
 
 export function useMMKV(
@@ -7,6 +7,8 @@ export function useMMKV(
   type: any,
   forceInitialValue = false,
 ) {
+  const idleCallbackRef = useRef(null);
+
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
@@ -38,13 +40,35 @@ export function useMMKV(
       // Save state
       setStoredValue(valueToStore);
       // Save to local storage
-      setItem(key, valueToStore, type);
-      console.log('Saving', key);
+
+      if (idleCallbackRef.current) {
+        window.cancelIdleCallback(idleCallbackRef.current);
+      }
+
+      const cb = window.requestIdleCallback(
+        () => {
+          console.log('Saving', key);
+          setItem(key, valueToStore, type);
+          if (cb === idleCallbackRef.current) {
+            idleCallbackRef.current = null;
+          }
+        },
+        {timeout: 1000},
+      );
+
+      idleCallbackRef.current = cb;
     } catch (error) {
       // A more advanced implementation would handle the error case
       console.log(error);
     }
   };
+
+  useEffect(
+    () =>
+      idleCallbackRef.current &&
+      window.cancelIdleCallback(idleCallbackRef.current),
+    [idleCallbackRef],
+  );
 
   return [storedValue, setValue];
 }
