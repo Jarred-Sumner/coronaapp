@@ -98,6 +98,9 @@ export class Document extends NextDocument {
         <Head>
           <link rel="preconnect" href="https://maps.googleapis.com" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="mobile-web-app-capable" content="yes" />
 
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         </Head>
