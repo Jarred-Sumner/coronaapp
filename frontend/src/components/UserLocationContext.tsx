@@ -117,7 +117,9 @@ export const UserLocationProvider = ({children}) => {
           );
         }
       });
-      return () => locationUnsubscriber?.current();
+      return () => {
+        locationUnsubscriber?.current();
+      };
     }
 
     locationUnsubscriber.current = RNLocation.subscribeToLocationUpdates(
@@ -144,7 +146,9 @@ export const UserLocationProvider = ({children}) => {
       },
     );
 
-    return () => locationUnsubscriber?.current();
+    return () => {
+      locationUnsubscriber?.current();
+    };
   }, [canRequestLocationAccess]);
   const _setLocation = React.useRef(setLocation);
   _setLocation.current = setLocation;

@@ -23,6 +23,7 @@ if (typeof window !== 'undefined') {
 
 export const ListClicker = ({children, onPress, style}) => {
   const ref = React.createRef();
+  const element = React.useRef();
 
   const clickHandler = React.useCallback(
     event => {
@@ -42,16 +43,21 @@ export const ListClicker = ({children, onPress, style}) => {
     [onPress, ignoreClicks],
   );
 
-  React.useEffect(() => {
-    const element = findNodeHandle(ref.current) as Element;
-    element.addEventListener('click', clickHandler);
-    return () => element.removeEventListener('click', clickHandler);
-  }, [ref, clickHandler]);
+  // React.useEffect(() => {
+  //   element.current = findNodeHandle(ref.current) as Element;
+  //   if (!element.current) {
+  //     return;
+  //   }
+
+  //   element.current.addEventListener('click', clickHandler);
+  //   return () => element.current?.removeEventListener('click', clickHandler);
+  // }, [ref, clickHandler]);
 
   return unstable_createElement(
     'div',
     {
       className: 'ListClicker',
+      onClick: clickHandler,
       style: [style, {cursor: 'pointer'}],
       ref,
     },

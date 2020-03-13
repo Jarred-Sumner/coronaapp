@@ -325,11 +325,7 @@ export const MapView = React.forwardRef(
             selectedId={selectedId}
             circles={circles}
             displayCircles={displayCircles}
-            onPressPin={Platform.select({
-              web: handleMarkerPress,
-              ios: onPressPin,
-              andorid: onPressPin,
-            })}
+            onPressPin={handleMarkerPress}
             pins={pins}
           />
         </MapViewComponent>
