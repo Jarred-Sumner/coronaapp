@@ -511,8 +511,14 @@ export const MapRoute = ({}) => {
         },
       ];
 
+      const counties = confirmedPins.counties ?? [];
+
       for (const pin of confirmedPins.pins) {
-        if (isPointInPolygon(pin, polygon)) {
+        const isVisible =
+          (pin.county && counties.includes(pin.county.name)) ||
+          isPointInPolygon(pin, polygon);
+
+        if (isVisible) {
           const _count =
             pin.infections.confirm -
             pin.infections.recover -
@@ -527,7 +533,7 @@ export const MapRoute = ({}) => {
     }
 
     return [count, [..._kml]];
-  }, [userPins, confirmedPins, region]);
+  }, [userPins, confirmedPins, region, isPointInPolygon]);
 
   const onPressShare = React.useCallback(async () => {
     const {altitude} = region;
