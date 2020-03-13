@@ -164,14 +164,10 @@ export const measureText = ({
 }): TSMeasureResult => _measureText(fontSize, text, fontWeight, width);
 
 export const getMapBounds = (handle, mapRef) => {
-  const {
-    lat: minLatitude,
-    lng: minLongitude,
-  } = mapRef.map.getBounds().getNorthEast();
-  const {
-    lat: maxLatitude,
-    lng: maxLongitude,
-  } = mapRef.map.getBounds().getSouthWest();
+  console.log('GET MAP BOUNDS!');
+  const bounds = mapRef.map.getBounds();
+  const {lat: minLatitude, lng: minLongitude} = bounds.getNorthEast();
+  const {lat: maxLatitude, lng: maxLongitude} = bounds.getSouthWest();
   return [minLongitude(), minLatitude(), maxLongitude(), maxLatitude()];
 };
 

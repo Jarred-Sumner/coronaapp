@@ -190,6 +190,10 @@ class MapView extends Component {
     if (this.animateCameraFrame) {
       window.cancelAnimationFrame(this.animateCameraFrame);
     }
+
+    if (this.dragEndFrame) {
+      window.cancelAnimationFrame(this.dragEndFrame);
+    }
   }
 
   setZoom = zoom => this.map?.setZoom(zoom);
@@ -197,18 +201,41 @@ class MapView extends Component {
   onDragEnd = () => {
     const {onRegionChangeComplete} = this.props;
     if (this.map && onRegionChangeComplete) {
-      const center = this.map.getCenter();
-      const zoom = this.map.getZoom();
-      const coords = {
-        latitude: center.lat(),
-        longitude: center.lng(),
-        altitude: zoomToAltitude(zoom),
-        zoom,
-      };
+      if (this.dragEndFrame) {
+        window.cancelAnimationFrame(this.dragEndFrame);
+      }
+      const frame = window.requestAnimationFrame(() => {
+        const center = this.map.getCenter();
+        const zoom = this.map.getZoom();
+        const bounds = this.map.getBounds();
+        const coords = {
+          latitude: center.lat(),
+          longitude: center.lng(),
+          altitude: zoomToAltitude(zoom),
+          zoom,
+        };
 
-      unstable_batchedUpdates(() => {
-        onRegionChangeComplete(coords);
+        const {lat: _minLatitude, lng: _minLongitude} = bounds.getNorthEast();
+        const {lat: _maxLatitude, lng: _maxLongitude} = bounds.getSouthWest();
+
+        const minLongitude = _minLongitude();
+        const minLatitude = _minLatitude();
+        const maxLongitude = _maxLongitude();
+        const maxLatitude = _maxLatitude();
+
+        unstable_batchedUpdates(() => {
+          this.props.onRegionChangeComplete(coords, [
+            minLongitude,
+            minLatitude,
+            maxLongitude,
+            maxLatitude,
+          ]);
+        });
+        if (frame === this.dragEndFrame) {
+          this.dragEndFrame = null;
+        }
       });
+      this.dragEndFrame = frame;
     }
   };
 

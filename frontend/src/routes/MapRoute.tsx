@@ -252,13 +252,7 @@ export const MapRoute = ({}) => {
   const {top, bottom} = useSafeArea();
 
   const handleRegionChange = React.useCallback(
-    (_region: Region) => {
-      const bounds = getMapBounds(
-        findNodeHandle(mapRef.current),
-        mapRef.current,
-        _region,
-      );
-
+    (_region: Region, bounds) => {
       const region = {
         ..._region,
         minLongitude: bounds[0],
