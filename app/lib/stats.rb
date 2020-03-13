@@ -74,7 +74,6 @@ class Stats
         ConfirmedPinsWorker.perform_async
       end
 
-
       pins + PointThreeAcres.fetch_cases(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
     end
 

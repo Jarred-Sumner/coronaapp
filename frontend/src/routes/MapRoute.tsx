@@ -498,14 +498,37 @@ export const MapRoute = ({}) => {
     const _kml = new Set();
 
     if (confirmedPins?.pins?.length) {
-      for (const pin of confirmedPins.pins) {
-        const _count =
-          pin.infections.confirm - pin.infections.recover - pin.infections.dead;
+      const polygon = [
+        {
+          latitude: region.minLatitude,
+          longitude: region.minLongitude,
+        },
+        {
+          latitude: region.minLatitude,
+          longitude: region.maxLongitude,
+        },
+        {
+          latitude: region.maxLatitude,
+          longitude: region.maxLongitude,
+        },
+        {
+          latitude: region.maxLatitude,
+          longitude: region.minLongitude,
+        },
+      ];
 
-        if (_count > 0 && pin.kml) {
-          _kml.add(PRODUCTION_HOSTNAME + pin.kml);
+      for (const pin of confirmedPins.pins) {
+        if (isPointInPolygon(pin, polygon)) {
+          const _count =
+            pin.infections.confirm -
+            pin.infections.recover -
+            pin.infections.dead;
+
+          if (_count > 0 && pin.kml) {
+            _kml.add(PRODUCTION_HOSTNAME + pin.kml);
+          }
+          count = count + _count;
         }
-        count = count + _count;
       }
     }
 
