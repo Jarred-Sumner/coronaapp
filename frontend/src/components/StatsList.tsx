@@ -254,7 +254,7 @@ const StatsListComponent = ({
 
         {dailyTotalsEntries.length > 0 &&
           dailyTotalsByCountyEntries.length > 0 &&
-          dailyTotalsByCountyEntries.length < 30 && (
+          dailyTotalsByCountyEntries.length < 50 && (
             <ConfirmedCasesByCountyChart
               data={dailyTotalsByCountyEntries}
               counties={counties}
