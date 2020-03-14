@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/api/stats/country', to: 'stats#country'
   get '/api/user_reports/:id', to: 'user_reports#show'
   get '/api/stats/graphs', to: 'stats#all_stats'
+  get '/api/stats/graphs/us', to: 'stats#us_totals'
 
   get '/api/geocode/*latitude/*longitude', to: 'geocode#show'
 

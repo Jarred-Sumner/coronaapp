@@ -144,6 +144,37 @@ module PointThreeAcres
     end
   end
 
+  def self.us_totals_by_day
+    totals_by_day = {}
+    last_day = nil
+    last_totals = {
+      dead: 0,
+      recover: 0,
+      confirm: 0
+    }
+    PointThreeAcres
+      .fetch_cases(flatten: false)
+      .each do |pin|
+        day = pin["confirmed_at"].strftime("%Y-%m-%d")
+        totals = totals_by_day[day]
+        totals ||= {}.merge(last_totals)
+
+
+        confirmed = pin.dig("infections", "confirm")
+        recover = pin.dig("infections", "recover")
+        dead = pin.dig("infections", "dead")
+
+        totals[:dead] = totals[:dead] + dead
+        totals[:recover]  = totals[:recover] + recover
+        totals[:confirm] = totals[:confirm] + confirmed
+
+        totals_by_day[day] = totals
+        last_totals = totals
+        last_day = day
+      end
+
+      totals_by_day
+  end
 
   def self.update_fetched_cases
     Rails.logger.info "[PointThreeAcres] Beginning to fetch..."

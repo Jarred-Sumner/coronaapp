@@ -22,7 +22,7 @@ export const GET_STATS_URL = `${hostname}/api/stats/graphs`;
 export const REPORTS_LIST_URL = `${hostname}/api/user_reports/list`;
 export const GET_PINS_URL = `${hostname}/api/reports`;
 export const TWEETS_URL = `${hostname}/api/tweets`;
-
+export const US_TOTALS_URL = `${hostname}/api/stats/graphs/us`;
 let HEADERS = {'Content-Type': 'application/json'};
 
 if (typeof window !== 'undefined') {
@@ -88,9 +88,20 @@ export const fetchPins = (
   return apiFetcher(url);
 };
 
+export const getWorldStats = () => import('../data/covid2019daily.json');
+
 export const fetchGraphStats = (
   key = 'graph_stats',
-  {minLatitude, minLongitude, maxLatitude, maxLongitude, latitude, longitude},
+  {
+    minLatitude,
+    minLongitude,
+    maxLatitude,
+    maxLongitude,
+    altitude,
+    latitude,
+    longitude,
+    zoom,
+  },
 ) => {
   const url =
     GET_STATS_URL +
@@ -147,6 +158,10 @@ export const fetchReports = (
   };
 
   return apiFetcher(REPORTS_LIST_URL + '?' + qs.stringify(params), {});
+};
+
+export const fetchUSTotals = (key = 'us_totals', {}) => {
+  return apiFetcher(US_TOTALS_URL, {});
 };
 
 export const fetchUserPins = (

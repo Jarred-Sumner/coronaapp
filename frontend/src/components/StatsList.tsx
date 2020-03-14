@@ -1,59 +1,15 @@
-import * as React from 'react';
-import {View, StyleSheet, Text, ScrollView} from 'react-native';
-import {usePaginatedQuery} from 'react-query';
-import {RegionContext} from '../routes/RegionContext';
-import {apiFetcher, fetchGraphStats} from '../api';
+import {format, getWeek, parse, startOfDay} from 'date-fns/esm';
+import {get, groupBy, isFinite, orderBy} from 'lodash';
 import Numeral from 'numeral';
-import chroma from 'chroma-js';
-import {
-  get,
-  isFinite,
-  fromPairs,
-  min,
-  range,
-  max,
-  groupBy,
-  sort,
-  orderBy,
-  compact,
-} from 'lodash';
-import {COLORS} from '../lib/theme';
-import {
-  isSameWeek,
-  isSameDay,
-  startOfWeek,
-  differnceInWeeks,
-  startOfDay,
-  format,
-  getWeek,
-  closestIndexTo,
-  isAfter,
-  closestTo,
-  isBefore,
-  parse,
-} from 'date-fns/esm';
-import {
-  VictoryLine,
-  VictoryChart,
-  VictoryAxis,
-  VictoryTheme,
-  VictoryLabel,
-  VictoryBar,
-  VictoryContainer,
-  VictoryLegend,
-  VictoryGroup,
-  VictoryZoomContainer,
-  VictoryTooltip,
-  VictoryClipContainer,
-  VictoryBrushContainer,
-  VictoryCursorContainer,
-  VictoryVoronoiContainer,
-} from 'victory';
-import {CHART_THEME, colors} from './Stats/CHART_THEME';
+import * as React from 'react';
+import {ScrollView, Text, View} from 'react-native';
+import {usePaginatedQuery, useQuery} from 'react-query';
+import {fetchGraphStats, fetchUSTotals, getWorldStats} from '../api';
+import {RegionContext} from '../routes/RegionContext';
 import {PullyScrollViewContext} from './PullyView';
-import {styles} from './Stats/styles';
-import {ConfirmedCasesByCountyChart} from './Stats/ConfirmedCasesByCountyChart';
 import {CasesChart} from './Stats/CasesChart';
+import {ConfirmedCasesByCountyChart} from './Stats/ConfirmedCasesByCountyChart';
+import {styles} from './Stats/styles';
 
 function addDays(date, days) {
   var result = new Date(date);
@@ -140,49 +96,19 @@ const mergeTotals = (first, second): Totals => {
     counties,
   };
 };
-
-const groupDataBy = (counties, interval, maxRange = 6) => {
-  if (interval === 'week') {
-    return fromPairs(
-      Object.entries(counties).map(([id, county]) => {
-        let lastWeek = null;
-        const data = {};
-
-        for (let [stamp, totals] of Object.entries(county.daily)) {
-          const timestamp = getUTCDate(parse('YYYY/MM/DD'));
-          const weekstamp = startOfTheWeek(timestamp);
-
-          if (lastWeek === weekstamp) {
-            data[weekstamp] = mergeTotals(data[weekstamp], totals);
-          } else {
-            data[weekstamp] = totals;
-          }
-        }
-
-        return [id, data];
-      }),
-    );
-  } else if (interval === 'daily') {
-    const dailies = {};
-    let lastDate = null;
-
-    let lastTotals = null;
-    let startDate = null;
-    let endDate = null;
-
-    Object.values(counties).map(county => {
-      Object.entries(county.daily).forEach(([date, toals]) => {
-        if (dailies[date]) {
-          dailies[date] = mergeTotals(dailies[date], toals);
-        } else {
-          dailies[date] = toals;
-        }
-      });
-    });
-
-    return dailies;
-  }
-};
+function getWeekNumber(d) {
+  // Copy date so don't modify original
+  d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  // Set to nearest Thursday: current date + 4 - current day number
+  // Make Sunday's day number 7
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  // Get first day of year
+  var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  // Calculate full weeks to nearest Thursday
+  var weekNo = Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
+  // Return array of year and week number
+  return [d.getUTCFullYear(), weekNo];
+}
 
 const StatsListComponent = ({
   totals,
@@ -274,10 +200,11 @@ const StatsListComponent = ({
     [dailyTotals],
   );
 
-  const dailyTotalsByCountyEntries = React.useMemo(
-    () => [...Object.entries(dailyTotalsByCounty)],
-    [dailyTotalsByCounty],
-  );
+  const dailyTotalsByCountyEntries = React.useMemo(() => {
+    const data = [...Object.entries(dailyTotalsByCounty)];
+
+    return data;
+  }, [dailyTotalsByCounty]);
 
   return (
     <View style={{flex: 1, height: 'auto'}}>
@@ -326,7 +253,8 @@ const StatsListComponent = ({
         )}
 
         {dailyTotalsEntries.length > 0 &&
-          dailyTotalsByCountyEntries.length > 0 && (
+          dailyTotalsByCountyEntries.length > 0 &&
+          dailyTotalsByCountyEntries.length < 30 && (
             <ConfirmedCasesByCountyChart
               data={dailyTotalsByCountyEntries}
               counties={counties}
@@ -360,10 +288,11 @@ const getTotals = (pins, lastTotals): Totals => {
   };
 
   for (const pin of pins) {
-    totals.new = pin.infections.confirm;
     totals.cumulative += pin.infections.confirm;
     totals.recover += pin.infections.recover;
     totals.dead += pin.infections.dead;
+    totals.new +=
+      pin.infections.confirm - pin.infections.dead - pin.infections.recover;
     totals.counties.add(pin.county.id);
   }
 
@@ -372,7 +301,7 @@ const getTotals = (pins, lastTotals): Totals => {
   return totals;
 };
 
-const getTotalsByDay = pins => {
+const getTotalsByDay = (pins, maxDays = null) => {
   const _logsByDay = groupBy(pins, 'confirmed_at');
   const logsByDay = {};
   let lastLog = null;
@@ -390,25 +319,34 @@ const getTotalsByDay = pins => {
     });
 
   if (days.length > 0) {
-    const minDay = days[0];
-
     const maxDay = days[days.length - 1];
+    const minDay = days[0];
     const dayCount = daysBetween(minDay, maxDay) + 1;
 
-    let lastTotals = null;
+    let lastTotals: Totals | null = null;
+    let overflowKeys = [];
     for (let i = 0; i < dayCount; i++) {
       const day = addDays(minDay, i);
       const _day = format(day, 'yyyy-MM-dd');
+
       if (logsByDay[_day]) {
         countsByDay.set(day, logsByDay[_day]);
-        lastTotals = logsByDay[_day];
+        lastTotals = {...logsByDay[_day]};
+        lastTotals.new = 0;
+        lastTotals.dead = 0;
+        lastTotals.recover = 0;
       } else if (lastTotals) {
         countsByDay.set(day, lastTotals);
       }
     }
   }
-
   return countsByDay;
+
+  // const counts = [...countsByDay.entries()];
+
+  // return new Map(
+  //   [...counts].slice(maxDays ? Math.max(counts.length - maxDays - 1, 0) : 0),
+  // );
 };
 
 export const StatsList = ({
@@ -431,14 +369,30 @@ export const StatsList = ({
     fetchGraphStats,
   );
 
+  const dailyData = React.useRef();
+
+  React.useEffect(() => {
+    getWorldStats().then(stats => {
+      dailyData.current = groupBy(stats, 'date');
+    });
+  }, []);
+
   const pins = resolvedData?.logs;
   const us = resolvedData?.us ?? false;
   const counties = resolvedData?.counties;
 
-  const [totalsByDay, dailyTotalsByCounty, totals] = React.useMemo(() => {
+  const [
+    totalsByDay,
+    dailyTotalsByCounty,
+    totals,
+    countyTotals,
+    pred,
+  ] = React.useMemo(() => {
     if (!pins || !counties) {
-      return [new Map(), {}, null];
+      return [new Map(), {}, null, null];
     }
+
+    const countyTotals = {};
 
     const _pins = orderBy(pins, 'order', 'asc');
     console.time('DATA');
@@ -449,15 +403,14 @@ export const StatsList = ({
     const countsByDay = getTotalsByDay(_pins);
 
     const pinsByCounty = groupBy(_pins, 'county.id');
+
     for (const [countyId, pins] of Object.entries(pinsByCounty)) {
-      dailyTotalsByCounty[countyId] = getTotalsByDay(pins);
+      dailyTotalsByCounty[countyId] = getTotalsByDay(pins, 14);
     }
 
     console.timeEnd('DATA');
-    return [countsByDay, dailyTotalsByCounty, totals];
+    return [countsByDay, dailyTotalsByCounty, totals, countyTotals];
   }, [pins, us, counties]);
-
-  console.log('RENDER?');
 
   const scrollEnabled = position === 'top' || horizontal;
   return (
@@ -466,8 +419,10 @@ export const StatsList = ({
       dailyTotals={totalsByDay}
       dailyTotalsByCounty={dailyTotalsByCounty}
       width={width}
+      dailyData={dailyData.current}
       scrollEnabled={scrollEnabled}
       unitedStates={us == true}
+      countyTotals={countyTotals}
       totals={totals}></StatsListComponent>
   );
 };

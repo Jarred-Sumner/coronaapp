@@ -5,20 +5,20 @@ import useNavigation, {useRoute} from '../components/useNavigation';
 import {getDistance, getPreciseDistance} from 'geolib';
 
 const _INITIAL_REGION = {
-  latitude: 37.78825,
-  longitude: -122.4324,
-  latitudeDelta: 0.0922,
-  altitude: 1000 * 50,
-  longitudeDelta: 0.0421,
+  latitude: 39.33692,
+  longitude: -98.48274,
+  latitudeDelta: -15.58375,
+  altitude: 1002499,
+  longitudeDelta: -29.7657,
 };
 
 const region = getBoundByRegion(_INITIAL_REGION, 1.0);
 export const INITIAL_REGION = {
-  latitude: 37.78825,
-  longitude: -122.4324,
-  latitudeDelta: 0.0922,
-  altitude: 1000 * 50,
-  longitudeDelta: 0.0421,
+  latitude: 39.33692,
+  longitude: -98.48274,
+  latitudeDelta: -15.58375,
+  altitude: 1002499,
+  longitudeDelta: -29.7657,
   minLongitude: region[0],
   minLatitude: region[1],
   maxLongitude: region[2],

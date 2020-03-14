@@ -15,6 +15,9 @@ class StatsController < ApplicationController
     pins = []
     counties = {}
     us = false
+    ongoing_cases = 0
+
+
     if inside_united_states?
       us = true
       pins = PointThreeAcres.fetch_cases(min_lat: Float(params[:min_lat]), min_long: Float(params[:min_long]), max_lat: Float(params[:max_lat]), max_long: Float(params[:max_long]), flatten: false).sort_by { |pin| pin["last_updpated"] }
@@ -25,10 +28,6 @@ class StatsController < ApplicationController
     end
 
     # counties = {}
-    # ongoing_cases = 0
-    # total_died = 0
-    # total_cases = 0
-    # total_recovered = 0
 
     # pins.each do |pin|
     #   confirmed = pin.dig("infections", "confirm")
@@ -147,6 +146,13 @@ class StatsController < ApplicationController
       us: us,
       logs: pins,
       counties: counties,
+    }
+  end
+
+  def us_totals
+    render json: {
+      object: 'totals',
+      totals: PointThreeAcres.us_totals_by_day
     }
   end
 

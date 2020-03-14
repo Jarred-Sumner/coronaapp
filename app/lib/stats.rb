@@ -85,7 +85,7 @@ class Stats
       faraday(confirmed_pins_url).get.body
     end
 
-    def self.confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0)
+    def self.confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0, hide_us: true)
       resp = Rails.cache.fetch(CONFIRMED_URL_KEY) do
         body = fetch_confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
 
@@ -114,7 +114,7 @@ class Stats
         latitude = Float(props["Lat"])
         longitude = Float(props["Long_"])
 
-        next if Map.inside_united_states?(latitude, longitude)
+        next if hide_us && Map.inside_united_states?(latitude, longitude)
 
         # "OBJECTID"=>121, "Province_State"=>"Jiangxi", "Country_Region"=>"Mainland China", "Last_Update"=>1583025190000, "Lat"=>27.614008270636, "Long_"=>115.722093542185, "Confirmed"=>935, "Deaths"=>1, "Recovered"=>831
         {

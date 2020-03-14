@@ -64,7 +64,7 @@ export const Marker = ({
     <MapsMarker
       icon={markerImage}
       clickable={!!onPress}
-      // opacity={opacity}
+      opacity={opacity}
       onClick={handlePress}
       draggable={false}
       position={position}

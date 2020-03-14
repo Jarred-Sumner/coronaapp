@@ -571,7 +571,7 @@ export const MapRoute = ({}) => {
           <View pointerEvents="box-none" style={[styles.header, {top}]}>
             <View style={styles.headerContent}>
               <StatusBar backgroundColor={COLORS.dark} />
-              <CountryPicker />
+              {/* <CountryPicker /> */}
               <CountBox
                 feelingSick={userPins?.count}
                 infected={confirmedCasesInRegion}
@@ -673,29 +673,7 @@ const UserReportCard = ({id}) => {
   );
 };
 
-let animateOpeningPullView = false;
 export const MapOverlay = ({type, id, onPressSheetItem, object, deselect}) => {
-  React.useEffect(() => {
-    animateOpeningPullView = true;
-  }, []);
-
-  React.useEffect(() => {
-    const eventHandler = () => {
-      deselect && deselect();
-      return !!deselect;
-    };
-    if (
-      type === MapSelectionType.confirmedReport ||
-      type === MapSelectionType.userReport
-    ) {
-      BackHandler.addEventListener('hardwareBackPress', eventHandler);
-    }
-
-    return () => {
-      BackHandler.removeEventListener('hardwareBackPress', eventHandler);
-    };
-  }, [type, deselect]);
-
   if (type === MapSelectionType.confirmedReport) {
     return <ConfirmedReportCard report={object} />;
   } else if (type === MapSelectionType.userReport) {

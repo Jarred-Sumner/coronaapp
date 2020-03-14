@@ -24,7 +24,7 @@ export const CasesChart = React.memo(
     const cumulativeCases = React.useCallback(data => {
       return data[1].cumulative;
     }, []);
-    const newCases = React.useCallback(data => data[1].new, []);
+    const newCases = React.useCallback(data => data[1].ongoing, []);
     const timestamp = React.useCallback(data => data[0], []);
     const domain = React.useMemo(
       () => ({
@@ -47,9 +47,9 @@ export const CasesChart = React.memo(
     );
 
     const cumulativeCaseData = React.useMemo(() => {
-      return dailyTotalsEntries.map(([x, {cumulative: y}]) => ({
+      return dailyTotalsEntries.map(([x, data]) => ({
         x,
-        y,
+        y: data.cumulative,
       }));
     }, [dailyTotalsEntries]);
 
@@ -87,17 +87,6 @@ export const CasesChart = React.memo(
           animate={false}
           responsive={false}
           height={400}>
-          <VictoryLegend
-            y={8}
-            x={8}
-            title="Coronavirus in counties on map"
-            titleOrientation="top"
-            orientation="horizontal"
-            gutter={24}
-            width={width - 24}
-            data={legendData}
-          />
-
           <VictoryGroup
             width={width - 24}
             height={400}
@@ -123,6 +112,17 @@ export const CasesChart = React.memo(
               <VictoryLine data={dailyData[2]} />
                */}
           </VictoryGroup>
+
+          <VictoryLegend
+            y={8}
+            x={8}
+            title="Coronavirus in counties on map"
+            titleOrientation="top"
+            orientation="horizontal"
+            gutter={24}
+            width={width - 24}
+            data={legendData}
+          />
         </VictoryChart>
       </View>
     );
