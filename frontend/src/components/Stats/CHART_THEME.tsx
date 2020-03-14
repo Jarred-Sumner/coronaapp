@@ -232,6 +232,10 @@ export const CHART_THEME = {
     baseProps,
   ),
   tooltip: {
+    centerOffset: {
+      x: 0,
+      y: -20,
+    },
     style: assign({}, centeredLabelStyles, {
       padding: 5,
       pointerEvents: 'none',
