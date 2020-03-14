@@ -168,7 +168,7 @@ const StatsListComponent = ({
       return null;
     }
 
-    return thisWeek.ongoing / lastWeek.ongoing;
+    return thisWeek.cumulative / lastWeek.cumulative;
   }, [thisWeek, lastWeek]);
 
   const coverage = React.useMemo(() => {
