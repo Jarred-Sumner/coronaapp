@@ -1,4 +1,12 @@
-import {format, getWeek, parse, startOfDay} from 'date-fns/esm';
+import {
+  format,
+  getWeek,
+  parse,
+  startOfDay,
+  subDays,
+  getDay,
+  isSameDay,
+} from 'date-fns/esm';
 import {get, groupBy, isFinite, orderBy} from 'lodash';
 import Numeral from 'numeral';
 import * as React from 'react';
@@ -96,19 +104,6 @@ const mergeTotals = (first, second): Totals => {
     counties,
   };
 };
-function getWeekNumber(d) {
-  // Copy date so don't modify original
-  d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-  // Set to nearest Thursday: current date + 4 - current day number
-  // Make Sunday's day number 7
-  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-  // Get first day of year
-  var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-  // Calculate full weeks to nearest Thursday
-  var weekNo = Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
-  // Return array of year and week number
-  return [d.getUTCFullYear(), weekNo];
-}
 
 const StatsListComponent = ({
   totals,
@@ -128,48 +123,29 @@ const StatsListComponent = ({
   const dead = get(totals, 'dead');
   const cumulative = get(totals, 'cumulative');
 
-  const weeklyTotals = React.useMemo<TotalsMap>(() => {
-    const weeks = new Map();
-    dailyTotals.forEach((totals, date) => {
-      const week = getWeek(date);
-
-      let previous = null;
-      if (weeks.has(week)) {
-        previous = weeks.get(week);
-      }
-
-      weeks.set(week, previous ? mergeTotals(totals, previous) : totals);
-      return weeks;
-    });
-
-    return weeks;
-  }, [dailyTotals]);
-
-  const lastWeek = React.useMemo(() => {
-    const weeks = [...weeklyTotals.entries()];
-    if (weeks.length < 2) {
-      return null;
-    }
-
-    return weeks[weeks.length - 2][1];
-  }, [weeklyTotals]);
-
-  const thisWeek = React.useMemo(() => {
-    const weeks = [...weeklyTotals.entries()];
-    if (weeks.length < 2) {
-      return null;
-    }
-
-    return weeks[weeks.length - 1][1];
-  }, [weeklyTotals]);
-
   const weeklyGrowth = React.useMemo(() => {
-    if (!thisWeek || !lastWeek) {
+    if (!dailyTotals || !dailyTotals.size === 0) {
       return null;
     }
 
-    return thisWeek.cumulative / lastWeek.cumulative;
-  }, [thisWeek, lastWeek]);
+    const days = [...dailyTotals.keys()].sort().reverse();
+    const today = days[0];
+    const todayTotal = dailyTotals.get(today);
+
+    if (!today || !todayTotal) {
+      return null;
+    }
+
+    const _lastWeek = subDays(today, 7);
+    const lastWeek = days.find(day => isSameDay(_lastWeek, day));
+    const lastWeekTotal = dailyTotals.get(lastWeek);
+
+    if (lastWeekTotal) {
+      return todayTotal.ongoing / lastWeekTotal.ongoing;
+    } else {
+      return null;
+    }
+  }, [dailyTotals]);
 
   const coverage = React.useMemo(() => {
     if (!unitedStates || !counties || Object.keys(counties).length === 0) {
@@ -222,7 +198,7 @@ const StatsListComponent = ({
           <CountBoxComponent
             value={weeklyGrowth}
             type="percent"
-            tooltip={`(thisWeek.confirmed - thisWeek.deaths - thisWeek.recovered) / (lastWeek.confirmed - lastWeek.deaths - lastWeek.recovered)`}
+            tooltip={`(thisWeek.confirmed - thisWeek.deaths - thisWeek.recovered) / (7d.ago.confirmed - 7d.ago.deaths - 7d.ago.recovered)`}
             label="Weekly growth rate"
           />
         </View>
