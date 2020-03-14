@@ -155,24 +155,24 @@ export const SheetHeader = ({
       <Row
         onPress={onChange}
         iconOnly={icons}
-        isActive={value === 'reports'}
-        inset={inset}
-        value={'reports'}
-        light={light}
-        isLast
-        size={{width}}>
-        Reports
-      </Row>
-
-      <Row
-        onPress={onChange}
-        iconOnly={icons}
         isActive={value === 'news'}
         inset={inset}
         value={'news'}
         light={light}
         size={{width}}>
         News
+      </Row>
+
+      <Row
+        onPress={onChange}
+        iconOnly={icons}
+        isActive={value === 'reports'}
+        inset={inset}
+        value={'reports'}
+        light={light}
+        isLast
+        size={{width}}>
+        Logs
       </Row>
 
       <IndicatorView style={indicatorStyles} />

@@ -94,6 +94,7 @@ module PointThreeAcres
     confirmed_date = parse_date(props["confirmed_date"])
     last_updated = [cured_date, confirmed_date, arrival_date].compact.max
     count = props["people_count"]
+
     recover_count =  props["cured_date"] == "Recovered" || cured_date ? count : 0
     die_count = props["die_count"]
 
@@ -105,6 +106,7 @@ module PointThreeAcres
 
     {
       "id": id,
+      "order": Integer(props["id"][3..-1]),
       "country":  "us",
       "last_updated": last_updated,
       "started_at": arrival_date,
@@ -115,7 +117,6 @@ module PointThreeAcres
       "province": state_name,
       "state": state_name,
       "county": county,
-      "kml": "#{county.kml_path}",
       "label": props["area"],
       "latitude": county.point.y,
       "longitude": county.point.x,

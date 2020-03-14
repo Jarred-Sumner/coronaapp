@@ -1,19 +1,24 @@
+import {COLORS} from '../../lib/theme';
+
 const assign = Object.assign;
-const colors = [
-  '#252525',
-  '#525252',
-  '#737373',
-  '#969696',
-  '#bdbdbd',
-  '#d9d9d9',
-  '#f0f0f0',
+export const colors = [
+  '#D564BC',
+  '#D56464',
+  '#C4B411',
+  '#CC8E5B',
+  '#7A7A7A',
+  '#B6A2DE',
+  '#6CC788',
+  '#0CC2AA',
+  '#5F7CE7',
+  '#0091FF',
+  '#E22070',
 ];
-const charcoal = '#252525';
-const grey = '#969696';
+const charcoal = 'rgb(43, 54, 73)';
+const grey = 'rgb(203, 203, 203)';
 
 // Typography
-const sansSerif =
-  "'Gill Sans', 'Gill Sans MT', 'Ser­avek', 'Trebuchet MS', sans-serif";
+const sansSerif = `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif`;
 const letterSpacing = 'normal';
 const fontSize = 14;
 
@@ -31,7 +36,7 @@ const baseLabelStyles = {
   fontSize,
   letterSpacing,
   padding: 10,
-  fill: charcoal,
+  fill: grey,
   stroke: 'transparent',
 };
 const centeredLabelStyles = assign({textAnchor: 'middle'}, baseLabelStyles);
@@ -41,7 +46,7 @@ const strokeLinecap = 'round';
 const strokeLinejoin = 'round';
 
 // Put it all together...
-const theme = {
+export const CHART_THEME = {
   area: assign(
     {
       style: {
@@ -57,8 +62,8 @@ const theme = {
     {
       style: {
         axis: {
-          fill: 'transparent',
-          stroke: charcoal,
+          fill: COLORS.muted,
+          stroke: COLORS.muted,
           strokeWidth: 1,
           strokeLinecap,
           strokeLinejoin,
@@ -67,14 +72,14 @@ const theme = {
           padding: 25,
         }),
         grid: {
-          fill: 'none',
-          stroke: 'none',
-          pointerEvents: 'painted',
+          fill: 'rgb(51, 60, 77)',
+          stroke: 'rgb(51, 60, 77)',
+          pointerEvents: 'none',
         },
         ticks: {
-          fill: 'transparent',
+          stroke: COLORS.muted,
           size: 1,
-          stroke: 'transparent',
+          fill: 'rgb(51, 60, 77)',
         },
         tickLabels: baseLabelStyles,
       },
@@ -169,15 +174,15 @@ const theme = {
   ),
   legend: {
     colorScale: colors,
-    gutter: 10,
-    orientation: 'vertical',
-    titleOrientation: 'top',
+    gutter: 24,
+    orientation: 'horizontal',
     style: {
       data: {
         type: 'circle',
       },
-      labels: baseLabelStyles,
-      title: assign({}, baseLabelStyles, {padding: 5}),
+      border: {background: charcoal},
+      labels: assign({}, baseLabelStyles, {background: charcoal, zIndex: 10}),
+      title: assign({}, baseLabelStyles, {padding: 5, fontSize: 20}),
     },
   },
   line: assign(
@@ -185,7 +190,7 @@ const theme = {
       style: {
         data: {
           fill: 'transparent',
-          stroke: charcoal,
+          stroke: grey,
           strokeWidth: 2,
         },
         labels: centeredLabelStyles,
@@ -231,10 +236,13 @@ const theme = {
       padding: 5,
       pointerEvents: 'none',
     }),
+    label: {
+      color: COLORS.muted,
+    },
     flyoutStyle: {
-      stroke: charcoal,
+      stroke: COLORS.dark,
       strokeWidth: 1,
-      fill: '#f0f0f0',
+      fill: COLORS.darkMedium,
       pointerEvents: 'none',
     },
     cornerRadius: 5,
@@ -244,7 +252,6 @@ const theme = {
     {
       style: {
         data: {
-          fill: 'transparent',
           stroke: 'transparent',
           strokeWidth: 0,
         },
@@ -253,9 +260,9 @@ const theme = {
           pointerEvents: 'none',
         }),
         flyout: {
-          stroke: charcoal,
+          stroke: COLORS.dark,
           strokeWidth: 1,
-          fill: '#f0f0f0',
+          fill: COLORS.darkMedium,
           pointerEvents: 'none',
         },
       },

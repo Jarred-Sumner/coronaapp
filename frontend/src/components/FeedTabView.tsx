@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 });
 
 type GallerySectionItem = 'news' | 'reports' | 'stats';
-export const DEFAULT_TABS = ['stats', 'reports', 'news'];
+export const DEFAULT_TABS = ['stats',  'news', 'reports'];
 export const ROUTE_LIST = DEFAULT_TABS;
 
 type Props = {

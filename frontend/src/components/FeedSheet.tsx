@@ -8,6 +8,7 @@ import {ListClicker} from './ListClicker';
 import {PullyScrollViewContext} from './PullyView';
 import Animated from 'react-native-reanimated';
 import {CloseButtonImage} from './CloseButtonImage';
+import ReactTooltip from 'react-tooltip';
 
 const styles = StyleSheet.create({
   header: {},
@@ -59,6 +60,8 @@ export const FeedSheet = ({horizontal}) => {
           initialRoute={initialRoute.current}
           width={width}
         />
+
+        <ReactTooltip style={{cursor: 'pointer'}} multiline />
       </View>
     );
   }
@@ -117,6 +120,14 @@ export const FeedSheet = ({horizontal}) => {
           )}
         </View>
       </View>
+
+      <ReactTooltip
+        style={{cursor: 'pointer'}}
+        multiline
+        resizeHide
+        effect="solid"
+        globalEventOff={!horizontal ? 'touchstart' : undefined}
+      />
     </View>
   );
 };

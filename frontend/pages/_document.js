@@ -43,6 +43,11 @@ body {
   cursor: pointer;
 }
 
+.__react_component_tooltip {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+
 html, body, #__next {
   width: 100%;
   /* To smooth any scrolling behavior */

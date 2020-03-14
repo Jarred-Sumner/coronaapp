@@ -16,18 +16,20 @@ import Routes from './src/lib/Routes';
 import {RegionProvider} from './src/routes/RegionContext';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-export const App = ({RoutesComponent = Routes, routesProps}) => (
-  <SafeAreaProvider>
-    <ActionSheetProvider>
-      <CountryProvider>
-        <RegionProvider>
-          <UserLocationProvider>
-            <RoutesComponent {...routesProps} />
-          </UserLocationProvider>
-        </RegionProvider>
-      </CountryProvider>
-    </ActionSheetProvider>
-  </SafeAreaProvider>
-);
+export const App = ({RoutesComponent = Routes, routesProps}) => {
+  return (
+    <SafeAreaProvider>
+      <ActionSheetProvider>
+        <CountryProvider>
+          <RegionProvider>
+            <UserLocationProvider>
+              <RoutesComponent {...routesProps} />
+            </UserLocationProvider>
+          </RegionProvider>
+        </CountryProvider>
+      </ActionSheetProvider>
+    </SafeAreaProvider>
+  );
+};
 
 export default App;

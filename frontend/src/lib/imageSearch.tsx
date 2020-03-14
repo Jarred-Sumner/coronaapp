@@ -21,7 +21,7 @@ import {BoundsRect, DimensionsRect} from './Rect';
 
 export const validateMimeType = (image, mimeType: string) => {
   if (!mimeType) {
-    throw Error(`Invalid mimetype for ${JSON.stringify(image)}`);
+    // throw Error(`Invalid mimetype for ${JSON.stringify(image)}`);
   }
 };
 
