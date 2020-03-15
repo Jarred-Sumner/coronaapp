@@ -1,5 +1,5 @@
 import {isSameDay, subDays} from 'date-fns/esm';
-import {get, isFinite} from 'lodash';
+import {get, isFinite, sum} from 'lodash';
 import Numeral from 'numeral';
 import * as React from 'react';
 import {ScrollView, Text, View} from 'react-native';
@@ -56,7 +56,7 @@ const CountBoxComponent = React.memo(({value, label, type, tooltip}) => {
   let number = value;
   let valueStyle = styles.value;
   if (type == 'percent' && isFinite(value)) {
-    number = value.toFixed(2) + 'x';
+    number = value.toFixed(1) + ' days';
     if (value > 1.0) {
       valueStyle = styles.warningValue;
     }
@@ -101,24 +101,41 @@ const StatsListComponent = ({
   const cumulative = get(totals, 'cumulative');
 
   const weeklyGrowth = React.useMemo(() => {
-    if (!dailyTotals || !dailyTotals.size === 0) {
+    if (!dailyTotals || dailyTotals.size === 0) {
       return null;
     }
 
-    const days = [...dailyTotals.keys()].sort().reverse();
-    const today = days[0];
+    const days = [...dailyTotals.keys()];
+    const today = days[days.length - 1];
+    const twoDayAgo = days[days.length - 2];
+    const threeDayAgo = days[days.length - 3];
+    const fourDayAgo = days[days.length - 4];
     const todayTotal = dailyTotals.get(today);
+    const twoDayTotal = dailyTotals.get(twoDayAgo);
+    const threeDayTotal = dailyTotals.get(threeDayAgo);
+    const fourDayTotal = dailyTotals.get(fourDayAgo);
 
     if (!today || !todayTotal) {
       return null;
     }
 
-    const _lastWeek = subDays(today, 7);
-    const lastWeek = days.find(day => isSameDay(_lastWeek, day));
-    const lastWeekTotal = dailyTotals.get(lastWeek);
+    const growthRates = [];
+    if (fourDayTotal) {
+      growthRates.push(fourDayTotal.cumulative / threeDayTotal.cumulative);
+    }
 
-    if (lastWeekTotal) {
-      return todayTotal.ongoing / lastWeekTotal.ongoing;
+    if (threeDayTotal) {
+      growthRates.push(threeDayTotal.cumulative / twoDayTotal.cumulative);
+    }
+
+    if (twoDayTotal) {
+      growthRates.push(twoDayTotal.cumulative / todayTotal.cumulative);
+    }
+
+    const growthRate = sum(growthRates) / (growthRates.length - 1);
+
+    if (growthRate) {
+      return (todayTotal.cumulative * 2) / (growthRate * todayTotal.cumulative);
     } else {
       return null;
     }
@@ -175,8 +192,8 @@ const StatsListComponent = ({
           <CountBoxComponent
             value={weeklyGrowth}
             type="percent"
-            tooltip={`(thisWeek.confirmed - thisWeek.deaths - thisWeek.recovered) / (7d.ago.confirmed - 7d.ago.deaths - 7d.ago.recovered)`}
-            label="Weekly growth rate"
+            tooltip={`(todayConfirmedTotal * 2) / avg(3-day growth rate) * todayConfirmedTotal`}
+            label="Doubling rate"
           />
         </View>
 

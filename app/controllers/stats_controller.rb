@@ -22,6 +22,7 @@ class StatsController < ApplicationController
     if inside_united_states?
       us = true
       pins = PointThreeAcres.fetch_cases(flatten: false, counties: county_ids).sort_by { |pin| pin["order"] }
+
     else
     end
 
@@ -143,7 +144,7 @@ class StatsController < ApplicationController
       object: 'stats',
       us: us,
       logs: pins,
-      counties: counties,
+      counties: counties.map { |county| [county.id, county ]}.to_h,
     }
   end
 
