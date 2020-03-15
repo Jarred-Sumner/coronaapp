@@ -17,10 +17,7 @@ class PinsController < ApplicationController
     pins = Stats.confirmed_pins(min_lat: params[:min_lat], min_long: params[:min_long], max_lat: params[:max_lat], max_long: params[:max_long])
     last_updated = pins.map { |stat| stat[:last_updated] }.max
 
-    states = Map.find_states(bounding_box.to_geometry)
-    counties = Map.find_counties(bounding_box.to_geometry)
-
-    json = {pins: pins, object: "pin", source: 'hopkins', states: states.map(&:name), counties: counties.map(&:name) }
+    json = {pins: pins, object: "pin", source: 'hopkins', }
 
     expires_in 1.minute, public: true, stale_while_revalidate: 15.minutes, stale_if_error: 3.hours
 

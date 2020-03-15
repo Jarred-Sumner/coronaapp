@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/api/user_reports', to: 'user_reports#index'
   get '/api/stats/user_reports', to: 'user_reports#stats'
+  get '/api/reports/us/all', to: 'user_reports#all_us'
   get '/api/user_reports/list', to: 'user_reports#list'
   get '/api/tweets', to: 'tweets#index'
   get '/api/reports', to: 'pins#confirmed_pins'

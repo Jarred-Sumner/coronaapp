@@ -82,6 +82,13 @@ body {
   overflow-y: hidden;
   overflow-x: hidden;
 }
+
+.VictoryContainer {
+  user-select: auto !important;
+  touch-action: auto !important;
+
+
+  }
 `;
 
 export async function getInitialProps({renderPage}) {
@@ -113,12 +120,14 @@ export class Document extends NextDocument {
           <Main />
           <NextScript />
 
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-K0GJNSV1P5"></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.dataLayer = window.dataLayer || [];
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              <script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=G-K0GJNSV1P5"></script>
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
@@ -127,8 +136,10 @@ export class Document extends NextDocument {
       if (location.hostname.indexOf("localhost") === -1) {
         gtag("config", "G-K0GJNSV1P5");
       }`,
-            }}
-          />
+                }}
+              />
+            </>
+          )}
         </body>
       </html>
     );

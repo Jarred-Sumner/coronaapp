@@ -8,14 +8,15 @@ import {
   VictoryLine,
   VictoryTooltip,
   VictoryVoronoiContainer,
-  VictoryAxis,
   VictoryLabel,
+  VictoryAxis,
 } from 'victory';
 import {COLORS} from '../../lib/theme';
 import {CHART_THEME, tickFormat} from './CHART_THEME';
 import {styles} from './styles';
 import chroma from 'chroma-js';
 import {max} from 'lodash';
+import {format, isSameDay} from 'date-fns';
 import {startOfDay, parse, addDays} from 'date-fns/esm';
 
 const colors = [
@@ -25,9 +26,10 @@ const colors = [
     .css(),
 ];
 
-export const CasesChart = React.memo(
+export const ForecastChart = React.memo(
   ({
-    data: dailyTotalsEntries,
+    mapProjections,
+    projections,
     width,
     counties,
     height = 400,
@@ -40,55 +42,33 @@ export const CasesChart = React.memo(
     );
 
     const scale = React.useMemo(() => ({x: 'time', y: 'linear'}), []);
-    const cumulativeCases = React.useCallback(data => {
-      return data[1].cumulative;
-    }, []);
-    const timestamp = React.useCallback(data => data[0], []);
+
     const usMaxY = React.useMemo(() => {
-      if (!usTotals) {
+      if (!projections) {
         return 0;
       }
-      return max(Object.values(usTotals)?.map(value => value.confirm));
-    }, [usTotals]);
+      return max(Object.values(projections)?.map(value => value.cumulative));
+    }, [projections]);
 
     const cumulativeCaseData = React.useMemo(() => {
-      let lastValue = 0;
-      let lastValueDiff = 1;
-      return dailyTotalsEntries.map(([x, data], index) => {
-        const isLast = index === dailyTotalsEntries.length - 1;
-
-        // Last one is messed up!
-
-        const y =
-          isLast && data.cumulative < lastValue
-            ? Math.min(data.cumulative * lastValueDiff, usMaxY)
-            : data.cumulative;
-
-        lastValueDiff = y / lastValue;
-        lastValue = y;
-
-        return {
-          x,
-          y,
-        };
-      });
-    }, [dailyTotalsEntries, usMaxY]);
-
-    const maxDate = React.useMemo(() => addDays(startOfDay(new Date()), 1), []);
+      return mapProjections
+        ? [...mapProjections.entries()].map(([x, {cumulative: y}]) => ({
+            x,
+            y,
+          }))
+        : [];
+    }, [mapProjections]);
 
     const domain = React.useMemo(() => {
+      const _projections = [...projections.entries()];
+      const firstProjection = _projections[0];
+      const lastProjection = _projections[projections.size - 1];
+      console.log({_projections});
       return {
-        y: [0, usMaxY],
-        x: [dailyTotalsEntries[0][0], maxDate],
+        y: [0, lastProjection[1].cumulative],
+        x: [firstProjection[0], lastProjection[0]],
       };
-    }, [
-      usTotals,
-      cumulative,
-      dailyTotalsEntries,
-      usMaxY,
-      cumulativeCaseData,
-      maxDate,
-    ]);
+    }, [usTotals, cumulative, projections, usMaxY, cumulativeCaseData]);
 
     const legendData = React.useMemo<VictoryLegendPro>(
       () => [{name: 'United States'}, {name: 'Visible counties'}],
@@ -101,13 +81,13 @@ export const CasesChart = React.memo(
     );
 
     const usCases = React.useMemo(() => {
-      return usTotals
-        ? Object.entries(usTotals).map(([x, {confirm: y}]) => ({
-            x: parse(x, 'yyyy-MM-dd', startOfDay(new Date())),
+      return projections
+        ? [...projections.entries()].map(([x, {cumulative: y}]) => ({
+            x,
             y,
           }))
         : [];
-    }, [usTotals]);
+    }, [projections]);
 
     const cumulativeCaseDataLabels = React.useCallback(({datum}) => {
       return datum._y;
@@ -128,8 +108,10 @@ export const CasesChart = React.memo(
       };
     }, []);
 
+    const axisLabel = <VictoryLabel angle={45} />;
+
     return (
-      <View style={containerStyles}>
+      <View pointerEvents="none" style={containerStyles}>
         <VictoryChart
           width={width - 24}
           scale={scale}
@@ -138,9 +120,8 @@ export const CasesChart = React.memo(
             <VictoryVoronoiContainer
               labels={cumulativeCaseDataLabels}
               mouseFollowTooltips
-              activateLabels={false}
-              dimension="x"
               responsive={false}
+              dimension="x"
               labelComponent={labelComponent}
             />
           }
@@ -168,15 +149,27 @@ export const CasesChart = React.memo(
             horizontal={false}
             responsive={false}
             standalone={false}
+            labels={['🇺🇸']}
+            labelComponent={<VictoryLabel x={40} />}
             domain={domain}
           />
 
+          <VictoryAxis
+            dependentAxis
+            fixLabelOverlap
+            tickLabelComponent={<VictoryLabel angle={-24} x={60} />}
+          />
+
+          <VictoryAxis tickFormat={tickFormat} />
+
           <VictoryLine
             data={cumulativeCaseData}
-            name="Visible counties"
+            name="Map region"
             style={localCasesStyle}
             width={width - 24}
             height={height}
+            labels={['Cases in map region']}
+            labelComponent={<VictoryLabel x={160} />}
             horizontal={false}
             responsive={false}
             standalone={false}
@@ -187,17 +180,10 @@ export const CasesChart = React.memo(
               <VictoryLine data={dailyData[2]} />
                */}
 
-          <VictoryAxis
-            dependentAxis
-            tickLabelComponent={<VictoryLabel angle={-24} x={60} />}
-          />
-
-          <VictoryAxis tickFormat={tickFormat} />
-
           <VictoryLegend
             y={8}
             x={8}
-            title="Confirmed Coronavirus cases"
+            title="7-day Coronavirus forecast"
             titleOrientation="top"
             orientation="horizontal"
             gutter={24}

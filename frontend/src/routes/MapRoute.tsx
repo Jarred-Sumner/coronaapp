@@ -547,14 +547,12 @@ export const MapRoute = ({}) => {
         style={isDesktop ? styles.horizontalContainer : styles.container}
         horizontal={isDesktop}
         sheet={
-          selectionType === MapSelectionType.sheet && (
-            <PullyView
-              horizontal={isDesktop}
-              initialStickyPointOffset={350}
-              animateOpen={false}>
-              <FeedSheet horizontal={isDesktop} />
-            </PullyView>
-          )
+          <PullyView
+            horizontal={isDesktop}
+            initialStickyPointOffset={350}
+            animateOpen={false}>
+            <FeedSheet horizontal={isDesktop} />
+          </PullyView>
         }>
         <MapView
           initialRegion={initialRegion.current}
@@ -598,15 +596,15 @@ export const MapRoute = ({}) => {
             sickCount={userPins?.count}
             confirmedCaseCount={confirmedCasesInRegion}
           />
-        </MapView>
 
-        <MapOverlay
-          type={selectionType}
-          id={selectedId}
-          horizontal={isDesktop}
-          object={selectedObject}
-          deselect={handlePressMap}
-        />
+          <MapOverlay
+            type={selectionType}
+            id={selectedId}
+            horizontal={isDesktop}
+            object={selectedObject}
+            deselect={handlePressMap}
+          />
+        </MapView>
       </CoordinatorLayout>
     </MapContext.Provider>
   );
@@ -638,6 +636,7 @@ const UserReportCard = ({id}) => {
           alignSelf: 'center',
           shadowOpacity: 0.25,
           shadowColor: 'black',
+          maxWidth: 400,
           shadowOffset: {width: 1, height: 1},
         }}>
         <UserReportListItem
@@ -666,7 +665,6 @@ const UserReportCard = ({id}) => {
 
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.85)',
       }}>
       {content}
     </View>
@@ -702,6 +700,7 @@ const ConfirmedReportCard = ({report}) => {
           shadowRadius: 5,
           shadowOpacity: 0.25,
           alignSelf: 'center',
+          maxWidth: 400,
           shadowColor: 'black',
           shadowOffset: {width: 1, height: 1},
         }}>
@@ -727,7 +726,6 @@ const ConfirmedReportCard = ({report}) => {
 
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.85)',
       }}>
       {content}
     </View>

@@ -1,23 +1,16 @@
-import {
-  format,
-  getWeek,
-  parse,
-  startOfDay,
-  subDays,
-  getDay,
-  isSameDay,
-} from 'date-fns/esm';
-import {get, groupBy, isFinite, orderBy} from 'lodash';
+import {isSameDay, subDays} from 'date-fns/esm';
+import {get, isFinite} from 'lodash';
 import Numeral from 'numeral';
 import * as React from 'react';
 import {ScrollView, Text, View} from 'react-native';
-import {usePaginatedQuery, useQuery} from 'react-query';
-import {fetchGraphStats, fetchUSTotals, getWorldStats} from '../api';
 import {RegionContext} from '../routes/RegionContext';
 import {PullyScrollViewContext} from './PullyView';
 import {CasesChart} from './Stats/CasesChart';
 import {ConfirmedCasesByCountyChart} from './Stats/ConfirmedCasesByCountyChart';
 import {styles} from './Stats/styles';
+import statsWorker from '../lib/StatsClient';
+import {TotalsMap, Totals} from '../lib/stats';
+import {ForecastChart} from './Stats/ForecastChart';
 
 function addDays(date, days) {
   var result = new Date(date);
@@ -85,37 +78,21 @@ const CountBoxComponent = React.memo(({value, label, type, tooltip}) => {
   );
 });
 
-const mergeTotals = (first, second): Totals => {
-  const cumulative = first.cumulative + second.cumulative;
-  const recover = first.recover + second.recover;
-  const dead = first.dead + second.dead;
-  const _new = first.new + second.new;
-  const counties = new Set([
-    ...first.counties.entries(),
-    ...second.counties.entries(),
-  ]);
-
-  return {
-    ongoing: cumulative - recover - dead,
-    cumulative,
-    recover: recover,
-    dead: dead,
-    new: _new,
-    counties,
-  };
-};
-
 const StatsListComponent = ({
   totals,
   width,
   unitedStates = false,
   dailyTotalsByCounty,
+  usStats,
   dailyTotals,
   scrollEnabled,
+  projections,
+  mapProjections,
   counties,
 }: {
   totals: Totals;
   counties;
+  usStats: TotalsMap;
   dailyTotals: TotalsMap;
 }) => {
   const ongoing = get(totals, 'ongoing');
@@ -223,7 +200,17 @@ const StatsListComponent = ({
           <CasesChart
             data={dailyTotalsEntries}
             width={width}
+            usTotals={usStats}
             cumulative={cumulative}
+            counties={counties}
+          />
+        )}
+
+        {mapProjections.size > 0 && projections.size > 0 && (
+          <ForecastChart
+            mapProjections={mapProjections}
+            projections={projections}
+            width={width}
             counties={counties}
           />
         )}
@@ -242,89 +229,6 @@ const StatsListComponent = ({
   );
 };
 
-type Totals = {
-  cumulative: number;
-  new: number;
-  ongoing: number;
-  recover: number;
-  dead: number;
-  counties: Set<string>;
-};
-
-type TotalsMap = Map<Date, Totals>;
-
-const getTotals = (pins, lastTotals): Totals => {
-  const totals = {
-    cumulative: lastTotals?.cumulative ?? 0,
-    ongoing: lastTotals?.ongoing ?? 0,
-    recover: 0,
-    dead: 0,
-    new: 0,
-    counties: lastTotals ? new Set([...lastTotals.counties]) : new Set(),
-  };
-
-  for (const pin of pins) {
-    totals.cumulative += pin.infections.confirm;
-    totals.recover += pin.infections.recover;
-    totals.dead += pin.infections.dead;
-    totals.new +=
-      pin.infections.confirm - pin.infections.dead - pin.infections.recover;
-    totals.counties.add(pin.county.id);
-  }
-
-  totals.ongoing = totals.cumulative - totals.recover - totals.dead;
-
-  return totals;
-};
-
-const getTotalsByDay = (pins, maxDays = null) => {
-  const _logsByDay = groupBy(pins, 'confirmed_at');
-  const logsByDay = {};
-  let lastLog = null;
-  for (const day of Object.keys(_logsByDay)) {
-    lastLog = getTotals(_logsByDay[day], lastLog);
-    logsByDay[day] = lastLog;
-  }
-
-  const countsByDay: TotalsMap = new Map();
-
-  const days = Object.keys(logsByDay)
-    .map(day => parse(day, 'yyyy-MM-dd', startOfDay(new Date())))
-    .sort(function compare(dateA, dateB) {
-      return dateA - dateB;
-    });
-
-  if (days.length > 0) {
-    const maxDay = days[days.length - 1];
-    const minDay = days[0];
-    const dayCount = daysBetween(minDay, maxDay) + 1;
-
-    let lastTotals: Totals | null = null;
-    let overflowKeys = [];
-    for (let i = 0; i < dayCount; i++) {
-      const day = addDays(minDay, i);
-      const _day = format(day, 'yyyy-MM-dd');
-
-      if (logsByDay[_day]) {
-        countsByDay.set(day, logsByDay[_day]);
-        lastTotals = {...logsByDay[_day]};
-        lastTotals.new = 0;
-        lastTotals.dead = 0;
-        lastTotals.recover = 0;
-      } else if (lastTotals) {
-        countsByDay.set(day, lastTotals);
-      }
-    }
-  }
-  return countsByDay;
-
-  // const counts = [...countsByDay.entries()];
-
-  // return new Map(
-  //   [...counts].slice(maxDays ? Math.max(counts.length - maxDays - 1, 0) : 0),
-  // );
-};
-
 export const StatsList = ({
   nativeViewRef,
   scrollY,
@@ -340,65 +244,71 @@ export const StatsList = ({
   const {region} = React.useContext(RegionContext);
   const {position} = React.useContext(PullyScrollViewContext) ?? {};
 
-  const {resolvedData} = usePaginatedQuery(
-    ['graph_stats', region],
-    fetchGraphStats,
-  );
+  const [
+    {
+      countsByDay,
+      dailyTotalsByCounty,
+      totals,
+      countyTotals,
+      counties,
+      projections,
+      mapProjections,
+      us,
+      usStats,
+    },
+    setStats,
+  ] = React.useState({
+    countsByDay: new Map(),
+    dailyTotalsByCounty: {},
+    projections: new Map(),
+    mapProjections: new Map(),
+    totals: null,
+    usStats: null,
+    countyTotals: null,
+    counties: {},
+  });
 
-  const dailyData = React.useRef();
+  console.log({projections});
+  const workerListener = React.useRef(({data: {type, stats}}) => {
+    if (type === 'stats') {
+      setStats(stats);
+    }
+  });
 
   React.useEffect(() => {
-    getWorldStats().then(stats => {
-      dailyData.current = groupBy(stats, 'date');
-    });
-  }, []);
-
-  const pins = resolvedData?.logs;
-  const us = resolvedData?.us ?? false;
-  const counties = resolvedData?.counties;
-
-  const [
-    totalsByDay,
-    dailyTotalsByCounty,
-    totals,
-    countyTotals,
-    pred,
-  ] = React.useMemo(() => {
-    if (!pins || !counties) {
-      return [new Map(), {}, null, null];
+    if (!statsWorker) {
+      return;
     }
 
-    const countyTotals = {};
+    statsWorker.addEventListener('message', workerListener.current);
 
-    const _pins = orderBy(pins, 'order', 'asc');
-    console.time('DATA');
+    () => {
+      statsWorker.removeEventListener('message', workerListener.current);
+    };
+  }, [statsWorker]);
 
-    const dailyTotalsByCounty: {[key: string]: TotalsMap} = {};
-
-    const totals = getTotals(_pins);
-    const countsByDay = getTotalsByDay(_pins);
-
-    const pinsByCounty = groupBy(_pins, 'county.id');
-
-    for (const [countyId, pins] of Object.entries(pinsByCounty)) {
-      dailyTotalsByCounty[countyId] = getTotalsByDay(pins, 14);
+  React.useEffect(() => {
+    if (!region || !statsWorker) {
+      return;
     }
 
-    console.timeEnd('DATA');
-    return [countsByDay, dailyTotalsByCounty, totals, countyTotals];
-  }, [pins, us, counties]);
+    statsWorker.postMessage({type: 'getStats', region});
+  }, [region, statsWorker]);
 
   const scrollEnabled = position === 'top' || horizontal;
   return (
     <StatsListComponent
       counties={counties}
-      dailyTotals={totalsByDay}
+      dailyTotals={countsByDay}
+      projections={projections}
+      mapProjections={mapProjections}
       dailyTotalsByCounty={dailyTotalsByCounty}
       width={width}
-      dailyData={dailyData.current}
+      // dailyData={dailyData.current}
       scrollEnabled={scrollEnabled}
       unitedStates={us == true}
       countyTotals={countyTotals}
+      usStats={usStats}
       totals={totals}></StatsListComponent>
   );
 };

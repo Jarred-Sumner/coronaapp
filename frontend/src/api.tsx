@@ -101,6 +101,7 @@ export const fetchGraphStats = (
     latitude,
     longitude,
     zoom,
+    counties,
   },
 ) => {
   const url =
@@ -111,6 +112,7 @@ export const fetchGraphStats = (
       min_long: minLongitude,
       latitude,
       longitude,
+      counties,
       max_lat: maxLatitude,
       max_long: maxLongitude,
     });

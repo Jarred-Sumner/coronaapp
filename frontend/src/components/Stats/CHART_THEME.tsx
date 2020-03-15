@@ -1,4 +1,7 @@
 import {COLORS} from '../../lib/theme';
+import {isDesktop} from '../ScreenSize';
+import {format, isSameDay} from 'date-fns';
+import {startOfDay, parse, addDays} from 'date-fns/esm';
 
 const assign = Object.assign;
 export const colors = [
@@ -22,10 +25,29 @@ const sansSerif = `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Rob
 const letterSpacing = 'normal';
 const fontSize = 14;
 
+export const tickFormat = (tick, index, ticks) => {
+  const isFirst = index === 0;
+  const isLast = index === ticks.length - 1;
+  const isMiddle = index === Math.floor(ticks.length / 2);
+
+  if (isFirst && isSameDay(tick, addDays(startOfDay(new Date()), 1))) {
+    return 'Tomorrow';
+  } else if (isLast && isSameDay(tick, addDays(startOfDay(new Date()), 1))) {
+    return 'Today';
+  }
+
+  if (isFirst || isLast || isMiddle) {
+    return format(tick, 'MMM d');
+  } else {
+    return '';
+  }
+};
+
 // Layout
 const baseProps = {
   width: 450,
-  height: 300,
+  height: 400,
+  responsive: false,
   padding: 50,
   colorScale: colors,
 };
@@ -70,6 +92,7 @@ export const CHART_THEME = {
         },
         axisLabel: assign({}, centeredLabelStyles, {
           padding: 25,
+          fontSize: 18,
         }),
         grid: {
           fill: 'rgb(51, 60, 77)',
@@ -79,9 +102,10 @@ export const CHART_THEME = {
         ticks: {
           stroke: COLORS.muted,
           size: 1,
+
           fill: 'rgb(51, 60, 77)',
         },
-        tickLabels: baseLabelStyles,
+        tickLabels: assign({}, baseLabelStyles),
       },
     },
     baseProps,
@@ -151,7 +175,9 @@ export const CHART_THEME = {
     },
     baseProps,
   ),
-  chart: baseProps,
+  chart: {
+    ...baseProps,
+  },
   errorbar: assign(
     {
       borderWidth: 8,
@@ -185,19 +211,16 @@ export const CHART_THEME = {
       title: assign({}, baseLabelStyles, {padding: 5, fontSize: 20}),
     },
   },
-  line: assign(
-    {
-      style: {
-        data: {
-          fill: 'transparent',
-          stroke: grey,
-          strokeWidth: 2,
-        },
-        labels: centeredLabelStyles,
+  line: assign({}, baseProps, {
+    style: {
+      data: {
+        fill: 'transparent',
+        stroke: grey,
+        strokeWidth: 2,
       },
+      labels: centeredLabelStyles,
     },
-    baseProps,
-  ),
+  }),
   pie: {
     style: {
       data: {
@@ -234,11 +257,12 @@ export const CHART_THEME = {
   tooltip: {
     centerOffset: {
       x: 0,
-      y: -20,
+      y: isDesktop ? -20 : -100,
     },
     style: assign({}, centeredLabelStyles, {
       padding: 5,
       pointerEvents: 'none',
+      fontWeight: 'bold',
     }),
     label: {
       color: COLORS.muted,
@@ -252,6 +276,7 @@ export const CHART_THEME = {
     cornerRadius: 5,
     pointerLength: 10,
   },
+
   voronoi: assign(
     {
       style: {

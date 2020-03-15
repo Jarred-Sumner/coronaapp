@@ -13,17 +13,15 @@ class StatsController < ApplicationController
 
   def all_stats
     pins = []
-    counties = {}
     us = false
     ongoing_cases = 0
 
+    counties = Map.find_counties(bounding_box.to_geometry)
+    county_ids = counties.map(&:id)
 
     if inside_united_states?
       us = true
-      pins = PointThreeAcres.fetch_cases(min_lat: Float(params[:min_lat]), min_long: Float(params[:min_long]), max_lat: Float(params[:max_lat]), max_long: Float(params[:max_long]), flatten: false).sort_by { |pin| pin["last_updpated"] }
-      pins.each do |pin|
-        counties[pin['county'].id] ||= pin['county']
-      end
+      pins = PointThreeAcres.fetch_cases(flatten: false, counties: county_ids).sort_by { |pin| pin["order"] }
     else
     end
 
@@ -150,10 +148,15 @@ class StatsController < ApplicationController
   end
 
   def us_totals
-    render json: {
-      object: 'totals',
-      totals: PointThreeAcres.us_totals_by_day
-    }
+    totals = PointThreeAcres.us_totals_by_day
+    expires_in 15.minutes, public: true, stale_while_revalidate: 30.minutes, stale_if_error: 1.day
+
+    if stale?(etag: totals, public: true)
+      render json: {
+        object: 'totals',
+        totals: totals
+      }
+    end
   end
 
 

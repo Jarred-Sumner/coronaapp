@@ -3,7 +3,7 @@ const path = require('path');
 const withImages = require('next-images');
 const webpack = require('webpack');
 const withOffline = require('next-offline');
-const withWorkers = require('@zeit/next-workers');
+const WorkerPlugin = require('worker-plugin');
 
 process.env.PLATFORM = 'web';
 
@@ -38,105 +38,109 @@ const withTM = require('next-transpile-modules')(
   require('./modules-to-transpile'),
 ); // pass the modules you would like to see transpiled
 
-module.exports = withWorkers({
-  ...withOffline({
-    workboxOpts: {
-      runtimeCaching: [
-        {
-          urlPattern: /.png$/,
-          handler: 'CacheFirst',
-        },
-        {
-          urlPattern: /.jpg$/,
-          handler: 'CacheFirst',
-        },
-
-        {
-          urlPattern: /api/,
-          handler: 'NetworkFirst',
-          options: {
-            cacheName: 'offlineCache',
-            expiration: {
-              maxEntries: 200,
-            },
-          },
-        },
-      ],
-    },
-    ...withImages({
-      exportPathMap: async function(
-        defaultPathMap,
-        {dev, dir, outDir, distDir, buildId},
-      ) {
-        // Home: '/',
-        // ReportSick: '/report_sick',
-        // Stats: '/stats',
-        // CountryPicker: '/country',
-        return {
-          '/': {
-            page: '/',
-            // query: {
-            //   lat: null,
-            //   lng: null,
-            //   min_lat: null,
-            //   min_lng: null,
-            //   max_lng: null,
-            //   max_lat: null,
-            // },
-          },
-          '/report_sick': {page: '/report_sick'},
-          '/stats': {page: '/stats'},
-          '/country': {page: '/country'},
-        };
+module.exports = withOffline({
+  workboxOpts: {
+    runtimeCaching: [
+      {
+        urlPattern: /.png$/,
+        handler: 'CacheFirst',
+      },
+      {
+        urlPattern: /.jpg$/,
+        handler: 'CacheFirst',
       },
 
-      inlineImageLimit: 0,
-      esModule: true,
-      assetPrefix:
-        process.env.NODE_ENV === 'production'
-          ? 'https://covy.app'
-          : 'http://localhost:9000',
-      ...withTM({
-        typescript: {
-          // !! WARN !!
-          // Dangerously allow production builds to successfully complete even if
-          // your project has type errors.
-          //
-          // This option is rarely needed, and should be reserved for advanced
-          // setups. You may be looking for `ignoreDevErrors` instead.
-          // !! WARN !!
-          ignoreBuildErrors: true,
-          ignoreDevErrors: true,
+      {
+        urlPattern: /api/,
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'offlineCache',
+          expiration: {
+            maxEntries: 200,
+          },
         },
-        webpack: config => {
-          config.resolve.alias = {
-            ...(config.resolve.alias || {}),
-            // Transform all direct `react-native` imports to `react-native-web`
-            'react-native$': 'react-native-web',
-            assets: path.join(__dirname, 'web/assets'),
-          };
-          config.resolve.extensions = [
-            '.web.js',
-            '.web.ts',
-            '.web.tsx',
-            ...config.resolve.extensions,
-          ];
-          config.plugins.push(
-            new webpack.DefinePlugin({
-              __DEV__: JSON.stringify(process.env.NODE_ENV !== 'production'),
-              "Platform.OS === 'android'": JSON.stringify(false),
-              "Platform.OS === 'ios'": JSON.stringify(false),
-              "Platform.OS === 'web'": JSON.stringify(true),
-              "Platform.OS === 'native'": JSON.stringify(false),
-            }),
-          );
-
-          // Overcome webpack referencing `window` in chunks
-          config.output.globalObject = 'self';
-
-          return config;
+      },
+    ],
+  },
+  ...withImages({
+    exportPathMap: async function(
+      defaultPathMap,
+      {dev, dir, outDir, distDir, buildId},
+    ) {
+      // Home: '/',
+      // ReportSick: '/report_sick',
+      // Stats: '/stats',
+      // CountryPicker: '/country',
+      return {
+        '/': {
+          page: '/',
+          // query: {
+          //   lat: null,
+          //   lng: null,
+          //   min_lat: null,
+          //   min_lng: null,
+          //   max_lng: null,
+          //   max_lat: null,
+          // },
         },
-      }),
+        '/report_sick': {page: '/report_sick'},
+        '/stats': {page: '/stats'},
+        '/country': {page: '/country'},
+      };
+    },
+
+    inlineImageLimit: 0,
+    esModule: true,
+    assetPrefix:
+      process.env.NODE_ENV === 'production'
+        ? 'https://covy.app'
+        : 'http://localhost:9000',
+    ...withTM({
+      typescript: {
+        // !! WARN !!
+        // Dangerously allow production builds to successfully complete even if
+        // your project has type errors.
+        //
+        // This option is rarely needed, and should be reserved for advanced
+        // setups. You may be looking for `ignoreDevErrors` instead.
+        // !! WARN !!
+        ignoreBuildErrors: true,
+        ignoreDevErrors: true,
+      },
+      webpack: config => {
+        config.resolve.alias = {
+          ...(config.resolve.alias || {}),
+          // Transform all direct `react-native` imports to `react-native-web`
+          'react-native$': 'react-native-web',
+          assets: path.join(__dirname, 'web/assets'),
+        };
+        config.resolve.extensions = [
+          '.web.js',
+          '.web.ts',
+          '.web.tsx',
+
+          ...config.resolve.extensions,
+        ];
+        config.plugins.push(
+          new webpack.DefinePlugin({
+            __DEV__: JSON.stringify(process.env.NODE_ENV !== 'production'),
+            "Platform.OS === 'android'": JSON.stringify(false),
+            "Platform.OS === 'ios'": JSON.stringify(false),
+            "Platform.OS === 'web'": JSON.stringify(true),
+            "Platform.OS === 'native'": JSON.stringify(false),
+          }),
+        );
+        config.plugins.push(
+          new WorkerPlugin({
+            globalObject: 'self',
+          }),
+        );
+
+        // Overcome webpack referencing `window` in chunks
+        config.output.globalObject = 'self';
+
+        return config;
+      },
     }),
   }),
 });

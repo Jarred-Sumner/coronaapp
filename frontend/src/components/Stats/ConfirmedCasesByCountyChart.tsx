@@ -11,10 +11,11 @@ import {
   VictoryLabel,
   VictoryScatter,
   VictoryBar,
+  VictoryAxis,
 } from 'victory';
 import {COLORS} from '../../lib/theme';
 import {subDays} from 'date-fns/esm';
-import {CHART_THEME, colors} from './CHART_THEME';
+import {CHART_THEME, tickFormat, colors} from './CHART_THEME';
 import {styles} from './styles';
 
 export const ConfirmedCasesByCountyChart = React.memo(
@@ -104,85 +105,48 @@ export const ConfirmedCasesByCountyChart = React.memo(
     const scale = React.useMemo(() => ({x: 'time', y: 'linear'}), []);
     const legendData = React.useMemo(() => [], []);
 
-    if (data.length > 10) {
-      return (
-        <View style={containerStyles}>
-          <VictoryChart
-            width={width - 24}
-            scale={scale}
-            minDomain={minDomain}
-            // horizontal
-            containerComponent={
-              <VictoryVoronoiContainer
-                mouseFollowTooltips
-                activateLabels={false}
-                responsive={false}
-                labels={labels}
-                labelComponent={labelComponent}
-              />
-            }
-            // style={{
-            //   data: {stroke: '#c43a31'},
-            //   parent: {border: '1px solid #ccc'},
-            // }}
-            theme={CHART_THEME}
-            animate={false}
-            height={height}>
-            <VictoryGroup width={width - 24} height={400} colorScale={colors}>
-              {data.map(renderBar)}
-            </VictoryGroup>
-            <VictoryLegend
-              x={-16}
-              y={12}
-              title="Confirmed cases by county"
-              titleOrientation="top"
-              centerTitle
-              data={legendData}
-              gutter={0}
-              width={width - 24}
+    return (
+      <View style={containerStyles}>
+        <VictoryChart
+          width={width - 24}
+          scale={scale}
+          minDomain={minDomain}
+          // horizontal
+          containerComponent={
+            <VictoryVoronoiContainer
+              mouseFollowTooltips
+              activateLabels={false}
+              dimension="x"
+              responsive={false}
+              labels={labels}
+              labelComponent={labelComponent}
             />
-          </VictoryChart>
-        </View>
-      );
-    } else {
-      return (
-        <View style={containerStyles}>
-          <VictoryChart
+          }
+          // style={{
+          //   data: {stroke: '#c43a31'},
+          //   parent: {border: '1px solid #ccc'},
+          // }}
+          theme={CHART_THEME}
+          animate={false}
+          height={height}>
+          <VictoryGroup width={width - 24} height={400} colorScale={colors}>
+            {data.map(renderBar)}
+          </VictoryGroup>
+
+          <VictoryAxis dependentAxis />
+          <VictoryAxis tickFormat={tickFormat} />
+          <VictoryLegend
+            x={-16}
+            y={12}
+            title="Confirmed cases by county"
+            titleOrientation="top"
+            centerTitle
+            data={legendData}
+            gutter={0}
             width={width - 24}
-            scale={scale}
-            containerComponent={
-              <VictoryVoronoiContainer
-                mouseFollowTooltips
-                activateLabels={false}
-                responsive={false}
-                labels={labels}
-                labelComponent={labelComponent}
-              />
-            }
-            // style={{
-            //   data: {stroke: '#c43a31'},
-            //   parent: {border: '1px solid #ccc'},
-            // }}
-            theme={CHART_THEME}
-            animate={false}
-            minDomain={minDomain}
-            height={height}>
-            <VictoryGroup width={width - 24} colorScale={colors}>
-              {data.map(renderLine)}
-            </VictoryGroup>
-            <VictoryLegend
-              x={-16}
-              y={12}
-              title="Confirmed cases by county"
-              titleOrientation="top"
-              centerTitle
-              data={legendData}
-              gutter={0}
-              width={width - 24}
-            />
-          </VictoryChart>
-        </View>
-      );
-    }
+          />
+        </VictoryChart>
+      </View>
+    );
   },
 );

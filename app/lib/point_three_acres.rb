@@ -122,6 +122,7 @@ module PointThreeAcres
       "longitude": county.point.x,
       "infections": {
         'confirm': count,
+        'total': props['num'],
         'dead': die_count || 0,
         'recover': recover_count,
       }
@@ -152,8 +153,11 @@ module PointThreeAcres
       recover: 0,
       confirm: 0
     }
-    PointThreeAcres
+    pins = PointThreeAcres
       .fetch_cases(flatten: false)
+      .sort_by { |pin| pin['order'] }
+
+    pins
       .each do |pin|
         day = pin["confirmed_at"].strftime("%Y-%m-%d")
         totals = totals_by_day[day]
@@ -166,14 +170,14 @@ module PointThreeAcres
 
         totals[:dead] = totals[:dead] + dead
         totals[:recover]  = totals[:recover] + recover
-        totals[:confirm] = totals[:confirm] + confirmed
+        totals[:confirm] = [totals[:total], pin.dig("infections", "total")].compact.max
 
         totals_by_day[day] = totals
         last_totals = totals
         last_day = day
       end
 
-      totals_by_day
+    totals_by_day.sort.to_h
   end
 
   def self.update_fetched_cases
@@ -220,7 +224,7 @@ module PointThreeAcres
     }
   end
 
-  def self.fetch_cases(min_lat: nil, min_long: nil, max_lat: nil, max_long: nil, flatten:true)
+  def self.fetch_cases(min_lat: nil, min_long: nil, max_lat: nil, max_long: nil, flatten:true, counties: nil)
     box = nil
 
     if min_lat && max_lat && min_lat && min_long
@@ -239,7 +243,9 @@ module PointThreeAcres
 
       next if county.nil?
 
-      if box.present?
+      if counties.present?
+        next if !counties.include?(county.id)
+      elsif box.present?
         next if !county.contains?(box)
       end
 

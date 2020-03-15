@@ -186,6 +186,12 @@ class UserReportsController < ApplicationController
     end
   end
 
+  def all_us
+    render json: {
+      reports: PointThreeAcres.fetch_cases(flatten: false)
+    }
+  end
+
   def stats
     last_report_date = UserReport.where("country_code IS NOT null")&.last&.created_at
     countries = UserReport.group(:country_code).where("country_code IS NOT null").count
