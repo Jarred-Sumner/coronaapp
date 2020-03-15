@@ -1,6 +1,7 @@
 module PointThreeAcres
   SCRAPE_URL = "https://cryptic-anchorage-53515.herokuapp.com/scrape"
   SCRAPE_CACHE_KEY = SCRAPE_URL + "__key"
+  US_TOTALS_CACHE_KEY = SCRAPE_URL + "__key-US_TOTALS-taoto"
   SCRAPED_AT_CACHE_KEY = "PointThreeAcres/SCRAPED_AT"
   STATES_MAPPING = {
     "AL": "Alabama",
@@ -145,7 +146,7 @@ module PointThreeAcres
     end
   end
 
-  def self.us_totals_by_day
+  def self.uncached_us_totals_by_day
     totals_by_day = {}
     last_day = nil
     last_totals = {
@@ -153,6 +154,7 @@ module PointThreeAcres
       recover: 0,
       confirm: 0
     }
+
     pins = PointThreeAcres
       .fetch_cases(flatten: false)
       .sort_by { |pin| pin['order'] }
@@ -177,8 +179,22 @@ module PointThreeAcres
         last_day = day
       end
 
-    totals_by_day.sort.to_h
+    {
+      totals: totals_by_day.sort.to_h,
+      object: 'totals'
+    }.as_json
   end
+
+  def self.us_totals_by_day
+    Rails.cache.fetch(US_TOTALS_CACHE_KEY) do
+      uncached_us_totals_by_day.to_json
+    end
+  end
+
+  def self.update_us_totals!
+    Rails.cache.write(US_TOTALS_CACHE_KEY, uncached_us_totals_by_day.to_json)
+  end
+
 
   def self.update_fetched_cases
     Rails.logger.info "[PointThreeAcres] Beginning to fetch..."
@@ -189,6 +205,7 @@ module PointThreeAcres
       now = DateTime.now
       Rails.cache.write(SCRAPE_CACHE_KEY, data)
       Rails.cache.write(SCRAPED_AT_CACHE_KEY, now.iso8601)
+      update_us_totals!
       Rails.logger.info "[PointThreeAcres] Updated at #{now} (#{data.length} chars)"
     else
       Rails.logger.error "[PointThreeAcres] Failed to update at #{now} (#{data.length} chars)"

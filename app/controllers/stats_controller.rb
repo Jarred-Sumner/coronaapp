@@ -22,8 +22,6 @@ class StatsController < ApplicationController
     if inside_united_states?
       us = true
       pins = PointThreeAcres.fetch_cases(flatten: false, counties: county_ids).sort_by { |pin| pin["order"] }
-
-    else
     end
 
     # counties = {}
@@ -153,10 +151,7 @@ class StatsController < ApplicationController
     expires_in 15.minutes, public: true, stale_while_revalidate: 30.minutes, stale_if_error: 1.day
 
     if stale?(etag: totals, public: true)
-      render json: {
-        object: 'totals',
-        totals: totals
-      }
+      render json: totals
     end
   end
 

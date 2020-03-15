@@ -73,7 +73,7 @@ export const apiFetcher = (url, opts = {}) => {
 
 export const fetchPins = (
   key = 'get_pins',
-  {minLatitude, minLongitude, maxLatitude, maxLongitude},
+  {minLatitude, minLongitude, maxLatitude, maxLongitude, zoom},
 ) => {
   const url =
     GET_PINS_URL +
@@ -83,6 +83,7 @@ export const fetchPins = (
       min_long: minLongitude,
       max_lat: maxLatitude,
       max_long: maxLongitude,
+      zoom,
     });
 
   return apiFetcher(url);
@@ -101,7 +102,6 @@ export const fetchGraphStats = (
     latitude,
     longitude,
     zoom,
-    counties,
   },
 ) => {
   const url =
@@ -112,7 +112,7 @@ export const fetchGraphStats = (
       min_long: minLongitude,
       latitude,
       longitude,
-      counties,
+      zoom,
       max_lat: maxLatitude,
       max_long: maxLongitude,
     });
@@ -147,6 +147,7 @@ export const fetchReports = (
     latitude,
     longitude,
     countryCode,
+    zoom,
   },
 ) => {
   const params = {
@@ -157,6 +158,7 @@ export const fetchReports = (
     min_long: minLongitude,
     max_lat: maxLatitude,
     max_long: maxLongitude,
+    zoom,
   };
 
   return apiFetcher(REPORTS_LIST_URL + '?' + qs.stringify(params), {});
@@ -168,7 +170,7 @@ export const fetchUSTotals = (key = 'us_totals', {}) => {
 
 export const fetchUserPins = (
   key = 'get_user_pins',
-  {minLatitude, minLongitude, maxLatitude, maxLongitude},
+  {minLatitude, minLongitude, maxLatitude, maxLongitude, zoom},
 ) => {
   const url =
     GET_USER_REPORTS_URL +
@@ -178,6 +180,7 @@ export const fetchUserPins = (
       min_long: minLongitude,
       max_lat: maxLatitude,
       max_long: maxLongitude,
+      zoom,
     });
 
   return apiFetcher(url);
@@ -191,6 +194,7 @@ export const buildMapImageURL = ({region, width, locale, height}) =>
     minLon: region.minLongitude,
     maxLat: region.maxLatitude,
     maxLon: region.maxLongitude,
+    zoom: region.zoom,
     width,
     height,
     locale,

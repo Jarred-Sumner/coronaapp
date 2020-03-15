@@ -149,7 +149,9 @@ class MapView extends Component {
       lng: props.initialRegion.longitude,
     };
 
-    this.defaultZoom = altitudeToZoom(props.initialRegion?.altitude ?? 0);
+    this.defaultZoom =
+      props.initialRegion?.zoom ??
+      altitudeToZoom(props.initialRegion?.altitude ?? 0);
 
     this.state = {
       center: null,
