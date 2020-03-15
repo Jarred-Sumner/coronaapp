@@ -61,7 +61,7 @@ export const CasesChart = React.memo(
 
         const y =
           isLast && data.cumulative < lastValue
-            ? Math.min(data.cumulative * lastValueDiff, usMaxY)
+            ? Math.floor(Math.min(data.cumulative * lastValueDiff, usMaxY))
             : data.cumulative;
 
         lastValueDiff = y / lastValue;

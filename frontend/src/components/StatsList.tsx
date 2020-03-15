@@ -190,7 +190,7 @@ const StatsListComponent = ({
           />
           <View style={styles.countBoxSpacer} />
           <CountBoxComponent
-            value={weeklyGrowth}
+            value={weeklyGrowth ? Math.ceil(weeklyGrowth) : weeklyGrowth}
             type="percent"
             tooltip={`(todayConfirmedTotal * 2) / avg(3-day growth rate) * todayConfirmedTotal`}
             label="Doubling rate"
