@@ -35,21 +35,22 @@ class RootController < ActionController::Base
       Geokit::LatLng.new(coordinates[:minLat],coordinates[:minLon]),
     )
 
-    pins = Stats.confirmed_pins(
-      min_lat: coordinates[:minLat],
-      min_long: coordinates[:minLng],
-      max_lat: coordinates[:maxLat],
-      max_long: coordinates[:maxLng]
-    ).select do |report|
+    # pins = Stats.confirmed_pins(
+    #   min_lat: coordinates[:minLat],
+    #   min_long: coordinates[:minLng],
+    #   max_lat: coordinates[:maxLat],
+    #   max_long: coordinates[:maxLng]
+    # ).select do |report|
 
-      bounds.contains?(Geokit::LatLng.new(report[:latitude],report[:longitude]))
-    end
+    #   bounds.contains?(Geokit::LatLng.new(report[:latitude],report[:longitude]))
+    # end
 
 
-    confirm = pins.sum { |pin| pin.dig(:infections, :confirm) || 0}
-    dead = pins.sum { |pin| pin.dig(:infections, :dead) || 0 }
-    recover = pins.sum { |pin| pin.dig(:infection, :recover) || 0 }
-    count = confirm - dead - recover
+    # confirm = pins.sum { |pin| pin.dig(:infections, :confirm) || 0}
+    # dead = pins.sum { |pin| pin.dig(:infections, :dead) || 0 }
+    # recover = pins.sum { |pin| pin.dig(:infection, :recover) || 0 }
+    # count = confirm - dead - recover
+    count = 0
 
     tags = [
       '<meta ssr property="og:image:width" content="1200" />',
