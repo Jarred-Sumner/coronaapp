@@ -28,12 +28,12 @@ const fontSize = 14;
 export const tickFormat = (tick, index, ticks) => {
   const isFirst = index === 0;
   const isLast = index === ticks.length - 1;
-  const isMiddle = index === Math.floor(ticks.length / 2);
+  const isMiddle = index === Math.floor((ticks.length - 1) / 2);
 
   if (isFirst && isSameDay(tick, addDays(startOfDay(new Date()), 1))) {
     return 'Tomorrow';
   } else if (isLast && isSameDay(tick, addDays(startOfDay(new Date()), 1))) {
-    return 'Today';
+    return 'Today (so far)';
   }
 
   if (isFirst || isLast || isMiddle) {

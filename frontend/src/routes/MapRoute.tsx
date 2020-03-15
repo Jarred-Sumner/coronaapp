@@ -547,12 +547,23 @@ export const MapRoute = ({}) => {
         style={isDesktop ? styles.horizontalContainer : styles.container}
         horizontal={isDesktop}
         sheet={
-          <PullyView
-            horizontal={isDesktop}
-            initialStickyPointOffset={350}
-            animateOpen={false}>
-            <FeedSheet horizontal={isDesktop} />
-          </PullyView>
+          <>
+            <PullyView
+              horizontal={isDesktop}
+              initialStickyPointOffset={350}
+              animateOpen={false}>
+              <FeedSheet horizontal={isDesktop} />
+            </PullyView>
+            {!isDesktop && (
+              <MapOverlay
+                type={selectionType}
+                id={selectedId}
+                horizontal={false}
+                object={selectedObject}
+                deselect={handlePressMap}
+              />
+            )}
+          </>
         }>
         <MapView
           initialRegion={initialRegion.current}
@@ -597,20 +608,22 @@ export const MapRoute = ({}) => {
             confirmedCaseCount={confirmedCasesInRegion}
           />
 
-          <MapOverlay
-            type={selectionType}
-            id={selectedId}
-            horizontal={isDesktop}
-            object={selectedObject}
-            deselect={handlePressMap}
-          />
+          {isDesktop && (
+            <MapOverlay
+              type={selectionType}
+              id={selectedId}
+              horizontal
+              object={selectedObject}
+              deselect={handlePressMap}
+            />
+          )}
         </MapView>
       </CoordinatorLayout>
     </MapContext.Provider>
   );
 };
 
-const UserReportCard = ({id}) => {
+const UserReportCard = ({id, horizontal}) => {
   const location = React.useContext(UserLocationContext);
   const {data: userReport, error} = useSWR<UserReportListRequest.ShowResponse>(
     userReportByIdURL(id),
@@ -655,9 +668,11 @@ const UserReportCard = ({id}) => {
   return (
     <View
       style={{
-        position: 'absolute',
+        position: horizontal ? 'absolute' : 'fixed',
+        zIndex: 9999,
         bottom: 0,
         left: 0,
+        backgroundColor: !horizontal && 'rgba(0,0,0,0.75)',
 
         paddingBottom: bottom,
         right: 0,
@@ -671,17 +686,24 @@ const UserReportCard = ({id}) => {
   );
 };
 
-export const MapOverlay = ({type, id, onPressSheetItem, object, deselect}) => {
+export const MapOverlay = ({
+  type,
+  id,
+  onPressSheetItem,
+  object,
+  horizontal,
+  deselect,
+}) => {
   if (type === MapSelectionType.confirmedReport) {
-    return <ConfirmedReportCard report={object} />;
+    return <ConfirmedReportCard horizontal={horizontal} report={object} />;
   } else if (type === MapSelectionType.userReport) {
-    return <UserReportCard id={id} />;
+    return <UserReportCard horizontal={horizontal} id={id} />;
   } else {
     return null;
   }
 };
 
-const ConfirmedReportCard = ({report}) => {
+const ConfirmedReportCard = ({report, horizontal}) => {
   const {bottom} = useSafeArea();
   const location = React.useContext(UserLocationContext);
 
@@ -716,10 +738,11 @@ const ConfirmedReportCard = ({report}) => {
   return (
     <View
       style={{
-        position: 'absolute',
+        position: horizontal ? 'absolute' : 'fixed',
         bottom: 0,
         left: 0,
-
+        backgroundColor: !horizontal && 'rgba(0,0,0,0.75)',
+        zIndex: 9999,
         paddingBottom: bottom,
         right: 0,
         height: 350,
