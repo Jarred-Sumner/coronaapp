@@ -52,6 +52,14 @@ export const styles = StyleSheet.create({
     color: white,
     flexShrink: 0,
   },
+  chartHeader: {
+    padding: 16,
+  },
+  chartLabel: {
+    fontSize: 20,
+    fontWeight: '500',
+    color: white,
+  },
   warningValue: {
     fontSize: 24,
     fontWeight: '600',

@@ -1,23 +1,27 @@
-import Numeral from 'numeral';
+import chroma from 'chroma-js';
+import {max, orderBy} from 'lodash';
 import * as React from 'react';
 import {View} from 'react-native';
-import {
-  VictoryChart,
-  VictoryGroup,
-  VictoryLegend,
-  VictoryLine,
-  VictoryTooltip,
-  VictoryVoronoiContainer,
-  VictoryLabel,
-  VictoryAxis,
-} from 'victory';
+import {VictoryTooltip} from 'victory';
 import {COLORS} from '../../lib/theme';
-import {CHART_THEME, tickFormat, colors as ALL_COLORS} from './CHART_THEME';
+import {TotalsMap} from '../../lib/Totals';
+import {colors as ALL_COLORS} from './CHART_THEME';
 import {styles} from './styles';
-import chroma from 'chroma-js';
-import {max, last, first, min, minBy, maxBy, orderBy} from 'lodash';
-import {format, isSameDay} from 'date-fns';
-import {startOfDay, parse, addDays, subDays} from 'date-fns/esm';
+import {range} from 'lodash';
+import {Text} from 'react-native';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from 'recharts';
+import {format} from 'date-fns';
+import {addDays, isSameDay, startOfDay} from 'date-fns/esm';
+import Numeral from 'numeral';
+import {scaleLog} from 'd3-scale';
 
 const colors = [
   'rgb(250,250,200)',
@@ -42,151 +46,23 @@ export const ForecastChart = ({
     [],
   );
 
-  const scale = React.useMemo(() => ({x: 'time', y: 'linear'}), []);
-
-  const usMaxY = React.useMemo(() => {
-    if (!projections) {
-      return 0;
-    }
-    return max(Object.values(projections)?.map(value => value.cumulative));
-  }, [projections]);
-
-  const cumulativeCaseData = React.useMemo(() => {
-    return mapProjections
-      ? [...mapProjections.entries()].map(([x, {cumulative: y}]) => ({
-          x,
-          y,
-        }))
-      : [];
-  }, [mapProjections]);
-
   const containerStyles = React.useMemo(
     () => [styles.dailyChart, {width: width, height}],
     [width, height, styles],
   );
 
-  const usCases = React.useMemo(() => {
-    return projections
-      ? [...projections.entries()].map(([x, {cumulative: y}]) => ({
-          x,
-          y,
-        }))
-      : [];
-  }, [projections]);
-
-  const cumulativeCaseDataLabels = React.useCallback(({datum}) => {
-    return `${datum.childName}: ${datum._y}`;
-  }, []);
-
   const countriesToProject = React.useMemo(
     () =>
-      mode === 'global'
-        ? orderBy(
-            Object.keys(projectionsByCounty),
-            country => {
-              const values = [...projectionsByCounty[country].values()];
-              return values.length > 0
-                ? values[values.length - 1].cumulative
-                : 0;
-            },
-            ['desc'],
-          ).slice(0, 8)
-        : [],
+      orderBy(
+        Object.keys(projectionsByCounty),
+        country => {
+          const values = [...projectionsByCounty[country].values()];
+          return values.length > 0 ? values[values.length - 1].cumulative : 0;
+        },
+        ['desc'],
+      ).slice(0, 10),
     [projectionsByCounty, mode],
   );
-  const legendData = React.useMemo<VictoryLegendPro>(
-    () =>
-      mode === 'us'
-        ? [{name: 'United States'}, {name: 'Visible counties'}]
-        : countriesToProject?.map(name => ({name})),
-    [mode, countriesToProject],
-  );
-
-  const domain = React.useMemo(() => {
-    if (mode === 'global') {
-      // const minY =or(
-      //   max(
-      //     countriesToProject.map(country => {
-      //       const values = [...projectionsByCounty[country].keys()];
-      //       return values[0]
-      //     }),
-      //   ),
-      //   0,
-      // );
-
-      const maxX = Math.max(
-        max(
-          countriesToProject.map(country => {
-            const values = [...projectionsByCounty[country].values()];
-            return values.length > 0 ? values[values.length - 1].cumulative : 0;
-          }),
-        ),
-        0,
-      );
-
-      const minX = Math.max(
-        min(
-          countriesToProject.map(country => {
-            const values = [...projectionsByCounty[country].values()];
-            return values.length > 0 ? values[0].cumulative : 0;
-          }),
-        ),
-        0,
-      );
-
-      // const countryDates = countriesToProject.map(country => {
-      //   const dates = [...projectionsByCounty[country].keys()];
-      //   return dates.map(date => {
-
-      //   });
-      // });
-
-      return {
-        y: [minX, maxX * 1.1],
-        x: [addDays(new Date(), 1), addDays(new Date(), 7)],
-      };
-    } else {
-      const _projections = [...projections.entries()];
-      const firstProjection = _projections[0];
-      const lastProjection = _projections[projections.size - 1];
-      const countryProjection =
-        countriesToProject &&
-        countriesToProject.length > 0 &&
-        projectionsByCounty[countriesToProject[0]];
-      const timestamp = countryProjection
-        ? subDays(max([...countryProjection.keys()]), 1)
-        : null;
-
-      return {
-        y: [0, lastProjection[1].cumulative],
-        x: [addDays(new Date(), 1), addDays(new Date(), 7)],
-      };
-    }
-  }, [
-    usTotals,
-    cumulative,
-    projections,
-    usMaxY,
-    cumulativeCaseData,
-    countriesToProject,
-  ]);
-
-  const usCasesStyle = React.useMemo(() => {
-    return {
-      data: {
-        stroke: colors[0],
-      },
-    };
-  }, []);
-  const localCasesStyle = React.useMemo(() => {
-    return {
-      data: {
-        stroke: colors[1],
-      },
-    };
-  }, []);
-
-  const axisLabel = <VictoryLabel angle={45} />;
 
   const colorScale = React.useMemo(
     () =>
@@ -204,137 +80,119 @@ export const ForecastChart = ({
     [ALL_COLORS, colors, countriesToProject],
   );
 
-  const renderProjection = React.useCallback(
-    (projection, index) => {
-      const data = [...projectionsByCounty[projection].entries()].map(
-        ([x, {cumulative: y}]) => ({
-          x,
-          y,
-        }),
-      );
-
-      const color = colorScale[index];
-
-      const style = {
-        data: {
-          fill: 'transparent',
-          stroke: color,
-          strokeWidth: 2,
-        },
+  const chartData = React.useMemo(() => {
+    return range(1, 7).map((data, dateOffset) => {
+      const date = addDays(startOfDay(new Date()), data);
+      const formattedDate = format(date, 'MMM d');
+      const row = {
+        name: formattedDate,
       };
 
-      return (
-        <VictoryLine
-          data={data}
-          name={projection}
-          key={`${projection}-${domain.x.join('-')}-${domain.y.join('-')}`}
-          width={width - 24}
-          height={height}
-          horizontal={false}
-          responsive={false}
-          standalone={false}
-          style={style}
-          // domain={domain}
-        />
-      );
+      countriesToProject.forEach(countryName => {
+        const projection: TotalsMap = projectionsByCounty[countryName];
+
+        const dateKey = [...projection.keys()].find(_date =>
+          isSameDay(_date, date),
+        );
+        if (dateKey) {
+          row[countryName] = projection.get(dateKey).cumulative;
+        }
+      }, data);
+
+      return row;
+    });
+  }, [projectionsByCounty, countriesToProject, counties, mode]);
+  const formatTimestamp = React.useCallback(
+    timestamp => {
+      const index = chartData.findIndex(row => row.name === timestamp);
+
+      if (index === 0 || chartData.length - 1 === index) {
+        return timestamp;
+      } else {
+        return '';
+      }
     },
-    [projectionsByCounty, domain, scale, colorScale],
+    [chartData],
   );
 
+  const formatNumber = React.useCallback(number => {
+    return Numeral(number).format('0a');
+  }, []);
+
   return (
-    <View pointerEvents="none" style={containerStyles}>
-      <VictoryChart
-        width={width - 24}
-        scale={scale}
-        responsive={false}
-        containerComponent={
-          <VictoryVoronoiContainer
-            labels={cumulativeCaseDataLabels}
-            mouseFollowTooltips
-            responsive={false}
-            dimension="x"
-            labelComponent={labelComponent}
-          />
+    <View style={containerStyles}>
+      <View style={styles.chartHeader}>
+        <Text style={styles.chartLabel}>7-day Coronavirus Forecast</Text>
+      </View>
+      <style global jsx>{`
+        .recharts-wrapper {
+          color: rgb(203, 203, 203);
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+            Roboto, Ubuntu, 'Helvetica Neue', sans-serif;
+          font-size: 14px;
         }
-        // style={{
-        //   data: {stroke: '#c43a31'},
-        //   parent: {border: '1px solid #ccc'},
-        // }}
-        theme={CHART_THEME}
-        animate={false}
-        responsive={false}
-        height={height}>
-        <VictoryGroup
-          height={height}
-          horizontal={false}
-          // domain={domain}
-          scale={scale}
-          responsive={false}
-          standalone={false}>
-          {mode === 'us' && (
-            <>
-              <VictoryLine
-                // domain={{
-                //   x: [0, cumulative],
-                //   // y: [
-                //   //   dailyTotals[0].timestamp.getTime(),
-                //   //   dailyTotals[dailyTotals.length - 1].timestamp.getTime(),
-                //   // ],
-                // }}
-                name="United States"
-                style={usCasesStyle}
-                data={usCases}
-                width={width - 24}
-                height={height}
-                horizontal={false}
-                responsive={false}
-                standalone={false}
-                labelComponent={<VictoryLabel x={40} />}
-                domain={domain}
-              />
-              <VictoryLine
-                data={cumulativeCaseData}
-                name="Map region"
-                style={localCasesStyle}
-                width={width - 24}
-                height={height}
-                labels={['Cases in map region']}
-                labelComponent={<VictoryLabel x={160} />}
-                horizontal={false}
-                responsive={false}
-                standalone={false}
-                domain={domain}
-              />
-            </>
-          )}
 
-          <VictoryAxis
-            dependentAxis
-            fixLabelOverlap
-            tickLabelComponent={<VictoryLabel angle={-24} x={60} />}
-          />
+        .recharts-cartesian-axis-tick-value {
+          fill: rgb(203, 203, 203) !important;
+        }
 
-          <VictoryAxis tickFormat={tickFormat} />
+        .recharts-default-tooltip {
+          background-color: ${COLORS.dark} !important;
+          border-color: ${COLORS.darkMedium} !important;
+          padding: 6px 8px !important;
+          border-radius: 4px;
+          box-shadow: 1px 1px 1px #000;
+        }
 
-          {mode === 'global' && countriesToProject.map(renderProjection)}
-          {/* <VictoryLine data={dailyData[1]} />
-              <VictoryLine data={dailyData[2]} />
-               */}
-        </VictoryGroup>
-        <VictoryLegend
-          y={8}
-          x={8}
-          title="7-day Coronavirus forecast"
-          titleOrientation="top"
-          orientation="horizontal"
-          gutter={12}
-          itemsPerRow={4}
-          width={width - 24}
-          standalone={false}
-          colorScale={colorScale}
-          data={legendData}
+        .recharts-tooltip-label {
+          padding-bottom: 8px !important;
+          margin-left: -8px !important;
+          margin-right: -8px !important;
+          padding-left: 8px; !important;
+          padding-right: 8px !important;
+          margin-bottom: 8px !important;
+          box-sizing: content-box;
+          border-bottom: 1px solid ${COLORS.darkMedium} !important;
+        }
+
+        //
+      `}</style>
+      <LineChart
+        width={width - 36}
+        height={height - 48}
+        data={chartData}
+        margin={{
+          top: 0,
+          right: 12,
+          left: 0,
+          bottom: 16,
+        }}>
+        <CartesianGrid stroke="rgb(43, 54, 73)" />
+        <XAxis
+          tickFormatter={formatTimestamp}
+          stroke="rgb(43, 54, 73)"
+          dataKey="name"
         />
-      </VictoryChart>
+        <YAxis
+          padding={{left: 0, right: 0}}
+          tickFormatter={formatNumber}
+          type="number"
+          stroke="rgb(43, 54, 73)"
+        />
+        <Tooltip sty />
+        <Legend />
+        {countriesToProject.map((countryName, index) => (
+          <Line
+            type="monotone"
+            stroke={colorScale[index]}
+            isAnimationActive={false}
+            strokeWidth={2}
+            dataKey={countryName}
+            name={mode === 'global' ? countryName : counties[countryName].name}
+            key={countryName}
+          />
+        ))}
+      </LineChart>
     </View>
   );
 };
