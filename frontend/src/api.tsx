@@ -1,17 +1,11 @@
 import {merge} from 'lodash';
-import {Platform} from 'react-native';
 import qs from 'qs';
-import {Region} from 'react-native-maps';
 
 export const PRODUCTION_HOSTNAME = 'https://covy.app';
 
 export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 export const IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
-export const hostname = Platform.select({
-  ios: IS_PRODUCTION ? PRODUCTION_HOSTNAME : 'http://localhost:3000',
-  android: IS_PRODUCTION ? PRODUCTION_HOSTNAME : 'http://localhost:3000',
-  web: IS_PRODUCTION ? '' : 'http://localhost:3000',
-});
+export const hostname = IS_PRODUCTION ? '' : 'http://localhost:3000';
 
 export const TOTALS_URL = `${hostname}/api/stats/totals`;
 export const COUNTRIES_URL = `${hostname}/api/stats/country`;
@@ -24,26 +18,6 @@ export const GET_PINS_URL = `${hostname}/api/reports`;
 export const TWEETS_URL = `${hostname}/api/tweets`;
 export const US_TOTALS_URL = `${hostname}/api/stats/graphs/us`;
 let HEADERS = {'Content-Type': 'application/json'};
-
-if (typeof window !== 'undefined') {
-  const {
-    getBuildNumber,
-    getDeviceId,
-    getSystemVersion,
-    getUniqueId,
-    getVersion,
-  } = require('react-native-device-info');
-
-  HEADERS = {
-    'Content-Type': 'application/json',
-    'X-Fingerprint': getUniqueId(),
-    'X-Device': getDeviceId(),
-    'X-Platform': Platform.OS,
-    'X-OS-Version': getSystemVersion(),
-    'X-App-Version': getVersion(),
-    'X-App-Build': getBuildNumber(),
-  };
-}
 
 export const userReportByIdURL = (id: string) =>
   `${hostname}/api/user_reports/${id}`;
@@ -108,7 +82,7 @@ export const fetchGraphStats = (
   return apiFetcher(url);
 };
 
-export const buildShareURL = (region: Region, pins, count) => {
+export const buildShareURL = (region, pins, count) => {
   const params = {
     minLat: region.minLatitude,
     minLon: region.minLongitude,

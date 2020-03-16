@@ -9,7 +9,7 @@ import {CasesChart} from './Stats/CasesChart';
 import {ConfirmedCasesByCountyChart} from './Stats/ConfirmedCasesByCountyChart';
 import {styles} from './Stats/styles';
 import statsWorker from '../lib/StatsClient';
-import {TotalsMap, Totals} from '../lib/stats';
+import {TotalsMap, Totals} from '../lib/Totals';
 import {ForecastChart} from './Stats/ForecastChart';
 
 function addDays(date, days) {
@@ -83,11 +83,15 @@ const StatsListComponent = ({
   width,
   unitedStates = false,
   dailyTotalsByCounty,
+  growthRatesByCounty,
+  mode,
   usStats,
+  projectionsByCounty,
   dailyTotals,
   scrollEnabled,
   projections,
   mapProjections,
+  countries,
   counties,
 }: {
   totals: Totals;
@@ -217,26 +221,33 @@ const StatsListComponent = ({
           <CasesChart
             data={dailyTotalsEntries}
             width={width}
+            countryTotals={mode === 'global' && dailyTotalsByCountyEntries}
             usTotals={usStats}
+            mode={mode}
             cumulative={cumulative}
             counties={counties}
+            countries={countries}
           />
         )}
 
         {mapProjections.size > 0 && projections.size > 0 && (
           <ForecastChart
             mapProjections={mapProjections}
+            projectionsByCounty={projectionsByCounty}
             projections={projections}
             width={width}
+            mode={mode}
             counties={counties}
           />
         )}
 
         {dailyTotalsEntries.length > 0 &&
           dailyTotalsByCountyEntries.length > 0 &&
-          dailyTotalsByCountyEntries.length < 50 && (
+          dailyTotalsByCountyEntries.length < 50 &&
+          mode === 'us' && (
             <ConfirmedCasesByCountyChart
               data={dailyTotalsByCountyEntries}
+              mode={mode}
               counties={counties}
               width={width}
             />
@@ -269,14 +280,22 @@ export const StatsList = ({
       countyTotals,
       counties,
       projections,
+      projectionsByCounty,
+      countries,
+      growthRatesByCounty,
       mapProjections,
       us,
+      mode,
       usStats,
     },
     setStats,
   ] = React.useState({
     countsByDay: new Map(),
     dailyTotalsByCounty: {},
+    projectionsByCounty: {},
+    growthRatesByCounty: {},
+    mode: 'global',
+    countries: [],
     projections: new Map(),
     mapProjections: new Map(),
     totals: null,
@@ -321,9 +340,13 @@ export const StatsList = ({
       mapProjections={mapProjections}
       dailyTotalsByCounty={dailyTotalsByCounty}
       width={width}
+      countries={countries}
+      growthRatesByCounty={growthRatesByCounty}
       // dailyData={dailyData.current}
       scrollEnabled={scrollEnabled}
-      unitedStates={us == true}
+      projectionsByCounty={projectionsByCounty}
+      unitedStates={mode === 'us'}
+      mode={mode}
       countyTotals={countyTotals}
       usStats={usStats}
       totals={totals}></StatsListComponent>

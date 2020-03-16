@@ -213,11 +213,11 @@ export const CHART_THEME = {
   },
   line: assign({}, baseProps, {
     style: {
-      data: {
-        fill: 'transparent',
-        stroke: grey,
-        strokeWidth: 2,
-      },
+      // data: {
+      //   fill: 'transparent',
+      //   // stroke: grey,
+      //   strokeWidth: 2,
+      // },
       labels: centeredLabelStyles,
     },
   }),

@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
       end
 
       media
-    end
+    end&.select { |media| media['media_url_https'].present? }
   end
 
   def render_tweet(tweet)
@@ -31,6 +31,8 @@ class TweetsController < ApplicationController
     url = tweet.attrs.dig(:entities, :expanded_url) || tweet.attrs.dig(:retweeted_status, :entities, :expanded_url) || tweet.attrs.dig(:retweeted_status, :entities, :urls)&.first&.dig(:expanded_url) || tweet_url
     url_preview = url != tweet_url && url.present? ? UrlPreview.preview(url) : nil
     photo_url = tweet&.retweeted_status&.user&.profile_image_url&.to_s || tweet&.user&.profile_image_url&.to_s
+    photo_url = "https://pbs.twimg.com/profile_images/1234688309684604928/bHchW336_reasonably_small.jpg" if photo_url.blank?
+
     {
       "id": tweet.id,
       "timestamp": tweet.created_at,

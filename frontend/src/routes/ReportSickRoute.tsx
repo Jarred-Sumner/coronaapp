@@ -301,7 +301,14 @@ export const ReportSickRoute = ({}) => {
     const deviceUid = getUniqueId();
     setSubmitting(true);
 
-    const ipAddress = await publicIP();
+    let ipAddress = null;
+
+    try {
+      ipAddress = await publicIP();
+    } catch (exception) {
+      console.error(exception);
+    }
+
     let latitude = location.latitude;
     let longitude = location.longitude;
     let locationAccuracy = location.locationAccuracy;

@@ -1,10 +1,9 @@
 import * as React from 'react';
 import {Platform} from 'react-native';
-import {RNLocation, Location} from '../lib/Location';
-import {getLastLocation, getLocationStatus} from '../lib/Yeet';
 import {LocationPermissionStatus} from 'react-native-location';
+import {Location, RNLocation} from '../lib/Location';
+import {getLocationStatus} from '../lib/Yeet';
 import {useMMKV} from './useMMKV';
-import {isLocationEnabledSync} from 'react-native-device-info';
 
 RNLocation.configure({
   distanceFilter: 100, // Meters
@@ -117,6 +116,7 @@ export const UserLocationProvider = ({children}) => {
           );
         }
       });
+
       return () => {
         locationUnsubscriber?.current();
       };

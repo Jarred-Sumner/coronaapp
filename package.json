@@ -10,6 +10,8 @@
     "deploy": "cp -a frontend/out/. public/",
     "heroku-postbuild": "yarn build && yarn deploy"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
   "devDependencies": {}
 }

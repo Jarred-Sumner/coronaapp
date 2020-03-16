@@ -1,0 +1,7 @@
+{
+  "name": "group",
+  "dependencies": {
+    "date-fns": "^2.11.0",
+    "lodash": "^4.17.15"
+  }
+}
