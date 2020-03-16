@@ -6,6 +6,7 @@ class Stats
   CONFIRMED_URL_KEY = "HOPINKS/https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/ncov_cases/FeatureServer/1/query"
   CONFIRMED_URL_UPDATED_AT_KEY = "Stats/hopkins/CONFIRMED_URL_UPDATED_AT_KEY"
   CONFIRMED_FALLBACK_URL = "https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/COVID_19_CasesByCountry(pt)_VIEW/FeatureServer/0/query"
+  ALL_CONFIRMED_PINS_KEY = "ALL_CONFIRMED_PINS_KEY"
 
   PINS_PROVIDER = :pt
 
@@ -70,9 +71,6 @@ class Stats
 
     def self.confirmed_pins(min_lat:, min_long:, max_lat:, max_long:)
       pins = confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
-      if confirmed_pins_needs_update?
-        ConfirmedPinsWorker.perform_async
-      end
 
       pins + PointThreeAcres.fetch_cases(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
     end
@@ -87,13 +85,7 @@ class Stats
 
     def self.confirmed_pins_hopkins(min_lat: 0, min_long: 0, max_lat: 0, max_long: 0, hide_us: true)
       resp = Rails.cache.fetch(CONFIRMED_URL_KEY) do
-        body = fetch_confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
-
-        if body.present?
-          Rails.cache.write(Stats::CONFIRMED_URL_UPDATED_AT_KEY, DateTime.now.iso8601)
-        end
-
-        body
+        fetch_confirmed_pins_hopkins(min_lat: min_lat, min_long: min_long, max_lat: max_lat, max_long: max_long)
       end
 
       if resp.blank?
