@@ -9,6 +9,7 @@ const _INITIAL_REGION = {
   longitude: -98.48274,
   latitudeDelta: -15.58375,
   altitude: 1002499,
+  zoom: 6,
   longitudeDelta: -29.7657,
 };
 
@@ -18,6 +19,7 @@ export const INITIAL_REGION = {
   longitude: -98.48274,
   latitudeDelta: -15.58375,
   altitude: 1002499,
+  zoom: 6,
   longitudeDelta: -29.7657,
   minLongitude: region[0],
   minLatitude: region[1],
@@ -39,6 +41,7 @@ export const RegionProvider = ({children}) => {
         dlat: _latitudeDelta,
         dlng: _longitudeDelta,
         a: _altitude,
+        z: _zoom,
       } = params;
 
       if (
@@ -46,7 +49,7 @@ export const RegionProvider = ({children}) => {
         _longitude &&
         _latitudeDelta &&
         _longitudeDelta &&
-        _altitude
+        _zoom
       ) {
         const latitude = Number(_latitude);
         const longitude = Number(_longitude);
@@ -61,6 +64,7 @@ export const RegionProvider = ({children}) => {
           latitude: Number(latitude),
           longitude: Number(longitude),
           altitude: Number(_altitude),
+          zoom: Number(_zoom),
           minLatitude: Number(minLatitude),
           minLongitude: Number(minLongitude),
           maxLongitude: Number(maxLongitude),
@@ -79,7 +83,7 @@ export const RegionProvider = ({children}) => {
       const {
         latitude: lat,
         longitude: lng,
-        altitude,
+        zoom,
         minLatitude: min_lat,
         minLongitude: min_lng,
         maxLongitude: max_lng,
@@ -90,7 +94,7 @@ export const RegionProvider = ({children}) => {
         lng: lng.toFixed(5),
         dlat: (lat - min_lat).toFixed(5),
         dlng: (lng - min_lng).toFixed(5),
-        a: Math.floor(altitude),
+        z: zoom,
       });
       setRegion(region);
     },

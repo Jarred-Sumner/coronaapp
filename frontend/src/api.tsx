@@ -71,20 +71,8 @@ export const apiFetcher = (url, opts = {}) => {
   return promise.then(resp => resp.json());
 };
 
-export const fetchPins = (
-  key = 'get_pins',
-  {minLatitude, minLongitude, maxLatitude, maxLongitude, zoom},
-) => {
-  const url =
-    GET_PINS_URL +
-    '?' +
-    qs.stringify({
-      min_lat: minLatitude,
-      min_long: minLongitude,
-      max_lat: maxLatitude,
-      max_long: maxLongitude,
-      zoom,
-    });
+export const fetchPins = (key = 'get_pins') => {
+  const url = GET_PINS_URL;
 
   return apiFetcher(url);
 };

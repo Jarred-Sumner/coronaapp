@@ -206,6 +206,7 @@ module PointThreeAcres
       Rails.cache.write(SCRAPE_CACHE_KEY, data)
       Rails.cache.write(SCRAPED_AT_CACHE_KEY, now.iso8601)
       update_us_totals!
+      ConfirmedPinsWorker.new.perform
       Rails.logger.info "[PointThreeAcres] Updated at #{now} (#{data.length} chars)"
     else
       Rails.logger.error "[PointThreeAcres] Failed to update at #{now} (#{data.length} chars)"

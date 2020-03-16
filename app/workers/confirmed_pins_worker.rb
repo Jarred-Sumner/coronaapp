@@ -8,5 +8,9 @@ class ConfirmedPinsWorker
 
     Rails.cache.write(Stats::CONFIRMED_URL_KEY, data)
     Rails.cache.write(Stats::CONFIRMED_URL_UPDATED_AT_KEY, DateTime.now.iso8601)
+
+    all_confirmed = PinsController._get_confirmed_pins
+
+    Rails.cache.write(Stats::ALL_CONFIRMED_PINS_KEY, all_confirmed)
   end
 end

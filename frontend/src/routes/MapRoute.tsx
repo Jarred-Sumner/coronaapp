@@ -208,18 +208,13 @@ export const MapRoute = ({}) => {
     MapSelectionType.sheet,
   );
   const [selectedId, setSelectedId] = React.useState(null);
-  const {country, setCountry, countryCode} = React.useContext(CountryContext);
   const {navigate} = useNavigation();
-
-  const {data: countriesData = [], error: countriesEror} = useSWR<
-    Array<CountryEndpoint.CountryInfection>
-  >(COUNTRIES_URL, apiFetcher);
 
   const location = React.useContext(UserLocationContext);
   const hasNavigatedToUserLocation = React.useRef(false);
 
   const {resolvedData: confirmedPins} = usePaginatedQuery(
-    ['getpins', region],
+    ['getpins'],
     fetchPins,
   );
   const {resolvedData: userPins} = usePaginatedQuery(
@@ -273,51 +268,51 @@ export const MapRoute = ({}) => {
     [setRegion, mapRef, setParams],
   );
 
-  const lastCountryCode = React.useRef(countryCode);
+  // const lastCountryCode = React.useRef(countryCode);
 
-  React.useEffect(() => {
-    if (countryCode && countryCode !== lastCountryCode.current) {
-      const row = countriesData.find(row => row.id === country);
+  // React.useEffect(() => {
+  //   if (countryCode && countryCode !== lastCountryCode.current) {
+  //     const row = countriesData.find(row => row.id === country);
 
-      if ((row || countryCode === 'World') && mapRef.current) {
-        const multipler = Platform.select({
-          ios: 1,
-          android: 1,
-          web: 0.25,
-        });
+  //     if ((row || countryCode === 'World') && mapRef.current) {
+  //       const multipler = Platform.select({
+  //         ios: 1,
+  //         android: 1,
+  //         web: 0.25,
+  //       });
 
-        let altitude = {
-          cn: 1000 * 1000 * 10 * multipler,
-          us: 1000 * 1000 * 10 * multipler,
-          fr: 1000 * 1000 * 5 * multipler,
-          ca: 1000 * 1000 * 10 * multipler,
-          ru: 1000 * 1000 * 10 * multipler,
-          jp: 1000 * 1000 * 5 * multipler,
-          hk: (1000 * 1000) / (10 * multipler),
-          gb: 1000 * 1000 * 2 * multipler,
-          World: 1000 * 1000 * 100 * multipler,
-        }[countryCode];
+  //       let altitude = {
+  //         cn: 1000 * 1000 * 10 * multipler,
+  //         us: 1000 * 1000 * 10 * multipler,
+  //         fr: 1000 * 1000 * 5 * multipler,
+  //         ca: 1000 * 1000 * 10 * multipler,
+  //         ru: 1000 * 1000 * 10 * multipler,
+  //         jp: 1000 * 1000 * 5 * multipler,
+  //         hk: (1000 * 1000) / (10 * multipler),
+  //         gb: 1000 * 1000 * 2 * multipler,
+  //         World: 1000 * 1000 * 100 * multipler,
+  //       }[countryCode];
 
-        if (!altitude) {
-          altitude = 1000 * 1000 * 5;
-        }
+  //       if (!altitude) {
+  //         altitude = 1000 * 1000 * 5;
+  //       }
 
-        let latitude = null;
-        let longitude = null;
-        if (row) {
-          latitude = row.latitude;
-          longitude = row.longitude;
-        }
+  //       let latitude = null;
+  //       let longitude = null;
+  //       if (row) {
+  //         latitude = row.latitude;
+  //         longitude = row.longitude;
+  //       }
 
-        mapRef.current.animateCamera({
-          center: countryCode !== 'World' ? {latitude, longitude} : undefined,
-          altitude,
-        });
-        lastCountryCode.current = countryCode;
-        console.log('handle move');
-      }
-    }
-  }, [countryCode, country, countriesData, mapRef]);
+  //       mapRef.current.animateCamera({
+  //         center: countryCode !== 'World' ? {latitude, longitude} : undefined,
+  //         altitude,
+  //       });
+  //       lastCountryCode.current = countryCode;
+  //       console.log('handle move');
+  //     }
+  //   }
+  // }, [countryCode, country, countriesData, mapRef]);
 
   React.useEffect(() => {
     const hasLocation = location && location.latitude && location.longitude;

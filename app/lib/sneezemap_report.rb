@@ -25,15 +25,7 @@ class SneezemapReport
   def self.fetch_data
     data = Rails.cache.fetch(SNEEZEMAPS_DATA_KEY) do
       results = self._fetch_data
-      if results.present?
-        Rails.cache.write(SneezemapReport::LAST_FETCHED_DATA_KEY, DateTime.now.iso8601)
-      end
-
       results
-    end
-
-    if needs_data_refresh?
-      SneezemapReportWorker.perform_async
     end
 
     data

@@ -147,11 +147,15 @@ class UserReportsController < ApplicationController
 
     json = []
 
-    SneezemapReport.fetch_data
-      .filter { |report| bounds.contains?([report["lat"],report["long"]])  }
-      .each { |report| json << sneezemap_report_item_json(report) }
+    sneezes = SneezemapReport.fetch_data
 
-    # byebug
+    if Integer(params[:zoom]) > 8
+      sneezes.filter! { |report| bounds.contains?([report["lat"],report["long"]])  }
+    end
+
+    sneezes[0..100].each { |report| json << sneezemap_report_item_json(report) }
+
+
     UserReport.select([:id, :country_code, :created_at, :location]).find_each { |report| json << user_report_json(report) }
     render json: {
       pins: json,
