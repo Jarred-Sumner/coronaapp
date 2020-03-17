@@ -22,7 +22,8 @@ export const MapHeadTags = React.memo(
         '0,0',
       )}+ cases of Corona Virus | Covy`;
 
-      descriptionLabel = 'Covy lets you see ';
+      descriptionLabel =
+        'Covy lets you track Corona Virus cases on a real-time map';
     } else if (sickCount && sickCount > 0) {
       titleLabel = `${Numeral(sickCount).format(
         '0,0',

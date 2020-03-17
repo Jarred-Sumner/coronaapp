@@ -127,9 +127,7 @@ const getGlobalStats = (countries, region) => {
   }
 
   const alwaysCountries =
-    region.zoom < 10
-      ? ['Italy', 'United Kingdom', 'Germany', 'France', 'US']
-      : [];
+    region.zoom < 10 ? ['Italy', 'United Kingdom', 'US'] : [];
   const metricsCountries = new Set([...countries, ...alwaysCountries]);
 
   const countsByDay = getCountryTotalsByDay(countries, usStatsMap);
