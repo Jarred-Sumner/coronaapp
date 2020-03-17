@@ -41,11 +41,18 @@ export function useMMKV(
       setStoredValue(valueToStore);
       // Save to local storage
 
+      const startCallback =
+        window.requestIdleCallback ||
+        function(cb, {timeout}) {
+          window.setTimeout(cb, timeout);
+        };
+      const cancelCallback = window.cancelIdleCallback || window.clearTimeout;
+
       if (idleCallbackRef.current) {
-        window.cancelIdleCallback(idleCallbackRef.current);
+        cancelCallback(idleCallbackRef.current);
       }
 
-      const cb = window.requestIdleCallback(
+      const cb = startCallback(
         () => {
           console.log('Saving', key);
           setItem(key, valueToStore, type);
@@ -63,12 +70,10 @@ export function useMMKV(
     }
   };
 
-  useEffect(
-    () =>
-      idleCallbackRef.current &&
-      window.cancelIdleCallback(idleCallbackRef.current),
-    [idleCallbackRef],
-  );
+  useEffect(() => {
+    const cancelCallback = window.cancelIdleCallback || window.clearTimeout;
+    idleCallbackRef.current && cancelCallback(idleCallbackRef.current);
+  }, [idleCallbackRef]);
 
   return [storedValue, setValue];
 }
