@@ -2,6 +2,7 @@ import * as React from 'react';
 import {View, StyleSheet, Text, TouchableWithoutFeedback} from 'react-native';
 import {RectButton, BorderlessButton} from 'react-native-gesture-handler';
 import {sendSelectionFeedback} from '../lib/Vibration';
+import {ListClicker} from './ListClicker';
 
 const styles = StyleSheet.create({
   icon: {
@@ -49,15 +50,19 @@ export const SheetHeaderRow = ({
     onPress && onPress(value);
   }, [onPress, value]);
 
-  const ButtonComponent = TouchableWithoutFeedback;
-
   return (
     <View style={[size, !isLast && styles.separator]}>
-      <ButtonComponent
+      <ListClicker
         onPress={handlePress}
         enabled={!isActive}
-        style={[styles.row, light && styles.lightRow, size]}>
-        <View style={[size, {opacity: isActive ? 1 : 0.65}, styles.rowWrapper]}>
+        style={[light && styles.lightRow, size]}>
+        <View
+          style={[
+            styles.row,
+            size,
+            {opacity: isActive ? 1 : 0.65},
+            styles.rowWrapper,
+          ]}>
           <Text
             adjustsFontSizeToFit
             numberOfLines={1}
@@ -65,7 +70,7 @@ export const SheetHeaderRow = ({
             {children}
           </Text>
         </View>
-      </ButtonComponent>
+      </ListClicker>
     </View>
   );
 };

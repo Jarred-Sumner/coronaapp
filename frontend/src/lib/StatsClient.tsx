@@ -1,5 +1,6 @@
 import {unstable_batchedUpdates} from 'react-dom';
 let worker;
+import {debounce} from 'lodash';
 
 if (typeof Worker !== 'undefined') {
   worker = new Worker('../lib/StatsWorker.worker', {
@@ -18,6 +19,8 @@ const _listener = event => {
   });
 };
 
+const debouncedMessage = (...args) => worker.postMessage(...args);
+
 export default typeof Worker !== 'undefined'
   ? ({
       addEventListener: (type, listener) => {
@@ -28,7 +31,7 @@ export default typeof Worker !== 'undefined'
 
         listeners.add(listener);
       },
-      postMessage: (...args) => worker.postMessage(...args),
+      postMessage: debouncedMessage,
       removeEventListener: (type, listener) => {
         if (listeners.has(listener)) {
           listeners.delete(listener);

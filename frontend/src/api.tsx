@@ -51,8 +51,6 @@ export const fetchPins = (key = 'get_pins') => {
   return apiFetcher(url);
 };
 
-export const getWorldStats = () => import('../data/covid2019daily.json');
-
 export const fetchGraphStats = (
   key = 'graph_stats',
   {

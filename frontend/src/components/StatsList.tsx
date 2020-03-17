@@ -1,16 +1,17 @@
-import {isSameDay, subDays} from 'date-fns/esm';
 import {get, isFinite, sum} from 'lodash';
 import Numeral from 'numeral';
 import * as React from 'react';
 import {ScrollView, Text, View} from 'react-native';
+import statsWorker from '../lib/StatsClient';
+import {Totals, TotalsMap} from '../lib/Totals';
 import {RegionContext} from '../routes/RegionContext';
 import {PullyScrollViewContext} from './PullyView';
 import {CasesChart} from './Stats/CasesChart';
-import {ConfirmedCasesByCountyChart} from './Stats/ConfirmedCasesByCountyChart';
-import {styles} from './Stats/styles';
-import statsWorker from '../lib/StatsClient';
-import {TotalsMap, Totals} from '../lib/Totals';
 import {ForecastChart} from './Stats/ForecastChart';
+import {GrowthRatesChart} from './Stats/GrowthRatesChart';
+import {styles} from './Stats/styles';
+import {COLORS} from '../lib/theme';
+import {isEmpty, orderBy, last, isArray} from 'lodash';
 
 function addDays(date, days) {
   var result = new Date(date);
@@ -56,8 +57,8 @@ const CountBoxComponent = React.memo(({value, label, type, tooltip}) => {
   let number = value;
   let valueStyle = styles.value;
   if (type == 'percent' && isFinite(value)) {
-    number = value.toFixed(1) + ' days';
-    if (value > 1.0) {
+    number = value.toFixed(0) + ' days';
+    if (value >= 1.0) {
       valueStyle = styles.warningValue;
     }
   } else if (isFinite(value)) {
@@ -125,60 +126,116 @@ const StatsListComponent = ({
 
     const growthRates = [];
     if (fourDayTotal) {
-      growthRates.push(fourDayTotal.cumulative / threeDayTotal.cumulative);
+      growthRates.push(threeDayTotal.cumulative / fourDayTotal.cumulative);
     }
 
     if (threeDayTotal) {
-      growthRates.push(threeDayTotal.cumulative / twoDayTotal.cumulative);
+      growthRates.push(twoDayTotal.cumulative / threeDayTotal.cumulative);
     }
 
     if (twoDayTotal) {
-      growthRates.push(twoDayTotal.cumulative / todayTotal.cumulative);
+      growthRates.push(todayTotal.cumulative / twoDayTotal.cumulative);
     }
 
-    const growthRate = sum(growthRates) / (growthRates.length - 1);
+    if (growthRates.length === 0) {
+      return null;
+    }
 
-    if (growthRate) {
-      return (todayTotal.cumulative * 2) / (growthRate * todayTotal.cumulative);
+    const combinedRate: number =
+      growthRates.reduce((total, current) => {
+        return total + current;
+      }, 1.0) / growthRates.length;
+
+    if (combinedRate > 3.0) {
+      return 2;
+    } else if (combinedRate > 2.0) {
+      return 3;
+    } else if (combinedRate > 1.5) {
+      return 4;
     } else {
       return null;
     }
   }, [dailyTotals]);
 
   const coverage = React.useMemo(() => {
-    if (!unitedStates || !counties || Object.keys(counties).length === 0) {
+    if (!totals) {
       return null;
     }
 
-    const countyList = Object.values(counties);
+    if (mode === 'global' && totals?.countries && dailyTotalsByCounty) {
+      let countyList = Array.from(totals.countries);
+      if (isArray(countyList[0])) {
+        countyList = countyList.map(([index, county]) => county);
+      }
 
-    if (countyList.length === 1) {
-      return `${countyList[0].name} County`;
-    } else if (countyList.length === 2) {
-      return `${countyList[0].name} County & ${countyList[1].name} County`;
-    } else if (countyList.length > 2) {
-      return `Counties: ${countyList.map(county => county.name).join(', ')}`;
-    } else {
-      return null;
+      countyList = orderBy(
+        countyList,
+        country => {
+          const totals = dailyTotalsByCounty[country];
+
+          if (!totals) {
+            return 0;
+          }
+
+          const date = last([...totals.keys()]);
+
+          if (date) {
+            return dailyTotalsByCounty[country].get(date).cumulative;
+          }
+        },
+        ['desc'],
+      );
+
+      if (countyList.length === 1) {
+        return `Includes: ${countyList[0]}`;
+      } else if (countyList.length === 2) {
+        return `Includes: ${countyList[0]} & ${countyList[1]}`;
+      } else if (countyList.length > 2) {
+        return `Includes: ${countyList.join(', ')}`;
+      } else {
+        return null;
+      }
+    } else if (mode === 'us') {
+      let countyList = [...totals.counties.values()].map(
+        countyName => counties[countyName],
+      );
+
+      countyList = orderBy(
+        countyList,
+        ({id: country}) => {
+          const totals = dailyTotalsByCounty[country];
+
+          if (!totals) {
+            return 0;
+          }
+
+          const date = last([...totals.keys()]);
+
+          if (date) {
+            return dailyTotalsByCounty[country].get(date).cumulative;
+          }
+        },
+        ['desc'],
+      );
+
+      console.log({counties, countyList});
+      if (countyList.length === 1) {
+        return `${countyList[0].name} County`;
+      } else if (countyList.length === 2) {
+        return `${countyList[0].name} County & ${countyList[1].name} County`;
+      } else if (countyList.length > 2) {
+        return `Counties: ${countyList.map(county => county.name).join(', ')}`;
+      } else {
+        return null;
+      }
     }
-  }, [counties, unitedStates]);
+  }, [counties, totals, mode, dailyTotalsByCounty]);
 
   // const dailyDataLabels = React.useMemo(() => {
   //   if (dailyData) {
 
   //   }
   // }, [dailyData])
-
-  const dailyTotalsEntries = React.useMemo(
-    () => [...dailyTotals.entries()].slice(Math.max(dailyTotals.size - 14, 0)),
-    [dailyTotals],
-  );
-
-  const dailyTotalsByCountyEntries = React.useMemo(() => {
-    const data = [...Object.entries(dailyTotalsByCounty)];
-
-    return data;
-  }, [dailyTotalsByCounty]);
 
   return (
     <View style={{flex: 1, height: 'auto'}}>
@@ -188,13 +245,15 @@ const StatsListComponent = ({
         style={[styles.container, {width}]}>
         <View style={styles.countRow}>
           <CountBoxComponent
-            tooltip="Sum of cases within the counties visible in the map region"
+            tooltip={`Sum of cases within the ${
+              mode === 'us' ? 'counties' : 'countriesd'
+            } visible in the map region`}
             value={cumulative}
             label="Confirmed cases"
           />
           <View style={styles.countBoxSpacer} />
           <CountBoxComponent
-            value={weeklyGrowth ? Math.ceil(weeklyGrowth) : weeklyGrowth}
+            value={weeklyGrowth}
             type="percent"
             tooltip={`(todayConfirmedTotal * 2) / avg(3-day growth rate) * todayConfirmedTotal`}
             label="Doubling rate"
@@ -217,16 +276,14 @@ const StatsListComponent = ({
           </Text>
         </View>
 
-        {dailyTotalsEntries.length > 0 && (
+        {dailyTotals.size > 0 && (
           <CasesChart
-            data={dailyTotalsEntries}
+            data={dailyTotals}
             width={width}
-            countryTotals={mode === 'global' && dailyTotalsByCountyEntries}
-            usTotals={usStats}
+            totalsByRegion={dailyTotalsByCounty}
+            regions={mode === 'global' ? countries : counties}
             mode={mode}
             cumulative={cumulative}
-            counties={counties}
-            countries={countries}
           />
         )}
 
@@ -234,6 +291,7 @@ const StatsListComponent = ({
           <ForecastChart
             mapProjections={mapProjections}
             projectionsByCounty={projectionsByCounty}
+            height={460}
             projections={projections}
             width={width}
             mode={mode}
@@ -241,17 +299,16 @@ const StatsListComponent = ({
           />
         )}
 
-        {dailyTotalsEntries.length > 0 &&
-          dailyTotalsByCountyEntries.length > 0 &&
-          dailyTotalsByCountyEntries.length < 50 &&
-          mode === 'us' && (
-            <ConfirmedCasesByCountyChart
-              data={dailyTotalsByCountyEntries}
-              mode={mode}
-              counties={counties}
-              width={width}
-            />
-          )}
+        {!isEmpty(growthRatesByCounty) && (
+          <GrowthRatesChart
+            totalsByRegion={growthRatesByCounty}
+            regions={counties}
+            height={484}
+            width={width}
+            mode={mode}
+            counties={counties}
+          />
+        )}
       </ScrollView>
     </View>
   );
@@ -304,7 +361,6 @@ export const StatsList = ({
     counties: {},
   });
 
-  console.log({projections});
   const workerListener = React.useRef(({data: {type, stats}}) => {
     if (type === 'stats') {
       setStats(stats);

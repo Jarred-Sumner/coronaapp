@@ -58,7 +58,7 @@ export const ListClicker = ({children, onPress, style}) => {
     {
       className: 'ListClicker',
       onClick: clickHandler,
-      style: [style, {cursor: 'pointer'}],
+      style: style,
       ref,
     },
     children,

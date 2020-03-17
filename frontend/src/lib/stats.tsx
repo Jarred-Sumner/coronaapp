@@ -5,6 +5,8 @@ import COUNTRY_BOXES from '../../data/country-boxes.json';
 import GLOBAL_DATA from '../../data/global.json';
 import {Totals, TotalsMap} from './Totals';
 
+export const getCountryGrowth = country => GLOBAL_DATA[country].growth;
+
 function treatAsUTC(date): Date {
   var result = new Date(date);
   result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
@@ -65,6 +67,7 @@ export const getTotals = (pins, lastTotals): Totals => {
     new: lastTotals?.new ?? 0,
     counties: lastTotals ? new Set([...lastTotals.counties]) : new Set(),
     countries: new Set(['United States']),
+    from: lastTotals ? new Set([...lastTotals.from.values()]) : new Set(),
   };
 
   for (const pin of pins) {
@@ -74,6 +77,10 @@ export const getTotals = (pins, lastTotals): Totals => {
     totals.new +=
       pin.infections.confirm - pin.infections.dead - pin.infections.recover;
     totals.counties.add(pin.county.id);
+
+    if (process.env.NODE_ENV === 'development') {
+      totals.from.add(pin);
+    }
   }
 
   totals.ongoing = totals.cumulative - totals.recover - totals.dead;
@@ -180,23 +187,20 @@ export const getVisibleCountries = region => {
 
 export const getCountryTotals = countries => {
   let lastTotals = null;
-  for (let i = 1; i < countries.length - 1; i++) {
-    const country = countries[i];
+  for (const country of countries) {
     if (country === 'US') {
       continue;
     }
+
     const lastInfectionDate = last(
-      Object.keys(GLOBAL_DATA[countries[i]].infections),
+      Object.keys(GLOBAL_DATA[country].infections),
     );
 
-    const totals = GLOBAL_DATA[countries[i]].infections[lastInfectionDate];
-    lastTotals = lastTotals
-      ? mergeTotals(lastTotals, {
-          ...totals,
-          countries: new Set([country]),
-        })
-      : totals;
+    const totals = GLOBAL_DATA[country].infections[lastInfectionDate];
+    lastTotals = lastTotals ? mergeTotals(lastTotals, totals) : totals;
   }
+
+  lastTotals.countries = countries;
 
   return lastTotals;
 };
@@ -216,8 +220,8 @@ export const getCountryTotalsByDay = (countries, usStatsMap) => {
   const countsByDay: TotalsMap = new Map();
 
   let grouped = {};
-  for (let i = 1; i < countries.length - 1; i++) {
-    if (countries[i] === 'US') {
+  for (let country of countries) {
+    if (country === 'US') {
       [...usStatsMap.keys()].forEach(dateObject => {
         const dateString = format(dateObject, 'M/dd/yy');
         if (!grouped[dateString]) {
@@ -227,14 +231,14 @@ export const getCountryTotalsByDay = (countries, usStatsMap) => {
         grouped[dateString].push(usStatsMap.get(dateObject));
       });
     } else {
-      const country = GLOBAL_DATA[countries[i]];
+      const infections = GLOBAL_DATA[country].infections;
 
-      Object.keys(country.infections).forEach(dateString => {
+      Object.keys(infections).forEach(dateString => {
         if (!grouped[dateString]) {
           grouped[dateString] = [];
         }
 
-        grouped[dateString].push(country.infections[dateString]);
+        grouped[dateString].push(infections[dateString]);
       });
     }
   }

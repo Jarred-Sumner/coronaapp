@@ -6,5 +6,6 @@ export type Totals = {
   dead: number;
   counties: Set<string>;
   countries: Set<string>;
+  from: Set<string>;
 };
 export type TotalsMap = Map<Date, Totals>;

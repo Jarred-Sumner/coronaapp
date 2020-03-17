@@ -3,24 +3,20 @@ import {useMMKV} from '../components/useMMKV';
 import {getBoundByRegion} from '../lib/getBoundByRegion';
 import useNavigation, {useRoute} from '../components/useNavigation';
 import {getDistance, getPreciseDistance} from 'geolib';
+import {parse} from 'qs';
 
 const _INITIAL_REGION = {
-  latitude: 39.33692,
-  longitude: -98.48274,
-  latitudeDelta: -15.58375,
+  latitude: 40.29399,
+  longitude: -104.81659,
+  latitudeDelta: -15.33644,
   altitude: 1002499,
-  zoom: 6,
+  zoom: 4,
   longitudeDelta: -29.7657,
 };
 
 const region = getBoundByRegion(_INITIAL_REGION, 1.0);
 export const INITIAL_REGION = {
-  latitude: 39.33692,
-  longitude: -98.48274,
-  latitudeDelta: -15.58375,
-  altitude: 1002499,
-  zoom: 6,
-  longitudeDelta: -29.7657,
+  ..._INITIAL_REGION,
   minLongitude: region[0],
   minLatitude: region[1],
   maxLongitude: region[2],
@@ -35,6 +31,8 @@ export const RegionProvider = ({children}) => {
   const [region, setRegion] = useMMKV(
     'mapregion',
     () => {
+      const _params =
+        typeof window !== 'undefined' ? parse(window.location.search) : params;
       const {
         lat: _latitude,
         lng: _longitude,
@@ -42,7 +40,7 @@ export const RegionProvider = ({children}) => {
         dlng: _longitudeDelta,
         a: _altitude,
         z: _zoom,
-      } = params;
+      } = _params;
 
       if (
         _latitude &&

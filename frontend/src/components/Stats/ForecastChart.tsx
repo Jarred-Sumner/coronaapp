@@ -1,27 +1,24 @@
 import chroma from 'chroma-js';
-import {max, orderBy} from 'lodash';
+import {format} from 'date-fns';
+import {addDays, isSameDay, startOfDay} from 'date-fns/esm';
+import {orderBy, range} from 'lodash';
+import Numeral from 'numeral';
 import * as React from 'react';
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
+import {
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
 import {VictoryTooltip} from 'victory';
 import {COLORS} from '../../lib/theme';
 import {TotalsMap} from '../../lib/Totals';
 import {colors as ALL_COLORS} from './CHART_THEME';
 import {styles} from './styles';
-import {range} from 'lodash';
-import {Text} from 'react-native';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from 'recharts';
-import {format} from 'date-fns';
-import {addDays, isSameDay, startOfDay} from 'date-fns/esm';
-import Numeral from 'numeral';
-import {scaleLog} from 'd3-scale';
 
 const colors = [
   'rgb(250,250,200)',
@@ -47,7 +44,7 @@ export const ForecastChart = ({
   );
 
   const containerStyles = React.useMemo(
-    () => [styles.dailyChart, {width: width, height}],
+    () => [styles.dailyChart, {width: width, height: height}],
     [width, height, styles],
   );
 
@@ -122,44 +119,20 @@ export const ForecastChart = ({
   return (
     <View style={containerStyles}>
       <View style={styles.chartHeader}>
-        <Text style={styles.chartLabel}>7ish-day Coronavirus Forecast</Text>
+        <View>
+          <Text style={styles.chartLabel}>7ish-day Coronavirus Forecast</Text>
+        </View>
+        <View>
+          <Text style={styles.chartSubtitle}>
+            Based on growth rates. Quarantine and social distancing will slow
+            the spread.
+          </Text>
+        </View>
       </View>
-      <style global jsx>{`
-        .recharts-wrapper {
-          color: rgb(203, 203, 203);
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-            Roboto, Ubuntu, 'Helvetica Neue', sans-serif;
-          font-size: 14px;
-        }
 
-        .recharts-cartesian-axis-tick-value {
-          fill: rgb(203, 203, 203) !important;
-        }
-
-        .recharts-default-tooltip {
-          background-color: ${COLORS.dark} !important;
-          border-color: ${COLORS.darkMedium} !important;
-          padding: 6px 8px !important;
-          border-radius: 4px;
-          box-shadow: 1px 1px 1px #000;
-        }
-
-        .recharts-tooltip-label {
-          padding-bottom: 8px !important;
-          margin-left: -8px !important;
-          margin-right: -8px !important;
-          padding-left: 8px; !important;
-          padding-right: 8px !important;
-          margin-bottom: 8px !important;
-          box-sizing: content-box;
-          border-bottom: 1px solid ${COLORS.darkMedium} !important;
-        }
-
-        //
-      `}</style>
       <LineChart
         width={width - 36}
-        height={height - 48}
+        height={height - 68}
         data={chartData}
         margin={{
           top: 0,

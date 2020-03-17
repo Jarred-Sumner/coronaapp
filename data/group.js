@@ -24,18 +24,7 @@ const totals = (confirmed, recover, cumulative) => {
   };
 };
 
-Object.entries(CONFIRMED_GROUPS).forEach(([country, groups], index) => {
-  const recoveredGroup = RECOVERED_GROUPS[country];
-  const deathGroups = DEATHS_GROUPS[country];
-
-  const {
-    ["Province/State"]: state,
-    ["Country/Region"]: _country,
-    Lat: latitude,
-    Long: longitude,
-    ...dates
-  } = groups[0];
-
+const getGroupData = (dates, recoveredGroup, deathGroups, groups) => {
   const infections = {};
   const growth = {};
   let lastConfirm = 0;
@@ -82,31 +71,103 @@ Object.entries(CONFIRMED_GROUPS).forEach(([country, groups], index) => {
     };
   });
 
-  if (lastConfirm > 0) {
-    let __country = country;
+  return [infections, growth];
+};
+let countryStates = {};
 
-    if (state === "Hong Kong") {
-      __country = "Hong Kong";
-    } else if (country === "Korea, South") {
-      __country = "South Korea";
-    } else if (country.includes("Iran")) {
-      __country = "Iran";
-    } else if (country.includes("Palest")) {
-      __country = "Gaza";
-    }
+Object.entries(CONFIRMED_GROUPS).forEach(([country, groups], index) => {
+  const recoveredGroup = RECOVERED_GROUPS[country];
+  const deathGroups = DEATHS_GROUPS[country];
 
-    results[__country] = {
-      latitude,
-      longitude,
-      growth,
-      infections
-    };
+  const {
+    ["Province/State"]: state,
+    ["Country/Region"]: _country,
+    Lat: latitude,
+    Long: longitude,
+    ...dates
+  } = groups[0];
+
+  const [infections, growth] = getGroupData(
+    dates,
+    recoveredGroup,
+    deathGroups,
+    groups
+  );
+
+  let states = {};
+
+  let __country = country;
+
+  if (state === "Hong Kong") {
+    __country = "Hong Kong";
+  } else if (country === "Korea, South") {
+    __country = "South Korea";
+  } else if (country.includes("Iran")) {
+    __country = "Iran";
+  } else if (country.includes("Palest")) {
+    __country = "Gaza";
+  } else if (country.includes("Tawian")) {
+    __country = "Taiwan";
   }
+
+  if (state !== "Hong Kong" && _country !== "US") {
+    groups.forEach(group => {
+      const {
+        ["Province/State"]: state,
+        Lat: latitude,
+        Long: longitude
+      } = group;
+      let _obj = {
+        latitude,
+        longitude
+      };
+
+      const _recoveredGroup = recoveredGroup.filter(
+        group => group.state === state
+      );
+      const _deathGroups = deathGroups.filter(group => group.state === state);
+
+      const [infections, growth] = getGroupData(
+        dates,
+        recoveredGroup,
+        deathGroups,
+        [group]
+      );
+      states[state] = {
+        latitude,
+        longitude,
+        country: __country,
+        state,
+        infections,
+        growth
+      };
+    });
+  }
+
+  if (Object.keys(states).length > 0) {
+    countryStates[__country] = states;
+  }
+
+  results[__country] = {
+    latitude,
+    longitude,
+    growth,
+    infections
+  };
 });
 
 delete results["US"];
 
-const SAVE_PATH = path.resolve(__dirname, "../frontend/data/global.json");
+// Object.entries(countryStates).map(([country, states]) => {
+//   const SAVE_PATH = path.resolve(
+//     __dirname,
+//     `../frontend/data/country-${country}.json`
+//   );
+//   fs.writeFileSync(SAVE_PATH, JSON.stringify(states, null, 2));
+//   console.log("Saved to", SAVE_PATH);
+// });
 
+const SAVE_PATH = path.resolve(__dirname, "../frontend/data/global.json");
 fs.writeFileSync(SAVE_PATH, JSON.stringify(results, null, 2));
+
 console.log("Saved to", SAVE_PATH);

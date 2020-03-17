@@ -7,11 +7,13 @@ import * as React from 'react';
 import {Text, View} from 'react-native';
 import {
   CartesianGrid,
+  Label,
   Legend,
   Line,
   LineChart,
   Tooltip,
   XAxis,
+  ReferenceLine,
   YAxis,
 } from 'recharts';
 import {VictoryTooltip} from 'victory';
@@ -27,7 +29,7 @@ const colors = [
     .css(),
 ];
 
-export const CasesChart = ({
+export const GrowthRatesChart = ({
   totalsByRegion,
   width,
   height = 400,
@@ -46,7 +48,7 @@ export const CasesChart = ({
       country => {
         const values = [...totalsByRegion[country].values()];
         const count =
-          values.length > 0 ? values[values.length - 1].cumulative : 0;
+          values.length > 0 ? values[values.length - 1].cumulative : 0.0;
 
         return count;
       },
@@ -71,8 +73,14 @@ export const CasesChart = ({
   );
 
   const chartData = React.useMemo(() => {
-    console.log(totalsByRegion);
-    return range(0, 13)
+    let startRange = 1;
+    let endRange = 15;
+
+    if (mode === 'us') {
+      startRange = 1;
+      endRange = 7;
+    }
+    return range(startRange, endRange)
       .reverse()
       .map((data, dateOffset) => {
         const date = subDays(startOfDay(new Date()), data);
@@ -91,7 +99,7 @@ export const CasesChart = ({
           if (dateKey) {
             row[countryName] = projection.get(dateKey).cumulative;
           } else {
-            row[countryName] = null;
+            row[countryName] = 1.0;
           }
         }, data);
 
@@ -115,6 +123,17 @@ export const CasesChart = ({
     return Numeral(number).format('0a');
   }, []);
 
+  const formatPercent = React.useCallback(number => {
+    return Numeral(number - 1.0).format('0%');
+  }, []);
+
+  const tooltipFormatter = React.useCallback(
+    (value, name, props) => {
+      return [formatPercent(value), name];
+    },
+    [formatPercent],
+  );
+
   // let sourceName = null;
   // if (mode === 'global') {
   //   sourceName = 'John Hopkins University';
@@ -126,7 +145,15 @@ export const CasesChart = ({
     <View style={containerStyles}>
       <View style={styles.chartHeader}>
         <View>
-          <Text style={styles.chartLabel}>Confirmed Coronavirus cases</Text>
+          <Text style={styles.chartLabel}>
+            Growth rate of Coronavirus cases
+          </Text>
+        </View>
+        <View>
+          <Text style={styles.chartSubtitle}>
+            Day over day change in confirmed Coronavirus cases. Less than 1% is
+            good.
+          </Text>
         </View>
       </View>
       <LineChart
@@ -137,7 +164,7 @@ export const CasesChart = ({
           top: 0,
           right: 12,
           left: 0,
-          bottom: 16,
+          bottom: 36,
         }}>
         <CartesianGrid stroke="rgb(43, 54, 73)" />
         <XAxis
@@ -147,19 +174,24 @@ export const CasesChart = ({
         />
         <YAxis
           padding={{left: 0, right: 0}}
-          tickFormatter={formatNumber}
+          tickFormatter={formatPercent}
           type="number"
+          allowDecimals
+          scale="log"
+          domain={[1.0, 'dataMax']}
           stroke="rgb(43, 54, 73)"
         />
-        <Tooltip sty />
+        <Tooltip formatter={tooltipFormatter} />
+
         <Legend />
+
         {countriesToProject.map((countryName, index) => (
           <Line
             type="monotone"
             stroke={colorScale[index]}
             isAnimationActive={false}
             strokeWidth={2}
-            connectNulls
+            dot
             dataKey={countryName}
             name={mode === 'global' ? countryName : regions[countryName].name}
             key={countryName}

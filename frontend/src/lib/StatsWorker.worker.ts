@@ -1,18 +1,17 @@
-import {groupBy, orderBy, fromPairs} from 'lodash';
+import {addDays, isAfter, parse, startOfDay, subDays} from 'date-fns/esm';
+import {fromPairs, groupBy, orderBy} from 'lodash';
 import {fetchGraphStats, fetchUSTotals} from '../api';
 import {
+  getCountryTotals,
+  getCountryTotalsByDay,
+  getTotalForCountry,
   getTotals,
   getTotalsByDay,
-  getCounties,
-  getCountryTotals,
-  getTotalForCountry,
   getVisibleCountries,
-  startOfUTCDay,
-  getCountryTotalsByDay,
   mergeTotals,
+  getCountryGrowth,
 } from './stats';
-import {TotalsMap, Totals} from './Totals';
-import {addDays, startOfDay, subDays, isAfter, parse} from 'date-fns/esm';
+import {Totals, TotalsMap} from './Totals';
 
 let usStats;
 
@@ -23,25 +22,25 @@ const getGrowthRates = (totals: TotalsMap, length: number): TotalsMap => {
     return new Map();
   }
 
-  const minDate = subDays(
-    startOfDay(new Date()),
-    Math.min(totals.size - length, length),
-  );
+  const daysAgo = length;
+
+  let lastDate = subDays(startOfDay(new Date()), daysAgo);
 
   let lastTotals = null;
   for (let [date, total] of totals.entries()) {
-    if (isAfter(date, minDate)) {
+    if (isAfter(date, lastDate)) {
       if (lastTotals) {
         const rate = total.cumulative / lastTotals.cumulative;
 
-        if (rate > 1.0) {
-          growthRates.set(date, rate);
-        }
+        growthRates.set(date, {cumulative: rate});
       }
 
       lastTotals = total;
+      lastDate = date;
     }
   }
+
+  console.log({daysAgo, growthRates, totals});
 
   return growthRates;
 };
@@ -114,7 +113,7 @@ const getPredictions = (totals: TotalsMap, length: number): TotalsMap => {
 
 let usStatsMap: TotalsMap | null = null;
 
-const getGlobalStats = countries => {
+const getGlobalStats = (countries, region) => {
   let totals = getCountryTotals(countries);
 
   if (countries.includes('US')) {
@@ -127,6 +126,12 @@ const getGlobalStats = countries => {
     }
   }
 
+  const alwaysCountries =
+    region.zoom < 10
+      ? ['Italy', 'United Kingdom', 'Germany', 'France', 'US']
+      : [];
+  const metricsCountries = new Set([...countries, ...alwaysCountries]);
+
   const countsByDay = getCountryTotalsByDay(countries, usStatsMap);
   const mapProjections = getPredictions(countsByDay, 7);
 
@@ -135,13 +140,25 @@ const getGlobalStats = countries => {
   const projections = getPredictions(usStatsMap, 9);
 
   const dailyTotalsByCountry = {};
-  for (const country of countries) {
+  for (const country of metricsCountries) {
     const dayTotals =
       country !== 'US' ? getTotalForCountry(country) : usStatsMap;
     dailyTotalsByCountry[country] = dayTotals;
     if (country !== 'China') {
       projectionsByCountry[country] = getPredictions(dayTotals, 9);
-      growthRatesByCounty[country] = getGrowthRates(dayTotals, 9);
+    }
+
+    if (country === 'US') {
+      growthRatesByCounty[country] = getGrowthRates(dayTotals, 14);
+    } else {
+      growthRatesByCounty[country] = new Map(
+        Object.entries(
+          getCountryGrowth(country),
+        ).map(([dateString, totals]) => [
+          parse(dateString, 'M/d/yy', startOfDay(new Date())),
+          totals,
+        ]),
+      );
     }
   }
 
@@ -152,7 +169,7 @@ const getGlobalStats = countries => {
     mode: 'global',
     projections,
     counties: fromPairs(
-      countries.map(country => [
+      [...metricsCountries.entries()].map(country => [
         country,
         {
           name: country,
@@ -187,12 +204,14 @@ const getStats = async region => {
   }
 
   const countries = getVisibleCountries(region);
+
   const showUSOnlyVersion =
     (region.zoom > 6 && countries.includes('US')) ||
     (countries.includes('US') && countries.length === 1);
+
   if (!showUSOnlyVersion) {
     return {
-      ...getGlobalStats(countries),
+      ...getGlobalStats(countries, region),
       us: true,
       usStats,
     };
@@ -220,7 +239,7 @@ const getStats = async region => {
   const growthRatesByCounty = {};
 
   for (const [countyId, pins] of Object.entries(pinsByCounty)) {
-    const dayTotals = getTotalsByDay(pins, 14);
+    const dayTotals = getTotalsByDay(pins, 18);
     dailyTotalsByCounty[countyId] = dayTotals;
     projectionsByCounty[countyId] = getPredictions(dayTotals, 7);
     growthRatesByCounty[countyId] = getGrowthRates(dayTotals, 7);

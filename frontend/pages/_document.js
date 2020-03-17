@@ -4,6 +4,7 @@ import NextDocument, {Head, Main, NextScript} from 'next/document';
 import * as React from 'react';
 import config from '../app.json';
 import {AppRegistry} from 'react-native';
+import {COLORS} from '../src/lib/theme';
 
 export const style = `
 
@@ -41,6 +42,7 @@ body {
 
 .ListClicker {
   cursor: pointer;
+  user-select: none;
 }
 
 .__react_component_tooltip {
@@ -89,6 +91,41 @@ body {
 
 
   }
+
+  .recharts-wrapper {
+    color: rgb(203, 203, 203);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Ubuntu, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+  }
+
+  .recharts-cartesian-axis-tick-value {
+    fill: rgb(203, 203, 203) !important;
+  }
+
+  .recharts-default-tooltip {
+    background-color: ${COLORS.dark} !important;
+    border-color: ${COLORS.darkMedium} !important;
+    padding: 6px 8px !important;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px #000;
+  }
+
+  .recharts-reference-line .recharts-label {
+    font-weight: bold;
+  }
+
+  .recharts-tooltip-label {
+    padding-bottom: 8px !important;
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+    padding-left: 8px; !important;
+    padding-right: 8px !important;
+    margin-bottom: 8px !important;
+    box-sizing: content-box;
+    border-bottom: 1px solid ${COLORS.darkMedium} !important;
+  }
+
 `;
 
 export async function getInitialProps({renderPage}) {

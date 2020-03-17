@@ -60,6 +60,11 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     color: white,
   },
+  chartSubtitle: {
+    fontSize: 12,
+    fontWeight: 'normal',
+    color: white,
+  },
   warningValue: {
     fontSize: 24,
     fontWeight: '600',
