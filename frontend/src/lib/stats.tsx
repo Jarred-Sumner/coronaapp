@@ -136,8 +136,6 @@ export const getVisibleCountries = region => {
     ),
   );
 
-  console.log(polygon);
-
   const validCountries = Object.keys(GLOBAL_DATA);
 
   return compact(

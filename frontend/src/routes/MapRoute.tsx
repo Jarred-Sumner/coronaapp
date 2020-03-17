@@ -17,6 +17,7 @@ import {
 import {Region} from 'react-native-maps';
 import Share from '../lib/Share';
 import {usePaginatedQuery} from 'react-query';
+import StatsWorker from '../lib/StatsClient';
 import useSWR from 'swr';
 import {
   apiFetcher,
@@ -199,7 +200,7 @@ export const MapRoute = ({}) => {
   const {width, height} = useWindowDimensions();
 
   const isDesktop = width > 600;
-  console.log({isDesktop});
+
   const {setRegion, region} = React.useContext(RegionContext);
   const initialRegion = React.useRef(region);
   const {setParams} = useNavigation();
@@ -221,6 +222,22 @@ export const MapRoute = ({}) => {
     ['get_userpins', region],
     fetchUserPins,
   );
+  const [confirmedCaseCount, setConfirmedCaseCount] = React.useState(0);
+
+  React.useEffect(() => {
+    const listener = ({
+      data: {
+        type,
+        stats: {totals},
+      },
+    }) => {
+      if (type === 'stats' && totals) {
+        setConfirmedCaseCount(totals.cumulative);
+      }
+    };
+    StatsWorker.addEventListener('message', listener);
+    return () => StatsWorker.removeEventListener('message', listener);
+  }, [setConfirmedCaseCount]);
 
   const mapRef = React.useRef();
   const moveMap = React.useCallback(
@@ -457,58 +474,6 @@ export const MapRoute = ({}) => {
     );
   }, [location, moveMap, hasNavigatedToUserLocation, RNLocation]);
 
-  const [confirmedCasesInRegion, kml] = React.useMemo(() => {
-    let count = 0;
-    if (!region) {
-      return [0, []];
-    }
-
-    const _kml = new Set();
-
-    if (confirmedPins?.pins?.length) {
-      const polygon = [
-        {
-          latitude: region.minLatitude,
-          longitude: region.minLongitude,
-        },
-        {
-          latitude: region.minLatitude,
-          longitude: region.maxLongitude,
-        },
-        {
-          latitude: region.maxLatitude,
-          longitude: region.maxLongitude,
-        },
-        {
-          latitude: region.maxLatitude,
-          longitude: region.minLongitude,
-        },
-      ];
-
-      const counties = confirmedPins.counties ?? [];
-
-      for (const pin of confirmedPins.pins) {
-        const isVisible =
-          (pin.county && counties.includes(pin.county.name)) ||
-          isPointInPolygon(pin, polygon);
-
-        if (isVisible) {
-          const _count =
-            pin.infections.confirm -
-            pin.infections.recover -
-            pin.infections.dead;
-
-          if (_count > 0 && pin.kml) {
-            _kml.add(PRODUCTION_HOSTNAME + pin.kml);
-          }
-          count = count + _count;
-        }
-      }
-    }
-
-    return [count, [..._kml]];
-  }, [userPins, confirmedPins, region, isPointInPolygon]);
-
   const onPressShare = React.useCallback(async () => {
     const {altitude} = region;
     // const results = await geocode(region.latitude, region.longitude);
@@ -530,11 +495,11 @@ export const MapRoute = ({}) => {
     return Share.open({
       url:
         `https://covy.app` + window.location.pathname + window.location.search,
-      message: `There are ${Numeral(confirmedCasesInRegion).format(
+      message: `There are ${Numeral(confirmedCaseCount).format(
         '0,0',
       )}+ cases of Corona virus${cityName ? ' near ' + cityName : ''}.`,
     });
-  }, [region, buildShareURL, confirmedCasesInRegion, pins]);
+  }, [region, buildShareURL, confirmedCaseCount, pins]);
 
   return (
     <MapContext.Provider value={mapContextValue}>
@@ -566,7 +531,6 @@ export const MapRoute = ({}) => {
           onRegionChange={handleRegionChange}
           onPressPin={handlePressPin}
           selectedId={selectedId}
-          kml={kml}
           onPressMap={handlePressMap}
           userLocation={location}
           ref={mapRef}
@@ -578,7 +542,7 @@ export const MapRoute = ({}) => {
               {/* <CountryPicker /> */}
               <CountBox
                 feelingSick={userPins?.count}
-                infected={confirmedCasesInRegion}
+                infected={confirmedCaseCount}
               />
             </View>
           </View>
@@ -600,7 +564,7 @@ export const MapRoute = ({}) => {
           <MapHeadTags
             region={region}
             sickCount={userPins?.count}
-            confirmedCaseCount={confirmedCasesInRegion}
+            confirmedCaseCount={confirmedCaseCount}
           />
 
           {isDesktop && (

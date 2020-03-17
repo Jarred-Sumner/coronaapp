@@ -122,7 +122,7 @@ export const ForecastChart = ({
   return (
     <View style={containerStyles}>
       <View style={styles.chartHeader}>
-        <Text style={styles.chartLabel}>7-day Coronavirus Forecast</Text>
+        <Text style={styles.chartLabel}>7ish-day Coronavirus Forecast</Text>
       </View>
       <style global jsx>{`
         .recharts-wrapper {
