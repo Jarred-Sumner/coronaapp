@@ -1,6 +1,6 @@
 import chroma from 'chroma-js';
 import {format} from 'date-fns';
-import {addDays, isSameDay, startOfDay} from 'date-fns/esm';
+import {addDays, startOfDay} from 'date-fns/esm';
 import {orderBy, range} from 'lodash';
 import Numeral from 'numeral';
 import * as React from 'react';
@@ -14,9 +14,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import {VictoryTooltip} from 'victory';
 import {COLORS} from '../../lib/theme';
-import {TotalsMap, getDateTotals} from '../../lib/Totals';
+import {getDateTotals, TotalsMap} from '../../lib/Totals';
 import {colors as ALL_COLORS} from './CHART_THEME';
 import {styles} from './styles';
 
@@ -38,11 +37,6 @@ export const ForecastChart = ({
   cumulative,
   usTotals,
 }) => {
-  const labelComponent = React.useMemo(
-    () => <VictoryTooltip renderInPortal={false} />,
-    [],
-  );
-
   const containerStyles = React.useMemo(
     () => [styles.dailyChart, {width: width, height: height}],
     [width, height, styles],

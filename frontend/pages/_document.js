@@ -203,10 +203,7 @@ body {
   }
 }
 
-.VictoryContainer {
-  user-select: auto !important;
-  touch-action: auto !important;
-  }
+
 
   .recharts-wrapper {
     color: rgb(203, 203, 203);

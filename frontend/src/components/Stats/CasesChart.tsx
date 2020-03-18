@@ -1,6 +1,6 @@
 import chroma from 'chroma-js';
 import {format, subDays} from 'date-fns';
-import {addDays, isSameDay, startOfDay} from 'date-fns/esm';
+import {startOfDay} from 'date-fns/esm';
 import {orderBy, range} from 'lodash';
 import Numeral from 'numeral';
 import * as React from 'react';
@@ -14,9 +14,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import {VictoryTooltip} from 'victory';
 import {COLORS} from '../../lib/theme';
-import {TotalsMap, getDateTotals} from '../../lib/Totals';
+import {getDateTotals, TotalsMap} from '../../lib/Totals';
 import {colors as ALL_COLORS} from './CHART_THEME';
 import {styles} from './styles';
 

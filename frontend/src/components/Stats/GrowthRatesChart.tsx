@@ -1,22 +1,19 @@
 import chroma from 'chroma-js';
 import {format, subDays} from 'date-fns';
-import {addDays, isSameDay, startOfDay} from 'date-fns/esm';
+import {isSameDay, startOfDay} from 'date-fns/esm';
 import {orderBy, range} from 'lodash';
 import Numeral from 'numeral';
 import * as React from 'react';
 import {Text, View} from 'react-native';
 import {
   CartesianGrid,
-  Label,
   Legend,
   Line,
   LineChart,
   Tooltip,
   XAxis,
-  ReferenceLine,
   YAxis,
 } from 'recharts';
-import {VictoryTooltip} from 'victory';
 import {COLORS} from '../../lib/theme';
 import {TotalsMap} from '../../lib/Totals';
 import {colors as ALL_COLORS} from './CHART_THEME';
