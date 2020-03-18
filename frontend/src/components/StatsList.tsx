@@ -11,7 +11,7 @@ import {ForecastChart} from './Stats/ForecastChart';
 import {GrowthRatesChart} from './Stats/GrowthRatesChart';
 import {styles} from './Stats/styles';
 import {COLORS} from '../lib/theme';
-import {isEmpty, orderBy, last, isArray} from 'lodash';
+import {isEmpty, orderBy, last, isArray, truncate} from 'lodash';
 
 function addDays(date, days) {
   var result = new Date(date);
@@ -191,7 +191,7 @@ const StatsListComponent = ({
       } else if (countyList.length === 2) {
         return `Includes: ${countyList[0]} & ${countyList[1]}`;
       } else if (countyList.length > 2) {
-        return `Includes: ${countyList.join(', ')}`;
+        return truncate(`Includes: ${countyList.join(', ')}`, {length: 300});
       } else {
         return null;
       }
@@ -224,7 +224,10 @@ const StatsListComponent = ({
       } else if (countyList.length === 2) {
         return `${countyList[0].name} County & ${countyList[1].name} County`;
       } else if (countyList.length > 2) {
-        return `Counties: ${countyList.map(county => county.name).join(', ')}`;
+        return truncate(
+          `Counties: ${countyList.map(county => county.name).join(', ')}`,
+          {length: 300},
+        );
       } else {
         return null;
       }

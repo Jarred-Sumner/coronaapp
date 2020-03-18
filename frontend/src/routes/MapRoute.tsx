@@ -1,58 +1,40 @@
-import {useNavigation} from '../components/useNavigation';
 import haversineDistance from 'haversine-distance';
 import Numeral from 'numeral';
 import * as React from 'react';
 import {
   ActivityIndicator,
-  BackHandler,
-  findNodeHandle,
   Platform,
+  StatusBar,
   StyleSheet,
   Text,
-  View,
-  StatusBar,
   useWindowDimensions,
+  View,
+  unstable_createElement,
 } from 'react-native';
-
 import {Region} from 'react-native-maps';
-import Share from '../lib/Share';
 import {usePaginatedQuery} from 'react-query';
-import StatsWorker from '../lib/StatsClient';
 import useSWR from 'swr';
 import {
   apiFetcher,
   buildShareURL,
-  COUNTRIES_URL,
-  hostname,
   fetchPins,
   fetchUserPins,
-  TOTALS_URL,
   userReportByIdURL,
-  USER_REPORT_STATS,
-  PRODUCTION_HOSTNAME,
 } from '../api';
-import {
-  ConfirmedPin,
-  CountryEndpoint,
-  SelfReportedResponse,
-  TotalEndpoint,
-  UserReportListRequest,
-} from '../API_TYPES';
+import {ConfirmedPin, UserReportListRequest} from '../API_TYPES';
 import {ConfirmedReportListItem} from '../components/ConfirmedReportListItem';
 import {CONTENT_WIDTH} from '../components/CONTENT_WIDTH';
 import CoordinatorLayout from '../components/CoordinatorLayout';
 import {CountBox} from '../components/CountBox';
-import {CountryContext} from '../components/CountryContext';
-import {CountryPicker} from '../components/CountryPicker';
 import {FeedSheet} from '../components/FeedSheet';
 import {LocationButton} from '../components/LocationButton';
 import {MapContext} from '../components/MapContext';
+import {MapHeadTags} from '../components/MapHeadTags';
 import {MapView} from '../components/MapView';
-import {PullyView} from '../components/PullyView';
-import {SCREEN_DIMENSIONS} from '../components/ScreenSize';
+import dynamic from 'next/dynamic';
 import {ShareButton} from '../components/ShareButton';
 import {SickButton} from '../components/SickButton';
-import {StatsButton} from '../components/StatsButton';
+import {useNavigation} from '../components/useNavigation';
 import {
   hasLocation,
   UserLocationContext,
@@ -61,15 +43,20 @@ import {
   UNWRAPPED_USER_REPORT_HEIGHT,
   UserReportListItem,
 } from '../components/UserReportListItem';
+import unstable_batchedUpdates from '../lib/batchUpdates';
 import {RNLocation} from '../lib/Location';
 import {useSafeArea} from '../lib/SafeArea';
+import Share from '../lib/Share';
+import StatsWorker from '../lib/StatsClient';
 import {COLORS} from '../lib/theme';
 import {sendSelectionFeedback} from '../lib/Vibration';
-import {getMapBounds, geocode} from '../lib/Yeet';
 import {RegionContext} from './RegionContext';
-import {isPointInPolygon, getDistance, isPointWithinRadius} from 'geolib';
-import unstable_batchedUpdates from '../lib/batchUpdates';
-import {MapHeadTags} from '../components/MapHeadTags';
+
+const PullyView = dynamic(() => import('../components/PullyView'), {
+  ssr: false,
+
+  loading: () => null,
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -77,6 +64,7 @@ const styles = StyleSheet.create({
     height: '100%',
     flex: 1,
     backgroundColor: 'black',
+    flexDirection: 'row',
   },
   horizontalContainer: {
     width: '100%',
@@ -106,41 +94,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
   },
-  mapFooter: {
-    position: 'absolute',
-    bottom: 320,
-    paddingBottom: 50,
-    paddingHorizontal: 4,
-    left: 0,
-    right: 0,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
   verticalFooterSide: {
     flex: 1,
     flexDirection: 'column',
-  },
-  footerSide: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-  },
-  desktopFooterSide: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
-  },
-  desktopFooter: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    marginVertical: 16,
-    paddingHorizontal: 12,
-    flex: 1,
-    right: 0,
-    flexDirection: 'row',
   },
   header: {
     flexDirection: 'row',
@@ -196,7 +152,7 @@ enum MapSelectionType {
   confirmedReport = 'confirmedReport',
 }
 
-export const MapRoute = ({}) => {
+export const MapRoute = ({initialCount}) => {
   const {width, height} = useWindowDimensions();
 
   const isDesktop = width > 600;
@@ -222,7 +178,9 @@ export const MapRoute = ({}) => {
     ['get_userpins', region],
     fetchUserPins,
   );
-  const [confirmedCaseCount, setConfirmedCaseCount] = React.useState(0);
+  const [confirmedCaseCount, setConfirmedCaseCount] = React.useState(
+    initialCount,
+  );
 
   React.useEffect(() => {
     const listener = ({
@@ -504,16 +462,19 @@ export const MapRoute = ({}) => {
   return (
     <MapContext.Provider value={mapContextValue}>
       <CoordinatorLayout
-        style={isDesktop ? styles.horizontalContainer : styles.container}
-        horizontal={isDesktop}
         sheet={
           <>
-            <PullyView
-              horizontal={isDesktop}
-              initialStickyPointOffset={350}
-              animateOpen={false}>
-              <FeedSheet horizontal={isDesktop} />
-            </PullyView>
+            {unstable_createElement(
+              'div',
+              {className: 'PullyContainer'},
+              <PullyView
+                horizontal={isDesktop}
+                initialStickyPointOffset={350}
+                animateOpen={false}>
+                <FeedSheet horizontal={isDesktop} />
+              </PullyView>,
+            )}
+
             {!isDesktop && (
               <MapOverlay
                 type={selectionType}
@@ -525,6 +486,12 @@ export const MapRoute = ({}) => {
             )}
           </>
         }>
+        <MapHeadTags
+          region={region}
+          sickCount={userPins?.count}
+          confirmedCaseCount={confirmedCaseCount}
+        />
+
         <MapView
           initialRegion={initialRegion.current}
           region={region}
@@ -534,7 +501,7 @@ export const MapRoute = ({}) => {
           onPressMap={handlePressMap}
           userLocation={location}
           ref={mapRef}
-          height={SCREEN_DIMENSIONS.height - 348}
+          isDesktop={isDesktop}
           pins={allPins}>
           <View pointerEvents="box-none" style={[styles.header, {top}]}>
             <View style={styles.headerContent}>
@@ -547,25 +514,29 @@ export const MapRoute = ({}) => {
             </View>
           </View>
 
-          <View
-            pointerEvents="box-none"
-            style={isDesktop ? styles.desktopFooter : styles.mapFooter}>
-            <View pointerEvents="box-none" style={styles.verticalFooterSide}>
-              <ShareButton onPress={onPressShare} />
-              <LocationButton onPress={handlePressLocation} />
-            </View>
-            <View
-              pointerEvents="box-none"
-              style={isDesktop ? styles.desktopFooterSide : styles.footerSide}>
-              <SickButton onPress={openReportSick} />
-            </View>
-          </View>
-
-          <MapHeadTags
-            region={region}
-            sickCount={userPins?.count}
-            confirmedCaseCount={confirmedCaseCount}
-          />
+          {unstable_createElement(
+            'div',
+            {
+              className: 'MapOverlay-footer',
+            },
+            <>
+              {unstable_createElement(
+                'div',
+                {className: 'MapOverlay-footerSide'},
+                <View
+                  pointerEvents="box-none"
+                  style={styles.verticalFooterSide}>
+                  <ShareButton onPress={onPressShare} />
+                  <LocationButton onPress={handlePressLocation} />
+                </View>,
+              )}
+              {unstable_createElement(
+                'div',
+                {className: 'MapOverlay-footerSide'},
+                <SickButton onPress={openReportSick} />,
+              )}
+            </>,
+          )}
 
           {isDesktop && (
             <MapOverlay

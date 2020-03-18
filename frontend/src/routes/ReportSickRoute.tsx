@@ -7,7 +7,7 @@ import {
 } from 'react-native-gesture-handler';
 import publicIP from 'react-native-public-ip';
 import Animated from 'react-native-reanimated';
-import {useSafeArea} from 'react-native-safe-area-context';
+import {useSafeArea} from '../lib/SafeArea';
 import {createUserReport} from '../api';
 import {BitmapIcon, CHECK} from '../components/BitmapIcons';
 import {CloseButtonImage} from '../components/CloseButtonImage';

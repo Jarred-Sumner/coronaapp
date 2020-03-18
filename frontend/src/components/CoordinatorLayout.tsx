@@ -1,9 +1,14 @@
 import * as React from 'react';
-import {View} from 'react-native';
+import {unstable_createElement} from 'react-native';
 
-export default ({children, style, sheet}) => (
-  <View style={style}>
-    {children}
-    {sheet}
-  </View>
-);
+export default ({children, style, sheet}) =>
+  unstable_createElement(
+    'div',
+    {
+      id: 'Layout',
+    },
+    <>
+      {children}
+      {sheet}
+    </>,
+  );

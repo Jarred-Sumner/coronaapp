@@ -11,6 +11,7 @@ import {isPointInPolygon, getDistance} from 'geolib';
 import chroma from 'chroma-js';
 import sources from './MarkerIcons';
 import MAPS_STYLE from './MAPS_STYLE';
+import {unstable_createElement} from 'react-native';
 
 const _RawCircle = Platform.select({
   ios: __RawCircle,
@@ -23,9 +24,19 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     flex: 1,
+    flexBasis: '100%',
+  },
+  mapSpacer: {
+    height: 350,
+    flex: 0,
+    width: 1,
   },
   container: {
-    flex: 1,
+    flexBasis: 'auto',
+    height: '100%',
+    flexGrow: 1,
+    flexDirection: 'row',
+    width: '100%',
     position: 'relative',
   },
   overlay: {
@@ -209,7 +220,7 @@ export const MapView = React.forwardRef(
       children,
       onPressPin,
       kml,
-      height,
+      isDesktop,
       onPressMap,
       selectedId,
       pins = [],
@@ -296,11 +307,15 @@ export const MapView = React.forwardRef(
       [pins, onPressPin],
     );
 
-    return (
-      <View style={styles.container}>
+    return unstable_createElement(
+      'div',
+      {
+        id: 'map-view',
+      },
+      <>
         <MapViewComponent
           initialRegion={initialRegion}
-          style={[styles.map, {height}]}
+          style={styles.map}
           showsPointsOfInterest={false}
           showsCompass={false}
           showsMyLocationButton
@@ -333,7 +348,7 @@ export const MapView = React.forwardRef(
         <View pointerEvents="box-none" style={styles.overlay}>
           {children}
         </View>
-      </View>
+      </>,
     );
   },
 );

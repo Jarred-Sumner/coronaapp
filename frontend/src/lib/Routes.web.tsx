@@ -7,6 +7,7 @@
  */
 // import * as Sentry from '@sentry/react-native';
 import * as React from 'react';
+import Head from 'next/head';
 import {InteractionManager} from 'react-native';
 // import {enableScreens} from 'react-native-screens';
 

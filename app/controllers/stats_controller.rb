@@ -156,7 +156,6 @@ class StatsController < ApplicationController
   end
 
 
-
   def country
     stats = Stats.country_data
     last_updated = stats.map { |stat| stat[:updated_at] }.max

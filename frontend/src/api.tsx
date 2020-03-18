@@ -1,5 +1,6 @@
 import {merge} from 'lodash';
 import qs from 'qs';
+import {INITIAL_REGION} from './routes/RegionContext';
 
 export const PRODUCTION_HOSTNAME = 'https://covy.app';
 
@@ -146,14 +147,24 @@ export const fetchUserPins = (
   return apiFetcher(url);
 };
 
-export const buildMapImageURL = ({region, width, locale, height}) =>
-  `https://i.covy.app/?${qs.stringify({
+const DEVELOPMENT_IMAGE_URL_HOST = 'http://localhost:4023/';
+const PRODUCTION_IMAGE_URL_HOST = 'https://i.covy.app/';
+
+const IMAGE_URL_HOST = DEVELOPMENT_IMAGE_URL_HOST;
+export const buildMapImageURL = ({region, width, locale, height, count}) =>
+  `${IMAGE_URL_HOST}?${qs.stringify({
     lat: region.latitude,
     lon: region.longitude,
     minLat: region.minLatitude,
     minLon: region.minLongitude,
     maxLat: region.maxLatitude,
     maxLon: region.maxLongitude,
+    d:
+      region.latitude === INITIAL_REGION.latitude &&
+      region.longitude === INITIAL_REGION.longitude
+        ? 1
+        : 0,
+    count,
     zoom: region.zoom,
     width,
     height,

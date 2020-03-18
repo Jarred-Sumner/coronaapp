@@ -1,19 +1,9 @@
-import * as React from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  Image,
-  Platform,
-} from 'react-native';
-import {useSafeArea} from '../lib/SafeArea';
-import {useActionSheet} from '@expo/react-native-action-sheet';
-import {CountryEndpoint} from '../API_TYPES';
 import countryFlagEmoji from 'country-flag-emoji';
+import * as React from 'react';
+import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
 import {useNavigation} from '../components/useNavigation';
+import {BitmapIcon, CHEVRON_DOWN} from './BitmapIcons';
 import {CountryContext} from './CountryContext';
-import {CHEVRON_DOWN, BitmapIcon} from './BitmapIcons';
 
 const styles = StyleSheet.create({
   header: {

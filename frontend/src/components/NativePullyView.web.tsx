@@ -55,7 +55,7 @@ export class NativePullyView extends React.Component {
     translationY: this.translationY,
     velocityY: this.velocityY,
   });
-  state = {position: 'bottom'};
+  state = {position: 'bottom', isMounted: false};
   clock = new Clock();
 
   translateY = clamp(
@@ -71,6 +71,10 @@ export class NativePullyView extends React.Component {
     SNAP_BOTTOM,
   );
   setPosition = position => this.props.onChangePosition(position);
+
+  componentDidMount() {
+    this.setState({isMounted: true});
+  }
 
   setSnapToTop = () => this.setPosition('top');
   setSnapToBottom = () => this.setPosition('bottom');
@@ -162,14 +166,16 @@ export class NativePullyView extends React.Component {
   rootStyle = {
     zIndex: 9999,
     position: Platform.select({
-      web: 'fixed',
+      web: 'absolute',
       ios: 'absolute',
       android: 'absolute',
     }),
     top: 0,
     height: '100%',
+    zIndex: 9999,
     transform: [{translateY: this.translateY}],
   };
+
   // handleGestureEvent = debounce(this._handleGestureEvent, 16);
 
   _interactionHandle: number | null = null;
@@ -268,14 +274,13 @@ export class NativePullyView extends React.Component {
                 ]),
               ])}
             />
-            <FlingGestureHandler
-              enabled={position === 'top'}
-              ref={this.flingRef}
-              direction={Directions.DOWN}
-              simultaneousHandlers={this.flingHandlers}
-              onHandlerStateChange={this.handleGestureEvent}>
-              <Animated.View>{children}</Animated.View>
-            </FlingGestureHandler>
+
+            <Animated.View
+              style={{
+                opacity: this.state.isMounted ? 1 : 0,
+              }}>
+              {children}
+            </Animated.View>
           </Animated.View>
         </PanGestureHandler>
       );

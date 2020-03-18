@@ -5,6 +5,7 @@ import * as React from 'react';
 import config from '../app.json';
 import {AppRegistry} from 'react-native';
 import {COLORS} from '../src/lib/theme';
+import {TitleSEOTag, DescriptionSEOTag} from '../src/components/SEOTag';
 
 export const style = `
 
@@ -61,10 +62,12 @@ html, body, #__next {
 }
 #__next {
   flex-shrink: 0;
-  flex-basis: auto;
+  flex-basis: 100%;
   flex-direction: column;
   flex-grow: 1;
   display: flex;
+  height: 100%;
+  width: 100%;
   flex: 1;
 }
 html {
@@ -85,11 +88,124 @@ body {
   overflow-x: hidden;
 }
 
+
+
+.MapOverlay-footerSide {
+  flex: 0;
+  flex-direction: row;
+
+  justify-content: flex-end;
+
+  align-items: flex-end;
+  pointer-events: none !important;
+}
+
+
+.gm-style > div > a[target="_blank"] {
+  display: none !important;
+}
+
+
+@media (max-width: 600px) {
+  #Layout {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .MapOverlay-footer {
+    align-items: flex-start;
+  }
+
+  #map-view {
+    width: 100%;
+    height: calc(100% - 350px);
+    position: relative;
+  }
+
+  .MapOverlay-footer {
+    position: absolute;
+    display: flex;
+    padding-bottom: 16px;
+    padding-left: 12px;
+    padding-right: 12px;
+    left: 0;
+    right: 0;
+    width: auto;
+    bottom: 0;
+
+    pointer-events: none !important;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .PullyContainer {
+    width: 100%;
+    height: 350px;
+    display: flex;
+
+    background-color: rgb(21,31,46);
+  }
+
+
+  .PullyContainer > * {
+    pointer-events: auto;
+  }
+}
+
+
+
+
+@media (min-width: 600px) {
+  .MapOverlay-footer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 16px 16px;
+    flex: 1;
+    display: flex;
+    width: auto;
+    pointer-events: none;
+    right: 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .PullyContainer {
+    width: calc(100% - 300px);
+    max-width: 512px;
+    min-width: 200px;
+    height: 100%;
+    display: flex;
+    box-shadow: -2px 2px 15px rgba(0,0, 0.25);
+    overflow: visible;
+    background-color: rgb(21,31,46);
+  }
+
+  #Layout {
+    flex: 1;
+    display: flex;
+    height: 100vh;
+  }
+
+  #map-view {
+    flex: 1;
+    display: flex;
+    height: 100vh;
+    width: auto;
+    flex: 1;
+    position: relative;
+  }
+}
+
 .VictoryContainer {
   user-select: auto !important;
   touch-action: auto !important;
-
-
   }
 
   .recharts-wrapper {
@@ -125,17 +241,17 @@ body {
     box-sizing: content-box;
     border-bottom: 1px solid ${COLORS.darkMedium} !important;
   }
-
 `;
 
 export async function getInitialProps({renderPage}) {
   AppRegistry.registerComponent(config.name, () => Main);
   const {getStyleElement} = AppRegistry.getApplication(config.name);
-  const page = renderPage();
+  const page = renderPage({});
   const styles = [
     <style dangerouslySetInnerHTML={{__html: style}} />,
     getStyleElement(),
   ];
+
   return {...page, styles: React.Children.toArray(styles)};
 }
 
@@ -150,6 +266,24 @@ export class Document extends NextDocument {
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="mobile-web-app-capable" content="yes" />
+
+          <meta key="twitter:site" name="twitter:site" content="@covy_app" />
+          <meta
+            key="twitter:creator"
+            name="twitter:creator"
+            content="@covy_app"
+          />
+          <meta
+            name="viewport"
+            key="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          />
+          <meta
+            key="og:site_name"
+            property="og:site_name"
+            content="Covy"
+            key="site_name"
+          />
 
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         </Head>

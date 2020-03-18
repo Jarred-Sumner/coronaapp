@@ -1,21 +1,17 @@
+import {subDays} from 'date-fns/esm';
 import Numeral from 'numeral';
 import * as React from 'react';
 import {View} from 'react-native';
 import {
+  VictoryAxis,
   VictoryChart,
   VictoryGroup,
   VictoryLegend,
   VictoryLine,
   VictoryTooltip,
   VictoryVoronoiContainer,
-  VictoryLabel,
-  VictoryScatter,
-  VictoryBar,
-  VictoryAxis,
 } from 'victory';
-import {COLORS} from '../../lib/theme';
-import {subDays} from 'date-fns/esm';
-import {CHART_THEME, tickFormat, colors} from './CHART_THEME';
+import {CHART_THEME, colors, tickFormat} from './CHART_THEME';
 import {styles} from './styles';
 
 export const ConfirmedCasesByCountyChart = React.memo(
@@ -40,30 +36,6 @@ export const ConfirmedCasesByCountyChart = React.memo(
 
     const cumulativeCases = React.useCallback(data => data[1].cumulative, []);
     const timestamp = React.useCallback(data => data[0], []);
-
-    const renderLine = React.useCallback(
-      ([countyId, dailyTotalsMap]) => {
-        const data = [...dailyTotalsMap.entries()];
-
-        return (
-          <VictoryLine
-            key={countyId}
-            name={countyId}
-            // domain={{
-            //   x: [0, cumulative],
-            //   // y: [
-            //   //   dailyTotals[0].timestamp.getTime(),
-            //   //   dailyTotals[dailyTotals.length - 1].timestamp.getTime(),
-            //   // ],
-            // }}
-            y={cumulativeCases}
-            x={timestamp}
-            data={data}
-          />
-        );
-      },
-      [cumulativeCases, timestamp],
-    );
 
     const renderBar = React.useCallback(
       ([countyId, dailyTotalsMap]) => {

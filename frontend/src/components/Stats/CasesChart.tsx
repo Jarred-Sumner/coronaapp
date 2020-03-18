@@ -16,7 +16,7 @@ import {
 } from 'recharts';
 import {VictoryTooltip} from 'victory';
 import {COLORS} from '../../lib/theme';
-import {TotalsMap} from '../../lib/Totals';
+import {TotalsMap, getDateTotals} from '../../lib/Totals';
 import {colors as ALL_COLORS} from './CHART_THEME';
 import {styles} from './styles';
 
@@ -71,7 +71,6 @@ export const CasesChart = ({
   );
 
   const chartData = React.useMemo(() => {
-    console.log(totalsByRegion);
     return range(0, 13)
       .reverse()
       .map((data, dateOffset) => {
@@ -84,15 +83,8 @@ export const CasesChart = ({
         countriesToProject.forEach(countryName => {
           const projection: TotalsMap = totalsByRegion[countryName];
 
-          const dateKey = [...projection.keys()].find(_date =>
-            isSameDay(_date, date),
-          );
-
-          if (dateKey) {
-            row[countryName] = projection.get(dateKey).cumulative;
-          } else {
-            row[countryName] = null;
-          }
+          row[countryName] =
+            getDateTotals(date, projection)?.cumulative ?? null;
         }, data);
 
         return row;
@@ -122,6 +114,34 @@ export const CasesChart = ({
   //   sourceName = 'Local news (hover to see list)';
   // }
 
+  const renderLine = React.useCallback(
+    (countryName, index) => (
+      <Line
+        type="monotone"
+        stroke={colorScale[index]}
+        isAnimationActive={false}
+        strokeWidth={2}
+        connectNulls
+        dataKey={countryName}
+        name={mode === 'global' ? countryName : regions[countryName].name}
+        key={countryName}
+      />
+    ),
+    [regions, mode, colorScale],
+  );
+
+  const margin = React.useMemo(
+    () => ({
+      top: 0,
+      right: 12,
+      left: 0,
+      bottom: 16,
+    }),
+    [],
+  );
+
+  const padding = React.useMemo(() => ({left: 0, right: 0}), []);
+
   return (
     <View style={containerStyles}>
       <View style={styles.chartHeader}>
@@ -133,12 +153,7 @@ export const CasesChart = ({
         width={width - 36}
         height={height - 48}
         data={chartData}
-        margin={{
-          top: 0,
-          right: 12,
-          left: 0,
-          bottom: 16,
-        }}>
+        margin={margin}>
         <CartesianGrid stroke="rgb(43, 54, 73)" />
         <XAxis
           tickFormatter={formatTimestamp}
@@ -146,25 +161,14 @@ export const CasesChart = ({
           dataKey="name"
         />
         <YAxis
-          padding={{left: 0, right: 0}}
+          padding={padding}
           tickFormatter={formatNumber}
           type="number"
           stroke="rgb(43, 54, 73)"
         />
         <Tooltip sty />
         <Legend />
-        {countriesToProject.map((countryName, index) => (
-          <Line
-            type="monotone"
-            stroke={colorScale[index]}
-            isAnimationActive={false}
-            strokeWidth={2}
-            connectNulls
-            dataKey={countryName}
-            name={mode === 'global' ? countryName : regions[countryName].name}
-            key={countryName}
-          />
-        ))}
+        {countriesToProject.map(renderLine)}
       </LineChart>
     </View>
   );

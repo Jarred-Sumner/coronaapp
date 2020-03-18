@@ -110,3 +110,5 @@ export const PullyView = ({children, ...props}) => {
     </PullyScrollViewContext.Provider>
   );
 };
+
+export default PullyView;

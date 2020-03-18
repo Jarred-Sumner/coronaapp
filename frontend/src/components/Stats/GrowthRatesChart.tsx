@@ -141,6 +141,22 @@ export const GrowthRatesChart = ({
   //   sourceName = 'Local news (hover to see list)';
   // }
 
+  const renderLine = React.useCallback(
+    (countryName, index) => (
+      <Line
+        type="monotone"
+        stroke={colorScale[index]}
+        isAnimationActive={false}
+        strokeWidth={2}
+        connectNulls
+        dataKey={countryName}
+        name={mode === 'global' ? countryName : regions[countryName].name}
+        key={countryName}
+      />
+    ),
+    [regions, mode, colorScale],
+  );
+
   return (
     <View style={containerStyles}>
       <View style={styles.chartHeader}>
@@ -185,18 +201,7 @@ export const GrowthRatesChart = ({
 
         <Legend />
 
-        {countriesToProject.map((countryName, index) => (
-          <Line
-            type="monotone"
-            stroke={colorScale[index]}
-            isAnimationActive={false}
-            strokeWidth={2}
-            dot
-            dataKey={countryName}
-            name={mode === 'global' ? countryName : regions[countryName].name}
-            key={countryName}
-          />
-        ))}
+        {countriesToProject.map(renderLine)}
       </LineChart>
     </View>
   );

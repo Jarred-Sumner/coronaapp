@@ -29,6 +29,10 @@ export const FeedSheet = ({horizontal}) => {
     width = Math.max(Math.min(512, _width - 300), 200);
   }
 
+  if (!_width || !_height) {
+    return null;
+  }
+
   React.useEffect(() => {
     initialRoute.current = getItem('FEED_SHEET_INITIAL_ROUTE', 'string');
   }, [initialRoute]);
@@ -41,16 +45,7 @@ export const FeedSheet = ({horizontal}) => {
 
   if (horizontal) {
     return (
-      <View
-        style={{
-          width,
-          height,
-          shadowOffset: {width: -2, height: 2},
-          overflow: 'visible',
-          shadowColor: 'black',
-          shadowOpacity: 0.25,
-          shadowRadius: 15,
-        }}>
+      <>
         <FeedTabView
           scrollEnabled
           offset={0}
@@ -62,63 +57,57 @@ export const FeedSheet = ({horizontal}) => {
         />
 
         <ReactTooltip style={{cursor: 'pointer'}} multiline />
-      </View>
+      </>
     );
   }
 
   return (
     <View
       style={{
+        // marginTop: top,
+        shadowColor: 'black',
+        shadowRadius: 2,
+        shadowOpacity: 0.25,
         height: height - top - bottom,
         width,
       }}>
       <View
         style={{
-          // marginTop: top,
-          shadowColor: 'black',
-          shadowRadius: 2,
-          shadowOpacity: 0.25,
           height: height - top - bottom,
           width,
+          overflow: 'hidden',
+          borderRadius: 12,
+          position: 'relative',
         }}>
-        <View
-          style={{
-            height: height - top - bottom,
-            width,
-            overflow: 'hidden',
-            borderRadius: 12,
-            position: 'relative',
-          }}>
-          <FeedTabView
-            scrollEnabled
-            offset={0}
-            headerHeight={0}
-            horizontal={horizontal}
-            height={height - top - bottom - 16}
-            initialRoute={initialRoute.current}
-            width={width}
-          />
+        <FeedTabView
+          scrollEnabled
+          offset={0}
+          headerHeight={0}
+          horizontal={horizontal}
+          height={height - top - bottom - 16}
+          initialRoute={initialRoute.current}
+          width={width}
+        />
 
-          {!horizontal && (
-            <View
-              style={[
-                styles.clicker,
-                {
-                  bottom: bottom + 32,
-                  left: 32,
-                  zIndex: 999,
-                  width: 48,
-                  height: 48,
-                },
-              ]}>
-              <ListClicker onPress={dismiss}>
-                <Animated.View style={{elevation: 100}}>
-                  <CloseButtonImage />
-                </Animated.View>
-              </ListClicker>
-            </View>
-          )}
-        </View>
+        {!horizontal && (
+          <View
+            style={[
+              styles.clicker,
+              {
+                bottom: bottom + 32,
+                left: 32,
+                zIndex: 10000,
+                width: 48,
+                height: 48,
+              },
+            ]}>
+            <ListClicker onPress={dismiss}>
+              <View style={{elevation: 100}}>
+                <CloseButtonImage />
+              </View>
+            </ListClicker>
+          </View>
+        )}
       </View>
 
       <ReactTooltip

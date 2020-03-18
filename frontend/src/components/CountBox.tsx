@@ -99,7 +99,7 @@ export const CountBox = ({
         value={infected}
         label="cases"
         color={COLORS.confirmed}
-        emptyLabel="0  confirmed here."
+        emptyLabel="–  cases"
         showPlus
       />
       <CountItem

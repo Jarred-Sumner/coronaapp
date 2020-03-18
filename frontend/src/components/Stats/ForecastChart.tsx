@@ -16,7 +16,7 @@ import {
 } from 'recharts';
 import {VictoryTooltip} from 'victory';
 import {COLORS} from '../../lib/theme';
-import {TotalsMap} from '../../lib/Totals';
+import {TotalsMap, getDateTotals} from '../../lib/Totals';
 import {colors as ALL_COLORS} from './CHART_THEME';
 import {styles} from './styles';
 
@@ -88,12 +88,7 @@ export const ForecastChart = ({
       countriesToProject.forEach(countryName => {
         const projection: TotalsMap = projectionsByCounty[countryName];
 
-        const dateKey = [...projection.keys()].find(_date =>
-          isSameDay(_date, date),
-        );
-        if (dateKey) {
-          row[countryName] = projection.get(dateKey).cumulative;
-        }
+        row[countryName] = getDateTotals(date, projection)?.cumulative;
       }, data);
 
       return row;
@@ -115,6 +110,22 @@ export const ForecastChart = ({
   const formatNumber = React.useCallback(number => {
     return Numeral(number).format('0a');
   }, []);
+
+  const renderLine = React.useCallback(
+    (countryName, index) => (
+      <Line
+        type="monotone"
+        stroke={colorScale[index]}
+        isAnimationActive={false}
+        strokeWidth={2}
+        connectNulls
+        dataKey={countryName}
+        name={mode === 'global' ? countryName : counties[countryName].name}
+        key={countryName}
+      />
+    ),
+    [counties, mode, colorScale],
+  );
 
   return (
     <View style={containerStyles}>
@@ -154,17 +165,7 @@ export const ForecastChart = ({
         />
         <Tooltip sty />
         <Legend />
-        {countriesToProject.map((countryName, index) => (
-          <Line
-            type="monotone"
-            stroke={colorScale[index]}
-            isAnimationActive={false}
-            strokeWidth={2}
-            dataKey={countryName}
-            name={mode === 'global' ? countryName : counties[countryName].name}
-            key={countryName}
-          />
-        ))}
+        {countriesToProject.map(renderLine)}
       </LineChart>
     </View>
   );

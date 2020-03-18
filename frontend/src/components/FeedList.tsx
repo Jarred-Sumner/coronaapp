@@ -1,42 +1,28 @@
+import {sum} from 'lodash';
 import * as React from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  Dimensions,
-  Linking,
-  Platform,
-} from 'react-native';
-import FastList from './FastList';
+import {Linking, Platform, StyleSheet, Text, View} from 'react-native';
+import Animated from 'react-native-reanimated';
 import useSWR from 'swr';
 import {apiFetcher, TWEETS_URL} from '../api';
+import {Tweet, TweetResponse, URLPreview} from '../API_TYPES';
+import {openLink} from '../lib/openLink';
+import {scaleRectToWidth} from '../lib/Rect';
 import {useSafeArea} from '../lib/SafeArea';
 import {COLORS} from '../lib/theme';
-import {sum} from 'lodash';
-import {TweetResponse, Tweet, URLPreview} from '../API_TYPES';
-import Animated from 'react-native-reanimated';
+import {measureText} from '../lib/Yeet';
+import FastList from './FastList';
 import Image, {AvatarImage} from './Image';
-import {Timestamp} from './Timestamp';
-import {scaleRectToWidth, scaleToWidth} from '../lib/Rect';
 import {
-  LinkPreview,
   FACEBOOK_PREVIEW_SIZE,
-  PreviewType,
   getPreviewType,
+  LinkPreview,
+  PreviewType,
 } from './LinkPreview';
-import {measureText, hasTwitterInstalled} from '../lib/Yeet';
-import {CONTENT_WIDTH} from './CONTENT_WIDTH';
-import {
-  BorderlessButton,
-  BaseButton,
-  TouchableWithoutFeedback,
-} from 'react-native-gesture-handler';
-import {openLink} from '../lib/openLink';
-import {useMMKV} from './useMMKV';
-import {TwitterFollowButton} from './TwitterFollowButton';
-import {PullyScrollViewContext} from './PullyView';
 import {ListClicker} from './ListClicker';
-import {SCREEN_DIMENSIONS} from './ScreenSize';
+import {PullyScrollViewContext} from './PullyView';
+import {Timestamp} from './Timestamp';
+import {TwitterFollowButton} from './TwitterFollowButton';
+import {useMMKV} from './useMMKV';
 
 const styles = StyleSheet.create({
   container: {
