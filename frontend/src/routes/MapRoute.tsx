@@ -309,7 +309,7 @@ export const MapRoute = ({initialCount}) => {
 
   const circles = React.useMemo(() => {
     return (
-      confirmedPins?.pins.map((pin, index) => ({
+      confirmedPins?.pins?.map((pin, index) => ({
         latitude: pin.latitude,
         longitude: pin.longitude,
         object: 'infection',

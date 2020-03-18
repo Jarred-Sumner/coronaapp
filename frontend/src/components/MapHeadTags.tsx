@@ -32,9 +32,9 @@ export const MapHeadTags = React.memo(
       )}+ people reported having Corona Virus | Covy`;
     }
 
-    const description = <DescriptionSEOTag description={descriptionLabel} />;
+    const description = DescriptionSEOTag({description: descriptionLabel});
 
-    const title = <TitleSEOTag title={titleLabel} />;
+    const title = TitleSEOTag({title: titleLabel});
     const imageURL = buildMapImageURL({
       region,
       width: 1200,
@@ -44,18 +44,13 @@ export const MapHeadTags = React.memo(
 
     console.log({imageURL});
 
-    const imageTag = region && (
-      <ImageSEOTag url={imageURL} width={1200} height={630} />
-    );
+    const imageTag = ImageSEOTag({url: imageURL, width: 1200, height: 630});
 
-    return (
-      <Head>
-        {title}
-        {description}
-        {imageTag}
-
-        <meta property="og:url" content={asPath} key={`url/${asPath}`} />
-      </Head>
-    );
+    return React.createElement(Head, {}, [
+      ...title,
+      ...description,
+      ...imageTag,
+      <meta property="og:url" content={asPath} key={`url/${asPath}`} />,
+    ]);
   },
 );
