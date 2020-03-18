@@ -150,7 +150,7 @@ export const fetchUserPins = (
 const DEVELOPMENT_IMAGE_URL_HOST = 'http://localhost:4023/';
 const PRODUCTION_IMAGE_URL_HOST = 'https://i.covy.app/';
 
-const IMAGE_URL_HOST = DEVELOPMENT_IMAGE_URL_HOST;
+const IMAGE_URL_HOST = PRODUCTION_IMAGE_URL_HOST;
 export const buildMapImageURL = ({region, width, locale, height, count}) =>
   `${IMAGE_URL_HOST}?${qs.stringify({
     lat: region.latitude,
