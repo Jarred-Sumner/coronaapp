@@ -86,13 +86,13 @@ class RootController < ActionController::Base
 
   private def coordinates
     return @coordinates if @coordinates
-    return nil if params[:dlat].blank? || params[:lat].blank? || params[:lng].blank? || params[:a].blank? || params[:dlng].blank?
+    return nil if params[:dlat].blank? || params[:lat].blank? || params[:lng].blank? || params[:z].blank? || params[:dlng].blank?
 
     dlat =  Float(params[:dlat]).abs
     dlng =  Float(params[:dlng]).abs
-    altitude =  Float(params[:a])
     latitude = Float(params[:lat])
     longitude = Float(params[:lng])
+    zoom = Integer(params[:z])
     min_latitude = latitude - dlat
     min_longitude = latitude - dlng
     max_latitude = latitude + dlat
@@ -105,7 +105,8 @@ class RootController < ActionController::Base
       minLon: max_longitude,
       maxLat: min_latitude,
       maxLon: min_longitude,
-      a: altitude,
+      z: zoom,
+      d: 0,
     }
   end
 end
