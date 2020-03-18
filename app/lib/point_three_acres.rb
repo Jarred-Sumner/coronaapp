@@ -118,7 +118,7 @@ module PointThreeAcres
       "province": state_name,
       "state": state_name,
       "county": county,
-      "label": props["city"],
+      "label": props["city"] || props["area"] || "#{county&.name} County, #{state_name}",
       "latitude": county.point.y,
       "longitude": county.point.x,
       "infections": {
