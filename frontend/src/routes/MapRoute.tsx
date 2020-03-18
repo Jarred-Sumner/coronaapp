@@ -12,6 +12,7 @@ import {
   unstable_createElement,
 } from 'react-native';
 import {Region} from 'react-native-maps';
+import {isFinite} from 'lodash';
 import {usePaginatedQuery} from 'react-query';
 import useSWR from 'swr';
 import {
@@ -51,6 +52,7 @@ import StatsWorker from '../lib/StatsClient';
 import {COLORS} from '../lib/theme';
 import {sendSelectionFeedback} from '../lib/Vibration';
 import {RegionContext} from './RegionContext';
+import Router, {useRouter} from 'next/router';
 
 const PullyView = dynamic(() => import('../components/PullyView'), {
   ssr: false,
@@ -154,6 +156,7 @@ enum MapSelectionType {
 
 export const MapRoute = ({initialCount}) => {
   const {width, height} = useWindowDimensions();
+  const router = useRouter();
 
   const isDesktop = width > 600;
 
@@ -178,9 +181,7 @@ export const MapRoute = ({initialCount}) => {
     ['get_userpins', region],
     fetchUserPins,
   );
-  const [confirmedCaseCount, setConfirmedCaseCount] = React.useState(
-    initialCount,
-  );
+  const [confirmedCaseCount, setConfirmedCaseCount] = React.useState(null);
 
   React.useEffect(() => {
     const listener = ({
@@ -197,6 +198,11 @@ export const MapRoute = ({initialCount}) => {
     return () => StatsWorker.removeEventListener('message', listener);
   }, [setConfirmedCaseCount]);
 
+  React.useEffect(() => {
+    if (confirmedCaseCount) {
+      setParams({c: confirmedCaseCount});
+    }
+  }, [confirmedCaseCount, setParams]);
   const mapRef = React.useRef();
   const moveMap = React.useCallback(
     ({latitude, longitude, altitude = 1000 * 100}) => {
@@ -231,16 +237,8 @@ export const MapRoute = ({initialCount}) => {
       console.log('SET REGION', region);
 
       setRegion(region);
-      // setParams({
-      //   minLat: region.minLatitude,
-      //   minLon: region.minLongitude,
-      //   maxLat: region.maxLatitude,
-      //   maxLon: region.maxLongitude,
-      //   lat: region.latitude,
-      //   lon: region.longitude,
-      // });
     },
-    [setRegion, mapRef, setParams],
+    [setRegion, mapRef],
   );
 
   // const lastCountryCode = React.useRef(countryCode);

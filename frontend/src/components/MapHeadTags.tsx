@@ -42,15 +42,17 @@ export const MapHeadTags = React.memo(
       count: confirmedCaseCount,
     });
 
-    console.log({imageURL});
-
     const imageTag = ImageSEOTag({url: imageURL, width: 1200, height: 630});
 
     return React.createElement(Head, {}, [
       ...title,
       ...description,
       ...imageTag,
-      <meta property="og:url" content={asPath} key={`url/${asPath}`} />,
+      <meta
+        property="og:url"
+        content={'https://covy.app' + asPath}
+        key={`url/${asPath}`}
+      />,
     ]);
   },
 );

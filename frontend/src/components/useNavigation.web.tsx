@@ -1,7 +1,7 @@
 import Router from 'next/router';
 import React, {useCallback} from 'react';
 import {useRouter} from 'next/router';
-import {merge} from 'lodash';
+import {merge, isEqual} from 'lodash';
 import {MAPPINGS} from '../lib/Routes.web';
 
 const goBack = () => Router.back();
@@ -17,9 +17,14 @@ export function useNavigation() {
   }, []);
 
   const setParams = useCallback((params: Object) => {
+    const query = merge({}, Router.query, params);
+    if (isEqual(query, Router.query)) {
+      return;
+    }
+
     replace({
       pathname: Router.pathname,
-      query: merge({}, Router.query, params),
+      query,
     });
   }, []);
 

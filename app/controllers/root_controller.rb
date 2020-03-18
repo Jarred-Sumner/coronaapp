@@ -50,7 +50,7 @@ class RootController < ActionController::Base
     # dead = pins.sum { |pin| pin.dig(:infections, :dead) || 0 }
     # recover = pins.sum { |pin| pin.dig(:infection, :recover) || 0 }
     # count = confirm - dead - recover
-    count = 0
+    count = coordinates[:c]
 
     tags = [
       '<meta ssr property="og:image:width" content="1200" />',
@@ -63,7 +63,7 @@ class RootController < ActionController::Base
 
     title_label = "Covy | Real-time Corona Virus Map"
     description = "Covy is the easiest way to track the spread of the novel Coronavirus (COVID-19)."
-    if count > 0
+    if count && count > 0
       title_label = "Track #{number_with_delimiter(count)}+ cases of Coronavirus | Covy - Real-Time Coronavirus Map"
     end
 
@@ -86,13 +86,14 @@ class RootController < ActionController::Base
 
   private def coordinates
     return @coordinates if @coordinates
-    return nil if params[:dlat].blank? || params[:lat].blank? || params[:lng].blank? || params[:z].blank? || params[:dlng].blank?
+    return nil if params[:dlat].blank? || params[:lat].blank? || params[:lng].blank? || params[:z].blank? || params[:dlng].blank? || params[:c].blank?
 
     dlat =  Float(params[:dlat]).abs
     dlng =  Float(params[:dlng]).abs
     latitude = Float(params[:lat])
     longitude = Float(params[:lng])
     zoom = Integer(params[:z])
+    count = Integer(params[:c])
     min_latitude = latitude - dlat
     min_longitude = latitude - dlng
     max_latitude = latitude + dlat
@@ -107,6 +108,7 @@ class RootController < ActionController::Base
       maxLon: min_longitude,
       z: zoom,
       d: 0,
+      c: count
     }
   end
 end
