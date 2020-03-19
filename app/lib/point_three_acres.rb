@@ -82,7 +82,7 @@ module PointThreeAcres
   def self.parse_date(string)
     return nil if string.blank? || !string.include?("/")
 
-    Date.parse(string) + 1.day
+    Time.find_zone("US/Pacific").parse(string).to_date
   end
 
   def self.format_id(props)
