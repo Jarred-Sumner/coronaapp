@@ -27,6 +27,7 @@ class RootController < ActionController::Base
     share_image_url = Addressable::URI.parse("https://i.covy.app/")
     share_image_url.query_values = coordinates.merge({
       width: 1200,
+      cbust: DateTime.now.strftime("%Y-%m-%d"),
       height: 630,
     })
 

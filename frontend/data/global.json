@@ -3,12 +3,6 @@
     "latitude": 15,
     "longitude": 101,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.0810810810810811
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1.025
       },
@@ -65,23 +59,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2040816326530612
+      },
+      "3/18/20": {
+        "cumulative": 1.1977401129943503
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 18,
-        "cumulative": 40,
-        "recover": 22,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 18,
-        "cumulative": 40,
-        "recover": 22,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 13,
         "cumulative": 41,
@@ -214,6 +197,13 @@
         "recover": 41,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 169,
+        "cumulative": 212,
+        "recover": 42,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -221,12 +211,6 @@
     "latitude": 36,
     "longitude": 138,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.111764705882353
-      },
-      "2/27/20": {
-        "cumulative": 1.1322751322751323
-      },
       "2/28/20": {
         "cumulative": 1.0654205607476634
       },
@@ -283,23 +267,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0642424242424242
+      },
+      "3/18/20": {
+        "cumulative": 1.0125284738041003
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 165,
-        "cumulative": 189,
-        "recover": 22,
-        "dead": 2,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 188,
-        "cumulative": 214,
-        "recover": 22,
-        "dead": 4,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 202,
         "cumulative": 228,
@@ -432,6 +405,13 @@
         "recover": 144,
         "dead": 29,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 716,
+        "cumulative": 889,
+        "recover": 144,
+        "dead": 29,
+        "new": 0
       }
     }
   },
@@ -439,12 +419,6 @@
     "latitude": 1.2833,
     "longitude": 103.8333,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.021978021978022
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -501,23 +475,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0946502057613168
+      },
+      "3/18/20": {
+        "cumulative": 1.1766917293233083
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 31,
-        "cumulative": 93,
-        "recover": 62,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 31,
-        "cumulative": 93,
-        "recover": 62,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 31,
         "cumulative": 93,
@@ -650,6 +613,13 @@
         "recover": 114,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 199,
+        "cumulative": 313,
+        "recover": 114,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -657,12 +627,6 @@
     "latitude": 28.1667,
     "longitude": 84.25,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -718,24 +682,13 @@
         "cumulative": 1
       },
       "3/17/20": {
+        "cumulative": 1
+      },
+      "3/18/20": {
         "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 1,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 1,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 1,
@@ -863,6 +816,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 0,
+        "cumulative": 1,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 0,
         "cumulative": 1,
         "recover": 1,
@@ -875,12 +835,6 @@
     "latitude": 2.5,
     "longitude": 112.5,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1.0454545454545454
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -937,23 +891,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1890459363957597
+      },
+      "3/18/20": {
+        "cumulative": 1.173848439821694
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 4,
-        "cumulative": 22,
-        "recover": 18,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 5,
-        "cumulative": 23,
-        "recover": 18,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 5,
         "cumulative": 23,
@@ -1086,6 +1029,13 @@
         "recover": 49,
         "dead": 2,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 728,
+        "cumulative": 790,
+        "recover": 60,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -1093,12 +1043,6 @@
     "latitude": 49.2827,
     "longitude": -123.1207,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1.1818181818181819
-      },
       "2/28/20": {
         "cumulative": 1.0769230769230769
       },
@@ -1155,23 +1099,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1518072289156627
+      },
+      "3/18/20": {
+        "cumulative": 1.3744769874476988
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 8,
-        "cumulative": 11,
-        "recover": 3,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 7,
-        "cumulative": 13,
-        "recover": 6,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 8,
         "cumulative": 14,
@@ -1304,6 +1237,13 @@
         "recover": 9,
         "dead": 5,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 640,
+        "cumulative": 657,
+        "recover": 9,
+        "dead": 8,
+        "new": 0
       }
     }
   },
@@ -1311,12 +1251,6 @@
     "latitude": -33.8688,
     "longitude": 151.2093,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1.0454545454545454
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -1373,23 +1307,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1989389920424403
+      },
+      "3/18/20": {
+        "cumulative": 1.2566371681415929
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 11,
-        "cumulative": 22,
-        "recover": 11,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 12,
-        "cumulative": 23,
-        "recover": 11,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 12,
         "cumulative": 23,
@@ -1522,6 +1445,13 @@
         "recover": 23,
         "dead": 5,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 539,
+        "cumulative": 568,
+        "recover": 23,
+        "dead": 6,
+        "new": 0
       }
     }
   },
@@ -1529,12 +1459,6 @@
     "latitude": 11.55,
     "longitude": 104.9167,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -1591,23 +1515,12 @@
       },
       "3/17/20": {
         "cumulative": 4.714285714285714
+      },
+      "3/18/20": {
+        "cumulative": 1.0606060606060606
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 1,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 1,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 1,
@@ -1740,6 +1653,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 34,
+        "cumulative": 35,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -1747,12 +1667,6 @@
     "latitude": 7,
     "longitude": 81,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -1809,23 +1723,12 @@
       },
       "3/17/20": {
         "cumulative": 1.5714285714285714
+      },
+      "3/18/20": {
+        "cumulative": 1.1590909090909092
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 1,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 1,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 1,
@@ -1958,6 +1861,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 50,
+        "cumulative": 51,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -1965,12 +1875,6 @@
     "latitude": 51,
     "longitude": 9,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.588235294117647
-      },
-      "2/27/20": {
-        "cumulative": 1.7037037037037037
-      },
       "2/28/20": {
         "cumulative": 1.0434782608695652
       },
@@ -2027,23 +1931,12 @@
       },
       "3/17/20": {
         "cumulative": 1.272964796479648
+      },
+      "3/18/20": {
+        "cumulative": 1.3316409203845738
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 12,
-        "cumulative": 27,
-        "recover": 15,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 30,
-        "cumulative": 46,
-        "recover": 16,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 32,
         "cumulative": 48,
@@ -2176,6 +2069,13 @@
         "recover": 67,
         "dead": 24,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 12194,
+        "cumulative": 12327,
+        "recover": 105,
+        "dead": 28,
+        "new": 0
       }
     }
   },
@@ -2183,12 +2083,6 @@
     "latitude": 64,
     "longitude": 26,
     "growth": {
-      "2/26/20": {
-        "cumulative": 2
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -2245,23 +2139,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1588447653429603
+      },
+      "3/18/20": {
+        "cumulative": 1.0467289719626167
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 2,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 2,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 2,
@@ -2394,6 +2277,13 @@
         "recover": 10,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 326,
+        "cumulative": 336,
+        "recover": 10,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -2401,12 +2291,6 @@
     "latitude": 24,
     "longitude": 54,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1.4615384615384615
       },
@@ -2463,23 +2347,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1.153061224489796
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 9,
-        "cumulative": 13,
-        "recover": 4,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 9,
-        "cumulative": 13,
-        "recover": 4,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 14,
         "cumulative": 19,
@@ -2612,6 +2485,13 @@
         "recover": 23,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 87,
+        "cumulative": 113,
+        "recover": 26,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -2619,12 +2499,6 @@
     "latitude": 13,
     "longitude": 122,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -2681,23 +2555,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3169014084507042
+      },
+      "3/18/20": {
+        "cumulative": 1.0802139037433156
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 3,
-        "recover": 1,
-        "dead": 1,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 3,
-        "recover": 1,
-        "dead": 1,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 3,
@@ -2830,6 +2693,13 @@
         "recover": 5,
         "dead": 12,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 178,
+        "cumulative": 202,
+        "recover": 5,
+        "dead": 19,
+        "new": 0
       }
     }
   },
@@ -2837,12 +2707,6 @@
     "latitude": 21,
     "longitude": 78,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -2899,23 +2763,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1932773109243697
+      },
+      "3/18/20": {
+        "cumulative": 1.0985915492957747
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 3,
-        "recover": 3,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 3,
-        "recover": 3,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 3,
@@ -3048,6 +2901,13 @@
         "recover": 14,
         "dead": 3,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 139,
+        "cumulative": 156,
+        "recover": 14,
+        "dead": 3,
+        "new": 0
       }
     }
   },
@@ -3055,12 +2915,6 @@
     "latitude": 43,
     "longitude": 12,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.406832298136646
-      },
-      "2/27/20": {
-        "cumulative": 1.445916114790287
-      },
       "2/28/20": {
         "cumulative": 1.3557251908396946
       },
@@ -3117,23 +2971,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1260185847033595
+      },
+      "3/18/20": {
+        "cumulative": 1.1335301212467466
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 438,
-        "cumulative": 453,
-        "recover": 3,
-        "dead": 12,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 593,
-        "cumulative": 655,
-        "recover": 45,
-        "dead": 17,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 821,
         "cumulative": 888,
@@ -3266,6 +3109,13 @@
         "recover": 2941,
         "dead": 2503,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 28710,
+        "cumulative": 35713,
+        "recover": 4025,
+        "dead": 2978,
+        "new": 0
       }
     }
   },
@@ -3273,12 +3123,6 @@
     "latitude": 63,
     "longitude": 16,
     "growth": {
-      "2/26/20": {
-        "cumulative": 2
-      },
-      "2/27/20": {
-        "cumulative": 3.5
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -3335,23 +3179,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0788757932910245
+      },
+      "3/18/20": {
+        "cumulative": 1.0747899159663865
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 7,
-        "cumulative": 7,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 7,
         "cumulative": 7,
@@ -3484,6 +3317,13 @@
         "recover": 1,
         "dead": 7,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1268,
+        "cumulative": 1279,
+        "recover": 1,
+        "dead": 10,
+        "new": 0
       }
     }
   },
@@ -3491,12 +3331,6 @@
     "latitude": 40,
     "longitude": -4,
     "growth": {
-      "2/26/20": {
-        "cumulative": 2.1666666666666665
-      },
-      "2/27/20": {
-        "cumulative": 1.1538461538461537
-      },
       "2/28/20": {
         "cumulative": 2.1333333333333333
       },
@@ -3553,23 +3387,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1816535908267953
+      },
+      "3/18/20": {
+        "cumulative": 1.1840313244807628
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 11,
-        "cumulative": 13,
-        "recover": 2,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 13,
-        "cumulative": 15,
-        "recover": 2,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 30,
         "cumulative": 32,
@@ -3702,6 +3525,13 @@
         "recover": 1028,
         "dead": 533,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 12206,
+        "cumulative": 13910,
+        "recover": 1081,
+        "dead": 623,
+        "new": 0
       }
     }
   },
@@ -3709,12 +3539,6 @@
     "latitude": 50.8333,
     "longitude": 4,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -3771,23 +3595,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1748582230623819
+      },
+      "3/18/20": {
+        "cumulative": 1.1954947707160097
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 1,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 1,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 1,
@@ -3920,6 +3733,13 @@
         "recover": 1,
         "dead": 10,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1441,
+        "cumulative": 1486,
+        "recover": 31,
+        "dead": 14,
+        "new": 0
       }
     }
   },
@@ -3927,12 +3747,6 @@
     "latitude": 26,
     "longitude": 30,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -3989,23 +3803,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3066666666666666
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 1,
@@ -4138,6 +3941,13 @@
         "recover": 32,
         "dead": 4,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 158,
+        "cumulative": 196,
+        "recover": 32,
+        "dead": 6,
+        "new": 0
       }
     }
   },
@@ -4145,12 +3955,6 @@
     "latitude": 33.8547,
     "longitude": 35.8623,
     "growth": {
-      "2/26/20": {
-        "cumulative": 2
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -4207,23 +4011,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2121212121212122
+      },
+      "3/18/20": {
+        "cumulative": 1.1083333333333334
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 2,
         "cumulative": 2,
@@ -4356,6 +4149,13 @@
         "recover": 3,
         "dead": 3,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 127,
+        "cumulative": 133,
+        "recover": 3,
+        "dead": 3,
+        "new": 0
       }
     }
   },
@@ -4363,12 +4163,6 @@
     "latitude": 33,
     "longitude": 44,
     "growth": {
-      "2/26/20": {
-        "cumulative": 5
-      },
-      "2/27/20": {
-        "cumulative": 1.4
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -4425,23 +4219,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2419354838709677
+      },
+      "3/18/20": {
+        "cumulative": 1.0649350649350648
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 5,
-        "cumulative": 5,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 7,
-        "cumulative": 7,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 7,
         "cumulative": 7,
@@ -4574,6 +4357,13 @@
         "recover": 32,
         "dead": 11,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 109,
+        "cumulative": 164,
+        "recover": 43,
+        "dead": 12,
+        "new": 0
       }
     }
   },
@@ -4581,12 +4371,6 @@
     "latitude": 21,
     "longitude": 57,
     "growth": {
-      "2/26/20": {
-        "cumulative": 2
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -4643,23 +4427,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0909090909090908
+      },
+      "3/18/20": {
+        "cumulative": 1.625
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 4,
-        "cumulative": 4,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 4,
-        "cumulative": 4,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 4,
         "cumulative": 4,
@@ -4792,6 +4565,13 @@
         "recover": 9,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 27,
+        "cumulative": 39,
+        "recover": 12,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -4799,12 +4579,6 @@
     "latitude": 33,
     "longitude": 65,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -4861,23 +4635,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0476190476190477
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -5010,6 +4773,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 21,
+        "cumulative": 22,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -5017,12 +4787,6 @@
     "latitude": 26.0275,
     "longitude": 50.55,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.434782608695652
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1.0909090909090908
       },
@@ -5079,23 +4843,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0654205607476634
+      },
+      "3/18/20": {
+        "cumulative": 1.1228070175438596
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 33,
-        "cumulative": 33,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 33,
-        "cumulative": 33,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 36,
         "cumulative": 36,
@@ -5228,6 +4981,13 @@
         "recover": 81,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 167,
+        "cumulative": 256,
+        "recover": 88,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -5235,12 +4995,6 @@
     "latitude": 29.5,
     "longitude": 47.75,
     "growth": {
-      "2/26/20": {
-        "cumulative": 2.3636363636363638
-      },
-      "2/27/20": {
-        "cumulative": 1.6538461538461537
-      },
       "2/28/20": {
         "cumulative": 1.0465116279069768
       },
@@ -5297,23 +5051,12 @@
       },
       "3/17/20": {
         "cumulative": 1.056910569105691
+      },
+      "3/18/20": {
+        "cumulative": 1.0923076923076922
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 26,
-        "cumulative": 26,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 43,
-        "cumulative": 43,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 45,
         "cumulative": 45,
@@ -5446,6 +5189,13 @@
         "recover": 9,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 127,
+        "cumulative": 142,
+        "recover": 15,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -5453,12 +5203,6 @@
     "latitude": 28.0339,
     "longitude": 1.6596,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -5515,23 +5259,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1111111111111112
+      },
+      "3/18/20": {
+        "cumulative": 1.2333333333333334
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -5664,6 +5397,13 @@
         "recover": 12,
         "dead": 4,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 55,
+        "cumulative": 74,
+        "recover": 12,
+        "dead": 7,
+        "new": 0
       }
     }
   },
@@ -5671,12 +5411,6 @@
     "latitude": 45.1,
     "longitude": 15.2,
     "growth": {
-      "2/26/20": {
-        "cumulative": 3
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1.6666666666666667
       },
@@ -5733,23 +5467,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1403508771929824
+      },
+      "3/18/20": {
+        "cumulative": 1.2461538461538462
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 3,
-        "cumulative": 3,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 3,
-        "cumulative": 3,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 5,
         "cumulative": 5,
@@ -5882,6 +5605,13 @@
         "recover": 4,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 77,
+        "cumulative": 81,
+        "recover": 4,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -5889,12 +5619,6 @@
     "latitude": 46.8182,
     "longitude": 8.2275,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 8
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -5951,23 +5675,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2272727272727273
+      },
+      "3/18/20": {
+        "cumulative": 1.1214814814814815
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 8,
-        "cumulative": 8,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 8,
         "cumulative": 8,
@@ -6100,6 +5813,13 @@
         "recover": 4,
         "dead": 27,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 2985,
+        "cumulative": 3028,
+        "recover": 15,
+        "dead": 28,
+        "new": 0
       }
     }
   },
@@ -6107,12 +5827,6 @@
     "latitude": 47.5162,
     "longitude": 14.5501,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1.5
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -6169,23 +5883,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3084479371316307
+      },
+      "3/18/20": {
+        "cumulative": 1.2357357357357357
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 3,
-        "cumulative": 3,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 3,
         "cumulative": 3,
@@ -6318,6 +6021,13 @@
         "recover": 1,
         "dead": 3,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1633,
+        "cumulative": 1646,
+        "recover": 9,
+        "dead": 4,
+        "new": 0
       }
     }
   },
@@ -6325,12 +6035,6 @@
     "latitude": 31,
     "longitude": 35,
     "growth": {
-      "2/26/20": {
-        "cumulative": 2
-      },
-      "2/27/20": {
-        "cumulative": 1.5
-      },
       "2/28/20": {
         "cumulative": 1.3333333333333333
       },
@@ -6387,23 +6091,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3215686274509804
+      },
+      "3/18/20": {
+        "cumulative": 1.28486646884273
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 2,
-        "cumulative": 3,
-        "recover": 1,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 3,
         "cumulative": 4,
@@ -6536,6 +6229,13 @@
         "recover": 11,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 422,
+        "cumulative": 433,
+        "recover": 11,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -6543,9 +6243,6 @@
     "latitude": 30.3753,
     "longitude": 69.3451,
     "growth": {
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -6602,23 +6299,12 @@
       },
       "3/17/20": {
         "cumulative": 1.7352941176470589
+      },
+      "3/18/20": {
+        "cumulative": 1.2669491525423728
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 2,
         "cumulative": 2,
@@ -6751,6 +6437,13 @@
         "recover": 2,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 297,
+        "cumulative": 299,
+        "recover": 2,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -6758,9 +6451,6 @@
     "latitude": -14.235,
     "longitude": -51.9253,
     "growth": {
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -6817,23 +6507,12 @@
       },
       "3/17/20": {
         "cumulative": 1.605
+      },
+      "3/18/20": {
+        "cumulative": 1.158878504672897
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -6966,6 +6645,13 @@
         "recover": 2,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 367,
+        "cumulative": 372,
+        "recover": 2,
+        "dead": 3,
+        "new": 0
       }
     }
   },
@@ -6973,9 +6659,6 @@
     "latitude": 42.3154,
     "longitude": 43.3569,
     "growth": {
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -7032,23 +6715,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0303030303030303
+      },
+      "3/18/20": {
+        "cumulative": 1.1176470588235294
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -7181,6 +6853,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 37,
+        "cumulative": 38,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -7188,9 +6867,6 @@
     "latitude": 39.0742,
     "longitude": 21.8243,
     "growth": {
-      "2/27/20": {
-        "cumulative": 3
-      },
       "2/28/20": {
         "cumulative": 1.3333333333333333
       },
@@ -7247,23 +6923,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1691842900302114
+      },
+      "3/18/20": {
+        "cumulative": 1.0801033591731266
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 3,
-        "cumulative": 3,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 4,
         "cumulative": 4,
@@ -7396,6 +7061,13 @@
         "recover": 8,
         "dead": 5,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 405,
+        "cumulative": 418,
+        "recover": 8,
+        "dead": 5,
+        "new": 0
       }
     }
   },
@@ -7403,9 +7075,6 @@
     "latitude": 41.6086,
     "longitude": 21.7453,
     "growth": {
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -7462,23 +7131,12 @@
       },
       "3/17/20": {
         "cumulative": 1.4444444444444444
+      },
+      "3/18/20": {
+        "cumulative": 1.3461538461538463
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -7611,6 +7269,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 34,
+        "cumulative": 35,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -7618,9 +7283,6 @@
     "latitude": 60.472,
     "longitude": 8.4689,
     "growth": {
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 6
       },
@@ -7677,23 +7339,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0975243810952737
+      },
+      "3/18/20": {
+        "cumulative": 1.0594668489405332
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 6,
         "cumulative": 6,
@@ -7826,6 +7477,13 @@
         "recover": 1,
         "dead": 3,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1543,
+        "cumulative": 1550,
+        "recover": 1,
+        "dead": 6,
+        "new": 0
       }
     }
   },
@@ -7833,9 +7491,6 @@
     "latitude": 45.9432,
     "longitude": 24.9668,
     "growth": {
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 3
       },
@@ -7892,23 +7547,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1645569620253164
+      },
+      "3/18/20": {
+        "cumulative": 1.4130434782608696
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 3,
         "cumulative": 3,
@@ -8041,6 +7685,13 @@
         "recover": 16,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 241,
+        "cumulative": 260,
+        "recover": 19,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -8104,23 +7755,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0975609756097562
+      },
+      "3/18/20": {
+        "cumulative": 1.1466666666666667
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -8253,6 +7893,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 257,
+        "cumulative": 258,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -8316,23 +7963,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1.091743119266055
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -8465,6 +8101,13 @@
         "recover": 4,
         "dead": 7,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 104,
+        "cumulative": 119,
+        "recover": 4,
+        "dead": 11,
+        "new": 0
       }
     }
   },
@@ -8525,23 +8168,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1.4166666666666667
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -8674,6 +8306,13 @@
         "recover": 3,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 46,
+        "cumulative": 51,
+        "recover": 5,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -8734,23 +8373,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2222222222222223
+      },
+      "3/18/20": {
+        "cumulative": 1.1363636363636365
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -8883,6 +8511,13 @@
         "recover": 0,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 244,
+        "cumulative": 250,
+        "recover": 5,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -8943,23 +8578,12 @@
       },
       "3/17/20": {
         "cumulative": 1.4705882352941178
+      },
+      "3/18/20": {
+        "cumulative": 1.08
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -9092,6 +8716,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 26,
+        "cumulative": 27,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -9152,23 +8783,12 @@
       },
       "3/17/20": {
         "cumulative": 1.5471698113207548
+      },
+      "3/18/20": {
+        "cumulative": 1.1341463414634145
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -9301,6 +8921,13 @@
         "recover": 4,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 89,
+        "cumulative": 93,
+        "recover": 4,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -9361,23 +8988,12 @@
       },
       "3/17/20": {
         "cumulative": 1.5
+      },
+      "3/18/20": {
+        "cumulative": 1.6666666666666667
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -9510,6 +9126,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 20,
+        "cumulative": 20,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -9570,23 +9193,12 @@
       },
       "3/17/20": {
         "cumulative": 1.5
+      },
+      "3/18/20": {
+        "cumulative": 2.6666666666666665
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -9719,6 +9331,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 7,
+        "cumulative": 8,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -9776,23 +9395,12 @@
       },
       "3/17/20": {
         "cumulative": 1.319526627218935
+      },
+      "3/18/20": {
+        "cumulative": 1.3094170403587444
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -9925,6 +9533,13 @@
         "recover": 5,
         "dead": 2,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 285,
+        "cumulative": 292,
+        "recover": 5,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -9982,23 +9597,12 @@
       },
       "3/17/20": {
         "cumulative": 1.8181818181818181
+      },
+      "3/18/20": {
+        "cumulative": 1.45
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -10131,6 +9735,13 @@
         "recover": 0,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 201,
+        "cumulative": 203,
+        "recover": 0,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -10188,23 +9799,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -10337,6 +9937,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 7,
+        "cumulative": 7,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -10394,23 +10001,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1.029612756264237
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -10543,6 +10139,13 @@
         "recover": 4,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 448,
+        "cumulative": 452,
+        "recover": 4,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -10597,23 +10200,12 @@
       },
       "3/17/20": {
         "cumulative": 1.5675675675675675
+      },
+      "3/18/20": {
+        "cumulative": 1.9137931034482758
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -10746,6 +10338,13 @@
         "recover": 0,
         "dead": 2,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 109,
+        "cumulative": 111,
+        "recover": 0,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -10800,23 +10399,12 @@
       },
       "3/17/20": {
         "cumulative": 1.8666666666666667
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -10949,6 +10537,13 @@
         "recover": 6,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 21,
+        "cumulative": 28,
+        "recover": 6,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -11003,23 +10598,12 @@
       },
       "3/17/20": {
         "cumulative": 1.5
+      },
+      "3/18/20": {
+        "cumulative": 1.0769230769230769
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -11152,6 +10736,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 83,
+        "cumulative": 84,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -11206,23 +10797,12 @@
       },
       "3/17/20": {
         "cumulative": 1.9090909090909092
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -11355,6 +10935,13 @@
         "recover": 0,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 20,
+        "cumulative": 21,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -11406,23 +10993,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2835820895522387
+      },
+      "3/18/20": {
+        "cumulative": 1.319767441860465
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -11555,6 +11131,13 @@
         "recover": 8,
         "dead": 5,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 197,
+        "cumulative": 227,
+        "recover": 11,
+        "dead": 19,
+        "new": 0
       }
     }
   },
@@ -11606,23 +11189,12 @@
       },
       "3/17/20": {
         "cumulative": 1.353474320241692
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -11755,6 +11327,13 @@
         "recover": 3,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 443,
+        "cumulative": 448,
+        "recover": 3,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -11806,23 +11385,12 @@
       },
       "3/17/20": {
         "cumulative": 19.5
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -11955,6 +11523,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 38,
+        "cumulative": 39,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -12006,23 +11581,12 @@
       },
       "3/17/20": {
         "cumulative": 1.4411764705882353
+      },
+      "3/18/20": {
+        "cumulative": 1.4489795918367347
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -12155,6 +11719,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 70,
+        "cumulative": 71,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -12206,23 +11777,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3103448275862069
+      },
+      "3/18/20": {
+        "cumulative": 1.2894736842105263
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -12355,6 +11915,13 @@
         "recover": 1,
         "dead": 2,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 46,
+        "cumulative": 49,
+        "recover": 1,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -12406,23 +11973,12 @@
       },
       "3/17/20": {
         "cumulative": 1.4491525423728813
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -12555,6 +12111,13 @@
         "recover": 6,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 165,
+        "cumulative": 171,
+        "recover": 6,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -12606,23 +12169,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0833333333333333
+      },
+      "3/18/20": {
+        "cumulative": 1.1923076923076923
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -12755,6 +12307,13 @@
         "recover": 2,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 29,
+        "cumulative": 31,
+        "recover": 2,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -12803,23 +12362,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2142857142857142
+      },
+      "3/18/20": {
+        "cumulative": 1.161764705882353
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -12952,6 +12500,13 @@
         "recover": 3,
         "dead": 2,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 74,
+        "cumulative": 79,
+        "recover": 3,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -13000,23 +12555,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2967741935483872
+      },
+      "3/18/20": {
+        "cumulative": 1.1840796019900497
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -13149,6 +12693,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 238,
+        "cumulative": 238,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -13197,23 +12748,12 @@
       },
       "3/17/20": {
         "cumulative": 2
+      },
+      "3/18/20": {
+        "cumulative": 1.5294117647058822
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -13346,6 +12886,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 51,
+        "cumulative": 52,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -13394,23 +12941,12 @@
       },
       "3/17/20": {
         "cumulative": 2
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -13543,6 +13079,13 @@
         "recover": 0,
         "dead": 2,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 12,
+        "cumulative": 14,
+        "recover": 0,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -13588,23 +13131,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2820512820512822
+      },
+      "3/18/20": {
+        "cumulative": 1.16
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -13737,6 +13269,13 @@
         "recover": 2,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 55,
+        "cumulative": 58,
+        "recover": 2,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -13782,23 +13321,12 @@
       },
       "3/17/20": {
         "cumulative": 1.75
+      },
+      "3/18/20": {
+        "cumulative": 4
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -13931,6 +13459,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 28,
+        "cumulative": 28,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -13976,23 +13511,12 @@
       },
       "3/17/20": {
         "cumulative": 1.344632768361582
+      },
+      "3/18/20": {
+        "cumulative": 1.0546218487394958
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -14125,6 +13649,13 @@
         "recover": 13,
         "dead": 5,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 233,
+        "cumulative": 251,
+        "recover": 13,
+        "dead": 5,
+        "new": 0
       }
     }
   },
@@ -14170,23 +13701,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2
+      },
+      "3/18/20": {
+        "cumulative": 1.2083333333333333
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -14319,6 +13839,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 29,
+        "cumulative": 29,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -14361,23 +13888,12 @@
       },
       "3/17/20": {
         "cumulative": 1.04
+      },
+      "3/18/20": {
+        "cumulative": 1.4615384615384615
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -14510,6 +14026,13 @@
         "recover": 2,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 36,
+        "cumulative": 38,
+        "recover": 2,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -14552,23 +14075,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0869565217391304
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -14701,6 +14213,13 @@
         "recover": 0,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 274,
+        "cumulative": 275,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -14743,23 +14262,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1.8709677419354838
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -14892,6 +14400,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 116,
+        "cumulative": 116,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -14931,23 +14446,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -15080,6 +14584,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -15119,23 +14630,12 @@
       },
       "3/17/20": {
         "cumulative": 2.5
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -15268,6 +14768,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 10,
+        "cumulative": 10,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -15307,23 +14814,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2037037037037037
+      },
+      "3/18/20": {
+        "cumulative": 1.4307692307692308
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -15456,6 +14952,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 92,
+        "cumulative": 93,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -15495,23 +14998,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1714285714285715
+      },
+      "3/18/20": {
+        "cumulative": 1.2195121951219512
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -15644,6 +15136,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 50,
+        "cumulative": 50,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -15683,23 +15182,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3604651162790697
+      },
+      "3/18/20": {
+        "cumulative": 1.2393162393162394
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -15832,6 +15320,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 144,
+        "cumulative": 145,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -15871,23 +15366,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1818181818181819
+      },
+      "3/18/20": {
+        "cumulative": 1.2769230769230768
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -16020,6 +15504,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 82,
+        "cumulative": 83,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -16059,23 +15550,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1428571428571428
+      },
+      "3/18/20": {
+        "cumulative": 1.4583333333333333
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -16208,6 +15688,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 104,
+        "cumulative": 105,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -16247,23 +15734,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -16396,6 +15872,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -16432,23 +15915,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2666666666666666
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -16581,6 +16053,13 @@
         "recover": 2,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 36,
+        "cumulative": 38,
+        "recover": 2,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -16617,23 +16096,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0666666666666667
+      },
+      "3/18/20": {
+        "cumulative": 1.1875
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -16766,6 +16234,13 @@
         "recover": 0,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 18,
+        "cumulative": 19,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -16799,23 +16274,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2884615384615385
+      },
+      "3/18/20": {
+        "cumulative": 1.373134328358209
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -16948,6 +16412,13 @@
         "recover": 0,
         "dead": 2,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 90,
+        "cumulative": 92,
+        "recover": 0,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -16981,23 +16452,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -17130,6 +16590,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 13,
+        "cumulative": 13,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -17163,23 +16630,12 @@
       },
       "3/17/20": {
         "cumulative": 1.25
+      },
+      "3/18/20": {
+        "cumulative": 1.4
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -17312,6 +16768,13 @@
         "recover": 3,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 10,
+        "cumulative": 14,
+        "recover": 3,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -17345,23 +16808,12 @@
       },
       "3/17/20": {
         "cumulative": 1.125
+      },
+      "3/18/20": {
+        "cumulative": 1.2222222222222223
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -17494,6 +16946,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 11,
+        "cumulative": 11,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -17524,23 +16983,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0784313725490196
+      },
+      "3/18/20": {
+        "cumulative": 1.0727272727272728
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -17673,6 +17121,13 @@
         "recover": 0,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 57,
+        "cumulative": 59,
+        "recover": 0,
+        "dead": 2,
+        "new": 0
       }
     }
   },
@@ -17703,23 +17158,12 @@
       },
       "3/17/20": {
         "cumulative": 1.393939393939394
+      },
+      "3/18/20": {
+        "cumulative": 1.065217391304348
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -17852,6 +17296,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 49,
+        "cumulative": 49,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -17882,23 +17333,12 @@
       },
       "3/17/20": {
         "cumulative": 1.037037037037037
+      },
+      "3/18/20": {
+        "cumulative": 1.2142857142857142
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -18031,6 +17471,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 68,
+        "cumulative": 68,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -18058,23 +17505,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1.3333333333333333
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -18207,6 +17643,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 19,
+        "cumulative": 20,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -18246,23 +17689,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -18395,6 +17827,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -18422,23 +17861,12 @@
       },
       "3/17/20": {
         "cumulative": 5
+      },
+      "3/18/20": {
+        "cumulative": 1.2
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -18571,6 +17999,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 6,
+        "cumulative": 6,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -18598,23 +18033,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2545454545454546
+      },
+      "3/18/20": {
+        "cumulative": 1.2463768115942029
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -18747,6 +18171,13 @@
         "recover": 0,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 85,
+        "cumulative": 86,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -18754,12 +18185,6 @@
     "latitude": 30.9756,
     "longitude": 112.2707,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.0052987627646166
-      },
-      "2/27/20": {
-        "cumulative": 1.005552286160223
-      },
       "2/28/20": {
         "cumulative": 1.0041730279898218
       },
@@ -18816,23 +18241,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0003085162834895
+      },
+      "3/18/20": {
+        "cumulative": 1.0005428211897653
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 45365,
-        "cumulative": 78166,
-        "recover": 30084,
-        "dead": 2717,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 42924,
-        "cumulative": 78600,
-        "recover": 32930,
-        "dead": 2746,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 39809,
         "cumulative": 78928,
@@ -18965,6 +18379,13 @@
         "recover": 68798,
         "dead": 3230,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 8106,
+        "cumulative": 81102,
+        "recover": 69755,
+        "dead": 3241,
+        "new": 0
       }
     }
   },
@@ -18972,12 +18393,6 @@
     "latitude": 32,
     "longitude": 53,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.4631578947368422
-      },
-      "2/27/20": {
-        "cumulative": 1.7625899280575539
-      },
       "2/28/20": {
         "cumulative": 1.583673469387755
       },
@@ -19034,23 +18449,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0785804816223068
+      },
+      "3/18/20": {
+        "cumulative": 1.0737213185725771
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 71,
-        "cumulative": 139,
-        "recover": 49,
-        "dead": 19,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 170,
-        "cumulative": 245,
-        "recover": 49,
-        "dead": 26,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 281,
         "cumulative": 388,
@@ -19183,6 +18587,13 @@
         "recover": 5389,
         "dead": 988,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 10837,
+        "cumulative": 17361,
+        "recover": 5389,
+        "dead": 1135,
+        "new": 0
       }
     }
   },
@@ -19190,12 +18601,6 @@
     "latitude": 36,
     "longitude": 128,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.2906857727737973
-      },
-      "2/27/20": {
-        "cumulative": 1.4004758128469468
-      },
       "2/28/20": {
         "cumulative": 1.3233295583238958
       },
@@ -19252,23 +18657,12 @@
       },
       "3/17/20": {
         "cumulative": 1.010199125789218
+      },
+      "3/18/20": {
+        "cumulative": 1.0111778846153847
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 1227,
-        "cumulative": 1261,
-        "recover": 22,
-        "dead": 12,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1731,
-        "cumulative": 1766,
-        "recover": 22,
-        "dead": 13,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 2302,
         "cumulative": 2337,
@@ -19401,6 +18795,13 @@
         "recover": 1407,
         "dead": 81,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 6789,
+        "cumulative": 8413,
+        "recover": 1540,
+        "dead": 84,
+        "new": 0
       }
     }
   },
@@ -19408,12 +18809,6 @@
     "latitude": 46.2276,
     "longitude": 2.2137,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.2857142857142858
-      },
-      "2/27/20": {
-        "cumulative": 2.111111111111111
-      },
       "2/28/20": {
         "cumulative": 1.5
       },
@@ -19470,23 +18865,12 @@
       },
       "3/17/20": {
         "cumulative": 1.154619076184763
+      },
+      "3/18/20": {
+        "cumulative": 1.1826211196259255
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 5,
-        "cumulative": 18,
-        "recover": 11,
-        "dead": 2,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 25,
-        "cumulative": 38,
-        "recover": 11,
-        "dead": 2,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 44,
         "cumulative": 57,
@@ -19619,6 +19003,13 @@
         "recover": 12,
         "dead": 148,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 8945,
+        "cumulative": 9105,
+        "recover": 12,
+        "dead": 148,
+        "new": 0
       }
     }
   },
@@ -19626,12 +19017,6 @@
     "latitude": 35.4437,
     "longitude": 139.638,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.020260492040521
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -19688,23 +19073,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1.0229885057471264
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 691,
-        "cumulative": 705,
-        "recover": 10,
-        "dead": 4,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 691,
-        "cumulative": 705,
-        "recover": 10,
-        "dead": 4,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 689,
         "cumulative": 705,
@@ -19834,6 +19208,13 @@
       "3/17/20": {
         "ongoing": 364,
         "cumulative": 696,
+        "recover": 325,
+        "dead": 7,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 380,
+        "cumulative": 712,
         "recover": 325,
         "dead": 7,
         "new": 0
@@ -19900,23 +19281,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0987124463519313
+      },
+      "3/18/20": {
+        "cumulative": 1.0888671875
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -20049,6 +19419,13 @@
         "recover": 1,
         "dead": 4,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1110,
+        "cumulative": 1115,
+        "recover": 1,
+        "dead": 4,
+        "new": 0
       }
     }
   },
@@ -20103,23 +19480,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3288590604026846
+      },
+      "3/18/20": {
+        "cumulative": 1.1717171717171717
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -20252,6 +19618,13 @@
         "recover": 3,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 461,
+        "cumulative": 464,
+        "recover": 3,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -20259,12 +19632,6 @@
     "latitude": 23.7,
     "longitude": 121,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1.032258064516129
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1.0625
       },
@@ -20321,23 +19688,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1492537313432836
+      },
+      "3/18/20": {
+        "cumulative": 1.2987012987012987
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 26,
-        "cumulative": 32,
-        "recover": 5,
-        "dead": 1,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 26,
-        "cumulative": 32,
-        "recover": 5,
-        "dead": 1,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 27,
         "cumulative": 34,
@@ -20470,6 +19826,13 @@
         "recover": 22,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 77,
+        "cumulative": 100,
+        "recover": 22,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -20477,12 +19840,6 @@
     "latitude": 16,
     "longitude": 108,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -20539,23 +19896,12 @@
       },
       "3/17/20": {
         "cumulative": 1.0819672131147542
+      },
+      "3/18/20": {
+        "cumulative": 1.1363636363636365
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 16,
-        "recover": 16,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 16,
-        "recover": 16,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 16,
@@ -20688,6 +20034,13 @@
         "recover": 16,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 59,
+        "cumulative": 75,
+        "recover": 16,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -20695,12 +20048,6 @@
     "latitude": 60,
     "longitude": 90,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1
-      },
       "2/28/20": {
         "cumulative": 1
       },
@@ -20757,23 +20104,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2666666666666666
+      },
+      "3/18/20": {
+        "cumulative": 1.2894736842105263
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 2,
-        "recover": 2,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 2,
-        "recover": 2,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 2,
@@ -20906,6 +20242,13 @@
         "recover": 8,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 139,
+        "cumulative": 147,
+        "recover": 8,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -20939,23 +20282,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3043478260869565
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -21088,6 +20420,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 28,
+        "cumulative": 30,
+        "recover": 1,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -21112,23 +20451,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1.0909090909090908
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -21261,6 +20589,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 12,
+        "cumulative": 12,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -21285,23 +20620,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3333333333333333
+      },
+      "3/18/20": {
+        "cumulative": 1.125
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -21434,6 +20758,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 9,
+        "cumulative": 9,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -21441,12 +20772,6 @@
     "latitude": 49.3723,
     "longitude": -2.3644,
     "growth": {
-      "2/26/20": {
-        "cumulative": 1
-      },
-      "2/27/20": {
-        "cumulative": 1.1538461538461537
-      },
       "2/28/20": {
         "cumulative": 1.3333333333333333
       },
@@ -21503,23 +20828,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2637008381689232
+      },
+      "3/18/20": {
+        "cumulative": 1.3479591836734695
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 5,
-        "cumulative": 13,
-        "recover": 8,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 7,
-        "cumulative": 15,
-        "recover": 8,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 12,
         "cumulative": 20,
@@ -21652,6 +20966,13 @@
         "recover": 53,
         "dead": 56,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 2503,
+        "cumulative": 2642,
+        "recover": 67,
+        "dead": 72,
+        "new": 0
       }
     }
   },
@@ -21676,23 +20997,12 @@
       },
       "3/17/20": {
         "cumulative": 1.5
+      },
+      "3/18/20": {
+        "cumulative": 1.3333333333333333
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -21825,6 +21135,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 4,
+        "cumulative": 4,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -21849,23 +21166,12 @@
       },
       "3/17/20": {
         "cumulative": 5
+      },
+      "3/18/20": {
+        "cumulative": 1.2
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -21998,6 +21304,13 @@
         "recover": 1,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 5,
+        "cumulative": 6,
+        "recover": 1,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -22022,23 +21335,12 @@
       },
       "3/17/20": {
         "cumulative": 1.2
+      },
+      "3/18/20": {
+        "cumulative": 1.0833333333333333
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -22171,6 +21473,13 @@
         "recover": 2,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 11,
+        "cumulative": 13,
+        "recover": 2,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -22195,23 +21504,12 @@
       },
       "3/17/20": {
         "cumulative": 2.611111111111111
+      },
+      "3/18/20": {
+        "cumulative": 2.0851063829787235
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -22344,6 +21642,13 @@
         "recover": 0,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 97,
+        "cumulative": 98,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -22365,23 +21670,12 @@
       },
       "3/17/20": {
         "cumulative": 1.25
+      },
+      "3/18/20": {
+        "cumulative": 1.4
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -22514,6 +21808,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 6,
+        "cumulative": 7,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -22535,23 +21836,12 @@
       },
       "3/17/20": {
         "cumulative": 1.75
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -22684,6 +21974,13 @@
         "recover": 0,
         "dead": 1,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 6,
+        "cumulative": 7,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
       }
     }
   },
@@ -22702,23 +21999,12 @@
       },
       "3/17/20": {
         "cumulative": 3.3
+      },
+      "3/18/20": {
+        "cumulative": 1.0606060606060606
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -22851,6 +22137,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 35,
+        "cumulative": 35,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -22869,23 +22162,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1.2
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -23015,6 +22297,13 @@
       "3/17/20": {
         "ongoing": 5,
         "cumulative": 5,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 6,
+        "cumulative": 6,
         "recover": 0,
         "dead": 0,
         "new": 0
@@ -23036,23 +22325,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 2
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -23182,6 +22460,13 @@
       "3/17/20": {
         "ongoing": 0,
         "cumulative": 1,
+        "recover": 0,
+        "dead": 1,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1,
+        "cumulative": 2,
         "recover": 0,
         "dead": 1,
         "new": 0
@@ -23203,23 +22488,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -23352,170 +22626,10 @@
         "recover": 0,
         "dead": 0,
         "new": 0
-      }
-    }
-  },
-  "Aruba": {
-    "latitude": 12.5211,
-    "longitude": -69.9683,
-    "growth": {
-      "3/14/20": {
-        "cumulative": 1
       },
-      "3/15/20": {
-        "cumulative": 1
-      },
-      "3/16/20": {
-        "cumulative": 1
-      },
-      "3/17/20": {
-        "cumulative": 1.5
-      }
-    },
-    "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/28/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/29/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/1/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/2/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/3/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/4/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/5/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/6/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/7/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/8/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/9/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/10/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/11/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/12/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/13/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/14/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/15/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/16/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/17/20": {
-        "ongoing": 3,
-        "cumulative": 3,
+      "3/18/20": {
+        "ongoing": 1,
+        "cumulative": 1,
         "recover": 0,
         "dead": 0,
         "new": 0
@@ -23537,23 +22651,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -23681,6 +22784,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 3,
+        "cumulative": 3,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 3,
         "cumulative": 3,
         "recover": 0,
@@ -23704,23 +22814,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -23853,6 +22952,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -23868,23 +22974,12 @@
       },
       "3/17/20": {
         "cumulative": 3.625
+      },
+      "3/18/20": {
+        "cumulative": 1.7241379310344827
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -24017,6 +23112,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 50,
+        "cumulative": 50,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -24032,23 +23134,12 @@
       },
       "3/17/20": {
         "cumulative": 1.1666666666666667
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -24181,167 +23272,10 @@
         "recover": 0,
         "dead": 0,
         "new": 0
-      }
-    }
-  },
-  "Jersey": {
-    "latitude": 49.19,
-    "longitude": -2.11,
-    "growth": {
-      "3/15/20": {
-        "cumulative": 1
       },
-      "3/16/20": {
-        "cumulative": 1
-      },
-      "3/17/20": {
-        "cumulative": 1
-      }
-    },
-    "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/28/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/29/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/1/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/2/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/3/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/4/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/5/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/6/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/7/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/8/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/9/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/10/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/11/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/12/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/13/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/14/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/15/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/16/20": {
-        "ongoing": 2,
-        "cumulative": 2,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/17/20": {
-        "ongoing": 2,
-        "cumulative": 2,
+      "3/18/20": {
+        "ongoing": 7,
+        "cumulative": 7,
         "recover": 0,
         "dead": 0,
         "new": 0
@@ -24360,23 +23294,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -24504,6 +23427,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 2,
+        "cumulative": 2,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 2,
         "cumulative": 2,
         "recover": 0,
@@ -24524,23 +23454,12 @@
       },
       "3/17/20": {
         "cumulative": 1.3333333333333333
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -24673,6 +23592,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 4,
+        "cumulative": 4,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -24688,23 +23614,12 @@
       },
       "3/17/20": {
         "cumulative": 1.25
+      },
+      "3/18/20": {
+        "cumulative": 1.4
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -24837,6 +23752,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 7,
+        "cumulative": 7,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -24852,23 +23774,12 @@
       },
       "3/17/20": {
         "cumulative": 1.9411764705882353
+      },
+      "3/18/20": {
+        "cumulative": 1.0909090909090908
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -25001,6 +23912,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 36,
+        "cumulative": 36,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -25016,23 +23934,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -25160,6 +24067,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,
@@ -25180,23 +24094,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -25329,6 +24232,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -25344,23 +24254,12 @@
       },
       "3/17/20": {
         "cumulative": 3
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -25493,169 +24392,12 @@
         "recover": 0,
         "dead": 1,
         "new": 0
-      }
-    }
-  },
-  "Guernsey": {
-    "latitude": 49.45,
-    "longitude": -2.58,
-    "growth": {
-      "3/15/20": {
-        "cumulative": 1
       },
-      "3/16/20": {
-        "cumulative": 1
-      },
-      "3/17/20": {
-        "cumulative": 1
-      }
-    },
-    "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
+      "3/18/20": {
+        "ongoing": 5,
+        "cumulative": 6,
         "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/28/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/29/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/1/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/2/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/3/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/4/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/5/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/6/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/7/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/8/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/9/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/10/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/11/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/12/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/13/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/14/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/15/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/16/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/17/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
+        "dead": 1,
         "new": 0
       }
     }
@@ -25672,23 +24414,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -25816,6 +24547,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,
@@ -25836,23 +24574,12 @@
       },
       "3/17/20": {
         "cumulative": 1.4
+      },
+      "3/18/20": {
+        "cumulative": 1.1428571428571428
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -25985,6 +24712,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 8,
+        "cumulative": 8,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -26000,23 +24734,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -26144,6 +24867,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 2,
+        "cumulative": 2,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 2,
         "cumulative": 2,
         "recover": 0,
@@ -26164,23 +24894,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -26308,6 +25027,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,
@@ -26328,23 +25054,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -26472,6 +25187,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,
@@ -26489,23 +25211,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -26633,6 +25344,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 2,
+        "cumulative": 2,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 2,
         "cumulative": 2,
         "recover": 0,
@@ -26650,23 +25368,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -26794,6 +25501,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,
@@ -26811,23 +25525,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -26955,6 +25658,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,
@@ -26972,23 +25682,12 @@
       },
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 4
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -27121,6 +25820,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 4,
+        "cumulative": 4,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -27133,23 +25839,12 @@
       },
       "3/17/20": {
         "cumulative": 1.6666666666666667
+      },
+      "3/18/20": {
+        "cumulative": 1.5
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -27282,6 +25977,13 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 15,
+        "cumulative": 15,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
@@ -27332,36 +26034,25 @@
         "cumulative": 1
       },
       "3/13/20": {
-        "cumulative": 1.5984095427435387
+        "cumulative": 1.6023856858846919
       },
       "3/14/20": {
-        "cumulative": 1.1940298507462686
+        "cumulative": 1.1935483870967742
       },
       "3/15/20": {
-        "cumulative": 1.1833333333333333
+        "cumulative": 1.182952182952183
       },
       "3/16/20": {
-        "cumulative": 1.244718309859155
+        "cumulative": 1.2442882249560632
       },
       "3/17/20": {
-        "cumulative": 1.2079207920792079
+        "cumulative": 1.2083333333333333
+      },
+      "3/18/20": {
+        "cumulative": 1.2028053769725306
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 1,
         "cumulative": 1,
@@ -27461,38 +26152,45 @@
         "new": 0
       },
       "3/13/20": {
-        "ongoing": 794,
-        "cumulative": 804,
+        "ongoing": 796,
+        "cumulative": 806,
         "recover": 0,
         "dead": 10,
         "new": 0
       },
       "3/14/20": {
-        "ongoing": 946,
-        "cumulative": 960,
+        "ongoing": 948,
+        "cumulative": 962,
         "recover": 2,
         "dead": 12,
         "new": 0
       },
       "3/15/20": {
-        "ongoing": 1114,
-        "cumulative": 1136,
+        "ongoing": 1116,
+        "cumulative": 1138,
         "recover": 2,
         "dead": 20,
         "new": 0
       },
       "3/16/20": {
-        "ongoing": 1388,
-        "cumulative": 1414,
+        "ongoing": 1390,
+        "cumulative": 1416,
         "recover": 2,
         "dead": 24,
         "new": 0
       },
       "3/17/20": {
-        "ongoing": 1663,
-        "cumulative": 1708,
+        "ongoing": 1666,
+        "cumulative": 1711,
         "recover": 2,
         "dead": 43,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1998,
+        "cumulative": 2058,
+        "recover": 2,
+        "dead": 58,
         "new": 0
       }
     }
@@ -27503,23 +26201,12 @@
     "growth": {
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 2
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -27649,6 +26336,13 @@
       "3/17/20": {
         "ongoing": 1,
         "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 2,
+        "cumulative": 2,
         "recover": 0,
         "dead": 0,
         "new": 0
@@ -27661,23 +26355,12 @@
     "growth": {
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -27805,6 +26488,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,
@@ -27819,23 +26509,12 @@
     "growth": {
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 2
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -27968,161 +26647,10 @@
         "recover": 0,
         "dead": 0,
         "new": 0
-      }
-    }
-  },
-  "Republic of the Congo": {
-    "latitude": -1.44,
-    "longitude": 15.556,
-    "growth": {
-      "3/17/20": {
-        "cumulative": 1
-      }
-    },
-    "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
       },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/28/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/29/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/1/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/2/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/3/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/4/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/5/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/6/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/7/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/8/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/9/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/10/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/11/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/12/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/13/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/14/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/15/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/16/20": {
-        "ongoing": 1,
-        "cumulative": 1,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "3/17/20": {
-        "ongoing": 1,
-        "cumulative": 1,
+      "3/18/20": {
+        "ongoing": 2,
+        "cumulative": 2,
         "recover": 0,
         "dead": 0,
         "new": 0
@@ -28135,23 +26663,12 @@
     "growth": {
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -28279,6 +26796,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,
@@ -28293,23 +26817,12 @@
     "growth": {
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 3
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -28439,6 +26952,13 @@
       "3/17/20": {
         "ongoing": 1,
         "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 3,
+        "cumulative": 3,
         "recover": 0,
         "dead": 0,
         "new": 0
@@ -28451,23 +26971,12 @@
     "growth": {
       "3/17/20": {
         "cumulative": 1
+      },
+      "3/18/20": {
+        "cumulative": 1
       }
     },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -28595,6 +27104,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,
@@ -28606,22 +27122,12 @@
   "Barbados": {
     "latitude": 13.1939,
     "longitude": -59.5432,
-    "growth": {},
+    "growth": {
+      "3/18/20": {
+        "cumulative": 1
+      }
+    },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -28749,6 +27255,13 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 2,
+        "cumulative": 2,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 2,
         "cumulative": 2,
         "recover": 0,
@@ -28760,22 +27273,12 @@
   "Montenegro": {
     "latitude": 42.5,
     "longitude": 19.3,
-    "growth": {},
+    "growth": {
+      "3/18/20": {
+        "cumulative": 0.5
+      }
+    },
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -28908,28 +27411,21 @@
         "recover": 0,
         "dead": 0,
         "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
       }
     }
   },
-  "The Gambia": {
-    "latitude": 13.4667,
-    "longitude": -16.6,
+  "Kyrgyzstan": {
+    "latitude": 41.2044,
+    "longitude": 74.7661,
     "growth": {},
     "infections": {
-      "2/26/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
-      "2/27/20": {
-        "ongoing": 0,
-        "cumulative": 0,
-        "recover": 0,
-        "dead": 0,
-        "new": 0
-      },
       "2/28/20": {
         "ongoing": 0,
         "cumulative": 0,
@@ -29057,6 +27553,605 @@
         "new": 0
       },
       "3/17/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 3,
+        "cumulative": 3,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      }
+    }
+  },
+  "Mauritius": {
+    "latitude": -20.2,
+    "longitude": 57.5,
+    "growth": {},
+    "infections": {
+      "2/28/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "2/29/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/1/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/2/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/3/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/4/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/5/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/6/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/7/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/8/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/9/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/10/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/11/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/12/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/13/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/14/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/15/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/16/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/17/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 3,
+        "cumulative": 3,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      }
+    }
+  },
+  "Zambia": {
+    "latitude": -15.4167,
+    "longitude": 28.2833,
+    "growth": {},
+    "infections": {
+      "2/28/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "2/29/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/1/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/2/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/3/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/4/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/5/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/6/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/7/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/8/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/9/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/10/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/11/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/12/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/13/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/14/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/15/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/16/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/17/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 2,
+        "cumulative": 2,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      }
+    }
+  },
+  "Djibouti": {
+    "latitude": 11.8251,
+    "longitude": 42.5903,
+    "growth": {},
+    "infections": {
+      "2/28/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "2/29/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/1/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/2/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/3/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/4/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/5/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/6/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/7/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/8/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/9/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/10/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/11/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/12/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/13/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/14/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/15/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/16/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/17/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      }
+    }
+  },
+  "Gambia, The": {
+    "latitude": 13.4432,
+    "longitude": -15.3101,
+    "growth": {
+      "3/18/20": {
+        "cumulative": 1
+      }
+    },
+    "infections": {
+      "2/28/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "2/29/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/1/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/2/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/3/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/4/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/5/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/6/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/7/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/8/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/9/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/10/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/11/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/12/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/13/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/14/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/15/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/16/20": {
+        "ongoing": 0,
+        "cumulative": 0,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/17/20": {
+        "ongoing": 1,
+        "cumulative": 1,
+        "recover": 0,
+        "dead": 0,
+        "new": 0
+      },
+      "3/18/20": {
         "ongoing": 1,
         "cumulative": 1,
         "recover": 0,

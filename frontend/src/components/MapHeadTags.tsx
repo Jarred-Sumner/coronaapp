@@ -1,9 +1,9 @@
-import * as React from 'react';
 import Head from 'next/head';
-import Numeral from 'numeral';
 import {useRouter} from 'next/router';
+import Numeral from 'numeral';
+import * as React from 'react';
 import {buildMapImageURL} from '../api';
-import {TitleSEOTag, ImageSEOTag, DescriptionSEOTag} from './SEOTag';
+import {DescriptionSEOTag, ImageSEOTag, TitleSEOTag} from './SEOTag';
 
 export const MapHeadTags = React.memo(
   ({
@@ -14,7 +14,6 @@ export const MapHeadTags = React.memo(
     sickCount = 0,
     lastUpdated,
   }) => {
-    const {asPath} = useRouter();
     let titleLabel = `Covy | Real-time Corona Virus Map`;
 
     let descriptionLabel = `Covy is the easiest way to track the spread of the novel Coronavirus (COVID-19).`;
@@ -48,11 +47,6 @@ export const MapHeadTags = React.memo(
       ...title,
       ...description,
       ...imageTag,
-      <meta
-        property="og:url"
-        content={'https://covy.app' + asPath}
-        key={`url/${asPath}`}
-      />,
     ]);
   },
 );

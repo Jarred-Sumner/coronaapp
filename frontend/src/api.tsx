@@ -1,6 +1,7 @@
 import {merge} from 'lodash';
 import qs from 'qs';
 import {INITIAL_REGION} from './routes/RegionContext';
+import {format} from 'date-fns/esm';
 
 export const PRODUCTION_HOSTNAME = 'https://covy.app';
 
@@ -169,6 +170,7 @@ export const buildMapImageURL = ({region, width, locale, height, count}) =>
     width,
     height,
     locale,
+    cbust: format(new Date(), 'yyyy-MM-dd'),
   })}`;
 
 export const createUserReport = ({
